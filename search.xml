@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>我的第一篇文章</title>
+      <link href="/2021-09-17-wo-de-di-yi-pian-wen-zhang.html"/>
+      <url>/2021-09-17-wo-de-di-yi-pian-wen-zhang.html</url>
+      
+        <content type="html"><![CDATA[<pre><code>我来测试一下第一次发布文章</code></pre><pre class=" language-java"><code class="language-java">publis <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span> <span class="token punctuation">(</span>String <span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"输出!"</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2021-09-17-hello-world.html"/>
       <url>/2021-09-17-hello-world.html</url>
