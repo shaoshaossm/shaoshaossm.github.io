@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-17T08:27:16.752Z</updated>
+  <updated>2021-09-18T16:16:01.804Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用IDEA提交git代码</title>
+    <link href="https://shaoshaossm.github.io/2021-09-19-shi-yong-idea-ti-jiao-git-dai-ma.html"/>
+    <id>https://shaoshaossm.github.io/2021-09-19-shi-yong-idea-ti-jiao-git-dai-ma.html</id>
+    <published>2021-09-18T16:13:33.000Z</published>
+    <updated>2021-09-18T16:16:01.804Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="初次使用请多多见谅"><a href="#初次使用请多多见谅" class="headerlink" title="初次使用请多多见谅"></a>初次使用请多多见谅</h3><ol><li>创建一个空项目</li><li>点击如图所示<br><img src="https://img-blog.csdnimg.cn/275115ac9cc843d0bdb001d8ec7f0fc4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li><li>下一步 点击如图所示<br><img src="https://img-blog.csdnimg.cn/f6324e3f89684acb9f4216baf29aeeae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li><li>再点击如图所示<br><img src="https://img-blog.csdnimg.cn/e1718aea99f04c18b72bc675d042700f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li><li>提示输入仓库地址 输入即可提交代码,如图所示<br><img src="https://img-blog.csdnimg.cn/1abec00e879f4c90a48272844a9acbf9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li></ol><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;初次使用请多多见谅&quot;&gt;&lt;a href=&quot;#初次使用请多多见谅&quot; class=&quot;headerlink&quot; title=&quot;初次使用请多多见谅&quot;&gt;&lt;/a&gt;初次使用请多多见谅&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;创建一个空项目&lt;/li&gt;
+&lt;li&gt;点击如图所示&lt;br&gt;&lt;img src=</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>baidu_verify_code-stD5KAyROd</title>
