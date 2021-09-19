@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-18T16:20:07.232Z</updated>
+  <updated>2021-09-19T07:07:29.853Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>进制转换总结</title>
+    <link href="https://shaoshaossm.github.io/2021-09-19-jin-zhi-zhuan-huan-zong-jie.html"/>
+    <id>https://shaoshaossm.github.io/2021-09-19-jin-zhi-zhuan-huan-zong-jie.html</id>
+    <published>2021-09-19T06:09:11.000Z</published>
+    <updated>2021-09-19T07:07:29.853Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="进制转换总结方法"><a href="#进制转换总结方法" class="headerlink" title="进制转换总结方法"></a>进制转换总结方法</h2><h3 id="1-十进制转换非十进制"><a href="#1-十进制转换非十进制" class="headerlink" title="1.  十进制转换非十进制"></a>1.  十进制转换非十进制</h3><p>总结:  十进制转换几进制就拿这个数除以几取余,知道商为0,然后倒叙写下来即可!<br>示例图:</p><p>   <img src="https://exp-picture.cdn.bcebos.com/3fe32442a07aa0107f5e7f8bbfbb19efa35f3ec1.jpg?x-bce-process=image/resize,m_lfit,w_500,limit_1/format,f_jpg/quality,q_80" alt="十进制转二进制"></p><h3 id="2-十进制小数部分转换非十进制"><a href="#2-十进制小数部分转换非十进制" class="headerlink" title="2. 十进制小数部分转换非十进制"></a>2. 十进制小数部分转换非十进制</h3><p>总结: 十进制转换几进制的小数部分就拿这个数的小数部分乘以几,得到的整数部分正序写到0.后面即可<br>方法：</p><p>1、乘2取整法，即将小数部分乘以2，然后取整数部分，剩下的小数部分继续乘以2，然后取整数部分，剩下的小数部分又乘以2，一直取到小数部分 。</p><p>2.为零为止。如果永远不能为零，就同十进制数的四舍五入一样，按照要求保留多少位小数时，就根据后面一位是0还是1，取舍，如果是零，舍掉，如果是1，向入一位。换句话说就是0舍1入。读数要从前面的整数读到后面的整数。</p><p>下面举例：<br>例1：将0.125换算为二进制<br>得出结果：将0.125换算为二进制（0.001）2 。</p><p>分析：</p><ul><li>第一步，将0.125乘以2，得0.25,则整数部分为0,小数部分为0.25。</li><li>第二步, 将小数部分0.25乘以2,得0.5,则整数部分为0,小数部分为0.5。</li><li>第三步, 将小数部分0.5乘以2,得1.0,则整数部分为1,小数部分为0.0。</li><li>第四步,读数,从第一位读起,读到最后一位,即为0.001。</li></ul><p><img src="https://iknow-pic.cdn.bcebos.com/e850352ac65c1038d8ca332ebc119313b17e89a2" alt="6.125转换成二进制"></p><h3 id="3-负整数转换成二进制"><a href="#3-负整数转换成二进制" class="headerlink" title="3.负整数转换成二进制"></a>3.负整数转换成二进制</h3><p>方法：先是将对应的正整数转换成二进制后，对二进制取反，然后对结果再加一。还以42为例，负整数就是-42，如图4所示为方法解释。最后即为：（-42）10=（11010110）2。<br><img src="https://iknow-pic.cdn.bcebos.com/11385343fbf2b2111d5e78a2c48065380dd78eee" alt="-42转换成二进制"></p><h3 id="4-正整数二进制转换为十进制"><a href="#4-正整数二进制转换为十进制" class="headerlink" title="4. 正整数二进制转换为十进制"></a>4. 正整数二进制转换为十进制</h3><p>方法: 首先将二进制数补齐位数，首位如果是0就代表是正整数，如果首位是1则代表是负整数。先看首位是0的正整数，补齐位数以后，将二进制中的位数分别将下边对应的值相乘，然后相加得到的就为十进制，比如1010转换为十进制。 </p><p><img src="https://iknow-pic.cdn.bcebos.com/fd039245d688d43f7eff6c1e731ed21b0ff43b8c?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1/quality,q_85/format,f_jpg" alt="1010转换成十进制"></p><h3 id="5-负整数二进制转换为十进制"><a href="#5-负整数二进制转换为十进制" class="headerlink" title="5 .负整数二进制转换为十进制"></a>5 .负整数二进制转换为十进制</h3><p>方法: 若二进制补足位数后首位为1时，就需要先取反再换算：例如，11101011，首位为1，那么就先取反吧：-00010100，然后算一下10100对应的十进制为20，所以对应的十进制为-20。</p><p><img src="https://iknow-pic.cdn.bcebos.com/838ba61ea8d3fd1f9cbe5fd63e4e251f94ca5fa3?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1/quality,q_85/format,f_jpg" alt="11101011"></p><h3 id="6-小知识点"><a href="#6-小知识点" class="headerlink" title="6. 小知识点"></a>6. 小知识点</h3><ol><li><p>表示二进制数时,后面必须加后缀B.</p></li><li><p>表示十六进制数时,后面必须加后缀H.</p></li><li><p>表示八进制数时,后面必须加后缀O或Q.</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;进制转换总结方法&quot;&gt;&lt;a href=&quot;#进制转换总结方法&quot; class=&quot;headerlink&quot; title=&quot;进制转换总结方法&quot;&gt;&lt;/a&gt;进制转换总结方法&lt;/h2&gt;&lt;h3 id=&quot;1-十进制转换非十进制&quot;&gt;&lt;a href=&quot;#1-十进制转换非十进制&quot; class</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>使用IDEA提交git代码</title>
