@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-19T11:57:42.480Z</updated>
+  <updated>2021-09-19T12:49:13.949Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://shaoshaossm.github.io/2021-09-19-ji-suan-ji-wang-luo-bi-ji-he-ji.html"/>
     <id>https://shaoshaossm.github.io/2021-09-19-ji-suan-ji-wang-luo-bi-ji-he-ji.html</id>
     <published>2021-09-19T11:45:48.000Z</published>
-    <updated>2021-09-19T11:57:42.480Z</updated>
+    <updated>2021-09-19T12:49:13.949Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>互联网与互连网</li></ul><p><img src="https://img-blog.csdnimg.cn/237d123d62844512bed27ab014d3fdfd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="互联网与互连网"></p>]]></content>
+    <content type="html"><![CDATA[<ul><li>互联网与互连网</li></ul><p><img src="https://img-blog.csdnimg.cn/237d123d62844512bed27ab014d3fdfd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="互联网与互连网"></p><ul><li>客户-服务器方式</li></ul><p><img src="https://img-blog.csdnimg.cn/5982ee46b80d49c2b91d8c9efcd38ca8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="客户-服务器方式"></p><ul><li>客户软件的特点</li></ul><p><img src="https://img-blog.csdnimg.cn/0360492d63d94feba665f9e98ffc1626.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="客户软件的特点"></p><ul><li>服务器软件的特点</li></ul><p><img src="https://img-blog.csdnimg.cn/ef2f191aeeb74d7e878987222a152f00.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="服务器软件的特点"></p><ul><li>互联网核心部分<ul><li>电路交换 —-(电话机)</li><li>分组交换</li><li>报文交换</li></ul></li></ul><p><img src="https://img-blog.csdnimg.cn/c476dd130d63473b87d17a5b678552cb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="互联网核心部分"></p><p>交换的含义就是<font color="#225CFF">转接</font>,从通信资源的分配角度来看,”交换”就是按照某种方式<font color="#225CFF">动态的分配</font>传输线路的资源</p><ul><li>电路交换特点</li></ul><p><img src="https://img-blog.csdnimg.cn/ec635f19d2584fefb3c45552c47e8cfd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="电路交换特点"></p><p><font color="#225CFF">电路交换的用户始终占用端到端的通信资源</font></p><ul><li><p>分组交换的主要特点</p><ul><li>分组交换采用<font color="#225CFF">存储转发</font><font>技术</li><li>在发送端,先把较长的报文<font color="#225CFF">划分成较短的、固定长度的数据段.</font></li></ul></li><li><p>分组交换的主要步骤</p><ul><li>每一个数据前面添加上<font color="#225CFF">首部</font>构成<font color="#225CFF">分组</font></li><li>分组交换网,以<font color="#225CFF">分组</font>作为数据传输单元</li><li><font color="#225CFF">依次</font>把各分组发送到接收端</li><li>接收端收到分组后<font color="#225CFF">剥去</font>首部还原成报文</li><li>最后,在接收端把收到的数据<font color="#225CFF">恢复成原来的报文</font></li></ul></li><li><p>分组交换的传出单元</p></li></ul><p><img src="https://img-blog.csdnimg.cn/7ab2a5785d374c4e97c22f53c8ff23b2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分组交换的传输单元"></p>]]></content>
     
     
       
