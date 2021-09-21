@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-21T11:59:05.471Z</updated>
+  <updated>2021-09-21T13:24:55.724Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -17,24 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ceshi</title>
-    <link href="https://shaoshaossm.github.io/2021-09-21-ceshi.html"/>
-    <id>https://shaoshaossm.github.io/2021-09-21-ceshi.html</id>
-    <published>2021-09-21T11:59:05.000Z</published>
-    <updated>2021-09-21T11:59:05.471Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>git命令学习</title>
     <link href="https://shaoshaossm.github.io/2021-09-21-git-ming-ling-xue-xi.html"/>
     <id>https://shaoshaossm.github.io/2021-09-21-git-ming-ling-xue-xi.html</id>
     <published>2021-09-21T11:03:54.000Z</published>
-    <updated>2021-09-21T11:25:04.169Z</updated>
+    <updated>2021-09-21T13:24:55.724Z</updated>
     
     <content type="html"><![CDATA[<ul><li>若下载分支的话需要加 <font color="dd0000"> -b </font>  + 分支名称 + 下载地址</li></ul><pre class="line-numbers language-shell"><code class="language-shell">$ git clone -b backup git@github.com:shaoshaossm/shaoshaossm.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
     
