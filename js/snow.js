@@ -1,5 +1,3 @@
-<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-
 /*样式一*/
 (function($){
     $.fn.snow = function(options){
