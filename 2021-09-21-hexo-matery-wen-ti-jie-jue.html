@@ -435,12 +435,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/matery/">
+                                <span class="chip bg-color">matery</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/hexo/" class="post-category">
+                                hexo
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -467,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    144
                 </div>
                 
 
@@ -497,7 +510,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>问: hexo g -d 突然无缘无故提交不上去,但本地 hexo server 是可以正常显示的?</p>
+<p>答: 删除public文件夹重新跑命令hexo c hexo g -d ,不行就跑两次,等待成功.(就是这么不靠谱O(∩_∩)O)</p>
+<p>问: 代码块中花括号被转义,不能正常显示?</p>
+<p>答: 删除代码高亮插件,升级hexo版本到5.0以上</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">删除插件:
+- npm uninstall hexo-prism-plugin 
+升级版本:
+- cnpm install -g npm-upgrade         # 升级系统中的插件
+- cnpm update                         # 更新 hexo 及所有插件
+- hexo -v                             # 确认 hexo 已经更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
                 
             </div>
             <hr/>
@@ -560,7 +586,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/matery/">
+                                    <span class="chip bg-color">matery</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -745,7 +775,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            经过几天的配置,hexo终于像个样了 记录一下遇到的一些问题
                         
                     </div>
                     <div class="publish-info">
@@ -754,13 +784,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            shaoshaossm
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/matery/">
+                        <span class="chip bg-color">matery</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -965,7 +1007,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7k</span>&nbsp;字&nbsp;|
+                class="white-color">7.1k</span>&nbsp;字&nbsp;|
             
             
             
