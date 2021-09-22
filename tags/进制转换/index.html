@@ -43,28 +43,11 @@
 <body>
 
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
-        if (localStorage.getItem('dark') === '1') {
-        document.body.classList.add('dark');
-        }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
-        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-        }
-    </script>
-    <a onclick="switchNightMode()" id="sma">
-        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
-    </a>
 
 
 
 
-
-
-
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -386,10 +369,19 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/git/" title="git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="git" style="background-color: #F9EBEA;">git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/matery/" title="matery: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="matery" style="background-color: #F9EBEA;">matery
+                            data-tagname="matery" style="background-color: #F5EEF8;">matery
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -398,25 +390,7 @@
                 <a href="/tags/Git/" title="Git: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Git" style="background-color: #F5EEF8;">Git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/git/" title="git: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="git" style="background-color: #D5F5E3;">git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%9C%BA%E5%99%A8%E6%95%B0/" title="机器数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="机器数" style="background-color: #E8F8F5;">机器数
+                            data-tagname="Git" style="background-color: #D5F5E3;">Git
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -425,7 +399,16 @@
                 <a href="/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/" title="数理逻辑: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="数理逻辑" style="background-color: #FEF9E7;">数理逻辑
+                            data-tagname="数理逻辑" style="background-color: #E8F8F5;">数理逻辑
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%9C%BA%E5%99%A8%E6%95%B0/" title="机器数: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="机器数" style="background-color: #FEF9E7;">机器数
                         <span class="tag-length">1</span>
                     </span>
                 </a>

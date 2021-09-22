@@ -43,28 +43,11 @@
 <body>
 
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
-        if (localStorage.getItem('dark') === '1') {
-        document.body.classList.add('dark');
-        }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
-        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-        }
-    </script>
-    <a onclick="switchNightMode()" id="sma">
-        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
-    </a>
 
 
 
 
-
-
-
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -623,7 +606,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"hexo","value":1},{"name":"后端","value":2},{"name":"微机原理","value":2},{"name":"离散数学","value":1},{"name":"计算机网络","value":1},{"name":"数据结构和算法","value":1}],
+                data: [{"name":"后端","value":2},{"name":"hexo","value":1},{"name":"离散数学","value":1},{"name":"微机原理","value":2},{"name":"计算机网络","value":1},{"name":"数据结构和算法","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -647,7 +630,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["matery","Git","git","机器数","数理逻辑","基本概述","进制转换","java数据结构和算法"]
+                data: ["git","matery","Git","数理逻辑","机器数","基本概述","进制转换","java数据结构和算法"]
             }
         ],
         yAxis: [
@@ -778,6 +761,12 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/git/">
+                <span class="chip center-align waves-effect waves-light chip-default">git</span>
+            </a>
+            
+            
+            
             <a href="/tags/matery/">
                 <span class="chip center-align waves-effect waves-light chip-default">matery</span>
             </a>
@@ -790,20 +779,14 @@
             
             
             
-            <a href="/tags/git/">
-                <span class="chip center-align waves-effect waves-light chip-default">git</span>
+            <a href="/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/">
+                <span class="chip center-align waves-effect waves-light chip-default">数理逻辑</span>
             </a>
             
             
             
             <a href="/tags/%E6%9C%BA%E5%99%A8%E6%95%B0/">
                 <span class="chip center-align waves-effect waves-light chip-default">机器数</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/">
-                <span class="chip center-align waves-effect waves-light chip-default">数理逻辑</span>
             </a>
             
             
