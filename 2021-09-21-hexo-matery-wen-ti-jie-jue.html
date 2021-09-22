@@ -510,7 +510,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    144
+                    181
                 </div>
                 
 
@@ -543,13 +543,26 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <p>问: hexo g -d 突然无缘无故提交不上去,但本地 hexo server 是可以正常显示的?</p>
 <p>答: 删除public文件夹重新跑命令hexo c hexo g -d ,不行就跑两次,等待成功.(就是这么不靠谱O(∩_∩)O)</p>
 <p>问: 代码块中花括号被转义,不能正常显示?</p>
-<p>答: 删除代码高亮插件,升级hexo版本到5.0以上</p>
+<p>答: 删除代码高亮插件,升级hexo版本到5.0以上，并启动自带高亮插件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">删除插件:
 - <span class="token function">npm</span> uninstall hexo-prism-plugin 
 升级版本:
 - cnpm <span class="token function">install</span> -g npm-upgrade         <span class="token comment"># 升级系统中的插件</span>
 - cnpm update                         <span class="token comment"># 更新 hexo 及所有插件</span>
-- hexo -v                             <span class="token comment"># 确认 hexo 已经更新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+- hexo -v                             <span class="token comment"># 确认 hexo 已经更新</span>
+系统自带高亮插件：
+highlight:
+  enable: <span class="token boolean">true</span>
+  line_number: <span class="token boolean">true</span>
+  auto_detect: <span class="token boolean">false</span>
+  tab_replace: <span class="token string">''</span>
+  wrap: <span class="token boolean">true</span>
+  hljs: <span class="token boolean">false</span>
+prismjs:
+  enable: <span class="token boolean">true</span>
+  preprocess: <span class="token boolean">true</span>
+  line_number: <span class="token boolean">true</span>
+  tab_replace: <span class="token string">''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1331,7 +1344,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1343,6 +1356,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
