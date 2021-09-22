@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-22T05:44:34.945Z</updated>
+  <updated>2021-09-22T08:37:06.762Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shaoshaossm.github.io/2021-09-22-c-yu-yan-shu-ju-jie-gou.html"/>
     <id>https://shaoshaossm.github.io/2021-09-22-c-yu-yan-shu-ju-jie-gou.html</id>
     <published>2021-09-22T05:28:51.000Z</published>
-    <updated>2021-09-22T05:44:34.945Z</updated>
+    <updated>2021-09-22T08:37:06.762Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-第一周"><a href="#1-第一周" class="headerlink" title="1. 第一周"></a>1. 第一周</h3><ul><li><p>若需要利用形式参数直接访问修改实参值，则应将形式参数说明为<font color="red">指针</font>参数。</p></li><li><p>对一个算法的评价包括三个方面：</p><ul><li>健壮性</li><li>时间复杂度</li><li>空间复杂度 </li></ul></li><li><p>线性结构是数据元素之间存在一种<font color=red>一对一关系</font></p></li><li><p>算法分析的两个主要方面是:</p><ul><li>空间复杂度</li><li>时间复杂度    </li></ul></li><li><p>评价一个算法性能好坏的重要标准是<font color=red>算法的时间复杂度</font></p></li><li><p>算法分析的目的是<font color=red>分析算法的效率以求改进</font></p></li><li><p>抽象数据类型（ADT）包括定义和实现两方面，其中定义是独立于实现的，定义仅给出一个ADT的逻辑特性，不必考虑如何在计算机中实现。</p></li></ul><hr><p>1、试说明数据结构含义。</p><p><strong>是指相互之间存在一种或多种特定关系的数据元素集合。</strong></p><p>2、叙述四类基本数据结构的名称与含义。</p><p><strong>集合结构：结构中的数据元素之间除了同属一个集合的关系外，无任何关系。</strong></p><p><strong>线性结构：结构中的数据元素之间存在一对一的线性关系。</strong></p><p><strong>树形结构：结构中的数据元素之间存在一对多的层次结构。</strong></p><p><strong>图状结构：结构中的数据元素之间存在着多对多的任意关系。</strong></p><p>3、叙述算法的定义与特性。</p><p><strong>算法的定义：算法是规则的有限集合，视为解决特定问题而规定的一系列操作。</strong></p><p><strong>算法的特性：</strong></p><p><strong>（1）</strong>   <strong>有限性：有限步骤之内正常结束，不能形成无穷循环。</strong></p><p><strong>（2）</strong>  <strong>确定性：算法中的每一个步骤必须有确定的含义，无二义性。</strong></p><p><strong>（3）</strong>  <strong>输入：有多个或零个输入。</strong></p><p><strong>（4）</strong>  <strong>输出：至少有一个或多个输出。</strong></p><p><strong>（5）</strong>  <strong>可行性：原则上能精确进行，操作可通过已实现的基本运算执行有限次而完成。</strong></p><p>4、叙述算法的时间复杂度。</p><p><strong>所谓算法的时间复杂度，即是算法的时间量度，记为T（n）=O（f(n)）.它表示随时间规模n的增大，算法的执行时间的增长率和f（n）的增长率相同，称为算法的渐进时间复杂度，检查时间复杂度。</strong></p><p>5、叙述数据类型的概念。</p><p><strong>数据类型是一组性质相同的值集合以及定义在这个值集合上的一组操作的总称。</strong></p><p>6、叙述线性结构与非线性结构的差别。</p><p>(1)线性结构是一个有序数据元素的集合。 其中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的。常用的线性结构有：线性表，栈，队列，双队列，数组，串。<br> (2)非线性结构中各个数据元素不再保持在一个线性序列中，每个数据元素可能与零个或者多个其他数据元素发生联系。根据关系的不同，可分为层次结构和群结构。</p><p>7、叙述抽象数据类型的概念。</p><p><strong>抽象数据类型是指基于一类逻辑关系的数据类型以及定义在这个类型之上的一组操作。</strong></p>]]></content>
     
