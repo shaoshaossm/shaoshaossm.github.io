@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-09-21T14:46:45.049Z</updated>
+  <updated>2021-09-22T04:11:19.804Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://shaoshaossm.github.io/2021-09-21-hexo-matery-wen-ti-jie-jue.html"/>
     <id>https://shaoshaossm.github.io/2021-09-21-hexo-matery-wen-ti-jie-jue.html</id>
     <published>2021-09-21T14:34:32.000Z</published>
-    <updated>2021-09-21T14:46:45.049Z</updated>
+    <updated>2021-09-22T04:11:19.804Z</updated>
     
-    <content type="html"><![CDATA[<p>问: hexo g -d 突然无缘无故提交不上去,但本地 hexo server 是可以正常显示的?</p><p>答: 删除public文件夹重新跑命令hexo c hexo g -d ,不行就跑两次,等待成功.(就是这么不靠谱O(∩_∩)O)</p><p>问: 代码块中花括号被转义,不能正常显示?</p><p>答: 删除代码高亮插件,升级hexo版本到5.0以上</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">删除插件:- npm uninstall hexo-prism-plugin 升级版本:- cnpm install -g npm-upgrade         # 升级系统中的插件- cnpm update                         # 更新 hexo 及所有插件- hexo -v                             # 确认 hexo 已经更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    <content type="html"><![CDATA[<p>问: hexo g -d 突然无缘无故提交不上去,但本地 hexo server 是可以正常显示的?</p><p>答: 删除public文件夹重新跑命令hexo c hexo g -d ,不行就跑两次,等待成功.(就是这么不靠谱O(∩_∩)O)</p><p>问: 代码块中花括号被转义,不能正常显示?</p><p>答: 删除代码高亮插件,升级hexo版本到5.0以上</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">删除插件:- <span class="token function">npm</span> uninstall hexo-prism-plugin 升级版本:- cnpm <span class="token function">install</span> -g npm-upgrade         <span class="token comment"># 升级系统中的插件</span>- cnpm update                         <span class="token comment"># 更新 hexo 及所有插件</span>- hexo -v                             <span class="token comment"># 确认 hexo 已经更新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
     
     
       
@@ -47,9 +47,9 @@
     <link href="https://shaoshaossm.github.io/2021-09-21-git-ming-ling-xue-xi.html"/>
     <id>https://shaoshaossm.github.io/2021-09-21-git-ming-ling-xue-xi.html</id>
     <published>2021-09-21T11:03:54.000Z</published>
-    <updated>2021-09-21T13:24:55.724Z</updated>
+    <updated>2021-09-22T04:10:55.172Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>若下载分支的话需要加 <font color="dd0000"> -b </font>  + 分支名称 + 下载地址</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git clone -b backup git@github.com:shaoshaossm&#x2F;shaoshaossm.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+    <content type="html"><![CDATA[<ul><li>若下载分支的话需要加 <font color="dd0000"> -b </font>  + 分支名称 + 下载地址</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> clone -b backup git@github.com:shaoshaossm/shaoshaossm.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
     
     
       
@@ -57,7 +57,7 @@
     <summary type="html">&lt;ul&gt;
 &lt;li&gt;若下载分支的话需要加 &lt;font color=&quot;dd0000&quot;&gt; -b &lt;/font&gt;  + 分支名称 + 下载地址&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell</summary>
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;</summary>
       
     
     
