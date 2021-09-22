@@ -34,7 +34,8 @@
 
 	
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -480,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    17 分
                 </div>
                 
 
@@ -532,90 +533,89 @@
 <li>再读取稀疏数组后几行的数据,并赋给原始的二维数组即可</li>
 </ul>
 <p>代码实现:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
  * @author shaoshao
  * @version 1.0
- * @date 2021&#x2F;9&#x2F;14 18:30
- *&#x2F;
-public class SparseArray &#123;
-    public static void main(String[] args) &#123;
-        &#x2F;&#x2F;创建一个二位数组 11*11
-        &#x2F;&#x2F;0: 表示没有去棋子  1:表示黑子  2: 表示蓝子
-        int [][] chessArr1 &#x3D; new int[11][11];
-        chessArr1[1][2] &#x3D; 1;
-        chessArr1[0][2] &#x3D; 1;
-        chessArr1[2][3] &#x3D; 2;
-        &#x2F;&#x2F;输出原始的二维数组
-        for (int[] row : chessArr1) &#123;
-            for (int data : row) &#123;
-                System.out.printf(&quot;%d\t&quot;, data);
-            &#125;
-            System.out.println();
-        &#125;
-        &#x2F;&#x2F;二维数组 ------&gt;  稀疏数组
-        &#x2F;&#x2F;1.遍历原始的二维数组得到sum总数
-        int sum &#x3D; 0;
-        for (int i &#x3D; 0; i &lt;chessArr1.length ; i++) &#123;
-            for (int j &#x3D; 0; j &lt;chessArr1.length ; j++) &#123;
-                if (chessArr1[i][j] !&#x3D; 0) &#123;
-                    sum++;
-                &#125;
-            &#125;
-        &#125;
-        &#x2F;&#x2F;2.创建对应的稀疏数组
-        int[][] sparseArr2 &#x3D; new int[sum+1][3];
-        &#x2F;&#x2F;给稀疏数组赋值
-        sparseArr2[0][0] &#x3D; chessArr1.length;
-        sparseArr2[0][1] &#x3D; chessArr1.length;
-        sparseArr2[0][2] &#x3D; sum;
+ * @date 2021/9/14 18:30
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SparseArray</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建一个二位数组 11*11</span>
+        <span class="token comment" spellcheck="true">//0: 表示没有去棋子  1:表示黑子  2: 表示蓝子</span>
+        <span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chessArr1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        chessArr1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        chessArr1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        chessArr1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//输出原始的二维数组</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> row <span class="token operator">:</span> chessArr1<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> data <span class="token operator">:</span> row<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\t"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//二维数组 ------>  稀疏数组</span>
+        <span class="token comment" spellcheck="true">//1.遍历原始的二维数组得到sum总数</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>chessArr1<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span>chessArr1<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>chessArr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                    sum<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//2.创建对应的稀疏数组</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sparseArr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>sum<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//给稀疏数组赋值</span>
+        sparseArr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> chessArr1<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        sparseArr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> chessArr1<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        sparseArr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> sum<span class="token punctuation">;</span>
 
-        &#x2F;&#x2F;遍历二维数组 将非0的值存放到sparseArr中
-        &#x2F;&#x2F; 用于记录第几个非0数据
-        int  count &#x3D; 0;
-        for (int i &#x3D; 0; i &lt;chessArr1.length ; i++) &#123;
-            for (int j &#x3D; 0; j &lt;chessArr1.length ; j++) &#123;
+        <span class="token comment" spellcheck="true">//遍历二维数组 将非0的值存放到sparseArr中</span>
+        <span class="token comment" spellcheck="true">// 用于记录第几个非0数据</span>
+        <span class="token keyword">int</span>  count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>chessArr1<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span>chessArr1<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 
-                if (chessArr1[i][j] !&#x3D; 0) &#123;
-                    count++;
-                    sparseArr2[count][0] &#x3D; i;
-                    sparseArr2[count][1] &#x3D; j;
-                    sparseArr2[count][2] &#x3D; chessArr1[i][j];
-                &#125;
-            &#125;
-        &#125;
-        System.out.println();
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>chessArr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                    count<span class="token operator">++</span><span class="token punctuation">;</span>
+                    sparseArr2<span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                    sparseArr2<span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                    sparseArr2<span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> chessArr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        System.out.println(&quot;得到的稀疏数组为~~~~&quot;);
-        for (int i &#x3D; 0; i &lt;sparseArr2.length ; i++) &#123;
-            System.out.printf(&quot;%d\t%d\t%d\t\n&quot;,sparseArr2[i][0],sparseArr2[i][1],sparseArr2[i][2]);
-        &#125;
-        System.out.println();
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"得到的稀疏数组为~~~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>sparseArr2<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\t%d\t%d\t\n"</span><span class="token punctuation">,</span>sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        &#x2F;**
-         * 稀疏数组 ----&gt;二维数组
-         *&#x2F;
+        <span class="token comment" spellcheck="true">/**
+         * 稀疏数组 ---->二维数组
+         */</span>
 
-        &#x2F;&#x2F;1.先读取稀疏数组的第一行,根据第一行数据,创建原始的二维数组
-        int[][] chessArr2 &#x3D; new int[sparseArr2[0][0]][sparseArr2[0][1]];
-        &#x2F;&#x2F;2.再读取稀疏数组从第二行开始的数据,并赋值给二维数组即可
-        for (int i &#x3D; 1; i &lt;sparseArr2.length ; i++) &#123;
-            chessArr2[sparseArr2[i][0]][sparseArr2[i][1]] &#x3D; sparseArr2[i][2];
-        &#125;
-        System.out.println(&quot;恢复后的二维数组~~~&quot;);
-        for (int[] row : chessArr2) &#123;
-            for (int data : row) &#123;
-                System.out.printf(&quot;%d\t&quot;,data);
-            &#125;
-            System.out.println();
-        &#125;
+        <span class="token comment" spellcheck="true">//1.先读取稀疏数组的第一行,根据第一行数据,创建原始的二维数组</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chessArr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>sparseArr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sparseArr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//2.再读取稀疏数组从第二行开始的数据,并赋值给二维数组即可</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>sparseArr2<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            chessArr2<span class="token punctuation">[</span>sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> sparseArr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"恢复后的二维数组~~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> row <span class="token operator">:</span> chessArr2<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> data <span class="token operator">:</span> row<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\t"</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
 
-    &#125;
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#125;
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h3><p>基本介绍:</p>
 <ul>
 <li>队列是一个有序列表，可以用<strong>数组</strong>或是<strong>链表</strong>来实现。</li>
@@ -629,137 +629,137 @@ public class SparseArray &#123;
 <li>若尾指针 rear 小于队列的最大下标 maxSize-1，则将数据存入 rear所指的数组元素中，否则无法存入数据。 rear == maxSize - 1[队列满]</li>
 </ul>
 <p>代码实现:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
 
-&#x2F;**
+<span class="token comment" spellcheck="true">/**
  * @author shaoshao
  * @version 1.0
- * @date 2021&#x2F;9&#x2F;15 9:39
- *&#x2F;
-public class ArrayQueueDemo &#123;
-    public static void main(String[] args) &#123;
-        System.out.println(&quot;测试数组模拟环形队列~~&quot;);
-        &#x2F;&#x2F;创建队列
-        ArrayQueue queue &#x3D; new ArrayQueue(3);
-        &#x2F;&#x2F;接受用户输入
-        char key &#x3D; &#39; &#39;;
-        Scanner scanner &#x3D; new Scanner(System.in);
-        boolean loop &#x3D; true;
-        while (loop) &#123;
-            System.out.println(&quot;s(show): 显示队列&quot;);
-            System.out.println(&quot;e(exit): 退出程序&quot;);
-            System.out.println(&quot;a(add): 添加程序到队列&quot;);
-            System.out.println(&quot;g(get): 从队列中获取数据&quot;);
-            System.out.println(&quot;h(head): 查看队列头数据&quot;);
-            key &#x3D; scanner.next().charAt(0);
-            switch (key) &#123;
-                case &#39;s&#39;:
-                    queue.showQueue();
-                    break;
-                case &#39;a&#39;:
-                    System.out.println(&quot;请输入一个数&quot;);
-                    int value &#x3D; scanner.nextInt();
-                    queue.addQueue(value);
-                    break;
-                case &#39;g&#39;:
-                    try &#123;
-                        int res &#x3D; queue.getQueue();
-                        System.out.printf(&quot;取出的数据是%d\n&quot;, res);
+ * @date 2021/9/15 9:39
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayQueueDemo</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试数组模拟环形队列~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建队列</span>
+        ArrayQueue queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayQueue</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//接受用户输入</span>
+        <span class="token keyword">char</span> key <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">;</span>
+        Scanner scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> loop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>loop<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s(show): 显示队列"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"e(exit): 退出程序"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a(add): 添加程序到队列"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"g(get): 从队列中获取数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"h(head): 查看队列头数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            key <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token operator">:</span>
+                    queue<span class="token punctuation">.</span><span class="token function">showQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token operator">:</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入一个数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">int</span> value <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    queue<span class="token punctuation">.</span><span class="token function">addQueue</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'g'</span><span class="token operator">:</span>
+                    <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> res <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出的数据是%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    &#125; catch (Exception e) &#123;
-                        System.out.println(e.getMessage());
-                    &#125;
-                    break;
-                case &#39;h&#39;:
-                    try &#123;
-                        int res &#x3D; queue.headQueue();
-                        System.out.printf(&quot;取出的数据是%d\n&quot;, res);
-                    &#125; catch (Exception e) &#123;
-                        System.out.println(e.getMessage());
-                    &#125;
-                    break;
-                case &#39;e&#39;:
-                    scanner.close();
-                    loop &#x3D; false;
-                    break;
-                default:
-                    break;
-            &#125;
-        &#125;
-        System.out.println(&quot;程序退出&quot;);
-    &#125;
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'h'</span><span class="token operator">:</span>
+                    <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> res <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">headQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出的数据是%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'e'</span><span class="token operator">:</span>
+                    scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    loop <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"程序退出"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#125;
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#x2F;**
+<span class="token comment" spellcheck="true">/**
  * 使用数组模拟队列 - 编写一个ArrayQueue类
- *&#x2F;
-class ArrayQueue &#123;
-    private int maxSize; &#x2F;&#x2F;数组的最大容量
-    private int front; &#x2F;&#x2F;队列头
-    private int rear; &#x2F;&#x2F;队列尾
-    private int[] arr; &#x2F;&#x2F;该数组用于存放数据,模拟队列
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">ArrayQueue</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> maxSize<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//数组的最大容量</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> front<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//队列头</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> rear<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//队列尾</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//该数组用于存放数据,模拟队列</span>
 
-    &#x2F;&#x2F;创建队列的构造器
-    public ArrayQueue(int arrMaxSize) &#123;
-        this.maxSize &#x3D; arrMaxSize;
-        arr &#x3D; new int[maxSize];
-        front &#x3D; -1;
-        rear &#x3D; -1;
-    &#125;
+    <span class="token comment" spellcheck="true">//创建队列的构造器</span>
+    <span class="token keyword">public</span> <span class="token function">ArrayQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> arrMaxSize<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>maxSize <span class="token operator">=</span> arrMaxSize<span class="token punctuation">;</span>
+        arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        front <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        rear <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;判断队列是否满
-    public boolean isFull() &#123;
-        return rear &#x3D;&#x3D; maxSize - 1;
-    &#125;
+    <span class="token comment" spellcheck="true">//判断队列是否满</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rear <span class="token operator">==</span> maxSize <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;判断队列是否为空
-    public boolean isEmpty() &#123;
-        return rear &#x3D;&#x3D; front;
-    &#125;
+    <span class="token comment" spellcheck="true">//判断队列是否为空</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rear <span class="token operator">==</span> front<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;添加数据到队列中
-    public void addQueue(int n) &#123;
-        &#x2F;&#x2F;判断队列是否已满
-        if (isFull()) &#123;
-            System.out.println(&quot;队列已满不能加入数据!&quot;);
-            return;
-        &#125;
-        &#x2F;&#x2F;rear++;  i++先赋值然后加1 ++i是先+1然后赋值
-        arr[++rear] &#x3D; n;
-    &#125;
+    <span class="token comment" spellcheck="true">//添加数据到队列中</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断队列是否已满</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"队列已满不能加入数据!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//rear++;  i++先赋值然后加1 ++i是先+1然后赋值</span>
+        arr<span class="token punctuation">[</span><span class="token operator">++</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;获取队列中的数据,出队列
-    public int getQueue() &#123;
-        &#x2F;&#x2F;判断队列是否为空
-        if (isEmpty()) &#123;
-            throw new RuntimeException(&quot;队列为空,不能取数据!&quot;);
-        &#125;
-        return arr[++front];
-    &#125;
+    <span class="token comment" spellcheck="true">//获取队列中的数据,出队列</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断队列是否为空</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列为空,不能取数据!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">[</span><span class="token operator">++</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;显示队列中的所有数据
-    public void showQueue() &#123;
-        if (isEmpty()) &#123;
-            System.out.println(&quot;队列为空,没有数据~~~&quot;);
-            return;
-        &#125;
-        for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;
-            System.out.printf(&quot;arr[%d]&#x3D;%d\n&quot;, i, arr[i]);
-        &#125;
-    &#125;
+    <span class="token comment" spellcheck="true">//显示队列中的所有数据</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"队列为空,没有数据~~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"arr[%d]=%d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;显示队列的头数据
-    public int headQueue() &#123;
-        if (isEmpty()) &#123;
-            throw new RuntimeException(&quot;队列为空,没有数据~~&quot;);
-        &#125;
-        return arr[front + 1];
-    &#125;
+    <span class="token comment" spellcheck="true">//显示队列的头数据</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">headQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列为空,没有数据~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">[</span>front <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-2-数组模拟环形队列"><a href="#2-2-数组模拟环形队列" class="headerlink" title="2.2 数组模拟环形队列"></a>2.2 数组模拟环形队列</h4><p>分析说明</p>
 <ul>
 <li>尾索引的下一个为头索引时表示队列满,即将队列容量空出一个作为约定,这个在做判断队列满的时候需要注意(rear+1)%maxSize == front [满]</li>
@@ -769,144 +769,143 @@ class ArrayQueue &#123;
 <li>rear指向队列的最后一个元素的后一个位置,因为希望空出一个空间作为约定(判断队列是否满) rear的初始值是0</li>
 </ul>
 <p>代码实现:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
 
-&#x2F;**
+<span class="token comment" spellcheck="true">/**
  * @author shaoshao
  * @version 1.0
- * @date 2021&#x2F;9&#x2F;15 22:22
- *&#x2F;
-public class CircleArrayQueueDemo &#123;
-    public static void main(String[] args) &#123;
-        &#x2F;&#x2F;创建队列
-        CircleArray queue &#x3D; new CircleArray(4);&#x2F;&#x2F;这里设置的4其队列的有效数据最大是3
-        &#x2F;&#x2F;接受用户输入
-        char key &#x3D; &#39; &#39;;
-        Scanner scanner &#x3D; new Scanner(System.in);
-        boolean loop &#x3D; true;
-        while (loop) &#123;
-            System.out.println(&quot;s(show): 显示队列&quot;);
-            System.out.println(&quot;e(exit): 退出程序&quot;);
-            System.out.println(&quot;a(add): 添加程序到队列&quot;);
-            System.out.println(&quot;g(get): 从队列中获取数据&quot;);
-            System.out.println(&quot;h(head): 查看队列头数据&quot;);
-            key &#x3D; scanner.next().charAt(0);
-            switch (key) &#123;
-                case &#39;s&#39;:
-                    queue.showQueue();
-                    break;
-                case &#39;a&#39;:
-                    System.out.println(&quot;请输入一个数&quot;);
-                    int value &#x3D; scanner.nextInt();
-                    queue.addQueue(value);
-                    break;
-                case &#39;g&#39;:
-                    try &#123;
-                        int res &#x3D; queue.getQueue();
-                        System.out.printf(&quot;取出的数据是%d\n&quot;, res);
+ * @date 2021/9/15 22:22
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CircleArrayQueueDemo</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建队列</span>
+        CircleArray queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CircleArray</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里设置的4其队列的有效数据最大是3</span>
+        <span class="token comment" spellcheck="true">//接受用户输入</span>
+        <span class="token keyword">char</span> key <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">;</span>
+        Scanner scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> loop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>loop<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s(show): 显示队列"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"e(exit): 退出程序"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a(add): 添加程序到队列"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"g(get): 从队列中获取数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"h(head): 查看队列头数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            key <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token operator">:</span>
+                    queue<span class="token punctuation">.</span><span class="token function">showQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token operator">:</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入一个数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">int</span> value <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    queue<span class="token punctuation">.</span><span class="token function">addQueue</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'g'</span><span class="token operator">:</span>
+                    <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> res <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出的数据是%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    &#125; catch (Exception e) &#123;
-                        System.out.println(e.getMessage());
-                    &#125;
-                    break;
-                case &#39;h&#39;:
-                    try &#123;
-                        int res &#x3D; queue.headQueue();
-                        System.out.printf(&quot;取出的数据是%d\n&quot;, res);
-                    &#125; catch (Exception e) &#123;
-                        System.out.println(e.getMessage());
-                    &#125;
-                    break;
-                case &#39;e&#39;:
-                    scanner.close();
-                    loop &#x3D; false;
-                    break;
-                default:
-                    break;
-            &#125;
-        &#125;
-        System.out.println(&quot;程序退出&quot;);
-    &#125;
-&#125;
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'h'</span><span class="token operator">:</span>
+                    <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> res <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">headQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"取出的数据是%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">'e'</span><span class="token operator">:</span>
+                    scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    loop <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"程序退出"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-class CircleArray &#123;
-    private int maxSize; &#x2F;&#x2F;数组的最大容量
-    private int front; &#x2F;&#x2F;front指向队列的第一个元素,front 的初始值是0;
-    private int rear; &#x2F;&#x2F;rear指向队列的最后一个元素的后一个位置,因为希望空出一个空间作为约定(判断队列是否满) rear的初始值是0;
-    private int[] arr; &#x2F;&#x2F;该数组用于存放数据,模拟队列
+<span class="token keyword">class</span> <span class="token class-name">CircleArray</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> maxSize<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//数组的最大容量</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> front<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//front指向队列的第一个元素,front 的初始值是0;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> rear<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//rear指向队列的最后一个元素的后一个位置,因为希望空出一个空间作为约定(判断队列是否满) rear的初始值是0;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//该数组用于存放数据,模拟队列</span>
 
-    public CircleArray(int arrMaxSize) &#123;
-        maxSize &#x3D; arrMaxSize;
-        arr &#x3D; new int[maxSize];
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">CircleArray</span><span class="token punctuation">(</span><span class="token keyword">int</span> arrMaxSize<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        maxSize <span class="token operator">=</span> arrMaxSize<span class="token punctuation">;</span>
+        arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;判断队列是否满
-    public boolean isFull() &#123;
-        return (rear + 1) % maxSize &#x3D;&#x3D; front;
-    &#125;
+    <span class="token comment" spellcheck="true">//判断队列是否满</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize <span class="token operator">==</span> front<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;判断队列是否为空
-    public boolean isEmpty() &#123;
-        return rear &#x3D;&#x3D; front;
-    &#125;
+    <span class="token comment" spellcheck="true">//判断队列是否为空</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rear <span class="token operator">==</span> front<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;添加数据到队列中
-    public void addQueue(int n) &#123;
-        &#x2F;&#x2F;判断队列是否已满
-        if (isFull()) &#123;
-            System.out.println(&quot;队列已满不能加入数据&quot;);
-            return;
-        &#125;
-        &#x2F;&#x2F;直接将数据加入
-        arr[rear] &#x3D; n;
-        &#x2F;&#x2F;将 rear 后移,这里必须考虑取模
-        rear &#x3D; (rear + 1) % maxSize;
-    &#125;
+    <span class="token comment" spellcheck="true">//添加数据到队列中</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断队列是否已满</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"队列已满不能加入数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//直接将数据加入</span>
+        arr<span class="token punctuation">[</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//将 rear 后移,这里必须考虑取模</span>
+        rear <span class="token operator">=</span> <span class="token punctuation">(</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;获取队列中的数据,出队列
-    public int getQueue() &#123;
-        &#x2F;&#x2F;判断队列是否为空
-        if (isEmpty()) &#123;
-            throw new RuntimeException(&quot;队列为空,不能取数据!&quot;);
-        &#125;
-        &#x2F;**
+    <span class="token comment" spellcheck="true">//获取队列中的数据,出队列</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断队列是否为空</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列为空,不能取数据!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/**
          * 这里需分析出front是指向队列的第一个元素
          * 1.先把front 对应的值保留到一个临时变量
          * 2.将front 后移,考虑取模
          * 3.将临时变量返回
-         *&#x2F;
-        int value &#x3D; arr[front];
-        front &#x3D; (front + 1) % maxSize;
-        return value;
-    &#125;
+         */</span>
+        <span class="token keyword">int</span> value <span class="token operator">=</span> arr<span class="token punctuation">[</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        front <span class="token operator">=</span> <span class="token punctuation">(</span>front <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;显示队列中的所有数据
-    public void showQueue() &#123;
-        if (isEmpty()) &#123;
-            System.out.println(&quot;队列为空,没有数据~~~&quot;);
-            return;
-        &#125;
-        for (int i &#x3D; front; i &lt; front+size(); i++) &#123;
-            System.out.printf(&quot;arr[%d]&#x3D;%d\n&quot;, i%maxSize, arr[i%maxSize]);
-        &#125;
-    &#125;
+    <span class="token comment" spellcheck="true">//显示队列中的所有数据</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"队列为空,没有数据~~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> front<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> front<span class="token operator">+</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"arr[%d]=%d\n"</span><span class="token punctuation">,</span> i<span class="token operator">%</span>maxSize<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token operator">%</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;求出当前队列有效数据的个数
-    public int size() &#123;
-        return (rear+maxSize-front)%maxSize;
-    &#125;
+    <span class="token comment" spellcheck="true">//求出当前队列有效数据的个数</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>rear<span class="token operator">+</span>maxSize<span class="token operator">-</span>front<span class="token punctuation">)</span><span class="token operator">%</span>maxSize<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;显示队列的头数据
-    public int headQueue() &#123;
-        if (isEmpty()) &#123;
-            throw new RuntimeException(&quot;队列为空,没有数据~~&quot;);
-        &#125;
-        return arr[front];
-    &#125;
+    <span class="token comment" spellcheck="true">//显示队列的头数据</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">headQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列为空,没有数据~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">[</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#125;
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="3-链表"><a href="#3-链表" class="headerlink" title="3.链表"></a>3.链表</h3><p>链表是有序的列表:</p>
 <ul>
 <li>链表是以节点的方式来存储,是链式存储</li>
@@ -940,203 +939,202 @@ class CircleArray &#123;
 </li>
 </ul>
 <p>代码实现:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
  * @author shaoshao
  * @version 1.0
- * @date 2021&#x2F;9&#x2F;16 11:59
- * &lt;p&gt;
+ * @date 2021/9/16 11:59
+ * &lt;p>
  * 单向链表创建并直接添加到链表的尾部实现&amp;&amp;考虑排名将英雄添加到指定位置
- *&#x2F;
-public class SingleLinkListDemo &#123;
-    public static void main(String[] args) &#123;
-        HeroNode heroNode1 &#x3D; new HeroNode(1, &quot;易&quot;, &quot;无极剑圣&quot;);
-        HeroNode heroNode2 &#x3D; new HeroNode(2, &quot;艾希&quot;, &quot;寒冰射手&quot;);
-        HeroNode heroNode3 &#x3D; new HeroNode(3, &quot;瑞兹&quot;, &quot;流浪法师&quot;);
-        HeroNode heroNode4 &#x3D; new HeroNode(4, &quot;提莫&quot;, &quot;迅捷斥候&quot;);
-        &#x2F;&#x2F;创建单向链表
-        SingleLinkList singleLinkList &#x3D; new SingleLinkList();
-        &#x2F;*singleLinkList.add(heroNode1);
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingleLinkListDemo</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        HeroNode heroNode1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"易"</span><span class="token punctuation">,</span> <span class="token string">"无极剑圣"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        HeroNode heroNode2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"艾希"</span><span class="token punctuation">,</span> <span class="token string">"寒冰射手"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        HeroNode heroNode3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"瑞兹"</span><span class="token punctuation">,</span> <span class="token string">"流浪法师"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        HeroNode heroNode4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">"提莫"</span><span class="token punctuation">,</span> <span class="token string">"迅捷斥候"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建单向链表</span>
+        SingleLinkList singleLinkList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingleLinkList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*singleLinkList.add(heroNode1);
         singleLinkList.add(heroNode2);
         singleLinkList.add(heroNode4);
-        singleLinkList.add(heroNode3);*&#x2F;
+        singleLinkList.add(heroNode3);*/</span>
 
-        singleLinkList.addByOrder(heroNode1);
-        singleLinkList.addByOrder(heroNode2);
-        singleLinkList.addByOrder(heroNode4);
-        singleLinkList.addByOrder(heroNode3);
-        singleLinkList.addByOrder(heroNode3);
-        singleLinkList.list();
+        singleLinkList<span class="token punctuation">.</span><span class="token function">addByOrder</span><span class="token punctuation">(</span>heroNode1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">addByOrder</span><span class="token punctuation">(</span>heroNode2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">addByOrder</span><span class="token punctuation">(</span>heroNode4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">addByOrder</span><span class="token punctuation">(</span>heroNode3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">addByOrder</span><span class="token punctuation">(</span>heroNode3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        &#x2F;&#x2F;测试修改节点的代码
-        singleLinkList.update(new HeroNode(2, &quot;ad希&quot;, &quot;寒冰&quot;));
-        System.out.println(&quot;修改后的链表情况&quot;);
-        singleLinkList.list();
+        <span class="token comment" spellcheck="true">//测试修改节点的代码</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"ad希"</span><span class="token punctuation">,</span> <span class="token string">"寒冰"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"修改后的链表情况"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        &#x2F;&#x2F;测试删除节点的代码
-        singleLinkList.del(4);
-        singleLinkList.del(3);
-        singleLinkList.del(2);
-        singleLinkList.del(1);
-        System.out.println(&quot;删除后的链表情况&quot;);
-        singleLinkList.list();
-    &#125;
-&#125;
+        <span class="token comment" spellcheck="true">//测试删除节点的代码</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"删除后的链表情况"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        singleLinkList<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#x2F;&#x2F;定义SingleLinkList 管理我们的英雄
-class SingleLinkList &#123;
-    &#x2F;&#x2F;先初始化一个头节点,不存放数据
-    private HeroNode head &#x3D; new HeroNode(0, &quot;&quot;, &quot;&quot;);
+<span class="token comment" spellcheck="true">//定义SingleLinkList 管理我们的英雄</span>
+<span class="token keyword">class</span> <span class="token class-name">SingleLinkList</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//先初始化一个头节点,不存放数据</span>
+    <span class="token keyword">private</span> HeroNode head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HeroNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    &#x2F;**
+    <span class="token comment" spellcheck="true">/**
      * 添加节点到单向链表
      * 思路:当不考虑编号顺序时
      * 1.找到当前链表的最后节点
      * 2.将最后这个节点的next 指向新的节点
-     *&#x2F;
-    public void add(HeroNode heroNode) &#123;
-        &#x2F;&#x2F;因为head节点不能动,所以需要一个辅助节点变量temp
-        HeroNode temp &#x3D; head;
-        &#x2F;&#x2F;遍历链表,找到最后
-        while (temp.next !&#x3D; null) &#123;
-            temp &#x3D; temp.next;
-        &#125;
-        &#x2F;&#x2F;当退出while循环时temp就指向了链表的最后
-        temp.next &#x3D; heroNode;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span>HeroNode heroNode<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//因为head节点不能动,所以需要一个辅助节点变量temp</span>
+        HeroNode temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//遍历链表,找到最后</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//当退出while循环时temp就指向了链表的最后</span>
+        temp<span class="token punctuation">.</span>next <span class="token operator">=</span> heroNode<span class="token punctuation">;</span>
 
-    &#125;
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;**
+    <span class="token comment" spellcheck="true">/**
      * 第二种添加节点的方式 根据英雄排名插入到指定位置
      * (如果有排名则添加失败,并给出提示)
      * 1.首先找到添加的新的节点的位置,通过辅助变量通过遍历来搞定
-     * 2.新的节点.next &#x3D; temp.next
-     * 3.将temp.next&#x3D;新的节点
-     *&#x2F;
-    public void addByOrder(HeroNode heroNode) &#123;
-        &#x2F;&#x2F;再次使用辅助节点来帮助我们找到添加的位置
-        &#x2F;&#x2F;因为单链表,因为我们找到temp 是位于添加位置的前一个节点,否则插入不了(1,,,4 若插入2的话temp要找的是1)
-        HeroNode temp &#x3D; head;
-        boolean flag &#x3D; false; &#x2F;&#x2F;flag 标志用于判断添加的编号是否已经存在,默认未false
-        while (true) &#123;
-            if (temp.next &#x3D;&#x3D; null) &#123; &#x2F;&#x2F;说明已经遍历到最后一个节点 直接在最后插入即可
-                break;
-            &#125;
-            if (temp.next.no &gt; heroNode.no) &#123; &#x2F;&#x2F;位置找到,就在temp的后面插入 heroNode(2) 添加在temp和temp.next(4)之间
-                break;
-            &#125; else if (temp.next.no &#x3D;&#x3D; heroNode.no) &#123;
-                flag &#x3D; true; &#x2F;&#x2F;编号存在
-                break;
-            &#125;
-            temp &#x3D; temp.next; &#x2F;&#x2F;上面三个条件都不成立 后移 遍历当前链表
-        &#125;
-        &#x2F;&#x2F;判断flag 的值
-        if (flag) &#123;
-            System.out.printf(&quot;准备插入英雄的编号 %d 已经存在,不能添加\n&quot;, heroNode.no);
-        &#125; else &#123;
-            &#x2F;&#x2F;插入到temp后面
-            heroNode.next &#x3D; temp.next;
-            temp.next &#x3D; heroNode;
-        &#125;
-    &#125;
+     * 2.新的节点.next = temp.next
+     * 3.将temp.next=新的节点
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addByOrder</span><span class="token punctuation">(</span>HeroNode heroNode<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//再次使用辅助节点来帮助我们找到添加的位置</span>
+        <span class="token comment" spellcheck="true">//因为单链表,因为我们找到temp 是位于添加位置的前一个节点,否则插入不了(1,,,4 若插入2的话temp要找的是1)</span>
+        HeroNode temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//flag 标志用于判断添加的编号是否已经存在,默认未false</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//说明已经遍历到最后一个节点 直接在最后插入即可</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next<span class="token punctuation">.</span>no <span class="token operator">></span> heroNode<span class="token punctuation">.</span>no<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//位置找到,就在temp的后面插入 heroNode(2) 添加在temp和temp.next(4)之间</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next<span class="token punctuation">.</span>no <span class="token operator">==</span> heroNode<span class="token punctuation">.</span>no<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//编号存在</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//上面三个条件都不成立 后移 遍历当前链表</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断flag 的值</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"准备插入英雄的编号 %d 已经存在,不能添加\n"</span><span class="token punctuation">,</span> heroNode<span class="token punctuation">.</span>no<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//插入到temp后面</span>
+            heroNode<span class="token punctuation">.</span>next <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            temp<span class="token punctuation">.</span>next <span class="token operator">=</span> heroNode<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;修改节点的信息,根据no编号来修改,即no编号不修改
-    public void update(HeroNode newHeroNode) &#123;
-        if (head.next &#x3D;&#x3D; null) &#123;
-            System.out.println(&quot;链表为空&quot;);
-            return;
-        &#125;
-        &#x2F;&#x2F;根据no编号,找到需要修改的节点 定义辅助变量
-        HeroNode temp &#x3D; head.next;
-        boolean flag &#x3D; false;
-        while (temp !&#x3D; null) &#123;
-            if (temp.no &#x3D;&#x3D; newHeroNode.no) &#123;
-                &#x2F;&#x2F;找到了
-                flag &#x3D; true;
-                break;
-            &#125;
-            temp &#x3D; temp.next;
-        &#125;
-        &#x2F;&#x2F;根据flag 判断是否找到需要修改的节点
-        if (flag) &#123;
-            temp.name &#x3D; newHeroNode.name;
-            temp.nickname &#x3D; newHeroNode.nickname;
-        &#125; else &#123;
-            System.out.printf(&quot;没有找到编号%d 的节点,不能修改\n&quot;, newHeroNode.no);
-        &#125;
-    &#125;
+    <span class="token comment" spellcheck="true">//修改节点的信息,根据no编号来修改,即no编号不修改</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span>HeroNode newHeroNode<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"链表为空"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//根据no编号,找到需要修改的节点 定义辅助变量</span>
+        HeroNode temp <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>no <span class="token operator">==</span> newHeroNode<span class="token punctuation">.</span>no<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//找到了</span>
+                flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//根据flag 判断是否找到需要修改的节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            temp<span class="token punctuation">.</span>name <span class="token operator">=</span> newHeroNode<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+            temp<span class="token punctuation">.</span>nickname <span class="token operator">=</span> newHeroNode<span class="token punctuation">.</span>nickname<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"没有找到编号%d 的节点,不能修改\n"</span><span class="token punctuation">,</span> newHeroNode<span class="token punctuation">.</span>no<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;**
+    <span class="token comment" spellcheck="true">/**
      * 删除节点
      * 1. head 不能动,需要一个temp辅助节点找到待删除节点前一个节点
      * 2. 说明我们在比较时,是temp.next.no和需要删除节点的no比较
-     *&#x2F;
-    public void del(int no) &#123;
-        HeroNode temp &#x3D; head;
-        boolean flag &#x3D; false; &#x2F;&#x2F;标志是否找到删除节点
-        while (temp.next !&#x3D; null) &#123;
-            if (temp.next.no &#x3D;&#x3D; no) &#123;
-                &#x2F;&#x2F;找到待删除节点的前一个节点temp
-                flag &#x3D; true;
-                break;
-            &#125;
-            temp &#x3D; temp.next;
-        &#125;
-        if ((flag)) &#123;
-            temp.next &#x3D; temp.next.next;
-        &#125; else &#123;
-            System.out.printf(&quot;要删除的 %d 节点不存在\n&quot;,no);
-        &#125;
-    &#125;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token keyword">int</span> no<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        HeroNode temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//标志是否找到删除节点</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span>next<span class="token punctuation">.</span>no <span class="token operator">==</span> no<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//找到待删除节点的前一个节点temp</span>
+                flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            temp<span class="token punctuation">.</span>next <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"要删除的 %d 节点不存在\n"</span><span class="token punctuation">,</span>no<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
-    &#x2F;&#x2F;显示链表[遍历]
-    public void list() &#123;
-        &#x2F;&#x2F;判断链表是否为空
-        if (head.next &#x3D;&#x3D; null) &#123;
-            System.out.println(&quot;链表为空,没有数据~~~&quot;);
-            return;
-        &#125;
-        &#x2F;&#x2F;头节点不能动再次使用辅助变量temp来遍历
-        HeroNode temp &#x3D; head.next;
-        &#x2F;&#x2F;判断是否到最后
-        while (temp !&#x3D; null) &#123;
-            &#x2F;&#x2F;输出节点信息
-            System.out.println(temp);
-            &#x2F;&#x2F;将temp后移
-            temp &#x3D; temp.next;
-        &#125;
+    <span class="token comment" spellcheck="true">//显示链表[遍历]</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断链表是否为空</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"链表为空,没有数据~~~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//头节点不能动再次使用辅助变量temp来遍历</span>
+        HeroNode temp <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断是否到最后</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//输出节点信息</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//将temp后移</span>
+            temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#125;
-&#125;
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-&#x2F;&#x2F;定义HeroNode,每个HeroNode对象就是一个节点
-class HeroNode &#123;
-    public int no;
-    public String name;
-    public String nickname;
-    public HeroNode next; &#x2F;&#x2F;指向下一个节点
+<span class="token comment" spellcheck="true">//定义HeroNode,每个HeroNode对象就是一个节点</span>
+<span class="token keyword">class</span> <span class="token class-name">HeroNode</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> no<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> String nickname<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> HeroNode next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向下一个节点</span>
 
-    &#x2F;&#x2F;构造器
-    public HeroNode(int no, String name, String nickname) &#123;
-        this.no &#x3D; no;
-        this.name &#x3D; name;
-        this.nickname &#x3D; nickname;
-    &#125;
+    <span class="token comment" spellcheck="true">//构造器</span>
+    <span class="token keyword">public</span> <span class="token function">HeroNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> no<span class="token punctuation">,</span> String name<span class="token punctuation">,</span> String nickname<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>no <span class="token operator">=</span> no<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">=</span> nickname<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    &#x2F;&#x2F;为了显示方法 重写toString
+    <span class="token comment" spellcheck="true">//为了显示方法 重写toString</span>
 
 
-    @Override
-    public String toString() &#123;
-        return &quot;HeroNode&#123;&quot; +
-                &quot;no&#x3D;&quot; + no +
-                &quot;, name&#x3D;&#39;&quot; + name + &#39;\&#39;&#39; +
-                &quot;, nickname&#x3D;&#39;&quot; + nickname + &#39;\&#39;&#39; +
-                &#39;&#125;&#39;;
-    &#125;
-&#125;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"HeroNode&amp;#123;"</span> <span class="token operator">+</span>
+                <span class="token string">"no="</span> <span class="token operator">+</span> no <span class="token operator">+</span>
+                <span class="token string">", name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">", nickname='"</span> <span class="token operator">+</span> nickname <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'&amp;#125;'</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1619,7 +1617,7 @@ class HeroNode &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.1k</span>&nbsp;字&nbsp;|
+                class="white-color">6.8k</span>&nbsp;字&nbsp;|
             
             
             
