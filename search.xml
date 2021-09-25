@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>java数据结构和算法(二)</title>
+      <link href="/2021-09-24-java-shu-ju-jie-gou-he-suan-fa-er.html"/>
+      <url>/2021-09-24-java-shu-ju-jie-gou-he-suan-fa-er.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-栈"><a href="#1-栈" class="headerlink" title="1. 栈"></a>1. <center>栈</h3><h4 id="1-1-栈的介绍"><a href="#1-1-栈的介绍" class="headerlink" title="1.1 栈的介绍"></a>1.1 栈的介绍</h4><ul><li><p>栈的英文为(stack)</p></li><li><p>栈是一个<strong>先入后出</strong>(FILO-First In Last Out)的有序列表。</p></li><li><p>栈(stack)是限制线性表中元素的插入和删除<strong>只能在线性表的同一端</strong>进行的一种特殊线性表。允许插入和删除的一端，为变化的一端，称为<strong>栈顶</strong>(Top)，另一端为固定的一端，称为<strong>栈底</strong>(Bottom)。</p></li><li><p>根据栈的定义可知，最先放入栈中元素在栈底，最后放入的元素在栈顶，而删除元素刚好相反，最后放入的元素最先删除，最先放入的元素最后删除</p></li></ul><p><img src="https://img-blog.csdnimg.cn/629064845556410c83cddd02f0ba0f5c.png" alt="入栈"></p><p><img src="https://img-blog.csdnimg.cn/9b405e76cbda41dcb3aab55ae8d97301.png" alt="出栈"></p><h4 id="1-2-栈的应用场景"><a href="#1-2-栈的应用场景" class="headerlink" title="1.2 栈的应用场景"></a>1.2 栈的应用场景</h4><ul><li><p>子程序的调用：在跳往子程序前，会先将下个指令的地址存到堆栈中，直到子程序执行完后再将地址取出，以回到原来的程序中。  </p></li><li><p>处理递归调用：和子程序的调用类似，只是除了储存下一个指令的地址外，也将参数、区域变量等数据存入堆栈中。</p></li><li><p>表达式的转换[中缀表达式转后缀表达式]与求值(实际解决)。</p></li><li><p>二叉树的遍历。</p></li><li><p>图形的深度优先(depth一first)搜索法。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构和算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java基础</title>
       <link href="/2021-09-22-java-ji-chu.html"/>
       <url>/2021-09-22-java-ji-chu.html</url>
