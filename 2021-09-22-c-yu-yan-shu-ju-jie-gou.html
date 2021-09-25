@@ -503,21 +503,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-22
+                    2021-09-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    859
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -540,7 +540,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-第一周"><a href="#1-第一周" class="headerlink" title="1. 第一周"></a>1. 第一周</h3><ul>
+                <h3 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1. 绪论"></a>1. 绪论</h3><ul>
 <li><p>若需要利用形式参数直接访问修改实参值，则应将形式参数说明为<font color="red">指针</font>参数。</p>
 </li>
 <li><p>对一个算法的评价包括三个方面：</p>
@@ -589,6 +589,26 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <p>(1)线性结构是一个有序数据元素的集合。 其中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的。常用的线性结构有：线性表，栈，队列，双队列，数组，串。<br> (2)非线性结构中各个数据元素不再保持在一个线性序列中，每个数据元素可能与零个或者多个其他数据元素发生联系。根据关系的不同，可分为层次结构和群结构。</p>
 <p>7、叙述抽象数据类型的概念。</p>
 <p><strong>抽象数据类型是指基于一类逻辑关系的数据类型以及定义在这个类型之上的一组操作。</strong></p>
+<h3 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表"></a>2.线性表</h3><ul>
+<li>线性表是n个类型相同的数据元素的有限序列,数据元素之间是<font color="red">一对一</font>的关系,即每个数据元素最多有一个前驱和一个直接后继</li>
+<li>特点:<ul>
+<li>同一性：线性表由同类数据元素组成，每一个ai必须属于同一数据对象</li>
+<li>有穷性：线性表由有限个数据元素组成，表长度就是表中数据元素的个数</li>
+<li>有序性：线性表中相邻数据元素之间存在着有序偶关系，&lt;ai ,ai+1&gt;</li>
+</ul>
+</li>
+<li>在计算机内存放线性表，主要有两种基本的存储结构：<strong>顺序存储结构</strong>和<strong>链式存储结构</strong></li>
+<li>采用顺序存储结构的线性表通常称为<strong>顺序表</strong></li>
+<li>查找操作有<strong>按序号查找</strong>和<strong>按内容查找</strong>两种基本查找运算</li>
+<li>单链表包括两个域:<ul>
+<li><strong>数据域</strong>用来存储节点的值</li>
+<li><strong>指针域</strong>用来存储数据元素的直接后继的地址</li>
+<li>由于链表的每个节点只有一个指针域,故将这种链表成为<strong>单链表</strong></li>
+</ul>
+</li>
+<li>头插法得到的单链表的逻辑顺序羽输入元素顺序相反,所以也称头插法建表为逆序建表法</li>
+<li></li>
+</ul>
 
                 
             </div>
@@ -1071,7 +1091,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.7k</span>&nbsp;字&nbsp;|
+                class="white-color">13.2k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1365,7 +1385,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1377,6 +1397,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
