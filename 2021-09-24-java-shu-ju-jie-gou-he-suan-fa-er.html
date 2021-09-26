@@ -503,21 +503,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-25
+                    2021-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -867,6 +867,64 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="2-1前缀表示、中缀表达式、后缀表达式-逆波兰表达式"><a href="#2-1前缀表示、中缀表达式、后缀表达式-逆波兰表达式" class="headerlink" title="2.1前缀表示、中缀表达式、后缀表达式(逆波兰表达式)"></a>2.1前缀表示、中缀表达式、后缀表达式(逆波兰表达式)</h3><p><strong><font color="blue">前缀表达式的计算机求值</font></strong></p>
+<p>从右至左扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算（栈顶元素 和 次顶元素），并将结果入栈；重复上述过程直到表达式最左端，最后运算得出的值即为表达式的结果</p>
+<p>例如: (3+4)×5-6 对应的前缀表达式就是 <strong>- × + 3 4 5</strong> <strong>6 ,</strong> <strong>针对前缀表达式求值步骤</strong>如下</p>
+<p>1)从<strong>右至左扫描</strong>，将6、5、4、3压入堆栈</p>
+<p>2)遇到+运算符，因此弹出3和4（3为栈顶元素，4为次顶元素），计算出3+4的值，得7，再将7入栈</p>
+<p>3)接下来是×运算符，因此弹出7和5，计算出7×5=35，将35入栈</p>
+<p>4)最后是-运算符，计算出35-6的值，即29，由此得出最终结果</p>
+<p><strong><font color="blue">中缀表达式</font></strong></p>
+<p>1)中缀表达式就是<strong>常见的运算表达式</strong>，如(3+4)×5-6</p>
+<p>2)中缀表达式的求值是我们人最熟悉的，但是对计算机来说却不好操作(前面我们讲的案例就能看的这个问题)，因此，在计算结果时，往往会将中缀表达式转成其它表达式来操作(一般转成后缀表达式.)</p>
+<p><strong><font color="blue">后缀表达式</font></strong></p>
+<p>1)后缀表达式又称<strong>逆波兰表达式</strong>,与前缀表达式相似，只是运算符位于操作数之后</p>
+<p>2)中举例说明： (3+4)×5-6 对应的后缀表达式就是 <strong>3</strong> <strong>4 + 5 × 6</strong> <strong>–</strong></p>
+<table>
+<thead>
+<tr>
+<th>正常的表达式</th>
+<th>逆波兰表达式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a+b</td>
+<td>a b +</td>
+</tr>
+<tr>
+<td>a+(b-c)</td>
+<td>a b c - +</td>
+</tr>
+<tr>
+<td>a+(b-c)*d</td>
+<td>a b c – d * +</td>
+</tr>
+<tr>
+<td>a+d*(b-c)</td>
+<td>a d b c - * +</td>
+</tr>
+<tr>
+<td>a=1+3</td>
+<td>a 1 3 + =</td>
+</tr>
+</tbody></table>
+<p><strong><font color="blue">后缀表达式的计算机求值</font></strong></p>
+<p>从<strong>左至右</strong>扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算（次顶元素 和 栈顶元素），并将结果入栈；重复上述过程直到表达式最右端，最后运算得出的值即为表达式的结果</p>
+<p>例如: (3+4)×5-6 对应的后缀表达式就是 <strong>3 4 + 5 × 6 -</strong> <strong>,</strong> 针对后缀表达式求值步骤如下:</p>
+<p>1)从左至右扫描，将3和4压入堆栈；</p>
+<p>2)遇到+运算符，因此弹出4和3（4为栈顶元素，3为次顶元素），计算出3+4的值，得7，再将7入栈；</p>
+<p>3)将5入栈；</p>
+<p>4)接下来是×运算符，因此弹出5和7，计算出7×5=35，将35入栈；</p>
+<p>5)将6入栈；</p>
+<p>6)最后是运算符，计算出的值，即，由此得出最终结 .</p>
+<h4 id="2-2-逆波兰计算器"><a href="#2-2-逆波兰计算器" class="headerlink" title="2.2 逆波兰计算器"></a>2.2 逆波兰计算器</h4><ul>
+<li><p>支持 + - * / ( ) </p>
+</li>
+<li><p> 多位数，支持小数,</p>
+</li>
+<li><p>兼容处理, 过滤任何空白字符，包括空格、制表符、换页符</p>
+</li>
+</ul>
 
                 
             </div>
@@ -1351,7 +1409,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.2k</span>&nbsp;字&nbsp;|
+                class="white-color">13.9k</span>&nbsp;字&nbsp;|
             
             
             
