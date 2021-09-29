@@ -503,21 +503,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-09-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    19 分
                 </div>
                 
 
@@ -1024,7 +1024,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </li>
 </ul>
 <p><font color="blue">举例说明:</font></p>
-<p>将中缀表达式*<em>1+((2+3)×4)-5”转为后缀表达式的</em>过程如下:</p>
+<p>将中缀表达式<strong>1+((2+3)×4)-5</strong>转为后缀表达式的*过程如下:</p>
 <p>因此结果为<strong>1 2 3 + 4 × + 5 –</strong></p>
 <table>
 <thead>
@@ -1120,6 +1120,177 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <td>s1中剩余的运算符</td>
 </tr>
 </tbody></table>
+<p>代码实现</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>stack</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Stack</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @author shaoshao
+ * @version 1.0
+ * @date 2021/9/26 20:53
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PoLandNotation</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//将中缀表达式转成后缀表达式</span>
+        <span class="token comment">//直接对str操作不方便,因此将 "1+((2+3)*4)-5" => ArrayList [1,+,(,(,2,+,3,),*4,)-,5]</span>
+        <span class="token comment">//将得到的中缀表达式对应的list => 后缀表达式对应的list</span>
+        <span class="token comment">//即 ArrayList [1,+,(,(,2,+,3,),*4,)-,5]  => ArrayList [1,2,3,+,4,*+,5,-]</span>
+        <span class="token class-name">String</span> expression <span class="token operator">=</span> <span class="token string">"1+((2+3)*4)-5"</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> infixExpressionList <span class="token operator">=</span> <span class="token function">toInfixExpressionList</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"中缀表达式对应的list:"</span><span class="token operator">+</span>infixExpressionList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> parseSuffixExpressionList <span class="token operator">=</span> <span class="token function">parseSuffixExpressionList</span><span class="token punctuation">(</span>infixExpressionList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"后缀表达式对应的list:"</span><span class="token operator">+</span>parseSuffixExpressionList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"expression=%d"</span><span class="token punctuation">,</span><span class="token function">calculate</span><span class="token punctuation">(</span>parseSuffixExpressionList<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//定义逆波兰表达式</span>
+        <span class="token class-name">String</span> suffixExpression <span class="token operator">=</span> <span class="token string">"3 4 + 5 * 6 -"</span><span class="token punctuation">;</span>
+        <span class="token comment">//思路: 1.先将"3 4 + 5 * 6-" => 放到ArrayList中</span>
+        <span class="token comment">//2.将ArrayList 传递给一个方法,遍历ArrayList 配合栈完成计算</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> rpnList <span class="token operator">=</span> <span class="token function">getListString</span><span class="token punctuation">(</span>suffixExpression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"rpnList="</span> <span class="token operator">+</span> rpnList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token function">calculate</span><span class="token punctuation">(</span>rpnList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"计算的结果是:"</span> <span class="token operator">+</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// ArrayList [1,+,(,(,2,+,3,),*4,)-,5]  => ArrayList [1,2,3,+,4,*+,5,-]</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">parseSuffixExpressionList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> ls<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//定义两个栈 s2可以用ArrayList代替</span>
+        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> s2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> item<span class="token operator">:</span>ls<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//如果是一个数</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token string">"\\d+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                s2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"("</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token comment">//如果是右括号“)”，则依次弹出s1栈顶的运算符，并压入s2，直到遇到左括号为止，此时将这一对括号丢弃</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s1<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"("</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    s2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//!!! 将( 弹出s1栈 消除小括号</span>
+
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//步骤第四步</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token class-name">Operation</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token class-name">Operation</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    s2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//将s1中剩余的运算符依次弹出并加入s2</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            s2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> s2<span class="token punctuation">;</span> <span class="token comment">//因为是存放到 list中,因此按顺序输出就是对应的后缀表达式对应的list</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//将中缀表达式转成对应的list</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">toInfixExpressionList</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> ls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//指针 用于遍历中缀表达式字符串</span>
+        <span class="token class-name">String</span> str<span class="token punctuation">;</span> <span class="token comment">//多位数拼接</span>
+        <span class="token keyword">char</span> c<span class="token punctuation">;</span> <span class="token comment">//每遍历一个字符就放入到c</span>
+        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//如果c是非数字,需要加入到ls中</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">48</span> <span class="token operator">||</span> <span class="token punctuation">(</span>c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">57</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                ls<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">""</span> <span class="token operator">+</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">//如果是一个数,需要考虑多位数</span>
+                str <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">48</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">57</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    str <span class="token operator">+=</span> c<span class="token punctuation">;</span> <span class="token comment">//拼接</span>
+                    i<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                ls<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> ls<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//将一个逆波兰表达式依次将数据和运算符放入到ArrayList中</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">getListString</span><span class="token punctuation">(</span><span class="token class-name">String</span> suffixExpression<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 将 suffixExpression 分割</span>
+        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> split <span class="token operator">=</span> suffixExpression<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> ele <span class="token operator">:</span> split<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//完成对逆波兰表达式的运算</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> ls<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//创建一个栈</span>
+        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//遍历ls</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> item <span class="token operator">:</span> ls
+        <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//使用正则表达式取出数据</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token string">"\\d+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//pop 两个数,并运算,再入栈</span>
+                <span class="token keyword">int</span> num2 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> num1 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res <span class="token operator">=</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res <span class="token operator">=</span> num1 <span class="token operator">-</span> num2<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res <span class="token operator">=</span> num1 <span class="token operator">*</span> num2<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res <span class="token operator">=</span> num1 <span class="token operator">/</span> num2<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"运算符有误"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">//把res入栈</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">""</span> <span class="token operator">+</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//最后留在stack中的数据就是运算结果</span>
+        <span class="token keyword">return</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Operation</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> ADD <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> SUB <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> MUL <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> DIV <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//返回对应的优先级数字</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token class-name">String</span> operation<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>operation<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token string">"+"</span><span class="token operator">:</span>
+                result <span class="token operator">=</span> ADD<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"-"</span><span class="token operator">:</span>
+                result <span class="token operator">=</span> SUB<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"*"</span><span class="token operator">:</span>
+                result <span class="token operator">=</span> MUL<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">"/"</span><span class="token operator">:</span>
+                result <span class="token operator">=</span> DIV<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"不存在该运算符"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1604,7 +1775,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.8k</span>&nbsp;字&nbsp;|
+                class="white-color">15.7k</span>&nbsp;字&nbsp;|
             
             
             
