@@ -315,6 +315,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '158120';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -510,7 +523,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4
+                    6
                 </div>
                 
 
@@ -540,7 +553,18 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a><center>排序算法</h3>
+                <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="fdfc3993dafd5c7ed8a43f6c1ed66c2926c86dc1206aee0d42bfe5a13c0c240d">619b2caf4d6fff4023279b7f11ebf6c6bb7b2ac1db0e527f6848e52592871b77ccb762d25c185fb1029dc150aa615a9f5dcd7eef2d1056c44f2d60daf1771c0fdf08360af4669e59af713066ca77ff32d74c7588bd5f6739ba27f6d54e4c67b7af3b1cc5d70311586c5eff337c56eb9c3b643ec444f35701c519f2312f179b80489231b4a20738838dc9fc6dce104ad2</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
@@ -842,7 +866,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            栈、递归—————————————————————————
+                            栈(计算器[中缀表达式->后缀表达式])、递归(迷宫、八皇后)
                         
                     </div>
                     <div class="publish-info">

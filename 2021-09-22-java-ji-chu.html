@@ -315,6 +315,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -853,7 +866,7 @@ ab      # x本身<span class="token punctuation">,</span>不会因为上面的<s
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            栈、递归—————————————————————————
+                            栈(计算器[中缀表达式->后缀表达式])、递归(迷宫、八皇后)
                         
                     </div>
                     <div class="publish-info">
