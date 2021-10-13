@@ -8,9 +8,21 @@
       <link href="/2021-10-13-java-shu-ju-jie-gou-he-suan-fa-liu.html"/>
       <url>/2021-10-13-java-shu-ju-jie-gou-he-suan-fa-liu.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="图"><a href="#图" class="headerlink" title=" 图"></a><center> 图</h3><ul><li>图的表示方式有两种：二维数组表示（邻接矩阵）；链表表示（邻接表）。</li><li><font color = "red">邻接矩阵</font>是表示图形中顶点之间相邻关系的矩阵，对于n个顶点的图而言，矩阵是的row和col表示的是1….n个点。 </li></ul><p><img src="https://img-blog.csdnimg.cn/87a6a3bb7a864acd96c6f55042a36a64.png" alt="邻接矩阵"></p><ul><li><font color = "red">邻接表</font>的实现只关心存在的边，不关心不存在的边。因此没有空间浪费，邻接表由数组+链表组成  </li></ul><p><img src="https://img-blog.csdnimg.cn/ab8291a09fb94b5fa9a08681073a7358.png" alt="邻接表"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 数据结构和算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
       
     </entry>
     
