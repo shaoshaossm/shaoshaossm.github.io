@@ -516,21 +516,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-16
+                    2021-10-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -803,7 +803,120 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <li>贪婪算法(贪心算法)是指在对问题进行求解时，在每一步选择中都采取最好或者最优(即最有利)的选择，从而希望能够导致结果是最好或者最优的算法</li>
 <li>贪婪算法所得到的结果<strong>不一定是最优的结果</strong>(有时候会是最优解)，但是都是相对近似(接近)最优解的结果</li>
 </ul>
+<p><font color="blue">应用场景-集合覆盖问题</font></p>
+<p>假设存在下面需要付费的广播台，以及广播台信号可以覆盖的地区。 <strong>如何选择最少的广播台</strong>，让所有的地区都可以接收到信号?</p>
+<table>
+<thead>
+<tr>
+<th>广播台</th>
+<th>覆盖地区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K1</td>
+<td>“北京”, “上海”, “天津”</td>
+</tr>
+<tr>
+<td>K2</td>
+<td>“广州”, “北京”, “深圳”</td>
+</tr>
+<tr>
+<td>K3</td>
+<td>“成都”, “上海”, “杭州”</td>
+</tr>
+<tr>
+<td>K4</td>
+<td>“上海”, “天津”</td>
+</tr>
+<tr>
+<td>K5</td>
+<td>“杭州”, “大连”</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>遍历所有的广播电台, 找到一个覆盖了最多<strong>未覆盖的地区</strong>的电台(此电台可能包含一些已覆盖的地区，但没有关系） </p>
+</li>
+<li><p>将这个电台加入到一个集合中(比如ArrayList), 想办法把该电台覆盖的地区在下次比较时去掉。</p>
+</li>
+<li><p>重复第1步直到覆盖了全部的地区</p>
+</li>
+</ul>
+<p>代码实现</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashSet</span><span class="token punctuation">;</span>
 
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GreedyAlgorithm</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">HashSet</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span><span class="token punctuation">></span></span> broadcasts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">HashSet</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashSet1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"北京"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"天津"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashSet2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"广州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"北京"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"深圳"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashSet3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"成都"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"杭州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashSet4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"天津"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> hashSet5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet5<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"大连"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet5<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"杭州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        broadcasts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"k1"</span><span class="token punctuation">,</span> hashSet1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        broadcasts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"k2"</span><span class="token punctuation">,</span> hashSet2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        broadcasts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"k3"</span><span class="token punctuation">,</span> hashSet3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        broadcasts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"k4"</span><span class="token punctuation">,</span> hashSet4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        broadcasts<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"k5"</span><span class="token punctuation">,</span> hashSet5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//存放所有的地区</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> allArea <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"北京"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"上海"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"深圳"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"杭州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"广州"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"天津"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"成都"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        allArea<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"大连"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//存放选择的电台的集合</span>
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> selects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//临时集合,存放遍历过程中的电台覆盖的地区和当前还没有覆盖的地区的交集</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> tempSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//保存在一次遍历中能够覆盖最大未覆盖的地区对应的电台key  如果maxKey不为null,则加入到selects</span>
+        <span class="token class-name">String</span> maxKey <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>allArea<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            maxKey <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> key <span class="token operator">:</span> broadcasts<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                tempSet<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> areas <span class="token operator">=</span> broadcasts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                tempSet<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>areas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//取tempSet 和 areas 的交集 赋给 tempSet</span>
+                tempSet<span class="token punctuation">.</span><span class="token function">retainAll</span><span class="token punctuation">(</span>allArea<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//如果当亲这个集合包含未覆盖地区的数量,比maxKey指向的集合地区还多,就需要重置maxKey  这里体现贪心算法的特点</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>tempSet<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>maxKey <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> tempSet<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> broadcasts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>maxKey<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    maxKey <span class="token operator">=</span> key<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>maxKey <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                selects<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>maxKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//将maxkey指向的广播电台重allArea中去除掉</span>
+                allArea<span class="token punctuation">.</span><span class="token function">removeAll</span><span class="token punctuation">(</span>broadcasts<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>maxKey<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"得到的选择结果"</span> <span class="token operator">+</span> selects<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-普利姆算法"><a href="#6-普利姆算法" class="headerlink" title="6. 普利姆算法"></a>6. 普利姆算法</h3>
                 
             </div>
             <hr/>
@@ -1287,7 +1400,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.8k</span>&nbsp;字&nbsp;|
+                class="white-color">44.5k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1581,7 +1694,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1593,6 +1706,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
