@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-10-17T14:17:22.328Z</updated>
+  <updated>2021-10-19T15:04:37.214Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker学习应用</title>
+    <link href="https://shaoshaossm.github.io/2021-10-18-docker-xue-xi-ying-yong.html"/>
+    <id>https://shaoshaossm.github.io/2021-10-18-docker-xue-xi-ying-yong.html</id>
+    <published>2021-10-18T14:47:54.000Z</published>
+    <updated>2021-10-19T15:04:37.214Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>输入docker命令报错</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Cannot connect to the Docker daemon at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock. ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>原因可能是上一次没有正常退出docker，所以docker没有正常启动，在相应的/var/run/路径下找不到docker进程。解决办法:</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">service</span> docker restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker启动命令</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>使容器处于后太运行状态</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ctrl p + q<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker启动容器命令</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ( --name ssm ) 给容器命名</span>docker run -it centos <span class="token punctuation">(</span> --name ssm <span class="token punctuation">)</span>/bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>docker启动特定容器命令并进入容器</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker start c65e128bc615docker attach c65e128bc615<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>docker查看进程</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker <span class="token function">ps</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker设置容器和宿主机文件共享</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -it -v /myDataVolume:/dataVolumeContainer centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker 检查容器</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker inspect c65e128bc615<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker 启动tomcat (指定映射端口号)</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -it -p <span class="token number">7777</span>:8080 tomcat02:1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>docker 关闭正在运行中的容器</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker <span class="token function">kill</span> c65e128bc615 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>下载镜像源</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>建立一个ssm/centos数据卷 Dockerfile</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 建立一个文件 Dockerfile </span><span class="token function">mkdir</span> Docker <span class="token comment"># 编写内容</span><span class="token comment"># 构建容器</span>docker build -f /mydocker/Dockerfile -t ssm/centos <span class="token builtin class-name">.</span><span class="token comment"># 运行容器</span>docker run -it ssm/centos <span class="token comment"># 进入 dataVolumeContainer1 并创建文件container01.txt</span><span class="token builtin class-name">cd</span> dataVolumeContainer1<span class="token function">touch</span> container01.txt<span class="token comment"># 另开一个终端</span>docker <span class="token function">ps</span> docker inspect 容器id找到dataVolumeContainer1: /var/lib/docker/volumes/60f8b0b4209fc59b92c2e36f40b7f1c5ccea3032344bcf9a17951ce08cacd423/_data<span class="token comment"># 另开一个终端,查看共享文件,并创建container02.txt 测试dataVolumecontainer1中是否有container02.txt</span><span class="token builtin class-name">cd</span> /var/lib/docker/volumes/60f8b0b4209fc59b92c2e36f40b7f1c5ccea3032344bcf9a17951ce08cacd423/_data<span class="token function">touch</span> container02.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>容器数据卷传递共享</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 dc01容器</span>docker run -it --name dc01 ssm/centos<span class="token comment"># 创建 dc01_add.txt</span><span class="token builtin class-name">cd</span> dataVolumeContainer2<span class="token function">touch</span> dc01_add.txt<span class="token comment"># 复制dc01 到 dc02</span>docker run -it --name dc02 --volumes-from dc01 ssm/centos<span class="token function">touch</span> dc02_add.txt<span class="token comment"># 复制dc01 到 dc02</span>docker run -it --name dc03 --volumes-from dc01 ssm/centos<span class="token function">touch</span> dc03_add.txt<span class="token comment"># 回到dc01验证即可</span>docker attach dc01<span class="token comment"># 即使删除dc01,dc02和dc03也数据共享</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="https://img-blog.csdnimg.cn/fb9c63317cd34ad092dd093eb789166b.png" alt="容器数据卷间传递共享"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;输入docker命令报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;Cannot connect </summary>
+      
+    
+    
+    
+    <category term="后端" scheme="https://shaoshaossm.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="docker" scheme="https://shaoshaossm.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>java数据结构和算法(七)</title>
