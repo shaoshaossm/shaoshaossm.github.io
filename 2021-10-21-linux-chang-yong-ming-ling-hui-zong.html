@@ -553,7 +553,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-文件和目录"><a href="#一-文件和目录" class="headerlink" title="一.文件和目录"></a>一.文件和目录</h3><ul>
+                <h3 id="1-文件和目录"><a href="#1-文件和目录" class="headerlink" title="1.文件和目录"></a>1.文件和目录</h3><ul>
 <li>cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd &#x2F;home    	 进入 &#39;&#x2F; home&#39; 目录
@@ -601,7 +601,7 @@ ls [0-9] 显示包含数字的文件名和目录名<span aria-hidden="true" clas
 -i ：互动模式，在删除前会询问用户是否操作
 -r ：递归删除，最常用于目录删除，它是一个非常危险的参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="二、查看文件内容"><a href="#二、查看文件内容" class="headerlink" title="二、查看文件内容"></a>二、查看文件内容</h3><ul>
+<h3 id="2-查看文件内容"><a href="#2-查看文件内容" class="headerlink" title="2.查看文件内容"></a>2.查看文件内容</h3><ul>
 <li>cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cat file1 从第一个字节开始正向查看文件的内容
@@ -613,7 +613,7 @@ head -n 2 file1 查看一个文件的前两行
 tail -n 2 file1 查看一个文件的最后两行
 tail -n +1000 file1  从1000行开始显示，显示1000行以后的cat filename | head -n 3000 | tail -n +1000  显示1000行到3000行cat filename | tail -n +3000 | head -n 1000  从第3000行开始，显示1000(即显示3000~3999行)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="三-文件搜索"><a href="#三-文件搜索" class="headerlink" title="三.文件搜索"></a>三.文件搜索</h3><ul>
+<h3 id="3-文件搜索"><a href="#3-文件搜索" class="headerlink" title="3.文件搜索"></a>3.文件搜索</h3><ul>
 <li>find命令，用来查找系统的</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find &#x2F; -name file1 从 &#39;&#x2F;&#39; 开始进入根文件系统搜索文件和目录
@@ -626,7 +626,7 @@ which halt 显示一个二进制文件或可执行文件的完整路径<span ari
 <p>删除大于50M的文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find &#x2F;var&#x2F;mail&#x2F; -size +50M -exec rm &#123;&#125; ＼;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="四-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#四-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="四.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a>四.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</h3><ul>
+<h3 id="4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a>4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</h3><ul>
 <li>chmod命令，改变文件/文件夹权限</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ls -lh 显示权限
@@ -642,7 +642,7 @@ chown user1:group1 file1 改变一个文件的所有人和群组属性<span aria
 <p>11.chgrp命令，改变文件所属用户组</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">chgrp group1 file1 改变文件的群组<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="五-文本处理"><a href="#五-文本处理" class="headerlink" title="五.文本处理"></a>五.文本处理</h3><ol>
+<h3 id="5-文本处理"><a href="#5-文本处理" class="headerlink" title="5.文本处理"></a>5.文本处理</h3><ol>
 <li>grep命令，分析一行的信息，若当中有我们所需要的信息，就将该行显示出来，该命令通常与管道命令一起使用，用于对一些命令的输出进行筛选加工等等</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">grep Aug &#x2F;var&#x2F;log&#x2F;messages  在文件 &#39;&#x2F;var&#x2F;log&#x2F;messages&#39;中查找关键词&quot;Aug&quot;
@@ -673,7 +673,7 @@ sort file1 file2 | uniq -d 取出两个文件的交集(只留下同时存在于�
 &#39;file1&#39; 所包含的内容 comm -2 file1 file2 比较两个文件的内容只删除
 &#39;file2&#39; 所包含的内容 comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="六、打包和压缩文件"><a href="#六、打包和压缩文件" class="headerlink" title="六、打包和压缩文件"></a>六、打包和压缩文件</h3><ol>
+<h3 id="6-打包和压缩文件"><a href="#6-打包和压缩文件" class="headerlink" title="6.打包和压缩文件"></a>6.打包和压缩文件</h3><ol>
 <li>tar命令，对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如gzip和bzip等）进行压缩和解压</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-c ：新建打包文件
@@ -700,7 +700,7 @@ zip file1.zip file1 创建一个zip格式的压缩包
 unzip file1.zip 解压一个zip格式压缩包
 zip -r file1.zip file1 file2 dir1 将几个文件和目录同时压缩成一个zip格式的压缩包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="七-系统和关机（关机、重启和登出）"><a href="#七-系统和关机（关机、重启和登出）" class="headerlink" title="七.系统和关机（关机、重启和登出）"></a>七.系统和关机（关机、重启和登出）</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">shutdown -h now 关闭系统(1)
+<h3 id="7-系统和关机（关机、重启和登出）"><a href="#7-系统和关机（关机、重启和登出）" class="headerlink" title="7.系统和关机（关机、重启和登出）"></a>7.系统和关机（关机、重启和登出）</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">shutdown -h now 关闭系统(1)
 init 0 关闭系统(2)
 telinit 0 关闭系统(3)
 shutdown -h hours:minutes &amp; 按预定时间关闭系统
@@ -710,7 +710,7 @@ reboot 重启(2)
 logout 注销
 time 测算一个命令（即程序）的执行时间 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="八、进程相关的命令"><a href="#八、进程相关的命令" class="headerlink" title="八、进程相关的命令"></a>八、进程相关的命令</h3><ul>
+<h3 id="8-进程相关的命令"><a href="#8-进程相关的命令" class="headerlink" title="8.进程相关的命令"></a>8.进程相关的命令</h3><ul>
 <li><p>jps命令，显示当前系统的java进程情况，及其id号</p>
 </li>
 <li><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。</p>
@@ -1588,7 +1588,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1600,6 +1600,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
