@@ -516,21 +516,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-23
+                    2021-10-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    714
+                    953
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -614,6 +614,37 @@ ab      # x本身<span class="token punctuation">,</span>不会因为上面的<s
 <li>在JAVA里，“=”语句不应该被翻译成赋值语句，因为它所执行的确实不是一个赋值的过程，<font color="blue">而是一个传地址的过程</font></li>
 <li>在JAVA中，<font color="blue">方法的入参对于基本数据类型和字符串常量来说，传递的其实只是这个值本身的一个拷贝而已</font>，对于外面的变量来说，并没有改变什么，入参的作用域也仅限函数内部，属于局部变量（对于包装类型和String，依然如此）。 </li>
 <li>综上所述，可以简单的记为，在初始化时，<font color="blue">“=”语句左边的是引用，右边new出来的是对象。在后面的左右都是引用的“=”语句时，左右的引用同时指向了右边引用所指向的对象。</font><br>再所谓实例，其实就是对象的同义词。 </li>
+</ul>
+<h3 id="2-this-static"><a href="#2-this-static" class="headerlink" title="2. this static"></a>2. this static</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">publist clatt <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+    
+
+<span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">//示例变量 (引用.的方式访问)</span>
+publis <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>  <span class="token comment">// 编译报错</span>
+    <span class="token class-name">Test</span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>num<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li><p>方法的调用</p>
+<ul>
+<li><font color="red">引用</font>.方法   不带有<font color="red">static </font>的方法是通过引用的方式访问的,这个过程需要对象的参与 (student1.方法)</li>
+<li><font color="red">类名 </font>.方法  带有<font color="red">static </font>的方法是用过类名的方式访问的,这个执行过程中没有当前对象,自然也不存在this,类名可以省略</li>
+</ul>
+</li>
+<li><p>this不能使用在带有static 的方法中</p>
+</li>
+<li><p>this. 在区分示例变量和局部变量中不能省略</p>
+</li>
+<li><p>this可以使用在示例方法中,代表当前对象【语法格式：this.】</p>
+</li>
+<li><p>this可以使用在构造方法中，通过当前的构造方法调用其他构造方法【语法格式：thig（实参）】</p>
+</li>
+<li><p>this()这种语法只能出现在构造函数的第一行</p>
+</li>
 </ul>
 
                 
@@ -1097,7 +1128,7 @@ ab      # x本身<span class="token punctuation">,</span>不会因为上面的<s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49k</span>&nbsp;字&nbsp;|
+                class="white-color">50.2k</span>&nbsp;字&nbsp;|
             
             
             
