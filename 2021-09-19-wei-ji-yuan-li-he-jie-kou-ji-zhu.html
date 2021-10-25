@@ -516,21 +516,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-23
+                    2021-10-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
 
@@ -724,6 +724,32 @@ AF、SF、OF无意义
 <li><p>T4: 数据从数据总线上撤销</p>
 </li>
 </ul>
+<h3 id="4-8086的寻址方式和指令系统"><a href="#4-8086的寻址方式和指令系统" class="headerlink" title="4.8086的寻址方式和指令系统"></a>4.8086的寻址方式和指令系统</h3><ol>
+<li>已知:DS=1000H,BX=0200H,SI=02H,内存 10200H ~ 10205H单元的内容分别为10H,2AH,3CH46H,59H,6BH.下列每条指令执行完后AX寄存器的内容各是什么?</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 方法: (6): 0200+02+02=0204H  然后从内容 0-5 中数到下标第四个(也就是第五个数) 然后答案就是后面那个数加数到的那个数,即 6B59H</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token number">0200</span>H     <span class="token number">0200</span>H      <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">200</span>H<span class="token punctuation">]</span>       <span class="token number">2</span>A10H
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token class-name">BX</span>        <span class="token number">0200</span>H      <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">[</span>BX<span class="token punctuation">]</span>        <span class="token number">5946</span>H
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token punctuation">[</span>BX<span class="token operator">+</span>SI<span class="token punctuation">]</span>   <span class="token number">463</span>CH      <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">[</span>BX<span class="token operator">+</span>SI<span class="token punctuation">]</span>     <span class="token number">6</span>B59H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>设DS=1000H，ES=2000H，SS=3500H，SI-00A0H，DI-0024H，BX=0100H，BP=0200H，数据段中变量名为 VAL 的偏移地址值为 0030H，试说明下列源操作数字段的寻址方式是什么?物理地址值是多少?</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//方法: 有AX 直接用DS=1000H×16=10000H,再加上后面对应的值即可</span>
+<span class="token comment">//      有ES 直接用ES=2000H×16=20000H,再加上后面对应的值即可</span>
+<span class="token comment">//      有BP 直接用SS=3500H×16=35000H,再加上后面对应的值即可</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span><span class="token number">100</span>H<span class="token punctuation">]</span>      直接<span class="token punctuation">,</span><span class="token number">10100</span>H	    	    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>MOV AX，VAL             直接，<span class="token number">10030</span>H
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BX<span class="token punctuation">]</span>        寄存器间接<span class="token punctuation">,</span><span class="token number">10100</span>H		 <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>MOV AX，ES<span class="token operator">:</span><span class="token punctuation">[</span>BX<span class="token punctuation">]</span>         寄存器间接，<span class="token number">20100</span>H
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>SI         寄存器间接<span class="token punctuation">,</span><span class="token number">100</span>A0H        <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BX<span class="token operator">+</span><span class="token number">10</span>H<span class="token punctuation">]</span>        寄存器相对，<span class="token number">10110</span>H
+<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BP<span class="token punctuation">]</span>        寄存器间接<span class="token punctuation">,</span><span class="token number">35200</span>H        <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>MOV AX，VAL<span class="token punctuation">[</span>BP<span class="token operator">+</span>SI<span class="token punctuation">]</span>     相对基址变址，<span class="token number">352D</span><span class="token number">0</span>H
+<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>MOV AX，VAL<span class="token punctuation">[</span>BX<span class="token operator">+</span>DI<span class="token punctuation">]</span>  相对基址变址<span class="token punctuation">,</span><span class="token number">10154</span>H      <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BP<span class="token operator">+</span>DI<span class="token punctuation">]</span>        基址变址，<span class="token number">35224</span>H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
 
                 
             </div>
@@ -1206,7 +1232,7 @@ AF、SF、OF无意义
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">50.2k</span>&nbsp;字&nbsp;|
+                class="white-color">50.5k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1500,7 +1526,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1512,6 +1538,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
