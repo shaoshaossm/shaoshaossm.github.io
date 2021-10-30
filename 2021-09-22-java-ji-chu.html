@@ -523,7 +523,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.7k
                 </div>
                 
 
@@ -916,6 +916,31 @@ thread<span class="token punctuation">.</span><span class="token function">stop<
 thread<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 合并线程 thread合并到当前线程 ,当前线程受阻 thread线程直到结束</span>
 thread<span class="token punctuation">.</span><span class="token function">setDaemon</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//启动线程之前,将thread线程设置为守护线程</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p>获取java.lang.Class 实例的三种方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1.Class c1 =  Class.forName("完整类名加包名");</span>
+<span class="token class-name">Class</span> c1 <span class="token operator">=</span>  <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.String"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// c1 : String 类型</span>
+<span class="token comment">// 2. Class c1 =  对象.getClass()</span>
+<span class="token class-name">Class</span> x <span class="token operator">=</span> <span class="token string">"abc"</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// x : String 类型 == c1 </span>
+<span class="token comment">// 3. .Class 属性</span>
+<span class="token class-name">Class</span> v <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>资源绑定器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//只能绑定xxx.properties文件,这个文件必须在类路径下,文件扩展名必须是properties  后面的扩展名不能写</span>
+        <span class="token class-name">ResourceBundle</span> bundle <span class="token operator">=</span> <span class="token class-name">ResourceBundle</span><span class="token punctuation">.</span><span class="token function">getBundle</span><span class="token punctuation">(</span><span class="token string">"Example9/classinfo2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> classname <span class="token operator">=</span> bundle<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"className"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"> <span class="token comment">//通过反射机制,获取Class,通过Class来实例化对象</span>
+<span class="token class-name">Class</span> c <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"Example9.bean.User"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Object</span> obj <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       
+c<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//完整类名</span>
+c<span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 简单类名</span>
+c<span class="token punctuation">.</span><span class="token function">getFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//</span>
+c<span class="token punctuation">.</span><span class="token function">getDeclaredFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1399,7 +1424,7 @@ thread<span class="token punctuation">.</span><span class="token function">setDa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.5k</span>&nbsp;字&nbsp;|
+                class="white-color">52.7k</span>&nbsp;字&nbsp;|
             
             
             
