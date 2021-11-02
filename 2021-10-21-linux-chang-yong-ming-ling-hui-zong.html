@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -528,7 +528,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
@@ -814,6 +814,38 @@ root      3370  2822  0 16:21 pts&#x2F;0    00:00:00 grep vim
 
 <p> 查看进程端口号:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">netstat -tunlp|grep 端口号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a>9. 其他</h3><p>echo 文字内容</p>
+<ul>
+<li>echo 会在终端中显示参数指定的文字,通常会和重定向联合使用</li>
+</ul>
+<p>重定向 &gt; 和 &gt;&gt;</p>
+<ul>
+<li>Linux中允许将命令执行结果 重定向到一个文件</li>
+<li>将文本应显示在终端上的内容 删除/追加 到指定文件中<ul>
+<li>/  &gt;  表示输出,会覆盖文件中的内容</li>
+<li>/  &gt; &gt; 表示追加,会将内容追加到已有文件的末尾</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># / 转义一下</span>
+<span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a
+<span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>管道 |</p>
+<ul>
+<li>Linux中允许将一个命令的输出,可以通过管道作为另一个命令的输入</li>
+<li>常用的管道命令有<ul>
+<li>more : 分屏显示内容</li>
+<li>gerp : 在命令执行结果的基础上查询指定的文本</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># a 显示隐藏文件夹</span>
+<span class="token function">ls</span> -lha ~ <span class="token operator">|</span> <span class="token function">more</span>
+<span class="token function">ls</span> -lha ~ <span class="token operator">|</span> <span class="token function">grep</span> Vim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1297,7 +1329,7 @@ root      3370  2822  0 16:21 pts&#x2F;0    00:00:00 grep vim
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.2k</span>&nbsp;字&nbsp;|
+                class="white-color">53.4k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1591,7 +1623,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1603,6 +1635,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
