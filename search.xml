@@ -8,7 +8,7 @@
       <link href="/2021-11-02-python-ji-chu.html"/>
       <url>/2021-11-02-python-ji-chu.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 向控制台输出内容结束后,不换行</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token comment"># 自带换行</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>

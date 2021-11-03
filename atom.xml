@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-11-02T03:48:01.357Z</updated>
+  <updated>2021-11-03T06:33:50.685Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://shaoshaossm.github.io/2021-11-02-python-ji-chu.html"/>
     <id>https://shaoshaossm.github.io/2021-11-02-python-ji-chu.html</id>
     <published>2021-11-02T03:46:15.000Z</published>
-    <updated>2021-11-02T03:48:01.357Z</updated>
+    <updated>2021-11-03T06:33:50.685Z</updated>
     
+    <content type="html"><![CDATA[<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 向控制台输出内容结束后,不换行</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token comment"># 自带换行</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 向控制台输出内容结束后,不换行</summary>
+      
     
     
     
