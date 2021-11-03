@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    509
+                    690
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -565,7 +565,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <span class="token comment"># 变量长度</span>
 <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="高级变量类型"><a href="#高级变量类型" class="headerlink" title="高级变量类型"></a>高级变量类型</h4><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
+
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
 <li><code>List</code>（列表） 用 <code>[]</code> 定义，<strong>数据</strong> 之间使用 <code>,</code> 分隔 也叫作数组<strong>数组</strong></li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span> <span class="token string">"lisi"</span><span class="token punctuation">,</span> <span class="token string">"wangwu"</span><span class="token punctuation">]</span>
@@ -694,8 +695,45 @@ info<span class="token punctuation">.</span>count  info<span class="token punctu
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">len</span><span class="token punctuation">(</span>列表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><ul>
+<li><code>dictionary</code>（字典） 是 <strong>除列表以外</strong> <code>Python</code> 之中 <strong>最灵活</strong> 的数据类型</li>
+<li>和列表的区别<ul>
+<li><strong>列表</strong> 是 <strong>有序</strong> 的对象集合</li>
+<li><strong>字典</strong> 是 <strong>无序</strong> 的对象集合</li>
+</ul>
+</li>
+<li>字典使用 <strong>键值对</strong> 存储数据，键值对之间使用 <code>,</code> 分隔<ul>
+<li><strong>键</strong> <code>key</code> 是索引</li>
+<li><strong>值</strong> <code>value</code> 是数据</li>
+<li><strong>键</strong> 和 <strong>值</strong> 之间使用 <code>:</code> 分隔</li>
+<li><strong>键必须是唯一的</strong></li>
+<li><strong>值</strong> 可以取任何数据类型，但 <strong>键</strong> 只能使用 <strong>字符串</strong>、<strong>数字</strong>或 <strong>元组</strong></li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># API</span>
+In <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> xiaoming<span class="token punctuation">.</span>
+xiaoming<span class="token punctuation">.</span>clear       xiaoming<span class="token punctuation">.</span>items       xiaoming<span class="token punctuation">.</span>setdefault
+xiaoming<span class="token punctuation">.</span>copy        xiaoming<span class="token punctuation">.</span>keys        xiaoming<span class="token punctuation">.</span>update
+xiaoming<span class="token punctuation">.</span>fromkeys    xiaoming<span class="token punctuation">.</span>pop         xiaoming<span class="token punctuation">.</span>values
+xiaoming<span class="token punctuation">.</span>get         xiaoming<span class="token punctuation">.</span>popitem    
+<span class="token comment"># 字典的遍历</span>
+<span class="token keyword">for</span> k <span class="token keyword">in</span> xiaoming<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s - %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>k<span class="token punctuation">,</span> xiaoming<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>字典</li>
+<li>字典与列表组合使用</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">card <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"小胡"</span><span class="token punctuation">,</span>
+         <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"小张"</span><span class="token punctuation">,</span>
+         <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">19</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> ren <span class="token keyword">in</span> card<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>ren<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
 <li>字符串</li>
 <li>公共方法</li>
 <li>变量高级</li>
@@ -1183,7 +1221,7 @@ info<span class="token punctuation">.</span>count  info<span class="token punctu
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.3k</span>&nbsp;字&nbsp;|
+                class="white-color">58.5k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1477,7 +1515,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1489,6 +1527,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
