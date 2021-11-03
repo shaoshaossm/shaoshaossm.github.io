@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -528,7 +528,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    47
+                    509
                 </div>
                 
 
@@ -561,11 +561,77 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <h3 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 向控制台输出内容结束后,不换行</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
 <span class="token comment"># 自带换行</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token comment"># 变量长度</span>
+<span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="高级变量类型"><a href="#高级变量类型" class="headerlink" title="高级变量类型"></a>高级变量类型</h4><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
+<li><code>List</code>（列表） 用 <code>[]</code> 定义，<strong>数据</strong> 之间使用 <code>,</code> 分隔 也叫作数组<strong>数组</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">name_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span> <span class="token string">"lisi"</span><span class="token punctuation">,</span> <span class="token string">"wangwu"</span><span class="token punctuation">]</span>
+<span class="token comment"># API</span>
+In <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> name_list<span class="token punctuation">.</span>
+name_list<span class="token punctuation">.</span>append   name_list<span class="token punctuation">.</span>count    name_list<span class="token punctuation">.</span>insert   name_list<span class="token punctuation">.</span>reverse
+name_list<span class="token punctuation">.</span>clear    name_list<span class="token punctuation">.</span>extend   name_list<span class="token punctuation">.</span>pop      name_list<span class="token punctuation">.</span>sort
+name_list<span class="token punctuation">.</span>copy     name_list<span class="token punctuation">.</span>index    name_list<span class="token punctuation">.</span>remove <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>分类</th>
+<th>关键字 / 函数 / 方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>增加</td>
+<td>列表.insert(索引, 数据)</td>
+<td>在指定位置插入数据</td>
+</tr>
+</tbody></table>
+<p>|  |  | 列表.append(数据) | 在末尾追加数据<br>|  |  | 列表.extend(列表2) | 将列表2 的数据追加到列表 |<br>| 2 | 修改 | 列表[索引] = 数据 | 修改指定索引的数据 |<br>| 3 | 删除 | del 列表[索引] | 删除指定索引的数据 |<br>|  |  | 列表.remove[数据] | 删除第一个出现的指定数据 |<br>|  |  | 列表.pop | 删除末尾数据 |<br>|  |  | 列表.pop(索引) | 删除指定索引数据 |<br>|  |  | 列表.clear | 清空列表 |<br>| 4 | 统计 | len(列表) | 列表长度 |<br>|  |  | 列表.count(数据) | 数据在列表中出现的次数 |<br>| 5 | 排序 | 列表.sort() | 升序排序 |<br>|  |  | 列表.sort(reverse=True) | 降序排序 |<br>|  |  | 列表.reverse() | 逆序、反转 |</p>
+<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><ul>
+<li><code>Tuple</code>（元组）与列表类似，不同之处在于元组的 <strong>元素不能修改</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">info_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">1.75</span><span class="token punctuation">)</span>
+info_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 元组中 只包含一个元素时，需要在元素后面添加逗号</span>
+info_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token punctuation">)</span>  <span class="token comment"># 不加,类型为int</span>
+<span class="token comment"># API</span>
+info<span class="token punctuation">.</span>count  info<span class="token punctuation">.</span>index<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="元组和列表之间的转换"><a href="#元组和列表之间的转换" class="headerlink" title="元组和列表之间的转换"></a>元组和列表之间的转换</h4><ul>
+<li>使用 <code>list</code> 函数可以把元组转换成列表</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span><span class="token punctuation">(</span>元组<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>使用 <code>tuple</code> 函数可以把列表转换成元组</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">tuple</span><span class="token punctuation">(</span>列表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>使用<code>len</code>函数可以计算元组、列表等长度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">len</span><span class="token punctuation">(</span>列表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>字典</li>
+<li>字符串</li>
+<li>公共方法</li>
+<li>变量高级</li>
+</ul>
 <p>​    </p>
+<h3 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h3><h4 id="del关键字"><a href="#del关键字" class="headerlink" title="del关键字"></a>del关键字</h4><ul>
+<li><code>del</code> 关键字本质上是用来 <strong>将一个变量从内存中删除的</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">del</span> name_list<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>在日常开发中，要从列表删除数据，建议 <strong>使用列表提供的方法</strong></p>
+</blockquote>
 <h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
 <li>函数的文档注释 Ctrl + Q 在函数定义的下方写注释</li>
 </ul>
@@ -1040,7 +1106,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.9k</span>&nbsp;字&nbsp;|
+                class="white-color">58.3k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1334,7 +1400,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1346,6 +1412,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
