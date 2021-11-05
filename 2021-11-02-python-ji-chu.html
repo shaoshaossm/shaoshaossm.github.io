@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-04
+                    2021-11-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -1066,10 +1066,32 @@ xiaoming<span class="token punctuation">.</span>get         xiaoming<span class=
 <td>比较两个值，-1 小于/0 相等/1 大于</td>
 <td>Python 3.x 取消了 cmp 函数</td>
 </tr>
+<tr>
+<td>id(item)</td>
+<td>变量中保存数据所在的 <strong>内存地址</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>hash(item)</td>
+<td>经hash算法后返回一个整数</td>
+<td>接收一个不可变类型作为参数</td>
+</tr>
+<tr>
+<td>global(item)</td>
+<td>在函数中修改全局变量</td>
+<td></td>
+</tr>
 </tbody></table>
 <p><strong>注意</strong></p>
 <ul>
-<li><strong>字符串</strong> 比较符合以下规则： “0” &lt; “A” &lt; “a”</li>
+<li><p><strong>字符串</strong> 比较符合以下规则： “0” &lt; “A” &lt; “a”</p>
+</li>
+<li><p>如果变量已经被定义，当给一个变量赋值的时候，本质上是 <strong>修改了数据的引用</strong></p>
+<ul>
+<li>变量 <strong>不再</strong> 对之前的数据引用</li>
+<li>变量 <strong>改为</strong> 对新赋值的数据引用</li>
+</ul>
+</li>
 </ul>
 <h3 id="5-2-切片"><a href="#5-2-切片" class="headerlink" title="5.2 切片"></a>5.2 切片</h3><table>
 <thead>
@@ -1221,6 +1243,50 @@ find_name <span class="token operator">=</span> <span class="token string">"阿�
 <h3 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h3><ul>
 <li><code>pass</code> 表示一个占位符，能够保证程序代码结构正确，一般用在开发程序时，不希望立刻编写分支内部的代码 </li>
 </ul>
+<h3 id="LINUX-上的特殊符号"><a href="#LINUX-上的特殊符号" class="headerlink" title="LINUX 上的特殊符号"></a>LINUX 上的特殊符号</h3><ul>
+<li><code>Shebang</code> 符号(<code>#!</code>)</li>
+</ul>
+<ul>
+<li><code>#!</code>这个符号叫做 <code>Shebang</code> 或者 <code>Sha-bang</code></li>
+<li><code>Shebang</code> 通常在 <code>Unix</code> 系统脚本的中 <strong>第一行开头</strong> 使用</li>
+<li>指明 <strong>执行这个脚本文件</strong> 的 <strong>解释程序</strong></li>
+</ul>
+<h4 id="使用-Shebang-的步骤"><a href="#使用-Shebang-的步骤" class="headerlink" title="使用 Shebang 的步骤"></a>使用 Shebang 的步骤</h4><ul>
+<li><ol>
+<li>使用 <code>which</code> 查询 <code>python3</code> 解释器所在路径</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">which</span> python3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><ol start="2">
+<li>修改要运行的 <strong>主 python 文件</strong>，在第一行增加以下内容(文件路径)</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#! /usr/bin/python3  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><ol start="3">
+<li>修改 <strong>主 python 文件</strong> 的文件权限，增加执行权限</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> +x cards_main.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><ol start="4">
+<li>在需要时执行程序即可</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./cards_main.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
 <h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
 <li>函数的文档注释 Ctrl + Q 在函数定义的下方写注释</li>
 </ul>
@@ -1695,7 +1761,7 @@ find_name <span class="token operator">=</span> <span class="token string">"阿�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">61k</span>&nbsp;字&nbsp;|
+                class="white-color">61.2k</span>&nbsp;字&nbsp;|
             
             
             
