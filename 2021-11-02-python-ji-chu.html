@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-05
+                    2021-11-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -1235,7 +1235,57 @@ find_name <span class="token operator">=</span> <span class="token string">"阿�
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"循环结束"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>返回值如果有多个并需要单独处理变量的话,可以使用多个变量来接收</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">measure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a11 <span class="token operator">=</span> <span class="token number">1031</span>
+    a22 <span class="token operator">=</span> <span class="token number">11</span>
+    <span class="token keyword">return</span> a11<span class="token punctuation">,</span> a22
+s<span class="token punctuation">,</span> d <span class="token operator">=</span> measure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>measure<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>交换数字</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">6</span>
+b <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token comment"># 解法一</span>
+c <span class="token operator">=</span> a
+a <span class="token operator">=</span> b 
+b <span class="token operator">=</span> c
+<span class="token comment"># 解法二</span>
+a <span class="token operator">=</span> a <span class="token operator">+</span> b
+b <span class="token operator">=</span> a <span class="token operator">-</span> b
+a <span class="token operator">=</span> a <span class="token operator">-</span> b
+<span class="token comment"># 解法三 元祖()可以省略</span>
+a <span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">,</span> a<span class="token punctuation">)</span>
+a <span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>如果传递的参数是<strong>不可变类型</strong>,在函数内部,使用<font color="red">方法</font>修改了数据的内容,<strong>不会影响到外部的数据</strong></li>
+<li>如果传递的参数是<strong>可变类型</strong>,在函数内部,使用<font color="red">方法</font>修改了数据的内容,<strong>同样会影响到外部的数据</strong></li>
+<li>列表变量使用 += 不会做相加在赋值的操作,本质上是调用列表的 extend 方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">demo</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    num_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span>
+num_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+demo<span class="token punctuation">(</span>num_list<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span>
+<span class="token comment"># 运行结果</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>在参数后使用<strong>赋值语句</strong>,可以<strong>指定参数的缺省值</strong></li>
+<li>必须保证带有默认值的缺省参数在参数列表的<strong>末尾</strong></li>
+<li>在调用函数时,如果有<strong>多个缺省参数,需要指定参数名=</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">demo</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span>num_list <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -1761,7 +1811,7 @@ find_name <span class="token operator">=</span> <span class="token string">"阿�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">61.2k</span>&nbsp;字&nbsp;|
+                class="white-color">61.5k</span>&nbsp;字&nbsp;|
             
             
             
