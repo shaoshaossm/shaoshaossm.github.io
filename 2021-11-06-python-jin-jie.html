@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-10
+                    2021-11-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    674
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -623,6 +623,27 @@ lazy_cat <span class="token operator">=</span> Cat<span class="token punctuation
 <h4 id="私有属性和私有方法"><a href="#私有属性和私有方法" class="headerlink" title="私有属性和私有方法"></a>私有属性和私有方法</h4><ul>
 <li>在定义方法和属性时,在属性名或者方法名前增加<strong>两个下划线</strong>,定义的就是<strong>私有</strong>属性或方法</li>
 </ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">self<span class="token punctuation">.</span>__age <span class="token operator">=</span> <span class="token number">18</span>
+<span class="token keyword">def</span> <span class="token function">__scret</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="类方法和静态方法"><a href="#类方法和静态方法" class="headerlink" title="类方法和静态方法"></a>类方法和静态方法</h4><ul>
+<li>类方法就是针对<strong>类对象</strong>定义的方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 类方法</span>
+<span class="token decorator annotation punctuation">@classmethod</span>
+<span class="token keyword">def</span> 方法名<span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+<span class="token comment"># 静态方法</span>
+<span class="token decorator annotation punctuation">@staticmethod</span>
+<span class="token keyword">def</span> 静态方法名<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><ul>
 <li>方法写在类中就是封装</li>
 </ul>
@@ -654,15 +675,19 @@ table <span class="token operator">=</span> HouseItem<span class="token punctuat
 
 
 
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
+<h3 id="继承-and-多继承"><a href="#继承-and-多继承" class="headerlink" title="继承 and 多继承"></a>继承 and 多继承</h3><ul>
 <li>当<strong>父类</strong>方法不能满足子类需求时,可以对方法进行<strong>重写(override)</strong><ul>
 <li>覆盖父类的方法</li>
 <li>对父类方法进行扩展</li>
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> 类名<span class="token punctuation">(</span>父类名<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 单继承</span>
+<span class="token keyword">class</span> 类名<span class="token punctuation">(</span>父类名<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token comment"># 多继承</span>
+<span class="token keyword">class</span> 类名<span class="token punctuation">(</span>父类名<span class="token punctuation">,</span>父类名<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p>对父类方法进行扩展</p>
@@ -681,7 +706,99 @@ table <span class="token operator">=</span> HouseItem<span class="token punctuat
 <li><p><strong>子类对象</strong>可以通过父类的<strong>公有</strong>方法<strong>间接</strong>访问**私有属性或私有方法 **</p>
 </li>
 </ul>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><ul>
+<li>在程序执行时，传入不同的<strong>狗对象</strong>实参，就会产生不同的执行效果</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
 
+    <span class="token keyword">def</span> <span class="token function">game</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s 蹦跳玩"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">XiaoTianDog</span><span class="token punctuation">(</span>Dog<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">game</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s 边飞边蹦跳玩"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+
+    <span class="token keyword">def</span> <span class="token function">game_width_dog</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dog<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s 与 %s 一起玩耍"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> dog<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        dog<span class="token punctuation">.</span>game<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+xiaoming <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"小明"</span><span class="token punctuation">)</span>
+xiaotianquan <span class="token operator">=</span> XiaoTianDog<span class="token punctuation">(</span><span class="token string">"哮天犬"</span><span class="token punctuation">)</span>
+xiaoming<span class="token punctuation">.</span>game_width_dog<span class="token punctuation">(</span>xiaotianquan<span class="token punctuation">)</span>
+wangcai <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token string">"旺财"</span><span class="token punctuation">)</span>
+xiaoming<span class="token punctuation">.</span>game_width_dog<span class="token punctuation">(</span>wangcai<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">小明 与 哮天犬 一起玩耍
+哮天犬 边飞边蹦跳玩
+小明 与 旺财 一起玩耍
+旺财 蹦跳玩<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><ul>
+<li>设计模式<ul>
+<li>设计模式是针对<strong>某一特定问题</strong>的成熟的解决方案</li>
+<li>使用设计模式是为了可重用代码、让代码更容易被人理解、保证代码的可读性</li>
+</ul>
+</li>
+<li>单例设计模式<ul>
+<li>目的–让类创建的对象,在系统中<strong>只有唯一的一个实例</strong></li>
+<li>每一次执行<code>类名()</code>返回的对象、<strong>内存地址是相同的</strong></li>
+</ul>
+</li>
+<li>应用场景:<ul>
+<li> <strong>音乐播放</strong> 对象</li>
+<li> <strong>回收站</strong> 对象</li>
+<li> **打印机 **对象</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>重写new方法的代码非常固定</p>
+</blockquote>
+<ul>
+<li><p>重写 <code>__new__</code>方法一定要<code>return super().__new__(cls)</code></p>
+</li>
+<li><p><code>__new__</code>是一个静态方法,在调用时需要主动传递<code>cls</code>参数</p>
+</li>
+</ul>
+<p>案例演示</p>
+<ul>
+<li>只执行一次初始化</li>
+<li>内存地址是唯一的</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MusicPlayer</span><span class="token punctuation">:</span>
+    instance <span class="token operator">=</span> <span class="token boolean">None</span>
+    init_flag <span class="token operator">=</span> <span class="token boolean">False</span>
+
+    <span class="token keyword">def</span> <span class="token function">__new__</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> cls<span class="token punctuation">.</span>instance <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            cls<span class="token punctuation">.</span>instance <span class="token operator">=</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>cls<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cls<span class="token punctuation">.</span>instance
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> MusicPlayer<span class="token punctuation">.</span>init_flag<span class="token punctuation">:</span>
+            <span class="token keyword">return</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"初始化播放器"</span><span class="token punctuation">)</span>
+        MusicPlayer<span class="token punctuation">.</span>init_flag <span class="token operator">=</span> <span class="token boolean">True</span>
+
+
+player1 <span class="token operator">=</span> MusicPlayer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>player1<span class="token punctuation">)</span>
+player2 <span class="token operator">=</span> MusicPlayer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>player2<span class="token punctuation">)</span>
+<span class="token comment"># 运行结果</span>
+初始化播放器
+<span class="token operator">&lt;</span>__main__<span class="token punctuation">.</span>MusicPlayer <span class="token builtin">object</span> at <span class="token number">0x0000017824D39A20</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>__main__<span class="token punctuation">.</span>MusicPlayer <span class="token builtin">object</span> at <span class="token number">0x0000017824D39A20</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3>
                 
             </div>
             <hr/>
@@ -1165,7 +1282,7 @@ table <span class="token operator">=</span> HouseItem<span class="token punctuat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.7k</span>&nbsp;字&nbsp;|
+                class="white-color">58.1k</span>&nbsp;字&nbsp;|
             
             
             
