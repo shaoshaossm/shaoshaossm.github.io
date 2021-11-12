@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -798,7 +798,89 @@ player2 <span class="token operator">=</span> MusicPlayer<span class="token punc
 <span class="token operator">&lt;</span>__main__<span class="token punctuation">.</span>MusicPlayer <span class="token builtin">object</span> at <span class="token number">0x0000017824D39A20</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>__main__<span class="token punctuation">.</span>MusicPlayer <span class="token builtin">object</span> at <span class="token number">0x0000017824D39A20</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
+<li><strong>简单捕获异常</strong>语法格式</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    尝试执行的代码
+<span class="token keyword">except</span><span class="token punctuation">:</span>
+    出现错误的处理<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>错误类型捕获</strong>语法格式</li>
+<li>当<code>python</code>解释器<strong>抛出异常</strong>时,<strong>最后一行</strong>错误信息的<strong>第一个单词</strong>,就是错误类型</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">except</span> 错误类型<span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">except</span> <span class="token punctuation">(</span>错误类型<span class="token number">2</span><span class="token punctuation">,</span>错误类型<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token comment"># 捕获未知错误</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> result<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未知错误 %s"</span> <span class="token operator">%</span> result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>异常捕获完整</strong>语法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">except</span> 错误类型<span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">except</span> <span class="token punctuation">(</span>错误类型<span class="token number">2</span><span class="token punctuation">,</span>错误类型<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> result<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未知错误 %s"</span> <span class="token operator">%</span> result<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token comment"># 没有异常才会执行的代码</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+    <span class="token comment"># 必定执行的代码</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>异常传递性</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">demo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入一个整数"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">demo2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    demo1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>demo2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> result<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<ul>
+<li>再开发中，可以在主函数中增加<strong>异常捕获</strong></li>
+<li>在主函数中调用其他函数,只要出现异常,都会传递到主函数的<strong>异常捕获</strong>中</li>
+<li>这样不需要再代码中增加大量的<strong>异常捕获</strong>,保证代码的整洁行.</li>
+</ul>
+</blockquote>
+<ul>
+<li>主动抛出<code>raise</code>异常</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">input_password</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    pwd <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入密码"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>pwd<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">8</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> pwd
+    ex <span class="token operator">=</span> Exception<span class="token punctuation">(</span><span class="token string">"密码长度不够"</span><span class="token punctuation">)</span>
+    <span class="token keyword">raise</span> ex
+
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>input_password<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> result<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -1282,7 +1364,7 @@ player2 <span class="token operator">=</span> MusicPlayer<span class="token punc
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.1k</span>&nbsp;字&nbsp;|
+                class="white-color">58.5k</span>&nbsp;字&nbsp;|
             
             
             
