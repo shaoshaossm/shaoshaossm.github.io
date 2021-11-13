@@ -528,7 +528,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -1091,9 +1091,10 @@ text <span class="token operator">=</span> <span class="token builtin">file</spa
 </tbody></table>
 <ul>
 <li>写入文件示例</li>
+<li>若文件中有中文需加入<code>encoding=&#39;utf-8&#39;</code></li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 打开文件</span>
-f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"README"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"README"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
 
 f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"hello python！\n"</span><span class="token punctuation">)</span>
 f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"今天天气真好"</span><span class="token punctuation">)</span>
@@ -1164,7 +1165,10 @@ file_read<span class="token punctuation">.</span>close<span class="token punctua
 file_write<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="文件-目录操作"><a href="#文件-目录操作" class="headerlink" title="文件/目录操作"></a>文件/目录操作</h3><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><table>
+<h3 id="文件-目录操作"><a href="#文件-目录操作" class="headerlink" title="文件/目录操作"></a>文件/目录操作</h3><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入前提</span>
+<span class="token keyword">import</span> os<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<table>
 <thead>
 <tr>
 <th>序号</th>
@@ -1235,6 +1239,10 @@ file_write<span class="token punctuation">.</span>close<span class="token punctu
 <blockquote>
 <p>提示：文件或者目录操作都支持 <strong>相对路径</strong> 和 <strong>绝对路径</strong></p>
 </blockquote>
+<p><code>eva()</code> : 将<strong>字符串</strong>当成<strong>有效的表达式</strong>来求值，并<strong>返回计算结果</strong> </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">input_str <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入算术题："</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">eval</span><span class="token punctuation">(</span>input_str<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1719,7 +1727,7 @@ file_write<span class="token punctuation">.</span>close<span class="token punctu
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">60.1k</span>&nbsp;字&nbsp;|
+                class="white-color">60.2k</span>&nbsp;字&nbsp;|
             
             
             
