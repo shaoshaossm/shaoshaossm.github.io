@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-11-14T04:17:46.773Z</updated>
+  <updated>2021-11-14T08:34:19.504Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://shaoshaossm.github.io/2021-11-14-python-pa-chong.html"/>
     <id>https://shaoshaossm.github.io/2021-11-14-python-pa-chong.html</id>
     <published>2021-11-14T04:15:51.000Z</published>
-    <updated>2021-11-14T04:17:46.773Z</updated>
+    <updated>2021-11-14T08:34:19.504Z</updated>
     
+    <content type="html"><![CDATA[<h3 id="爬虫基础简介"><a href="#爬虫基础简介" class="headerlink" title="爬虫基础简介"></a>爬虫基础简介</h3><h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><ul><li>概念: 服务器和客户端进行数据交互的一种形式</li><li><code>user-Agent</code>: 请求载体的身份表示</li><li>Connection : 请求完毕后,是断开连接还是保持连接 </li><li><code>Content-Type</code> : 服务器相应客户端的数据类型 </li></ul><pre class="line-numbers language-http" data-language="http"><code class="language-http"># user-Agent ( NetWork-All-Headers )Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h4><ul><li>概念: 安全的超文本数据传输协议</li><li>普遍采用的加密方式 : 证书密钥加密</li></ul><h3 id="request模块"><a href="#request模块" class="headerlink" title="request模块"></a>request模块</h3><ul><li>作用：模拟浏览器发送请求</li><li>request模块编码流程<ul><li>指定url</li><li>发起请求</li><li>获取响应数据</li><li>持久化存储</li></ul></li></ul><p>爬取<code>https://shaoshaossm.github.io/</code> 首页数据</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>    url <span class="token operator">=</span> <span class="token string">"https://shaoshaossm.github.io/"</span>    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>    page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text    <span class="token keyword">print</span><span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./ssm.html'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>        fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"爬取结束"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;爬虫基础简介&quot;&gt;&lt;a href=&quot;#爬虫基础简介&quot; class=&quot;headerlink&quot; title=&quot;爬虫基础简介&quot;&gt;&lt;/a&gt;爬虫基础简介&lt;/h3&gt;&lt;h3 id=&quot;http协议&quot;&gt;&lt;a href=&quot;#http协议&quot; class=&quot;headerlink&quot; titl</summary>
+      
     
     
     
