@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-11-16T09:07:17.996Z</updated>
+  <updated>2021-11-16T14:55:47.357Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shaoshaossm.github.io/2021-11-16-python-pa-chong-wen-ti-he-ji.html"/>
     <id>https://shaoshaossm.github.io/2021-11-16-python-pa-chong-wen-ti-he-ji.html</id>
     <published>2021-11-16T08:57:33.000Z</published>
-    <updated>2021-11-16T09:07:17.996Z</updated>
+    <updated>2021-11-16T14:55:47.357Z</updated>
     
     <content type="html"><![CDATA[<ul><li>解决python爬虫<code>requests.exceptions.SSLError: HTTPSConnectionPool(host=&#39;XXX&#39;, port=443)</code>问题</li></ul><ol><li>安装<code>cryptography</code>、<code>pyOpenSSL</code>、<code>certifi</code>三个模块即可</li></ol><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> cryptographypip <span class="token function">install</span> pyOpenSSLpip <span class="token function">install</span> certifi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><ul><li>requests库提示警告：<code>InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate ver</code></li></ul><ol><li>加入如下代码即可</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python">requests<span class="token punctuation">.</span>packages<span class="token punctuation">.</span>urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
     
