@@ -33,7 +33,7 @@
       <link href="/2021-11-16-pa-chong-chang-yong-zheng-ze-biao-da-shi.html"/>
       <url>/2021-11-16-pa-chong-chang-yong-zheng-ze-biao-da-shi.html</url>
       
-        <content type="html"><![CDATA[<ul><li>单字符<ul><li><code>.</code> : 除换行以外所有字符</li><li><code>[]</code> : [aoe] [a-w] 匹配集合中任意一个字符</li><li><code>\D</code> : 数字 [0-9]</li><li><code>\w</code> : 数字、字母、下划线、中文</li><li><code>\W</code> : 非<code>\w</code> </li><li><code>\s</code> : 所有的空白字符,包括空格、制表符、换页符等,等价于<code>\f\n\r\t\v</code></li><li><code>\S</code> : 非空白   </li></ul></li><li>数量修饰<ul><li><code>*</code> : 任意多次   &gt;=0</li><li><code>+</code>: 至少一次    &gt;=1</li><li><code>?</code> : 可有可无   0次或一次</li><li><code>&#123;m&#125;</code> : 固定m次   hello{3,}</li><li><code>&#123;m,&#125;</code> : 至少m次</li><li><code>&#123;m,n&#125;</code> : m-n次</li></ul></li><li>边界<ul><li><code>$</code> : 以某某结尾</li><li><code>^</code> : 以某某开头</li></ul></li><li>分组<ul><li>(ab)</li></ul></li><li>贪婪模式 : .*</li><li>非贪婪(惰性)模式 : .*?</li><li>re.I : 忽略大小写</li><li>re.M : 多行匹配</li><li>re.S ; 但行匹配</li><li>re.sub (正则表达式,替换内容,字符串)</li></ul><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<ul><li>单字符<ul><li><code>.</code> : 除换行以外所有字符</li><li><code>[]</code> : [aoe] [a-w] 匹配集合中任意一个字符</li><li><code>\D</code> : 数字 [0-9]</li><li><code>\w</code> : 数字、字母、下划线、中文</li><li><code>\W</code> : 非<code>\w</code> </li><li><code>\s</code> : 所有的空白字符,包括空格、制表符、换页符等,等价于<code>\f\n\r\t\v</code></li><li><code>\S</code> : 非空白   </li></ul></li><li>数量修饰<ul><li><code>*</code> : 任意多次   &gt;=0</li><li><code>+</code>: 至少一次    &gt;=1</li><li><code>?</code> : 可有可无   0次或一次</li><li><code>&#123;m&#125;</code> : 固定m次   hello{3,}</li><li><code>&#123;m,&#125;</code> : 至少m次</li><li><code>&#123;m,n&#125;</code> : m-n次</li></ul></li><li>边界<ul><li><code>$</code> : 以某某结尾</li><li><code>^</code> : 以某某开头</li></ul></li><li>分组<ul><li><code>(ab)</code></li></ul></li><li>贪婪模式 : <code>.*</code></li><li>非贪婪(惰性)模式 :<code> .*?</code></li><li><code>re.I</code> : 忽略大小写</li><li><code>re.M</code> : 多行匹配</li><li><code>re.S</code> : 但行匹配</li><li><code>re.sub</code> : (正则表达式,替换内容,字符串)</li></ul><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
       
       
       <categories>
@@ -54,7 +54,7 @@
     
     
     <entry>
-      <title>Python爬虫基础</title>
+      <title>Python爬虫基础基础</title>
       <link href="/2021-11-14-python-pa-chong.html"/>
       <url>/2021-11-14-python-pa-chong.html</url>
       
