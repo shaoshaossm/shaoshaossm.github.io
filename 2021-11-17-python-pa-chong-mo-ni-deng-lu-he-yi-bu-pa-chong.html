@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-17
+                    2021-11-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -558,7 +558,193 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="模拟登陆"><a href="#模拟登陆" class="headerlink" title="模拟登陆"></a>模拟登陆</h3><ul>
+<li>使用<strong>超级鹰</strong>平台识别验证码的编码流程:<ul>
+<li>将验证码图片进行本地下载</li>
+<li>调用平台提供的示例代码进行图片数据识别</li>
+</ul>
+</li>
+</ul>
+<p>有<strong>验证码</strong>,验证码可以读取到但测试未成功</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 验证码</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+
+<span class="token keyword">import</span> chaojiying
+
+<span class="token comment"># 封装识别验证码函数</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'</span>
+    <span class="token punctuation">&#125;</span>
+    url <span class="token operator">=</span> <span class="token string">"https://so.gushiwen.cn/user/login.aspx?from=http://so.gushiwen.cn/user/collect.aspx"</span>
+    page_text <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    tree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+    code_img_src <span class="token operator">=</span> <span class="token string">'https://so.gushiwen.cn/'</span> <span class="token operator">+</span> tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//*[@id="imgCode"]/@src'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>code_img_src<span class="token punctuation">)</span>
+    code_img_data <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>code_img_src<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>content
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./code.jpg'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+        fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>code_img_data<span class="token punctuation">)</span>
+    chaojiying <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'19858165529'</span><span class="token punctuation">,</span> <span class="token string">'hxl158120'</span><span class="token punctuation">,</span> <span class="token string">'925040'</span><span class="token punctuation">)</span>  <span class="token comment"># 用户中心>>软件ID 生成一个替换 96001</span>
+    im <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./code.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 本地图片文件路径 来替换 a.jpg 有时WIN系统须要//</span>
+    code <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>PostPic<span class="token punctuation">(</span>im<span class="token punctuation">,</span> <span class="token number">1004</span><span class="token punctuation">)</span>
+    code_img <span class="token operator">=</span> code<span class="token punctuation">[</span><span class="token string">'pic_str'</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>code_img<span class="token punctuation">)</span>  <span class="token comment"># 1902 验证码类型  官方网站>>价格体系 3.4+版 print 后要加()</span>
+    <span class="token comment"># 模拟登陆</span>
+    login_url <span class="token operator">=</span> <span class="token string">"https://so.gushiwen.cn/user/login.aspx?"</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'from'</span><span class="token punctuation">:</span> <span class="token string">'http://so.gushiwen.cn/user/collect.aspx'</span><span class="token punctuation">,</span>
+        <span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token string">'pwd'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token string">'code'</span><span class="token punctuation">:</span> code_img<span class="token punctuation">,</span>
+        <span class="token string">'denglu'</span><span class="token punctuation">:</span> <span class="token string">'登录'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>login_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+    login_page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'changyan.html'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+        fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>login_page_text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>cookie</code> : 用来让服务端记录客户端的相关状态</li>
+<li>自动处理: <ul>
+<li><code>cookie</code>来源于模拟登陆请求后,由服务端创建</li>
+<li><code>session</code>会话对象:<ul>
+<li>进行请求的发送</li>
+<li>如果请求中产生了<code>cookie</code>,则由<code>cookie</code>会被自动存储/携带在<code>session</code>对象中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>无<strong>验证码</strong>,模拟登陆并获取用户数据 测试成功</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 模拟登陆无验证码</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'</span>
+    <span class="token punctuation">&#125;</span>
+    session <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> <span class="token string">"https://work.shopeebao1688.com/login.html"</span>
+    page_text <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    tree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+    login_url <span class="token operator">=</span> <span class="token string">"https://work.shopeebao1688.com/index/Login/doLogin?username=13668567749&amp;password=yangbiao2021"</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'username'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token string">'password'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+    <span class="token punctuation">&#125;</span>
+    response <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>login_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+    login_page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+    detail_url <span class="token operator">=</span> <span class="token string">"https://work.shopeebao1688.com/main"</span>
+    <span class="token comment"># 使用携带cookie 的session 进行get请求的发送</span>
+    detail_page_text <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>detail_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'xiabao.html'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+        fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>detail_page_text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><ul>
+<li><p>带路服务器</p>
+</li>
+<li><p>代理的作用:</p>
+<ul>
+<li>突破自身访问限制</li>
+<li>隐藏自身真实IP</li>
+</ul>
+</li>
+<li><p>代理相关网站</p>
+<ul>
+<li>快代理</li>
+</ul>
+</li>
+<li><p>代理<code>ip</code>类型</p>
+<ul>
+<li><code>http</code>:应用到http协议对应的url中</li>
+<li><code>https</code>:应用到http协议对应的url中 </li>
+</ul>
+</li>
+<li><p>代理<code>ip</code>的匿名度</p>
+<ul>
+<li>透明：服务器知道该次请求使用了代理，也知道请求对应的真实ip</li>
+<li>匿名：知道使用了代理，但不知道真实ip</li>
+<li>高匿：不知道使用了代理，跟不知道真实的ip</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 代理服务器  未成功（可能是没找到https的服务器）</span>
+<span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">"https://www.baidu.com/s?ie=UTF-8&amp;wd=ip"</span>
+headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'</span>
+<span class="token punctuation">&#125;</span>
+page_text <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> proxies<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">"HTTP"</span><span class="token punctuation">:</span> <span class="token string">'39.99.149.148'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'ip2.html'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+    fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="异步爬虫之线程池"><a href="#异步爬虫之线程池" class="headerlink" title="异步爬虫之线程池"></a>异步爬虫之线程池</h3><ul>
+<li>线程池处理的是阻塞且耗时的操作</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 爬取梨视频</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+<span class="token keyword">from</span> multiprocessing<span class="token punctuation">.</span>dummy <span class="token keyword">import</span> Pool
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'</span>
+    <span class="token punctuation">&#125;</span>
+    url <span class="token operator">=</span> <span class="token string">"https://www.pearvideo.com/category_10"</span>
+
+    page_text <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    tree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+    li_list <span class="token operator">=</span> tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//ul[@id="listvideoListUl"]/li'</span><span class="token punctuation">)</span>
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token comment"># 所有视频的连接</span>
+    <span class="token keyword">for</span> li <span class="token keyword">in</span> li_list<span class="token punctuation">:</span>
+        detail_url <span class="token operator">=</span> <span class="token string">'https://www.pearvideo.com/'</span> <span class="token operator">+</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./div/a/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        href <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./div/a/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        name <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./div/a/div[2]/text()'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'.mp4'</span>
+        video_id <span class="token operator">=</span> detail_url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'</span>
+            <span class="token punctuation">,</span> <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://www.pearvideo.com/'</span> <span class="token operator">+</span> href
+        <span class="token punctuation">&#125;</span>
+        video_href <span class="token operator">=</span> <span class="token string">'https://www.pearvideo.com/videoStatus.jsp?contId='</span> <span class="token operator">+</span> video_id
+        video_url <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>video_href<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        video <span class="token operator">=</span> video_url<span class="token punctuation">[</span><span class="token string">"videoInfo"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"videos"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"srcUrl"</span><span class="token punctuation">]</span>
+        video <span class="token operator">=</span> video<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>video<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'cont-%s'</span> <span class="token operator">%</span> video_id<span class="token punctuation">)</span>
+        dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">'name'</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
+            <span class="token string">'url'</span><span class="token punctuation">:</span> video
+        <span class="token punctuation">&#125;</span>
+
+        urls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>dic<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>urls<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_video_data</span><span class="token punctuation">(</span>dic<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        url <span class="token operator">=</span> dic<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>dic<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'正在下载。。。'</span><span class="token punctuation">)</span>
+        data <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>content
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>dic<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+            fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>dic<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'下载成功'</span><span class="token punctuation">)</span>
+
+
+    <span class="token comment"># 使用线程池对视频数据进行请求</span>
+    pool <span class="token operator">=</span> Pool<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>get_video_data<span class="token punctuation">,</span> urls<span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1042,7 +1228,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">62.4k</span>&nbsp;字&nbsp;|
+                class="white-color">63.5k</span>&nbsp;字&nbsp;|
             
             
             
