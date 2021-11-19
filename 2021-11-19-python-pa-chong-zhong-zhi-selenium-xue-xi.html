@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    195
+                    586
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -583,8 +583,7 @@ chrome://version/<span aria-hidden="true" class="line-numbers-rows"><span></span
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
 bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>案例演示</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<h4 id="案例演示1-："><a href="#案例演示1-：" class="headerlink" title="案例演示1.："></a>案例演示1.：</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
 <span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
 <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
 bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span>
@@ -600,7 +599,95 @@ li_list <span class="token operator">=</span> tree<span class="token punctuation
 sleep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
 bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="案例演示2-："><a href="#案例演示2-：" class="headerlink" title="案例演示2.："></a>案例演示2.：</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
 
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://lol.qq.com/main.shtml'</span><span class="token punctuation">)</span>
+<span class="token comment"># 获取浏览器当前页面的页面源码数据</span>
+bro<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">'window.scrollTo(0,document.body.scrollHeight)'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+search_btn<span class="token operator">=</span>bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span><span class="token string">'J_headSearchBtn'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># search_btn = bro.find_element_by_id('J_headSearchBtn')</span>
+search_btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+search_input <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'J_hoverSearchInput'</span><span class="token punctuation">)</span>
+search_input<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'无限火力'</span><span class="token punctuation">)</span>
+btn <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'J_hoverSearchBtn'</span><span class="token punctuation">)</span>
+btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.4399.com'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+bro<span class="token punctuation">.</span>back<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="案例演示3"><a href="#案例演示3" class="headerlink" title="案例演示3.:"></a>案例演示3.:</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> ActionChains
+
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span>
+
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'</span><span class="token punctuation">)</span>
+<span class="token comment"># 如果定位的标签在iframe标签中，需如下操作</span>
+bro<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token string">'iframeResult'</span><span class="token punctuation">)</span>  <span class="token comment"># 切换浏览器标签的作用域</span>
+div <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'draggable'</span><span class="token punctuation">)</span>
+<span class="token comment"># 动作链</span>
+action <span class="token operator">=</span> ActionChains<span class="token punctuation">(</span>bro<span class="token punctuation">)</span>
+<span class="token comment"># 点击长按指定的标签</span>
+action<span class="token punctuation">.</span>click_and_hold<span class="token punctuation">(</span>div<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># (x,y) x: 水平 y： 竖直</span>
+    action<span class="token punctuation">.</span>move_by_offset<span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span>
+<span class="token comment"># 释放动作链</span>
+action<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><h4 id="qq空间自动登录签到"><a href="#qq空间自动登录签到" class="headerlink" title="qq空间自动登录签到"></a>qq空间自动登录签到</h4></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> ActionChains
+
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span>
+
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://qzone.qq.com/'</span><span class="token punctuation">)</span>
+<span class="token comment"># 如果定位的标签在iframe标签中，需如下操作</span>
+bro<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token string">'login_frame'</span><span class="token punctuation">)</span>  <span class="token comment"># 切换浏览器标签的作用域</span>
+
+a_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'switcher_plogin'</span><span class="token punctuation">)</span>
+a_tag<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+username_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'u'</span><span class="token punctuation">)</span>
+password_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'p'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+username_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'1600767556'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+password_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'hxl15135974863'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+btn <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'login_button'</span><span class="token punctuation">)</span>
+btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+qiandao <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'checkin_button'</span><span class="token punctuation">)</span>
+qiandao<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token string">'checkin_likeTipsFrame'</span><span class="token punctuation">)</span>
+
+qiandao_img <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME<span class="token punctuation">,</span> <span class="token string">'detail-box'</span><span class="token punctuation">)</span>
+qiandao_img<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fabu <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME<span class="token punctuation">,</span> <span class="token string">'btn-submit'</span><span class="token punctuation">)</span>
+fabu<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Google-无头浏览器"><a href="#Google-无头浏览器" class="headerlink" title="Google 无头浏览器"></a>Google 无头浏览器</h4>
                 
             </div>
             <hr/>
@@ -1084,7 +1171,7 @@ bro<span class="token punctuation">.</span>quit<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">64.4k</span>&nbsp;字&nbsp;|
+                class="white-color">64.8k</span>&nbsp;字&nbsp;|
             
             
             
