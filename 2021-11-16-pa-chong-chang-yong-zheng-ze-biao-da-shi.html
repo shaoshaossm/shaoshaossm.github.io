@@ -521,14 +521,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-17
+                    2021-11-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    182
+                    305
                 </div>
                 
 
@@ -594,7 +594,28 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <li><code>re.S</code> : 但行匹配</li>
 <li><code>re.sub</code> : (正则表达式,替换内容,字符串)</li>
 </ul>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import re
+
+key &#x3D; &quot;javapython1myslqpython1&quot;
+
+print(re.findall(&#39;python1&#39;, key)[1])
+
+key &#x3D; &quot;&lt;html&gt;&lt;h1&gt;hello world&lt;h1&gt;&lt;&#x2F;html&gt;&quot;
+print(re.findall(&#39;&lt;h1&gt;(.*)&lt;h1&gt;&#39;, key))
+
+string &#x3D; &quot;I like 170 girl&quot;
+print(re.findall(&#39;\d&#39;, string))
+
+key &#x3D; &quot;http:&#x2F;&#x2F;www.baidu.com and https:&#x2F;&#x2F;www.shaoshaossm.github.io&quot;
+print(re.findall(&#39;https:&#x2F;&#x2F;&#39;, key))
+
+key &#x3D; &#39;am@shao.com&#39;
+print(re.findall(&#39;s.*?\.&#39;, key))
+
+key &#x3D; &#39;saas and asa and saaas&#39;
+print(re.findall(&#39;sa&#123;1,2&#125;s&#39;,key))
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1078,7 +1099,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.5k</span>&nbsp;字&nbsp;|
+                class="white-color">64.4k</span>&nbsp;字&nbsp;|
             
             
             
