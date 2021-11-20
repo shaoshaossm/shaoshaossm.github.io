@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-19
+                    2021-11-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    584
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -687,7 +687,111 @@ sleep<span class="token punctuation">(</span><span class="token number">10</span
 bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="Google-无头浏览器"><a href="#Google-无头浏览器" class="headerlink" title="Google 无头浏览器"></a>Google 无头浏览器</h4>
+<ul>
+<li><h4 id="验证码识别并自动登录"><a href="#验证码识别并自动登录" class="headerlink" title="验证码识别并自动登录"></a>验证码识别并自动登录</h4></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 验证码模拟登陆</span>
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> chaojiying
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'./chromedriver'</span><span class="token punctuation">)</span>
+    bro<span class="token punctuation">.</span>maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://changyan.kuaizhan.com/"</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># tanchuangguanbi = bro.find_element(By.CLASS_NAME, ' icon-raw-error ')</span>
+    tanchuangguanbi <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'icon-raw-error '</span><span class="token punctuation">)</span>
+    tanchuangguanbi<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    btn <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'c-button'</span><span class="token punctuation">)</span>
+    btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    bro<span class="token punctuation">.</span>save_screenshot<span class="token punctuation">(</span><span class="token string">'aa.png'</span><span class="token punctuation">)</span>
+    code_img_ele <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'//*[@id="vcode-img"]'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 获取验证码</span>
+    <span class="token comment"># 验证码左上角坐标x，y</span>
+    location <span class="token operator">=</span> code_img_ele<span class="token punctuation">.</span>location
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'location: '</span><span class="token punctuation">,</span> location<span class="token punctuation">)</span>
+    <span class="token comment"># 验证码对应的长宽</span>
+    size <span class="token operator">=</span> code_img_ele<span class="token punctuation">.</span>size
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'size'</span><span class="token punctuation">,</span> size<span class="token punctuation">)</span>
+    rangle <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token builtin">int</span><span class="token punctuation">(</span>location<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.25</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">(</span>location<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.25</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span>location<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> size<span class="token punctuation">[</span><span class="token string">'width'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.25</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span>location<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> size<span class="token punctuation">[</span><span class="token string">'height'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.25</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>rangle<span class="token punctuation">)</span>
+    i <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./aa.png'</span><span class="token punctuation">)</span>
+    code_img_name <span class="token operator">=</span> <span class="token string">'./code.png'</span>
+    frame <span class="token operator">=</span> i<span class="token punctuation">.</span>crop<span class="token punctuation">(</span>rangle<span class="token punctuation">)</span>
+    frame<span class="token punctuation">.</span>save<span class="token punctuation">(</span>code_img_name<span class="token punctuation">)</span>
+    <span class="token comment"># 解析验证码</span>
+    chaojiying <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'19858165529'</span><span class="token punctuation">,</span> <span class="token string">'hxl158120'</span><span class="token punctuation">,</span> <span class="token string">'925040'</span><span class="token punctuation">)</span>  <span class="token comment"># 用户中心>>软件ID 生成一个替换 96001</span>
+    im <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./code.png'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 本地图片文件路径 来替换 a.jpg 有时WIN系统须要//</span>
+    code <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>PostPic<span class="token punctuation">(</span>im<span class="token punctuation">,</span> <span class="token number">1004</span><span class="token punctuation">)</span>
+    code_img <span class="token operator">=</span> code<span class="token punctuation">[</span><span class="token string">'pic_str'</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>code_img<span class="token punctuation">)</span>  <span class="token comment"># 1902 验证码类型  官方网站>>价格体系 3.4+版 print 后要加()</span>
+    username_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'normal_login_name'</span><span class="token punctuation">)</span>
+    username_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'19858165529'</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    password_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'normal_login_password'</span><span class="token punctuation">)</span>
+    password_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'hxl158120'</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    text <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'normal_login_vcode'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    <span class="token keyword">print</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    <span class="token comment"># fullXpath 相对路径定位不到</span>
+    Verification_code <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">'/html/body/div/div/div[4]/div[2]/div[2]/form/div[3]/div/div/div/div/div[1]/input'</span><span class="token punctuation">)</span>
+    Verification_code<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>code_img<span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    Login_btn <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'login-form-button'</span><span class="token punctuation">)</span>
+    Login_btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Google-无头浏览器"><a href="#Google-无头浏览器" class="headerlink" title="Google 无头浏览器"></a>Google 无头浏览器</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token comment"># 无可视化界面</span>
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>service <span class="token keyword">import</span> Service
+<span class="token comment"># 规避selenium检测</span>
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> ChromeOptions
+
+<span class="token comment"># 实现无可视化界面的操作</span>
+chrome_options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--headless'</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--disable-gpu'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 实现规避检测</span>
+option <span class="token operator">=</span> ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+option<span class="token punctuation">.</span>add_experimental_option<span class="token punctuation">(</span><span class="token string">'excludeSwitches'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'enable-automation'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+s <span class="token operator">=</span> Service<span class="token punctuation">(</span><span class="token string">"chromedriver.exe"</span><span class="token punctuation">)</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>service<span class="token operator">=</span>s<span class="token punctuation">)</span>
+
+<span class="token comment"># bro = webdriver.Chrome(executable_path='./chromedriver',options=chrome_options)</span>
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>chrome_options<span class="token operator">=</span>chrome_options<span class="token punctuation">,</span> options<span class="token operator">=</span>option<span class="token punctuation">)</span>
+
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://qzone.qq.com/'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bro<span class="token punctuation">.</span>page_source<span class="token punctuation">)</span>
+
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
                 
             </div>
             <hr/>
@@ -1171,7 +1275,7 @@ bro<span class="token punctuation">.</span>quit<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">64.8k</span>&nbsp;字&nbsp;|
+                class="white-color">65.3k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1465,7 +1569,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1477,6 +1581,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
