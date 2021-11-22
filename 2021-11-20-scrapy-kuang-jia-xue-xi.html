@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-21
+                    2021-11-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -826,6 +826,79 @@ ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuat
             <span class="token comment"># 请求传参：meta = &#123;&#125;，可以将meta字典传递给请求对应的回调函数</span>
             <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>detail_url<span class="token punctuation">,</span> callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_detail<span class="token punctuation">,</span>meta<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'item'</span><span class="token punctuation">:</span>item<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><ul>
+<li>位于引擎和下载器之间</li>
+<li>用于拦截到整个工程中所有请求和响应</li>
+<li>拦截请求<ul>
+<li>UA伪装</li>
+<li>代理IP</li>
+</ul>
+</li>
+<li>拦截相应<ul>
+<li>篡改响应数据(响应对象)</li>
+</ul>
+</li>
+</ul>
+<p>案例演示 (ip更换失败)</p>
+<p><code>middle.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
+
+
+<span class="token keyword">class</span> <span class="token class-name">MiddleSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'middle'</span>
+
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https://www.baidu.com/s?wd=ip'</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+        <span class="token keyword">print</span><span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'ip.html'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+            fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>middlewares.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token keyword">class</span> <span class="token class-name">MiddleproDownloaderMiddleware</span><span class="token punctuation">:</span>
+    <span class="token comment"># UA伪装</span>
+    user_agent_list<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'</span>
+    <span class="token punctuation">]</span>
+    <span class="token comment"># 代理池</span>
+    PROXY_http <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">'153.180.102.104:80'</span><span class="token punctuation">,</span>
+        <span class="token string">'195.208.131.189:56055'</span>
+    <span class="token punctuation">]</span>
+    PROXY_https <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">'120.83.49.90.9000'</span><span class="token punctuation">,</span>
+        <span class="token string">'95.189.112.214:35508'</span>
+    <span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'User-Agent'</span><span class="token punctuation">]</span> <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>self<span class="token punctuation">.</span>user_agent_list<span class="token punctuation">)</span>
+		<span class="token comment"># 方便测试</span>
+        request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'http://121.232.148.116:9000'</span>
+        <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+    <span class="token keyword">def</span> <span class="token function">process_response</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> response<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">return</span> response
+
+    <span class="token keyword">def</span> <span class="token function">process_exception</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> exception<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 代理</span>
+        <span class="token keyword">if</span> request<span class="token punctuation">.</span>url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'http'</span><span class="token punctuation">:</span>
+            request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'http://'</span><span class="token operator">+</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>self<span class="token punctuation">.</span>PROXY_http<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'https://'</span><span class="token operator">+</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>self<span class="token punctuation">.</span>PROXY_https<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> request <span class="token comment"># 将修正后的请求对象进行重新发送</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>settings.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 开启</span>
+DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+   <span class="token string">'middlePro.middlewares.MiddleproDownloaderMiddleware'</span><span class="token punctuation">:</span> <span class="token number">543</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1311,7 +1384,7 @@ ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字&nbsp;|
+                class="white-color">67.2k</span>&nbsp;字&nbsp;|
             
             
             
