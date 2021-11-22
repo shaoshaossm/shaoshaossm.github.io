@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -696,11 +696,11 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>基于Spider的全站数据爬取彼岸网图片名称</li>
+<li>基于Spider的全站数据爬取彼岸网图片名称和图片并进行本地存储</li>
 </ul>
 <p><code>meinv.py</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
-
+<span class="token keyword">from</span> meinvPro<span class="token punctuation">.</span>items <span class="token keyword">import</span> MeinvproItem
 
 <span class="token keyword">class</span> <span class="token class-name">MeinvSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
     name <span class="token operator">=</span> <span class="token string">'meinv'</span>
@@ -710,15 +710,64 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     page_num <span class="token operator">=</span> <span class="token number">2</span>
 
     <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
         li_list <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//*[@id="main"]/div[3]/ul/li'</span><span class="token punctuation">)</span>
         <span class="token keyword">for</span> li <span class="token keyword">in</span> li_list<span class="token punctuation">:</span>
             img_name <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./a/b/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>img_name<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> self<span class="token punctuation">.</span>page_num <span class="token operator">&lt;=</span> <span class="token number">11</span><span class="token punctuation">:</span>
+            <span class="token comment"># 若有图片懒加载 使用伪属性</span>
+            img_src <span class="token operator">=</span> <span class="token string">'https://pic.netbian.com/'</span> <span class="token operator">+</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./a/img/@src'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>img_name<span class="token punctuation">,</span> img_src<span class="token punctuation">)</span>
+
+            item <span class="token operator">=</span> MeinvproItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'img_src'</span><span class="token punctuation">]</span> <span class="token operator">=</span> img_src
+            <span class="token keyword">yield</span> item
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>page_num <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">:</span>
             new_url <span class="token operator">=</span> <span class="token builtin">format</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>url <span class="token operator">%</span> self<span class="token punctuation">.</span>page_num<span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>page_num<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>new_url<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            self<span class="token punctuation">.</span>page_num <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>new_url<span class="token punctuation">,</span> callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>items.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token keyword">import</span> scrapy
+
+<span class="token keyword">class</span> <span class="token class-name">MeinvproItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># define the fields for your item here like:</span>
+    img_src <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>pipelines.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token keyword">from</span> itemadapter <span class="token keyword">import</span> ItemAdapter
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>pipelines<span class="token punctuation">.</span>images <span class="token keyword">import</span> ImagesPipeline
+<span class="token keyword">import</span> scrapy
+
+<span class="token comment"># class MeinvproPipeline:</span>
+<span class="token comment">#     def process_item(self, item, spider):</span>
+<span class="token comment">#         return item</span>
+<span class="token keyword">class</span> <span class="token class-name">imgsPileLine</span><span class="token punctuation">(</span>ImagesPipeline<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 根据图片地址进行图片数据请求</span>
+    <span class="token keyword">def</span> <span class="token function">get_media_requests</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'img_src'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 指定图片存储路径</span>
+    <span class="token keyword">def</span> <span class="token function">file_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> response<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> info<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        img_Name <span class="token operator">=</span> request<span class="token punctuation">.</span>url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> img_Name
+
+    <span class="token keyword">def</span> <span class="token function">item_completed</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> results<span class="token punctuation">,</span> item<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> item
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>settings.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 指定图片存储目录</span>
+IMAGES_STORE <span class="token operator">=</span> <span class="token string">'./imgs'</span>
+<span class="token comment"># 更换管道</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+   <span class="token string">'meinvPro.pipelines.imgsPileLine'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h3 id="五大核心组件"><a href="#五大核心组件" class="headerlink" title="五大核心组件"></a>五大核心组件</h3><ul>
 <li>引擎(Scrapy)<ul>
@@ -1262,7 +1311,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66.8k</span>&nbsp;字&nbsp;|
+                class="white-color">67k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1556,7 +1605,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1568,6 +1617,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
