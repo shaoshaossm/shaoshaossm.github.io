@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python爬虫之分布式爬虫</title>
+      <link href="/2021-11-24-python-pa-chong-zhi-fen-bu-shi-pa-chong.html"/>
+      <url>/2021-11-24-python-pa-chong-zhi-fen-bu-shi-pa-chong.html</url>
+      
+        <content type="html"><![CDATA[<ul><li>搭建分布式机群,让其对一组资源进行分布式联合爬取</li><li>提升爬取效率</li><li>实现分布式:<ul><li>pip install scrapy-redis</li></ul></li><li>scrapy-redis 组件的作用:<ul><li>给原生的scrapy框架提供可以被共享的管道和调度器</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 爬虫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python爬虫之scrapy框架学习</title>
       <link href="/2021-11-20-scrapy-kuang-jia-xue-xi.html"/>
       <url>/2021-11-20-scrapy-kuang-jia-xue-xi.html</url>
@@ -29,7 +54,7 @@
     
     
     <entry>
-      <title>Python爬虫中之selenium学习</title>
+      <title>Python爬虫之selenium学习</title>
       <link href="/2021-11-19-python-pa-chong-zhong-zhi-selenium-xue-xi.html"/>
       <url>/2021-11-19-python-pa-chong-zhong-zhi-selenium-xue-xi.html</url>
       
