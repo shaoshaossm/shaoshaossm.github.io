@@ -6,7 +6,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Linux常用命令汇总, 秋水墨色染">
+    <meta name="keywords" content="Python一些类库的基本操作, 秋水墨色染">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux常用命令汇总 | 秋水墨色染</title>
+    <title>Python一些类库的基本操作 | 秋水墨色染</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux常用命令汇总</h1>
+                    <h1 class="description center-align post-title">Python一些类库的基本操作</h1>
                 </div>
             </div>
         </div>
@@ -485,8 +485,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                     </div>
@@ -497,8 +497,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" class="post-category">
-                                系统运维
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -514,28 +514,28 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-21
+                    2021-11-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2021-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    293
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    1 分
                 </div>
                 
 
@@ -558,294 +558,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-文件和目录"><a href="#1-文件和目录" class="headerlink" title="1.文件和目录"></a>1.文件和目录</h3><ul>
-<li>cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /home    	 进入 <span class="token string">'/ home'</span> 目录
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>            返回上一级目录
-<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>         返回上两级目录
-<span class="token builtin class-name">cd</span>               进入个人的主目录
-<span class="token builtin class-name">cd</span> ~user1   	 进入个人的主目录
-<span class="token builtin class-name">cd</span> -             返回上次所在的目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h3 id="Xwlt"><a href="#Xwlt" class="headerlink" title="Xwlt"></a>Xwlt</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> xlwt
 
-<ul>
-<li>pwd命令，显示工作路径</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root ~<span class="token punctuation">]</span><span class="token comment"># pwd</span>
-/root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+workbook <span class="token operator">=</span> xlwt<span class="token punctuation">.</span>Workbook<span class="token punctuation">(</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+worksheet <span class="token operator">=</span> workbook<span class="token punctuation">.</span>add_sheet<span class="token punctuation">(</span><span class="token string">'sheet1'</span><span class="token punctuation">)</span>
+worksheet<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+workbook<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'student.xls'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li>ls命令，查看文件与目录的命令，list之意</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> 查看目录中的文件
-<span class="token function">ls</span> -l 显示文件和目录的详细资料
-<span class="token function">ls</span> -a 列出全部文件，包含隐藏文件
-<span class="token function">ls</span> -R 连同子目录的内容一起列出（递归列出），等于该目录下的所有文件都会显示出来
-<span class="token function">ls</span> <span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span> 显示包含数字的文件名和目录名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Sqlite"><a href="#Sqlite" class="headerlink" title="Sqlite"></a>Sqlite</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sqlite3
+conn <span class="token operator">=</span> sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'test.db'</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sql <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
+    insert into company (id,name,age,address,salary)
+    values (1,'张三',22,'山西',8000)
+'''</span>
+sql <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
+    select * from company
+'''</span>
+cursor <span class="token operator">=</span> c<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+<span class="token keyword">for</span> row <span class="token keyword">in</span> cursor<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'id='</span><span class="token punctuation">,</span>row<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'name='</span><span class="token punctuation">,</span>row<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'age='</span><span class="token punctuation">,</span>row<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'address='</span><span class="token punctuation">,</span>row<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># conn.commit()</span>
+conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"成功"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li>cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-a ：将文件的特性一起复制
--p ：连同文件的属性一起复制，而非使用默认方式，与-a相似，常用于备份
--i ：若目标文件已经存在时，在覆盖时会先询问操作的进行
--r ：递归持续复制，用于目录的复制行为 //经常使用递归复制
--u ：目标文件与源文件有差异时才会复制<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>mv命令，用于移动文件、目录或更名，move之意</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-f ：force强制的意思，如果目标文件已经存在，不会询问而直接覆盖
--i ：若目标文件已经存在，就会询问是否覆盖
--u ：若目标文件已经存在，且比目标文件新，才会更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>rm命令，用于删除文件或目录，remove之意</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-f ：就是force的意思，忽略不存在的文件，不会出现警告消息
--i ：互动模式，在删除前会询问用户是否操作
--r ：递归删除，最常用于目录删除，它是一个非常危险的参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="2-查看文件内容"><a href="#2-查看文件内容" class="headerlink" title="2.查看文件内容"></a>2.查看文件内容</h3><ul>
-<li>cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> file1 从第一个字节开始正向查看文件的内容
-<span class="token function">tac</span> file1 从最后一行开始反向查看一个文件的内容
-<span class="token function">cat</span> -n file1 标示文件的行数
-<span class="token function">more</span> file1 查看一个长文件的内容
-
-<span class="token function">head</span> -n <span class="token number">2</span> file1 查看一个文件的前两行
-<span class="token function">tail</span> -n <span class="token number">2</span> file1 查看一个文件的最后两行
-<span class="token function">tail</span> -n +1000 file1  从1000行开始显示，显示1000行以后的cat filename <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">3000</span> <span class="token operator">|</span> <span class="token function">tail</span> -n +1000  显示1000行到3000行cat filename <span class="token operator">|</span> <span class="token function">tail</span> -n +3000 <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">1000</span>  从第3000行开始，显示1000<span class="token punctuation">(</span>即显示3000~3999行<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="3-文件搜索"><a href="#3-文件搜索" class="headerlink" title="3.文件搜索"></a>3.文件搜索</h3><ul>
-<li>find命令，用来查找系统的</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> / -name file1 从 <span class="token string">'/'</span> 开始进入根文件系统搜索文件和目录
-<span class="token function">find</span> / -user user1 搜索属于用户 <span class="token string">'user1'</span> 的文件和目录
-<span class="token function">find</span> /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件
-<span class="token function">find</span> /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件
-<span class="token function">whereis</span> <span class="token function">halt</span> 显示一个二进制文件、源码或man的位置
-<span class="token function">which</span> <span class="token function">halt</span> 显示一个二进制文件或可执行文件的完整路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>删除大于50M的文件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> /var/mail/ -size +50M -exec <span class="token function">rm</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> ＼<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a>4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</h3><ul>
-<li>chmod命令，改变文件/文件夹权限</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -lh 显示权限
-<span class="token function">chmod</span> ugo+rwx directory1 设置目录的所有人<span class="token punctuation">(</span>u<span class="token punctuation">)</span>、群组<span class="token punctuation">(</span>g<span class="token punctuation">)</span>以及其他人<span class="token punctuation">(</span>o<span class="token punctuation">)</span>以读（r，4 ）、写<span class="token punctuation">(</span>w，2<span class="token punctuation">)</span>和执行<span class="token punctuation">(</span>x，1<span class="token punctuation">)</span>的权限 <span class="token function">chmod</span> go-rwx directory1  删除群组<span class="token punctuation">(</span>g<span class="token punctuation">)</span>与其他人<span class="token punctuation">(</span>o<span class="token punctuation">)</span>对目录的读写执行权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol>
-<li>chown命令，改变文件的所有者</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chown</span> user1 file1 改变一个文件的所有人属性
-<span class="token function">chown</span> -R user1 directory1 改变一个目录的所有人属性并同时改变改目录下所有文件的属性
-<span class="token function">chown</span> user1:group1 file1 改变一个文件的所有人和群组属性<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>11.chgrp命令，改变文件所属用户组</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chgrp</span> group1 file1 改变文件的群组<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="5-文本处理"><a href="#5-文本处理" class="headerlink" title="5.文本处理"></a>5.文本处理</h3><ol>
-<li>grep命令，分析一行的信息，若当中有我们所需要的信息，就将该行显示出来，该命令通常与管道命令一起使用，用于对一些命令的输出进行筛选加工等等</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> Aug /var/log/messages  在文件 <span class="token string">'/var/log/messages'</span>中查找关键词<span class="token string">"Aug"</span>
-<span class="token function">grep</span> ^Aug /var/log/messages 在文件 <span class="token string">'/var/log/messages'</span>中查找以<span class="token string">"Aug"</span>开始的词汇
-<span class="token function">grep</span> <span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span>  /var/log/messages 选择 <span class="token string">'/var/log/messages'</span> 文件中所有包含数字的行
-<span class="token function">grep</span> Aug -R /var/log/* 在目录 <span class="token string">'/var/log'</span> 及随后的目录中搜索字符串<span class="token string">"Aug"</span>
-<span class="token function">sed</span> <span class="token string">'s/stringa1/stringa2/g'</span> example.txt 将example.txt文件中的 <span class="token string">"string1"</span> 替换成 <span class="token string">"string2"</span>
-<span class="token function">sed</span> <span class="token string">'/^$/d'</span> example.txt 从example.txt文件中删除所有空白行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol>
-<li>paste命令</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">paste</span> file1 file2 合并两个文件或两栏的内容
-<span class="token function">paste</span> -d <span class="token string">'+'</span> file1 file2 合并两个文件或两栏的内容，中间用<span class="token string">"+"</span>区分<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol>
-<li>sort命令</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sort</span> file1 file2 排序两个文件的内容
-<span class="token function">sort</span> file1 file2 <span class="token operator">|</span> <span class="token function">uniq</span> 取出两个文件的并集<span class="token punctuation">(</span>重复的行只保留一份<span class="token punctuation">)</span>
-<span class="token function">sort</span> file1 file2 <span class="token operator">|</span> <span class="token function">uniq</span> -u 删除交集，留下其他的行
-<span class="token function">sort</span> file1 file2 <span class="token operator">|</span> <span class="token function">uniq</span> -d 取出两个文件的交集<span class="token punctuation">(</span>只留下同时存在于两个文件中的文件<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol>
-<li>comm命令</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">comm</span> -1 file1 file2 比较两个文件的内容只删除
-<span class="token string">'file1'</span> 所包含的内容 <span class="token function">comm</span> -2 file1 file2 比较两个文件的内容只删除
-<span class="token string">'file2'</span> 所包含的内容 <span class="token function">comm</span> -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="6-打包和压缩文件"><a href="#6-打包和压缩文件" class="headerlink" title="6.打包和压缩文件"></a>6.打包和压缩文件</h3><ol>
-<li>tar命令，对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如gzip和bzip等）进行压缩和解压</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-c ：新建打包文件
--t ：查看打包文件的内容含有哪些文件名
--x ：解打包或解压缩的功能，可以搭配-C（大写）指定解压的目录，注意-c,-t,-x不能同时出现在同一条命令中
--j ：通过bzip2的支持进行压缩/解压缩
--z ：通过gzip的支持进行压缩/解压缩
--v ：在压缩/解压缩过程中，将正在处理的文件名显示出来-f filename ：filename为要处理的文件
--C <span class="token function">dir</span> ：指定压缩/解压缩的目录dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>压缩：tar -jcv -f filename.tar.bz2 要被处理的文件或目录名称 查询：tar -jtv -f filename.tar.bz2 解压：tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bunzip2 file1.bz2 解压一个叫做 <span class="token string">'file1.bz2'</span>的文件
-<span class="token function">bzip2</span> file1 压缩一个叫做 <span class="token string">'file1'</span> 的文件
-gunzip file1.gz 解压一个叫做 <span class="token string">'file1.gz'</span>的文件
-<span class="token function">gzip</span> file1 压缩一个叫做 <span class="token string">'file1'</span>的文件
-<span class="token function">gzip</span> -9 file1 最大程度压缩
-<span class="token function">rar</span> a file1.rar test_file 创建一个叫做 <span class="token string">'file1.rar'</span> 的包
-<span class="token function">rar</span> a file1.rar file1 file2 dir1 同时压缩 <span class="token string">'file1'</span>, <span class="token string">'file2'</span> 以及目录 <span class="token string">'dir1'</span> 
-<span class="token function">rar</span> x file1.rar 解压rar包
-
-<span class="token function">zip</span> file1.zip file1 创建一个zip格式的压缩包
-<span class="token function">unzip</span> file1.zip 解压一个zip格式压缩包
-<span class="token function">zip</span> -r file1.zip file1 file2 dir1 将几个文件和目录同时压缩成一个zip格式的压缩包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="7-系统和关机（关机、重启和登出）"><a href="#7-系统和关机（关机、重启和登出）" class="headerlink" title="7.系统和关机（关机、重启和登出）"></a>7.系统和关机（关机、重启和登出）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">shutdown</span> -h now 关闭系统<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-init <span class="token number">0</span> 关闭系统<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-telinit <span class="token number">0</span> 关闭系统<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token function">shutdown</span> -h hours:minutes <span class="token operator">&amp;</span> 按预定时间关闭系统
-<span class="token function">shutdown</span> -c 取消按预定时间关闭系统
-<span class="token function">shutdown</span> -r now 重启<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 
-<span class="token function">reboot</span> 重启<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-<span class="token builtin class-name">logout</span> 注销
-<span class="token function">time</span> 测算一个命令（即程序）的执行时间 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="8-进程相关的命令"><a href="#8-进程相关的命令" class="headerlink" title="8.进程相关的命令"></a>8.进程相关的命令</h3><ul>
-<li><p>jps命令，显示当前系统的java进程情况，及其id号</p>
-</li>
-<li><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。</p>
-</li>
-<li><p>ps命令，用于将某个时间点的进程运行情况选取下来并输出，process之意</p>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-A ：所有的进程均显示出来
--a ：不与terminal有关的所有进程
--u ：有效用户的相关进程
--x ：一般与a参数一起使用，可列出较完整的信息
--l ：较长，较详细地将PID的信息列出
-<span class="token function">ps</span> aux <span class="token comment"># 查看系统所有的进程数据</span>
-<span class="token function">ps</span> ax <span class="token comment"># 查看不与terminal有关的所有进程</span>
-<span class="token function">ps</span> -lA <span class="token comment"># 查看系统所有的进程数据</span>
-<span class="token function">ps</span> axjf <span class="token comment"># 查看连同一部分进程树状态</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>kill命令,用于向某个工作（%jobnumber）或者是某个PID（数字）传送一个信号，它通常与ps和jobs命令一起使用</li>
-</ul>
-<p> 命令格式 : kill [命令参数] [进程id]</p>
-<p>命令参数</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称
--a  当处理当前进程时，不限制命令名和进程号的对应关系
--p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
--s  指定发送信号
--u  指定用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 实例1：列出所有信号名称 命令：kill -l 输出： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill -l</span>
- <span class="token number">1</span><span class="token punctuation">)</span> SIGHUP       <span class="token number">2</span><span class="token punctuation">)</span> SIGINT       <span class="token number">3</span><span class="token punctuation">)</span> SIGQUIT      <span class="token number">4</span><span class="token punctuation">)</span> SIGILL
- <span class="token number">5</span><span class="token punctuation">)</span> SIGTRAP      <span class="token number">6</span><span class="token punctuation">)</span> SIGABRT      <span class="token number">7</span><span class="token punctuation">)</span> SIGBUS       <span class="token number">8</span><span class="token punctuation">)</span> SIGFPE
- <span class="token number">9</span><span class="token punctuation">)</span> SIGKILL     <span class="token number">10</span><span class="token punctuation">)</span> SIGUSR1     <span class="token number">11</span><span class="token punctuation">)</span> SIGSEGV     <span class="token number">12</span><span class="token punctuation">)</span> SIGUSR2
-<span class="token number">13</span><span class="token punctuation">)</span> SIGPIPE     <span class="token number">14</span><span class="token punctuation">)</span> SIGALRM     <span class="token number">15</span><span class="token punctuation">)</span> SIGTERM     <span class="token number">16</span><span class="token punctuation">)</span> SIGSTKFLT
-<span class="token number">17</span><span class="token punctuation">)</span> SIGCHLD     <span class="token number">18</span><span class="token punctuation">)</span> SIGCONT     <span class="token number">19</span><span class="token punctuation">)</span> SIGSTOP     <span class="token number">20</span><span class="token punctuation">)</span> SIGTSTP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>说明:  只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。  下面是常用的信号： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">HUP    <span class="token number">1</span>    终端断线
-INT     <span class="token number">2</span>    中断（同 Ctrl + C）
-QUIT    <span class="token number">3</span>    退出（同 Ctrl + <span class="token punctuation">\</span>）
-<span class="token environment constant">TERM</span>   <span class="token number">15</span>    终止
-KILL    <span class="token number">9</span>    强制终止
-CONT   <span class="token number">18</span>    继续（与STOP相反， fg/bg命令）
-STOP    <span class="token number">19</span>    暂停（同 Ctrl + Z）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 实例2：得到指定信号的数值 </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill -l KILL</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill -l SIGKILL</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill -l TERM</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill -l SIGTERM</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 实例3：先用ps查找进程，然后用kill杀掉 </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">命令：kill <span class="token number">3268</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># ps -ef|grep vim </span>
-root      <span class="token number">3268</span>  <span class="token number">2884</span>  <span class="token number">0</span> <span class="token number">16</span>:21 pts/1    00:00:00 <span class="token function">vim</span> install.log
-root      <span class="token number">3370</span>  <span class="token number">2822</span>  <span class="token number">0</span> <span class="token number">16</span>:21 pts/0    00:00:00 <span class="token function">grep</span> <span class="token function">vim</span>
-<span class="token punctuation">[</span>root@localhost test6<span class="token punctuation">]</span><span class="token comment"># kill 3268 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 实例4：彻底杀死进程 </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">命令：kill –9 <span class="token number">3268</span>   // -9 强制杀掉进程<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>killall命令，向一个命令启动的进程发送一个信号，用于杀死指定名字的进程 命令格式 : killall[命令参数] [进程名]</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">命令参数：
--Z 只杀死拥有scontext 的进程
--e 要求匹配进程名称
--I 忽略小写
--g 杀死进程组而不是进程
--i 交互模式，杀死进程前先询问用户
--l 列出所有的已知信号名称
--q 不输出警告信息
--s 发送指定的信号
--v 报告信号是否成功发送
--w 等待进程死亡
---help 显示帮助信息
---version 显示版本显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>示例:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>：杀死所有同名进程
-    <span class="token function">killall</span> nginx
-    <span class="token function">killall</span> -9 <span class="token function">bash</span>
-
-<span class="token number">2</span>.向进程发送指定信号
-    <span class="token function">killall</span> -<span class="token environment constant">TERM</span> ngixn  或者  <span class="token function">killall</span> -KILL nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>top命令，是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。</li>
-</ul>
-<p> 如何杀死进程： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">（1）图形化界面的方式
-（2）kill -9 pid  （-9表示强制关闭）
-（3）killall -9 程序的名字
-（4）pkill 程序的名字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 查看进程端口号:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">netstat</span> -tunlp<span class="token operator">|</span><span class="token function">grep</span> 端口号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a>9. 其他</h3><p>echo 文字内容</p>
-<ul>
-<li>echo 会在终端中显示参数指定的文字,通常会和重定向联合使用</li>
-</ul>
-<p>重定向 &gt; 和 &gt;&gt;</p>
-<ul>
-<li>Linux中允许将命令执行结果 重定向到一个文件</li>
-<li>将文本应显示在终端上的内容 删除/追加 到指定文件中<ul>
-<li>/  &gt;  表示输出,会覆盖文件中的内容</li>
-<li>/  &gt; &gt; 表示追加,会将内容追加到已有文件的末尾</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># / 转义一下</span>
-<span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a
-<span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span>render_template
+<span class="token keyword">import</span> time
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
 
 
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hello_world</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello world!'</span>
 
-<p>管道 |</p>
-<ul>
-<li>Linux中允许将一个命令的输出,可以通过管道作为另一个命令的输入</li>
-<li>常用的管道命令有<ul>
-<li>more : 分屏显示内容</li>
-<li>gerp : 在命令执行结果的基础上查询指定的文本</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># a 显示隐藏文件夹</span>
-<span class="token function">ls</span> -lha ~ <span class="token operator">|</span> <span class="token function">more</span>
-<span class="token function">ls</span> -lha ~ <span class="token operator">|</span> <span class="token function">grep</span> Vim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/1/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hello_world2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 字典,列表等其他类型也可</span>
+    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">,</span>var <span class="token operator">=</span> a<span class="token punctuation">)</span>
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/welcome/&lt;name>'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">welcome</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello %s'</span> <span class="token operator">%</span> name
+
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/welcome/&lt;int:id>'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">welcome2</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello id: %d'</span> <span class="token operator">%</span> <span class="token builtin">id</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="WordCloud"><a href="#WordCloud" class="headerlink" title="WordCloud"></a>WordCloud</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> jieba  <span class="token comment"># 分词</span>
+<span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> pyplot <span class="token keyword">as</span> plt  <span class="token comment"># 绘图可视化</span>
+<span class="token keyword">from</span> wordcloud <span class="token keyword">import</span> WordCloud  <span class="token comment"># 词云</span>
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image  <span class="token comment"># 图片处理</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  <span class="token comment"># 矩阵运算</span>
+<span class="token keyword">import</span> sqlite3  <span class="token comment"># 数据库</span>
+
+conn <span class="token operator">=</span> sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'test.db'</span><span class="token punctuation">)</span>
+cur <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sql <span class="token operator">=</span> <span class="token string">'select name,address from company'</span>
+data <span class="token operator">=</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+text <span class="token operator">=</span> <span class="token string">''</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> data<span class="token punctuation">:</span>
+    text <span class="token operator">=</span> text <span class="token operator">+</span> item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+cur<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cut <span class="token operator">=</span> jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+string <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">)</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'639cad061d950a7b7700d56c07d162d9f3d3c9f2.jpg'</span><span class="token punctuation">)</span>
+img_array <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">)</span>  <span class="token comment"># 图片->数组</span>
+wc <span class="token operator">=</span> WordCloud<span class="token punctuation">(</span>background_color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">,</span>
+               mask<span class="token operator">=</span>img_array<span class="token punctuation">,</span>
+               font_path<span class="token operator">=</span><span class="token string">'CENTURY.TTF'</span><span class="token punctuation">)</span>
+wc<span class="token punctuation">.</span>generate_from_text<span class="token punctuation">(</span>string<span class="token punctuation">)</span>
+<span class="token comment"># 绘制图片</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>wc<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">'off'</span><span class="token punctuation">)</span> <span class="token comment">#是否显示坐标轴</span>
+<span class="token comment"># plt.show()</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">'word.jpg'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 
                 
@@ -873,7 +674,7 @@ root      <span class="token number">3370</span>  <span class="token number">282
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://shaoshaossm.github.io/2021-10-21-linux-chang-yong-ming-ling-hui-zong.html">https://shaoshaossm.github.io/2021-10-21-linux-chang-yong-ming-ling-hui-zong.html</a>
+                    <a href="https://shaoshaossm.github.io/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html">https://shaoshaossm.github.io/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -911,8 +712,8 @@ root      <span class="token number">3370</span>  <span class="token number">282
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                         </div>
@@ -1082,29 +883,30 @@ root      <span class="token number">3370</span>  <span class="token number">282
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021-11-02-python-ji-chu.html">
+                <a href="/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="Python基础">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="Python一些类库的基本操作">
                         
-                        <span class="card-title">Python基础</span>
+                        <span class="card-title">Python一些类库的基本操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            重新回顾之前学习一半的Python,将Python作为自己的第二语言.
+                            对Python一些类库的基本操作
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1117,6 +919,7 @@ root      <span class="token number">3370</span>  <span class="token number">282
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1135,31 +938,31 @@ root      <span class="token number">3370</span>  <span class="token number">282
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021-10-18-docker-xue-xi-ying-yong.html">
+                <a href="/2021-11-24-python-pa-chong-zhi-fen-bu-shi-pa-chong.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/18.jpg" class="responsive-img" alt="docker学习应用">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/7.jpg" class="responsive-img" alt="Python爬虫之分布式爬虫">
                         
-                        <span class="card-title">docker学习应用</span>
+                        <span class="card-title">Python爬虫之分布式爬虫</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对docker的初步了解及常用命令学习(为了把centos7的运行环境打包出去)
+                            学习分布式爬虫、增量式爬虫----------------------------
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
                                 </a>
                             
                             
@@ -1169,8 +972,8 @@ root      <span class="token number">3370</span>  <span class="token number">282
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
