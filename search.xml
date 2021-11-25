@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github搜索语法</title>
+      <link href="/2021-11-25-github-sou-suo-yu-fa.html"/>
+      <url>/2021-11-25-github-sou-suo-yu-fa.html</url>
+      
+        <content type="html"><![CDATA[<p> 可以使⽤<a href="https://github.com/">搜索</a>页面或<a href="https://github.com/search">高级搜索</a>页面来搜索GitHub </p><table><thead><tr><th>Query</th><th>Examples</th></tr></thead><tbody><tr><td>&gt;n</td><td>cats stars:&gt;100 匹配关键字“cats”且stars大于100的仓库</td></tr><tr><td>&lt;n</td><td>cats stars:&gt;100 匹配关键字“cats”且stars小于100的仓库</td></tr><tr><td>&gt;=n</td><td>cats stars:&gt;=100 匹配关键字“cats”且stars大于等于100的仓库</td></tr><tr><td>&lt;=n</td><td>cats stars:&lt;=100 匹配关键字“cats”且stars小于等于100的仓库</td></tr><tr><td>n..*</td><td>cats stars:100..* 匹配关键字“cats”且stars大于等于100的仓库</td></tr><tr><td>*..n</td><td>cats stars:*..100 匹配关键字“cats”且stars小于等于100的仓库</td></tr><tr><td>n..n</td><td>cats stars:10..50 匹配关键字“cats”且stars大于10小于50的仓库</td></tr></tbody></table><h3 id="搜索代码"><a href="#搜索代码" class="headerlink" title="搜索代码"></a>搜索代码</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul><li> 只能搜索⼩于384 KB的⽂件。</li><li> 只能搜索少于500,000个⽂件的存储库。</li><li> 登录的⽤户可以搜索所有公共存储库 。</li><li>除<code>filename</code>搜索外，搜索源代码时，必须包含一个搜索词。例如：搜索<code>language:java</code>无效，而是这样：<code>amazing language:java</code></li><li> 搜索结果最多可以显示来⾃同⼀⽂件的两个⽚段，但⽂件中可能会有更多结果。  </li><li> 不能将以下通配符用作搜索查询的一部分<code>. , : ; / \  &#39; &quot; = * ! ? # $ &amp; + ^ | ~ &lt; &gt; ( ) &#123; &#125; [ ]</code>,搜索将忽略这些符号。</li></ul><h4 id="日期条件"><a href="#日期条件" class="headerlink" title="日期条件"></a>日期条件</h4><p><code>cats pushed:&lt;2012-07-05</code> 搜索在2012年07⽉05⽇前push代码，且cats作为关键字</p><p><code>cats pushed:2016-04-30..2016-07-04</code>⽇期区间</p><p><code>cats created:&gt;=2017-04-01</code>创建时间</p><h4 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h4><p>AND、OR、NOT</p><h4 id="排除运算"><a href="#排除运算" class="headerlink" title="排除运算"></a>排除运算</h4><p><code>cats pushed:&lt;2012-07-05 -language:java </code>搜索在2012年07⽉05⽇前push代码，且cats作为关键字，排除 <code>java </code>语⾔仓库。</p><h4 id="包含搜索"><a href="#包含搜索" class="headerlink" title="包含搜索"></a>包含搜索</h4><p><code>cats in:file</code> 搜索⽂件中包含cats的代码</p><p><code>cats in:path</code> 搜索路径中包含cats的代码</p><p><code>cats in:path,file </code>搜索路径、⽂件中包含cats的代码</p><p><code>console path:app/public language:javascript</code> 搜索关键字<code>console</code>，且语⾔为javascript，在app/public下的代码</p><h4 id="主体搜索"><a href="#主体搜索" class="headerlink" title="主体搜索"></a>主体搜索</h4><p><code>user:USERNAME</code> ⽤户名搜索</p><p><code>org: ORGNAME</code> 组织搜索</p><p><code>repo:USERNAME/REPOSITORY</code> 指定仓库搜索</p><h4 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h4><p><code>size&gt;10000</code>搜索大小大于1kb的文件</p><h4 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h4><p><code>filename:config.php language:php</code> 搜索文件名为config.php,且语言为php的代码</p><h4 id="扩展名"><a href="#扩展名" class="headerlink" title="扩展名"></a>扩展名</h4><p><code>extension:EXTENSION </code><strong>指定扩展名</strong></p><h3 id="常见用法示例"><a href="#常见用法示例" class="headerlink" title="常见用法示例"></a>常见用法示例</h3><p><code> in:name mini-app</code> #仓库标题搜索含有关键字”mini-app”</p><p><code> in:descripton web</code> #仓库描述搜索含有关键字”web” </p><p><code>in:readme node #README</code>文件搜素含有关键字”node” </p><p>`org:github`` #匹配github名下的仓库</p><p><code> stars:&gt;3000</code> #stars数量大于3000的搜索仓库</p><p><code> stars:1000..3000</code> #stars数量大于1000小于3000的仓库</p><p><code> forks:&gt;1000</code> #forks数量大于1000的搜索关键字</p><p><code>forks:1000..3000</code>#forks数量大于1000小于3000的搜索仓库</p><p><code> size:&gt;=5000</code> #指定仓库大于5000k(5M)的搜索仓库</p><p><code> pushed:&gt;2019-02-12</code> #发布时间大于2019-02-12的仓库</p><p><code> created:&gt;2019-02-12</code> #创建时间大于2019-02-12的仓库</p><p><code> mirror:true(false)</code> #是否是镜像仓库 archived:true(false) #是否是废弃的仓库</p><p><code> user:jack</code> #用户名为”jack”的仓库</p><p><code> license:apache-2.0</code> #仓库的 LICENSE为”apache-2.0”</p><p><code> language:java</code> #使用”java”语言的仓库</p><p><code> user:jack in:name web</code> #组合搜索,用户名为”jack”,且标题含有”web”的</p><p><code> topic:jekyll</code> #匹配topic中含有关键字”jekyll”的仓库</p><p><code> topic:5</code> #匹配拥有5个topic的仓库</p><p><code> topic:&gt;3</code> #匹配拥有3个以上topic的仓库</p><p><code> is:public</code> #公开的仓库</p><p><code> is:private</code> #匹配有权限的私有仓库 </p><hr><p>案例演示：</p><p><code>in:name spring cloud stars:&gt;3000 pushed:&gt;2021-10-01</code></p><p><code>in:description 植物大战僵尸 stars:&gt;100 language：java</code></p><p><code>in:readme 植物大战僵尸 stars:&gt;100 created:&gt;2019</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python一些类库的基本操作</title>
       <link href="/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html"/>
       <url>/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html</url>
