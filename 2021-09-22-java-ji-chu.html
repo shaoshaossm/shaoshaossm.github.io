@@ -521,14 +521,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-11-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.3k
                 </div>
                 
 
@@ -619,6 +619,11 @@ ab      # x本身<span class="token punctuation">,</span>不会因为上面的<s
 <li>在JAVA里，“=”语句不应该被翻译成赋值语句，因为它所执行的确实不是一个赋值的过程，<font color="blue">而是一个传地址的过程</font></li>
 <li>在JAVA中，<font color="blue">方法的入参对于基本数据类型和字符串常量来说，传递的其实只是这个值本身的一个拷贝而已</font>，对于外面的变量来说，并没有改变什么，入参的作用域也仅限函数内部，属于局部变量（对于包装类型和String，依然如此）。 </li>
 <li>综上所述，可以简单的记为，在初始化时，<font color="blue">“=”语句左边的是引用，右边new出来的是对象。在后面的左右都是引用的“=”语句时，左右的引用同时指向了右边引用所指向的对象。</font><br>再所谓实例，其实就是对象的同义词。 </li>
+</ul>
+<h3 id="构造器-继承问题"><a href="#构造器-继承问题" class="headerlink" title="构造器 继承问题"></a>构造器 继承问题</h3><ul>
+<li><p>父类 仅仅声明了有参构造函数，没有自己声明无参构造函数，则子类必须<strong>重写</strong>父类构造函数 </p>
+<p>父类 有无参构造函数，则子类<strong>不必重写</strong>父类构造函数。</p>
+</li>
 </ul>
 <h3 id="this-static"><a href="#this-static" class="headerlink" title="this static"></a>this static</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">publist clatt <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
     
@@ -1478,7 +1483,7 @@ c<span class="token punctuation">.</span><span class="token function">getAnnotat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.8k</span>&nbsp;字&nbsp;|
+                class="white-color">71.9k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1772,7 +1777,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1784,6 +1789,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
