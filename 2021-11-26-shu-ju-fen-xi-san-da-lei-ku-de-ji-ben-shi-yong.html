@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-26
+                    2021-11-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
 
@@ -861,6 +861,158 @@ df<span class="token punctuation">.</span>set_index<span class="token punctuatio
 
 df<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="案例演示"><a href="#案例演示" class="headerlink" title="案例演示"></a>案例演示</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> pandas <span class="token keyword">import</span> Series<span class="token punctuation">,</span>DataFrame
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> tushare <span class="token keyword">as</span> ts
+
+<span class="token comment">#%% 获取某只股票的历史行情数据</span>
+
+df  <span class="token operator">=</span>ts<span class="token punctuation">.</span>get_k_data<span class="token punctuation">(</span>code<span class="token operator">=</span><span class="token string">'600519'</span><span class="token punctuation">,</span>start<span class="token operator">=</span><span class="token string">'2000-01-01'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'./maotai.csv'</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./maotai.csv'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 删除df指定列</span>
+
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span><span class="token string">'Unnamed: 0'</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#%% 查看每一列的数据类型</span>
+
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 将time列转为时间数据类型</span>
+df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 将date列作为源数据的行索引</span>
+df<span class="token punctuation">.</span>set_index<span class="token punctuation">(</span><span class="token string">'date'</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+
+<span class="token comment">#%% 输出该股票所有收盘比开盘上涨百分之三以上的日期</span>
+
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token operator">-</span>df<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span>df<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token number">0.06</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
+
+<span class="token comment">#%% 输出该股票所有开盘比前日收益跌幅超过2%的日期</span>
+<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token operator">-</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">-</span><span class="token number">0.02</span>
+
+<span class="token comment"># 取出True对应的行数据</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token operator">-</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">-</span><span class="token number">0.02</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
+<span class="token comment">#%% 取出每个月的第一个交易日的第一行数据</span>
+
+new_df <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'2010-01'</span><span class="token punctuation">:</span><span class="token string">'2020-02'</span><span class="token punctuation">]</span>
+df_monthly <span class="token operator">=</span> new_df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#%% 买入股票花费的金额</span>
+
+cost <span class="token operator">=</span> df_monthly<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span>
+cost
+
+<span class="token comment">#%% 卖出股票到手的钱</span>
+<span class="token comment"># 特殊情况 : 2020年买入的股票卖不出去 得切除最后一年的数据</span>
+df_yearly <span class="token operator">=</span> new_df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>last<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+resv <span class="token operator">=</span> df_yearly<span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1200</span>
+resv
+<span class="token comment">#%% 使用昨天的收盘价作为剩余股票的单价</span>
+
+last_month <span class="token operator">=</span> <span class="token number">200</span><span class="token operator">*</span>new_df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+last_month
+<span class="token comment">#%% 计算总收益</span>
+
+resv<span class="token operator">+</span>last_month<span class="token operator">-</span>cost
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 双均线策略制定</span>
+
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> pandas <span class="token keyword">import</span> Series<span class="token punctuation">,</span>DataFrame
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> tushare <span class="token keyword">as</span> ts
+
+<span class="token comment">#%%</span>
+
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./maotai.csv'</span><span class="token punctuation">)</span>
+df
+<span class="token comment">#%% 删除df指定列</span>
+
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span><span class="token string">'Unnamed: 0'</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>set_index<span class="token punctuation">(</span><span class="token string">'date'</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment">#%% 5日均线和30日均线</span>
+
+ma5 <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>rolling<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ma30 <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>rolling<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+ma30
+
+
+<span class="token comment">#%%</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token operator">%</span>matplotlib inline
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ma5<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token number">180</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ma30<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token number">180</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+
+<span class="token comment">#%% 分析输出所有的金叉日期和死叉日期</span>
+ma5 <span class="token operator">=</span> ma5<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+ma30 <span class="token operator">=</span> ma30<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+df <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+<span class="token comment">#%%</span>
+s1 <span class="token operator">=</span> ma5<span class="token operator">&lt;</span>ma30
+s2 <span class="token operator">=</span> ma5<span class="token operator">></span>ma30
+df
+<span class="token comment"># df=df.reset_index()</span>
+<span class="token comment">#%%</span>
+death_ex <span class="token operator">=</span> s1 <span class="token operator">&amp;</span> s2<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 判定死叉条件</span>
+
+
+death_date <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>death_ex<span class="token punctuation">]</span><span class="token punctuation">.</span>index <span class="token comment"># 死叉对应行数据时间</span>
+
+
+
+<span class="token comment">#%%</span>
+golden_ex <span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span>s1 <span class="token operator">|</span> s2<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 判定金叉条件</span>
+golden_date <span class="token operator">=</span>df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>golden_ex<span class="token punctuation">]</span><span class="token punctuation">.</span>index <span class="token comment"># 金叉时间</span>
+golden_date
+
+<span class="token comment">#%%</span>
+
+s1 <span class="token operator">=</span> Series<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>index<span class="token operator">=</span>golden_date<span class="token punctuation">)</span> <span class="token comment"># 1作为金叉的标识</span>
+s2 <span class="token operator">=</span> Series<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>index<span class="token operator">=</span>death_date<span class="token punctuation">)</span> <span class="token comment"># 0作为金叉的标识</span>
+s  <span class="token operator">=</span>s1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>s2<span class="token punctuation">)</span>
+s <span class="token operator">=</span> s<span class="token punctuation">.</span>sort_index<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 金叉和死叉对应的时间</span>
+s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token string">'2010'</span><span class="token punctuation">:</span><span class="token string">'2020'</span><span class="token punctuation">]</span>
+s
+<span class="token comment">#%%</span>
+first_money <span class="token operator">=</span> <span class="token number">100000</span> <span class="token comment"># 本金不变</span>
+money <span class="token operator">=</span> first_money <span class="token comment"># 买卖操作可变的</span>
+hold <span class="token operator">=</span>  <span class="token number">0</span> <span class="token comment"># 持有股票的数量(100股=1手)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token comment"># 金叉时间</span>
+        time <span class="token operator">=</span> s<span class="token punctuation">.</span>index<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        p <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>time<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span> <span class="token comment"># 股票单价</span>
+        hand_count <span class="token operator">=</span> money <span class="token operator">//</span> <span class="token punctuation">(</span>p<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment"># 最多买多少手股票</span>
+        hold <span class="token operator">=</span> hand_count <span class="token operator">*</span> <span class="token number">100</span>
+        money <span class="token operator">-=</span><span class="token punctuation">(</span>hold<span class="token operator">*</span>p<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        death_time <span class="token operator">=</span> s<span class="token punctuation">.</span>index<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token comment"># 死叉时间</span>
+        p_death <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>death_time<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'open'</span><span class="token punctuation">]</span> <span class="token comment"># 卖股票的单价</span>
+        money<span class="token operator">+=</span> <span class="token punctuation">(</span>p_death<span class="token operator">*</span>hold<span class="token punctuation">)</span> <span class="token comment"># 卖出股票的收入</span>
+        hold <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># 判定最后一天是金叉还是死叉</span>
+last_monry <span class="token operator">=</span> hold<span class="token operator">*</span>df<span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># 剩余股票的价值</span>
+<span class="token comment"># 总收益</span>
+money<span class="token operator">+</span>last_monry<span class="token operator">-</span>first_money
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1113,7 +1265,7 @@ df<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            对numpy、pandas、matplotlib三个模块的学习和使用
                         
                     </div>
                     <div class="publish-info">
@@ -1353,7 +1505,7 @@ df<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.9k</span>&nbsp;字&nbsp;|
+                class="white-color">72.6k</span>&nbsp;字&nbsp;|
             
             
             
