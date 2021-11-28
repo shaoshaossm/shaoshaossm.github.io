@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-27
+                    2021-11-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
 
@@ -1012,6 +1012,124 @@ last_monry <span class="token operator">=</span> hold<span class="token operator
 <span class="token comment"># 总收益</span>
 money<span class="token operator">+</span>last_monry<span class="token operator">-</span>first_money
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="基于pandas的数据清洗"><a href="#基于pandas的数据清洗" class="headerlink" title="基于pandas的数据清洗"></a>基于pandas的数据清洗</h3><ul>
+<li>原始数据中存在缺失值(空值)</li>
+<li>重复值</li>
+<li>异常值</li>
+</ul>
+<h4 id="处理丢失数据-空值"><a href="#处理丢失数据-空值" class="headerlink" title="处理丢失数据(空值)"></a>处理丢失数据(空值)</h4><ul>
+<li>在数据分析中需要使用<strong>浮点型的空</strong>而不是对象类型的空 <ul>
+<li><code>NAN</code>可以参与运算</li>
+<li><code>None</code>不可以参与运算</li>
+</ul>
+</li>
+<li>在pandas中遇到None形式的空值则pandas会将其强转成NAN的形式</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 基于pandas的数据清洗</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token builtin">type</span><span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token builtin">type</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>nan<span class="token punctuation">)</span>
+
+
+<span class="token comment">#%%</span>
+
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> pandas <span class="token keyword">import</span> DataFrame<span class="token punctuation">,</span>Series
+df <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>nan
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+df
+<span class="token comment">#%% 方式一:对空值进行过滤(删除空所在的行数据)</span>
+<span class="token comment"># isnull notnull any(检测行或列中是否有True) all</span>
+df<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">any</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># 将上部的布尔值作为原数据的行索引</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">any</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment"># true对应的行数据就是存在缺失值的行数据</span>
+drop_index <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">any</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index <span class="token comment"># 即将要删除的行索引</span>
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span>drop_index<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 将缺失行进行删除</span>
+
+
+
+<span class="token comment">#%% all 用来检测false 有false就false</span>
+
+df<span class="token punctuation">.</span>notnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">.</span>notnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment">#%% 方式二--dropna:直接将缺失的行或列进行删除</span>
+
+df<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 对缺失值进行覆盖</span>
+<span class="token comment"># 使用水平和竖直方向的向前向后填充去填充空值</span>
+df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>method<span class="token operator">=</span><span class="token string">'ffill'</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>method<span class="token operator">=</span><span class="token string">'bfill'</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="处理重复数据和异常数据"><a href="#处理重复数据和异常数据" class="headerlink" title="处理重复数据和异常数据"></a>处理重复数据和异常数据</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 处理重复数据</span>
+df <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+df
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span>keep<span class="token operator">=</span><span class="token string">'first'</span><span class="token punctuation">)</span> <span class="token comment"># keep = False last</span>
+
+<span class="token comment">#%% 处理异常数据</span>
+
+df <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df
+<span class="token comment"># 判定异常条件</span>
+twice_std <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>
+df<span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token operator">></span>twice_std
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token operator">~</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token operator">></span>twice_std<span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="DataFrame的级联和合并操作"><a href="#DataFrame的级联和合并操作" class="headerlink" title="DataFrame的级联和合并操作"></a>DataFrame的级联和合并操作</h3><ul>
+<li>级联(数据拼接)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% DataFram的级联和合并操作</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> pandas <span class="token keyword">import</span> DataFrame
+
+<span class="token comment">#%%</span>
+
+df1 <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df2 <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df1
+df2
+<span class="token comment">#%%</span>
+
+pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">(</span>df1<span class="token punctuation">,</span>df2<span class="token punctuation">)</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">#%% 不匹配级联 外连接(outer):补NAN(默认模式) 保证数据的完整性 内连接:只连接匹配的项</span>
+pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">(</span>df1<span class="token punctuation">,</span>df2<span class="token punctuation">)</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>join<span class="token operator">=</span><span class="token string">'inner'</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">#%%</span>
+
+df1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>df2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>合并(数据合并)</li>
+<li>merge与concat的区别在于,merge需要依据某一共同列来合并</li>
+<li>使用pd.merge()合并时,会自动根据两者相同column名称的那一列,作为key来进行合并</li>
+<li>注意每一列元素的顺序不要求一致</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 合并</span>
+
+df1  <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'employee'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'jack'</span><span class="token punctuation">,</span><span class="token string">'lisa'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token string">'group'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Accounting'</span><span class="token punctuation">,</span><span class="token string">'Engineering'</span><span class="token punctuation">,</span><span class="token string">'Engineering'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+df1
+<span class="token comment">#%%</span>
+df2  <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'employee'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'lisa'</span><span class="token punctuation">,</span><span class="token string">'jack'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token string">'hire_date'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">2018</span><span class="token punctuation">,</span><span class="token number">2020</span><span class="token punctuation">,</span><span class="token number">2021</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+df2
+
+
+<span class="token comment">#%%</span>
+
+pd<span class="token punctuation">.</span>merge<span class="token punctuation">(</span>df2<span class="token punctuation">,</span>df1<span class="token punctuation">,</span>on<span class="token operator">=</span><span class="token string">'employee'</span> <span class="token punctuation">)</span> <span class="token comment"># ctrl+p 看参数按情况传递</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1505,7 +1623,7 @@ money<span class="token operator">+</span>last_monry<span class="token operator"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">72.6k</span>&nbsp;字&nbsp;|
+                class="white-color">73.3k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1799,7 +1917,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1811,6 +1929,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
