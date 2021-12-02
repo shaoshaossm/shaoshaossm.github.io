@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-28
+                    2021-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    19 分
                 </div>
                 
 
@@ -1131,6 +1131,364 @@ df2
 
 pd<span class="token punctuation">.</span>merge<span class="token punctuation">(</span>df2<span class="token punctuation">,</span>df1<span class="token punctuation">,</span>on<span class="token operator">=</span><span class="token string">'employee'</span> <span class="token punctuation">)</span> <span class="token comment"># ctrl+p 看参数按情况传递</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="pandas高级操作"><a href="#pandas高级操作" class="headerlink" title="pandas高级操作"></a>pandas高级操作</h3><h4 id="替换操作"><a href="#替换操作" class="headerlink" title="替换操作"></a>替换操作</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 替换操作</span>
+df <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>to_replace<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">'Two'</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>to_replace<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">74</span><span class="token punctuation">:</span><span class="token string">'one'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+df<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>to_replace<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">'five ten'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="映射操作"><a href="#映射操作" class="headerlink" title="映射操作"></a>映射操作</h4><ul>
+<li>创建一个映射关系表,把<code>values</code>元素的和一个特定的标签或者字符串绑定(给一个元素提供不同的表现形式)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'salary'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+df  <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>dic<span class="token punctuation">)</span>
+df
+
+<span class="token comment">#%%</span>
+
+dic  <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'张三'</span><span class="token punctuation">:</span><span class="token string">'ssm'</span><span class="token punctuation">,</span>
+    <span class="token string">'李四'</span><span class="token punctuation">:</span><span class="token string">'shaoshao'</span>
+<span class="token punctuation">&#125;</span>
+df<span class="token punctuation">[</span><span class="token string">'e_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>dic<span class="token punctuation">)</span>
+df
+
+<span class="token comment">#%% 运算工具(求税后薪资)</span>
+
+<span class="token keyword">def</span> <span class="token function">salary_after</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> s <span class="token operator">-</span> <span class="token punctuation">(</span>s<span class="token operator">-</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.5</span>
+df<span class="token punctuation">[</span><span class="token string">'after_sal'</span><span class="token punctuation">]</span> <span class="token operator">=</span>  df<span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>salary_after<span class="token punctuation">)</span>
+df
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="排序实现的随机抽样"><a href="#排序实现的随机抽样" class="headerlink" title="排序实现的随机抽样"></a>排序实现的随机抽样</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 排序实现的随机抽样</span>
+df  <span class="token operator">=</span>DataFrame<span class="token punctuation">(</span>data<span class="token operator">=</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df
+
+
+<span class="token comment">#%% 将原始数据打乱</span>
+
+df<span class="token punctuation">.</span>take<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># 乱序的随机序列</span>
+df<span class="token punctuation">.</span>take<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>permutation<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>take<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>permutation<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="分组聚合"><a href="#分组聚合" class="headerlink" title="分组聚合"></a>分组聚合</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+df <span class="token operator">=</span> DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token string">'item'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span><span class="token string">'banan'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'price'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'color'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'red'</span><span class="token punctuation">,</span><span class="token string">'yellow'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'weight'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">34</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+df
+
+
+<span class="token comment">#%% 查看详细的分组情况</span>
+
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>groups
+
+
+<span class="token comment">#%% 计算每一种水果的平均价格</span>
+
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">#%% 将水果根据颜色的平均重量汇总到源数据</span>
+dic <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'color'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'weight'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+df<span class="token punctuation">[</span><span class="token string">'mean_w'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'color'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>dic<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="高级数据聚合-transform-apply-自定义"><a href="#高级数据聚合-transform-apply-自定义" class="headerlink" title="高级数据聚合(transform apply) 自定义"></a>高级数据聚合(transform apply) 自定义</h4><ul>
+<li>transform apply 也可传入一个<code>lambda</code>表达式</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% 高级数据聚合(transform apply) 自定义</span>
+<span class="token keyword">def</span> <span class="token function">my_mean</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    m_sum <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+        m_sum <span class="token operator">+=</span> i
+    <span class="token keyword">return</span> m_sum <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>transform<span class="token punctuation">(</span>my_mean<span class="token punctuation">)</span>
+
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>my_mean<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="透视表"><a href="#透视表" class="headerlink" title="透视表"></a>透视表</h3><ul>
+<li>透视表是一种对数据动态排布并且分类汇总的表格格式</li>
+<li><code>pivot_table</code> 四个重要参数<code>index,values,columns,aggfunc</code><ul>
+<li><code>index</code>:分类汇总的分类条件</li>
+<li><code>values</code>:对计算的数据进行筛选</li>
+<li><code>aggfunc</code>:设置对数据聚合时进行的函数操作,默认<code>aggfunc = &#39;mean&#39;</code></li>
+<li><code>columns</code>:设置列层次字段</li>
+<li><code>fill_value</code>: None-&gt;0</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'对手'</span><span class="token punctuation">,</span><span class="token string">'主客场'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>values<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'得分'</span><span class="token punctuation">,</span><span class="token string">'计分板'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>aggfunc<span class="token operator">=</span><span class="token string">'sum'</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token string">'对手'</span><span class="token punctuation">,</span>fill_value<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="交叉表"><a href="#交叉表" class="headerlink" title="交叉表"></a>交叉表</h3><ul>
+<li>计算分组的特殊透视图,对数据进行汇总</li>
+<li>`pd.corsstab(index,columns)<ul>
+<li><code>index</code>:分组数据,交叉表的行索引</li>
+<li><code>columns</code>:交叉表的列索引</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pd<span class="token punctuation">.</span>crosstab<span class="token punctuation">(</span>df<span class="token punctuation">.</span>smoke<span class="token punctuation">,</span>df<span class="token punctuation">.</span>sex<span class="token punctuation">)</span> <span class="token comment"># age sex 表中的索引</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="2012美国大选献金数据分析"><a href="#2012美国大选献金数据分析" class="headerlink" title="2012美国大选献金数据分析"></a>2012美国大选献金数据分析</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token comment"># 导入包</span>
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 读取数据</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./data/2012_Federal_Election_Commission_Database.csv'</span><span class="token punctuation">)</span>
+df
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 对新数据进行纵览,查看是否存在缺失数据</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 用统计学指标快速描述属性的摘要</span>
+df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 空值处理 -> 将其填充为NOT PROVIDE</span>
+df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">'NOT PROVIDE'</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 异常值处理 将捐赠金额&lt;=0的数据删除</span>
+df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">0</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">]</span>
+drop_index <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span>drop_index<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment">#df.info()</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 异常值处理 将捐赠金额&lt;=0的数据删除</span>
+df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">0</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token punctuation">]</span>
+drop_index <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">.</span>index
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span>drop_index<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 用统计学指标快速描述属性的摘要</span>
+df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 空值处理 -> 将其填充为NOT PROVIDE</span>
+df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">'NOT PROVIDE'</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 异常值处理 将捐赠金额&lt;=0的数据删除</span>
+df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">0</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token punctuation">]</span>
+drop_index <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">.</span>index
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span>drop_index<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token punctuation">]</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment">#通过搜索引擎等途径，获取到每个总统候选人的所属党派，建立字典parties，候选人名字作为键，所属党派作为对应的值</span>
+parties <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'Bachmann, Michelle'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Cain, Herman'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Gingrich, Newt'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Huntsman, Jon'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Johnson, Gary Earl'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'McCotter, Thaddeus G'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Obama, Barack'</span><span class="token punctuation">:</span> <span class="token string">'Democrat'</span><span class="token punctuation">,</span>
+           <span class="token string">'Paul, Ron'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Pawlenty, Timothy'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Perry, Rick'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">"Roemer, Charles E. 'Buddy' III"</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Romney, Mitt'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">,</span>
+           <span class="token string">'Santorum, Rick'</span><span class="token punctuation">:</span> <span class="token string">'Republican'</span><span class="token punctuation">&#125;</span>
+<span class="token comment"># 新建一列为各个候选人所在党派的party</span>
+df<span class="token punctuation">[</span><span class="token string">'party'</span><span class="token punctuation">]</span>  <span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token string">'cand_nm'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>parties<span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 查看party这一列有哪些不同的元素</span>
+df<span class="token punctuation">[</span><span class="token string">'party'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">[</span><span class="token string">'party'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 查看各党派收到的政治现金总数contb_receipt_amt</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'party'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 查看每天各个党派收到的政治献金总数contb_receipt_amt</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'contb_receipt_dt'</span><span class="token punctuation">,</span><span class="token string">'party'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+months <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'JAN'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'FEB'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'MAR'</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'APR'</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'MAY'</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'JUN'</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token string">'JUL'</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token string">'AUG'</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">'SEP'</span><span class="token punctuation">:</span><span class="token number">9</span>
+<span class="token punctuation">,</span><span class="token string">'OCT'</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'NOV'</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token string">'DEC'</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 将表中的日期改为'yyyy-mm-dd'</span>
+<span class="token keyword">def</span> <span class="token function">transformDate</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    day<span class="token punctuation">,</span>month<span class="token punctuation">,</span>year <span class="token operator">=</span> d<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span>
+    month <span class="token operator">=</span> months<span class="token punctuation">[</span>month<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token string">'20'</span><span class="token operator">+</span>year<span class="token operator">+</span><span class="token string">'-'</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'-'</span><span class="token operator">+</span>day
+df<span class="token punctuation">[</span><span class="token string">'contb_receipt_dt'</span><span class="token punctuation">]</span>  <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'contb_receipt_dt'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>transformDate<span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+<span class="token comment"># 查看老兵(捐献者的职业) DISABLED VETERAN 主要支持谁 捐钱最多</span>
+df<span class="token punctuation">[</span><span class="token string">'contbr_occupation'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'DISABLED VETERAN'</span>
+df_old <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'contbr_occupation'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'DISABLED VETERAN'</span><span class="token punctuation">]</span>
+<span class="token comment"># 根据候选人组分,对捐赠金额求和</span>
+df_old<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'cand_nm'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'contb_receipt_amt'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="matplotlib绘图"><a href="#matplotlib绘图" class="headerlink" title="matplotlib绘图"></a>matplotlib绘图</h3><h4 id="线形图"><a href="#线形图" class="headerlink" title="线形图"></a>线形图</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%  matplotlib 绘图</span>
+
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+
+<span class="token comment">#%% 绘制线形图</span>
+
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">3</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%%</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">,</span>y<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 设置绘制坐标的比例</span>
+
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+
+
+<span class="token comment">#%% 设置图例</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'x,y'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'x+1,y-2'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># param : ncol=2</span>
+
+
+
+<span class="token comment">#%% 设置轴的标识</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'temp'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'dist and temp'</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 图例保存</span>
+
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'x,y'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fig<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">'123.png'</span><span class="token punctuation">)</span>
+
+<span class="token comment">#%% 其他样式风格</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token comment"># 柱状图</span>
+plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>barh<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token comment"># 直方图</span>
+data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>data<span class="token punctuation">,</span>bins<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token comment"># 饼图 labeldistance 距圆心的距离  autopct 所占的比例</span>
+arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>pie<span class="token punctuation">(</span>arr<span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>labeldistance<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>shadow<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>explode<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.2</span><span class="token punctuation">,</span><span class="token number">0.3</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>autopct<span class="token operator">=</span><span class="token string">'%0.6f%%'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+
+<span class="token comment"># 散点图</span>
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> x<span class="token operator">**</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
 
                 
             </div>
@@ -1623,7 +1981,7 @@ pd<span class="token punctuation">.</span>merge<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.3k</span>&nbsp;字&nbsp;|
+                class="white-color">74.6k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1917,7 +2275,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1929,6 +2287,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
