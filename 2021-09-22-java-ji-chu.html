@@ -521,7 +521,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-09
+                    2021-12-17
                 </div>
                 
 
@@ -625,7 +625,7 @@ ab      # x本身<span class="token punctuation">,</span>不会因为上面的<s
 <p>父类 有无参构造函数，则子类<strong>不必重写</strong>父类构造函数。</p>
 </li>
 </ul>
-<h3 id="this-static"><a href="#this-static" class="headerlink" title="this static"></a>this static</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">publist clatt <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+<h3 id="this-amp-static"><a href="#this-amp-static" class="headerlink" title="this&amp; static"></a>this&amp; static</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">publist clatt <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
     
 
 <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">//示例变量 (引用.的方式访问)</span>
@@ -639,7 +639,9 @@ publis <span class="token keyword">static</span> <span class="token keyword">voi
 <h3 id="abstract类与接口的比较"><a href="#abstract类与接口的比较" class="headerlink" title="abstract类与接口的比较"></a>abstract类与接口的比较</h3><ul>
 <li><code>abstract</code>类和接口都可以有<code>abstract</code>方法</li>
 <li>接口中只可以有常量,不能有变量,而<code>abstract</code>类中既可以有常量也可以有变量</li>
-<li><code>abstract</code>类中也可以有非<code>abstract</code>方法,借口不可以</li>
+<li><code>abstract</code>类中也可以有非<code>abstract</code>方法,接口不可以</li>
+<li>抽象类的子类不是必须需要实现抽象类的抽象方法,如果抽象类的子类也是个抽象类的话就不用实现</li>
+<li>具有抽象方法的类必须是抽象类</li>
 </ul>
 <hr>
 <ul>
