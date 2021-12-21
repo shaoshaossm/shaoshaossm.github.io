@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2021-12-20T14:38:12.779Z</updated>
+  <updated>2021-12-21T03:16:23.404Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html"/>
     <id>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</id>
     <published>2021-12-20T14:34:10.000Z</published>
-    <updated>2021-12-20T14:38:12.779Z</updated>
+    <updated>2021-12-21T03:16:23.404Z</updated>
     
     <content type="html"><![CDATA[<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./redis-server <span class="token punctuation">..</span>/redis.conf <span class="token operator">&amp;</span>./redis-cli -a <span class="token number">123456</span> -h <span class="token number">192.168</span>.174.131./zkServer.sh start<span class="token punctuation">[</span>root@localhost sbin<span class="token punctuation">]</span><span class="token comment"># ./nginx -c /usr/java/nginx/conf/nginx.conf</span>./mysqld_safe <span class="token operator">&amp;</span><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># nohup java -jar  /usr/java/jenkins/jenkins.war >/usr/java/jenkins/jenkins.out &amp;</span><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /root/.jenkins/secrets/initialAdminPassword</span>密码:6ffe5db2ab1e4110ac62a31ee93a6039fdfs_trackerd /etc/fdfs/tracker.conffdfs_storaged /etc/fdfs/storage.conf/usr/java/nginx_fdfs/sbin/nginx -c /usr/java/nginx_fdfs/conf/nginx.confnginx Windows版启动 nginx.exe 关闭:nginx.exe -s stop<span class="token punctuation">[</span>root@localhost java<span class="token punctuation">]</span><span class="token comment"># rabbitmq-server start &amp;</span>systemctl start dockerdocker run -it centos /bin/bashF:<span class="token punctuation">\</span>elasticsearch<span class="token punctuation">\</span>elasticsearch-head-master<span class="token operator">></span>cnpm <span class="token function">install</span>F:<span class="token punctuation">\</span>elasticsearch<span class="token punctuation">\</span>elasticsearch-head-master<span class="token operator">></span>npm run startcanal  ./startup.sh清理浏览器缓存 ctrl <span class="token builtin class-name">shift</span> del下载文件到桌面 sz 文件名上传文件 rz -y<span class="token punctuation">(</span>覆盖<span class="token punctuation">)</span>git@github.com:1600767556/mybatis.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
     
