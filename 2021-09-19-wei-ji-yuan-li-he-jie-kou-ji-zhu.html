@@ -521,14 +521,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2021-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
@@ -725,7 +725,7 @@ AF、SF、OF无意义
     <span class="token number">02F</span>EH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="5">
-<li>8086工作于最小模式时,执行存储器读总线周期,T1~T4周期中国主要完成哪些工作?</li>
+<li>8086工作于最小模式时,执行存储器读总线周期,T1~T4周期中主要完成哪些工作?</li>
 </ol>
 <ul>
 <li><p>T1: M/*IO,地址出现20位的地址</p>
@@ -748,16 +748,17 @@ AF、SF、OF无意义
 <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token punctuation">[</span>BX<span class="token operator">+</span>SI<span class="token punctuation">]</span>   <span class="token number">463</span>CH      <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token class-name">MOV</span> AX <span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">[</span>BX<span class="token operator">+</span>SI<span class="token punctuation">]</span>     <span class="token number">6</span>B59H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="2">
-<li>设DS=1000H，ES=2000H，SS=3500H，SI-00A0H，DI-0024H，BX=0100H，BP=0200H，数据段中变量名为 VAL 的偏移地址值为 0030H，试说明下列源操作数字段的寻址方式是什么?物理地址值是多少?</li>
+<li>设DS=1000H，ES=2000H，SS=3500H，SI=00A0H，DI=0024H，BX=0100H，BP=0200H，数据段中变量名为 VAL 的偏移地址值为 0030H，试说明下列源操作数字段的寻址方式是什么?物理地址值是多少?</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//方法: 有AX 直接用DS=1000H×16=10000H,再加上后面对应的值即可</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//方法: 有BX,SI 直接用DS=1000H×16=10000H,再加上后面对应的值即可</span>
 <span class="token comment">//      有ES 直接用ES=2000H×16=20000H,再加上后面对应的值即可</span>
 <span class="token comment">//      有BP 直接用SS=3500H×16=35000H,再加上后面对应的值即可</span>
+<span class="token comment">// 总结: BP 用 SS ES 用 ES 其余都用 DS</span>
 <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span><span class="token number">100</span>H<span class="token punctuation">]</span>      直接<span class="token punctuation">,</span><span class="token number">10100</span>H	    	    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>MOV AX，VAL             直接，<span class="token number">10030</span>H
 <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BX<span class="token punctuation">]</span>        寄存器间接<span class="token punctuation">,</span><span class="token number">10100</span>H		 <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>MOV AX，ES<span class="token operator">:</span><span class="token punctuation">[</span>BX<span class="token punctuation">]</span>         寄存器间接，<span class="token number">20100</span>H
-<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>SI         寄存器间接<span class="token punctuation">,</span><span class="token number">100</span>A0H        <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BX<span class="token operator">+</span><span class="token number">10</span>H<span class="token punctuation">]</span>        寄存器相对，<span class="token number">10110</span>H
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>SI<span class="token punctuation">]</span>        寄存器间接<span class="token punctuation">,</span><span class="token number">100</span>A0H        <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BX<span class="token operator">+</span><span class="token number">10</span>H<span class="token punctuation">]</span>        寄存器相对，<span class="token number">10110</span>H
 <span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BP<span class="token punctuation">]</span>        寄存器间接<span class="token punctuation">,</span><span class="token number">35200</span>H        <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>MOV AX，VAL<span class="token punctuation">[</span>BP<span class="token operator">+</span>SI<span class="token punctuation">]</span>     相对基址变址，<span class="token number">352D</span><span class="token number">0</span>H
-<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>MOV AX，VAL<span class="token punctuation">[</span>BX<span class="token operator">+</span>DI<span class="token punctuation">]</span>  相对基址变址<span class="token punctuation">,</span><span class="token number">10154</span>H      <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BP<span class="token operator">+</span>DI<span class="token punctuation">]</span>        基址变址，<span class="token number">35224</span>H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>MOV AX，VAL<span class="token punctuation">[</span>BX<span class="token operator">+</span>DI<span class="token punctuation">]</span>  相对基址变址<span class="token punctuation">,</span><span class="token number">10154</span>H      <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>MOV AX，<span class="token punctuation">[</span>BP<span class="token operator">+</span>DI<span class="token punctuation">]</span>        基址变址，<span class="token number">35224</span>H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="3">
 <li>已知 AX=2508H，BX=0F36H，CX=0004H，DX=1864H，求下列每条指令执行后的结果是什么?标志位 CF 等于什么?    <strong>AX(2508H) = AH(25H)+AL(08H)</strong>           </li>
@@ -1291,7 +1292,7 @@ AF、SF、OF无意义
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.1k</span>&nbsp;字&nbsp;|
+                class="white-color">75.2k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1585,7 +1586,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1597,6 +1598,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
