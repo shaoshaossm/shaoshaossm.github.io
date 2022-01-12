@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>open-cv的初步学习</title>
+      <title>open-CV的初步学习</title>
       <link href="/2022-01-12-open-cv-de-chu-bu-xue-xi.html"/>
       <url>/2022-01-12-open-cv-de-chu-bu-xue-xi.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装指定版本</span>pip <span class="token function">install</span> opencv-python<span class="token operator">==</span><span class="token number">3.4</span>.2.17<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 测试是否安装成功</span><span class="token keyword">import</span> cv2lena  <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"1.jpg"</span><span class="token punctuation">)</span>cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"image"</span><span class="token punctuation">,</span>lena<span class="token punctuation">)</span>cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 利用SIFT和SURF等进行特征提取</span>pip <span class="token function">install</span> opencv-contrib-python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OpenCV </tag>
+            
+        </tags>
       
     </entry>
     
@@ -825,7 +837,7 @@
       <link href="/2021-09-19-shi-yong-idea-ti-jiao-git-dai-ma.html"/>
       <url>/2021-09-19-shi-yong-idea-ti-jiao-git-dai-ma.html</url>
       
-        <content type="html"><![CDATA[<h3 id="IDEA-提交-git"><a href="#IDEA-提交-git" class="headerlink" title="IDEA 提交 git"></a>IDEA 提交 git</h3><ol><li>创建一个空项目</li><li>点击如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/275115ac9cc843d0bdb001d8ec7f0fc4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="创建 mercurial 存储库"></p><ol start="3"><li>下一步 点击如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/f6324e3f89684acb9f4216baf29aeeae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="add+ commit "></p><ol start="4"><li>再点击如图所示<br><img src="https://img-blog.csdnimg.cn/e1718aea99f04c18b72bc675d042700f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="push代码到git"></li><li>提示输入仓库地址 输入即可提交代码,如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/1abec00e879f4c90a48272844a9acbf9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="测试成功"></p><hr><h3 id="IDEA-生成序列化版本号"><a href="#IDEA-生成序列化版本号" class="headerlink" title="IDEA 生成序列化版本号"></a>IDEA 生成序列化版本号</h3><p><img src="https://img-blog.csdnimg.cn/270faca20fed451a87502d4781967295.png" alt="IDEA 生成序列化版本号配置"></p><p><img src="https://img-blog.csdnimg.cn/2fc708f00ac24de19ccba5941278938f.png" alt="ALT+Enter"></p><h3 id="Pycharm-提交git"><a href="#Pycharm-提交git" class="headerlink" title="Pycharm 提交git"></a>Pycharm 提交git</h3><p><img src="https://img-blog.csdnimg.cn/5bcd42352f734a6e9ebf5003158f8ec2.png" alt="配置GIT executable地址"></p><p><img src="https://img-blog.csdnimg.cn/4f220ddb6dc24cfba3d99205964af5ed.png" alt="创建tokens"></p><p><img src="https://img-blog.csdnimg.cn/d432dcc0bbef44a49a67ca68541fddf8.png" alt="输入创建的密钥并测试"></p><p><img src="https://img-blog.csdnimg.cn/986af89f7d4c46a8b13ab19739653951.png" alt="创建git仓库"></p><h4 id="使用pycharm调用其他类中的函数"><a href="#使用pycharm调用其他类中的函数" class="headerlink" title="使用pycharm调用其他类中的函数"></a>使用pycharm调用其他类中的函数</h4><p><img src="https://img-blog.csdnimg.cn/c4497cd45e01405c9300f53afaa43fc8.png" alt="Import function"></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="IDEA-提交-git"><a href="#IDEA-提交-git" class="headerlink" title="IDEA 提交 git"></a>IDEA 提交 git</h3><ol><li>创建一个空项目</li><li>点击如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/275115ac9cc843d0bdb001d8ec7f0fc4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="创建 mercurial 存储库"></p><ol start="3"><li>下一步 点击如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/f6324e3f89684acb9f4216baf29aeeae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="add+ commit "></p><ol start="4"><li>再点击如图所示<br><img src="https://img-blog.csdnimg.cn/e1718aea99f04c18b72bc675d042700f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="push代码到git"></li><li>提示输入仓库地址 输入即可提交代码,如图所示</li></ol><p><img src="https://img-blog.csdnimg.cn/1abec00e879f4c90a48272844a9acbf9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ1MjAwNzM5,size_20,color_FFFFFF,t_70,g_se,x_16" alt="测试成功"></p><hr><h3 id="IDEA-生成序列化版本号"><a href="#IDEA-生成序列化版本号" class="headerlink" title="IDEA 生成序列化版本号"></a>IDEA 生成序列化版本号</h3><p><img src="https://img-blog.csdnimg.cn/270faca20fed451a87502d4781967295.png" alt="IDEA 生成序列化版本号配置"></p><p><img src="https://img-blog.csdnimg.cn/2fc708f00ac24de19ccba5941278938f.png" alt="ALT+Enter"></p><h3 id="Pycharm-提交git"><a href="#Pycharm-提交git" class="headerlink" title="Pycharm 提交git"></a>Pycharm 提交git</h3><p><img src="https://img-blog.csdnimg.cn/5bcd42352f734a6e9ebf5003158f8ec2.png" alt="配置GIT executable地址"></p><p><img src="https://img-blog.csdnimg.cn/4f220ddb6dc24cfba3d99205964af5ed.png" alt="创建tokens"></p><p><img src="https://img-blog.csdnimg.cn/d432dcc0bbef44a49a67ca68541fddf8.png" alt="输入创建的密钥并测试"></p><p><img src="https://img-blog.csdnimg.cn/986af89f7d4c46a8b13ab19739653951.png" alt="创建git仓库"></p><h4 id="使用pycharm调用其他类中的函数"><a href="#使用pycharm调用其他类中的函数" class="headerlink" title="使用pycharm调用其他类中的函数"></a>使用pycharm调用其他类中的函数</h4><p><img src="https://img-blog.csdnimg.cn/c4497cd45e01405c9300f53afaa43fc8.png" alt="Import function"></p><hr><h4 id="PyCharm使用过程中遇到的问题"><a href="#PyCharm使用过程中遇到的问题" class="headerlink" title="PyCharm使用过程中遇到的问题"></a>PyCharm使用过程中遇到的问题</h4><ul><li><p>使用pycharm安装类库时安装失败,必须使用虚拟环境才能安装本地的不行</p></li><li><p>如果要本地安装的话需要到Scripts目录下使用pip install 才行</p></li></ul>]]></content>
       
       
       <categories>

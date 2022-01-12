@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2022-01-12T08:30:04.697Z</updated>
+  <updated>2022-01-12T10:42:12.615Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -17,15 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>open-cv的初步学习</title>
+    <title>open-CV的初步学习</title>
     <link href="https://shaoshaossm.github.io/2022-01-12-open-cv-de-chu-bu-xue-xi.html"/>
     <id>https://shaoshaossm.github.io/2022-01-12-open-cv-de-chu-bu-xue-xi.html</id>
     <published>2022-01-12T08:30:04.000Z</published>
-    <updated>2022-01-12T08:30:04.697Z</updated>
+    <updated>2022-01-12T10:42:12.615Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装指定版本</span>pip <span class="token function">install</span> opencv-python<span class="token operator">==</span><span class="token number">3.4</span>.2.17<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 测试是否安装成功</span><span class="token keyword">import</span> cv2lena  <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"1.jpg"</span><span class="token punctuation">)</span>cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"image"</span><span class="token punctuation">,</span>lena<span class="token punctuation">)</span>cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 利用SIFT和SURF等进行特征提取</span>pip <span class="token function">install</span> opencv-contrib-python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=</summary>
+      
     
     
     
+    <category term="Python" scheme="https://shaoshaossm.github.io/categories/Python/"/>
     
+    
+    <category term="OpenCV" scheme="https://shaoshaossm.github.io/tags/OpenCV/"/>
     
   </entry>
   
