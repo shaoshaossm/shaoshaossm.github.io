@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>open-cv的初步学习</title>
+      <link href="/2022-01-12-open-cv-de-chu-bu-xue-xi.html"/>
+      <url>/2022-01-12-open-cv-de-chu-bu-xue-xi.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>centos7程序启动命令合集</title>
       <link href="/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html"/>
       <url>/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</url>
@@ -33,7 +46,7 @@
       <link href="/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html"/>
       <url>/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html</url>
       
-        <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li></ul><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/bbb3ba307600453c9da98534404358cf.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li><li>更新<code>pip</code>到最新版本</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python -m pip <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/bbb3ba307600453c9da98534404358cf.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
       
       
       <categories>
