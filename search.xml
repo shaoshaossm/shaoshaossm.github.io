@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>依赖使用合集</title>
+      <link href="/2022-02-23-yi-lai-shi-yong-he-ji.html"/>
+      <url>/2022-02-23-yi-lai-shi-yong-he-ji.html</url>
+      
+        <content type="html"><![CDATA[<!--jdk版本--><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">></span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.source</span><span class="token punctuation">></span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.source</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.target</span><span class="token punctuation">></span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.target</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>注解的使用合集</title>
+      <link href="/2022-02-23-zhu-jie-de-shi-yong-he-ji.html"/>
+      <url>/2022-02-23-zhu-jie-de-shi-yong-he-ji.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><h4 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h4><h4 id="Respotory"><a href="#Respotory" class="headerlink" title="@Respotory"></a>@Respotory</h4><h4 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h4><h4 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h4><h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><h4 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h4><h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 注解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>spring框架</title>
       <link href="/2022-02-22-spring-kuang-jia.html"/>
       <url>/2022-02-22-spring-kuang-jia.html</url>
