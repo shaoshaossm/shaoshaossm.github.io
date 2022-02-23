@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8
+                    782
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -558,7 +558,133 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><h4 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h4><h4 id="Respotory"><a href="#Respotory" class="headerlink" title="@Respotory"></a>@Respotory</h4><h4 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h4><h4 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h4><h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><h4 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h4><h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4>
+                <h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><h4 id="Component-、-Respotory-、-Service、-Controller"><a href="#Component-、-Respotory-、-Service、-Controller" class="headerlink" title="@Component 、@Respotory 、@Service、@Controller"></a>@Component 、@Respotory 、@Service、@Controller</h4><ul>
+<li>用来创建对象，等同于<bean>的功能</li>
+<li>属性 value 就是对象的名称，也就是bean的id值</li>
+<li>value的值是唯一的，创建的对象在整个spring容器中就一个</li>
+<li>位置： 在类的上面</li>
+<li>@Component(value = “myStudent”) 等同于 <bean id="someService1" class="com.bjpowernode.ba01"/></li>
+<li><code>@Respotory</code> (用在持久层类的上面) ：放在dao的实现类上面，创建dao对象，dao对象是能访问数据库的。</li>
+<li><code>@Service</code> （用在业务层上面）：放在service的实现类上面，创建service对象，service对象是做业务处理，可以有事务等功能</li>
+<li><code>@Controller</code> (用在控制器上面) ：放在控制器（处理器）类的上面，创建控制器对象，能够接收用户提交的参数，显示请求的处理结果</li>
+<li>在不确定一个类使用在哪个层时，使用@Component注解。</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"myStudent"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span><span class="token string">"myStudent"</span><span class="token punctuation">)</span> <span class="token comment">// value 可以省略</span>
+<span class="token comment">// 不指定对象名称，有spring提供默认名称 （默认为类名的首字母小写）</span>
+<span class="token annotation punctuation">@Component</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>bjpowernode<span class="token punctuation">.</span>ba01</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*@Component(value = "myStudent")*/</span>
+<span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span><span class="token string">"myStudent"</span><span class="token punctuation">)</span>
+<span class="token comment">//@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"student的无参构造方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"Student&#123;"</span> <span class="token operator">+</span>
+                <span class="token string">"name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">", age="</span> <span class="token operator">+</span> age <span class="token operator">+</span>
+                <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>声明组件扫描器(component-scan),组件就是java对象<ul>
+<li>base-package：指定注解在项目中的包名</li>
+<li>工作方式：spring会扫描base-package指定的包，把包中和子包中的所有类，找到类的注解，按照注解的功能创建对象，或给属性赋值</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--本包--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.bjpowernode.ba01<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">context:</span>component-scan</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--;或,--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.bjpowernode.ba01;com.bjpowernode.ba02;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">context:</span>component-scan</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--指定父包--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.bjpowernode<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">context:</span>component-scan</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><ul>
+<li>简单类型的属性赋值</li>
+<li>属性：value 是string类型的，表示简单类型的属性值</li>
+<li>位置：<ul>
+<li>在属性定义的上面，无需set方法，推荐使用</li>
+<li>在set方法上面</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"张飞"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"11"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+<span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"张飞"</span><span class="token punctuation">)</span> <span class="token comment">// value 可以省略</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Autowired-Qualifier"><a href="#Autowired-Qualifier" class="headerlink" title="@Autowired @Qualifier"></a>@Autowired @Qualifier</h4><ul>
+<li>引用类型，实现引用类型的赋值</li>
+<li><font color="red">默认使用的是byType自动注入</font></li>
+<li>如果要使用<code>byName</code>方式<ul>
+<li>在属性上面加入@Autowired</li>
+<li>在属性上面加入@Qualifier(value = “bean的id”) ：表示使用指定名称的bean完成赋值</li>
+</ul>
+</li>
+<li>属性：required，是一个boolean类型的，默认是true<ul>
+<li>require=true: 表示引用类型赋值失败，程序报错，并终止执行</li>
+<li>require=false：表示引用类型赋值失败，程序正常执行，引用类型是null</li>
+</ul>
+</li>
+<li>位置：<ul>
+<li>在属性定义上面，无需set方法，推荐使用</li>
+<li>在set方法上面</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 默认：byType  require=true</span>
+<span class="token annotation punctuation">@Autowired</span><span class="token punctuation">(</span>require<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">School</span> school<span class="token punctuation">;</span>
+<span class="token comment">// byName</span>
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"mySchool"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">School</span> school<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4><ul>
+<li>引用类型</li>
+<li>来自jdk中的注解，spring框架提供了对该注解的支持</li>
+<li><font color="red">默认使用的是byName自动注入</font><ul>
+<li>先使用byName自定注入，如果byName赋值失败，再使用byType</li>
+</ul>
+</li>
+<li>位置：<ul>
+<li>在属性定义上面，无需set方法，推荐使用</li>
+<li>在set方法上面</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Resource</span>
+<span class="token keyword">private</span> <span class="token class-name">School</span> school<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -809,7 +935,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            整理一下学习框架中使用的各种依赖
+                            整理一下学习框架中使用的各种依赖------------------------------------------
                         
                     </div>
                     <div class="publish-info">
@@ -1040,7 +1166,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">84.2k</span>&nbsp;字&nbsp;|
+                class="white-color">85.2k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1330,7 +1456,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1342,6 +1468,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
