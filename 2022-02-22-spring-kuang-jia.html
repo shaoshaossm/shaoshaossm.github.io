@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -763,7 +763,42 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <h3 id="AOP面向切面编程"><a href="#AOP面向切面编程" class="headerlink" title="AOP面向切面编程"></a>AOP面向切面编程</h3><ul>
 <li>从动态角度考虑程序运行过程</li>
 <li>AOP底层就是采用动态代理模式实现的。采用了两种代理，<font color="red">JDK动态代理</font>和<font color="red">CGLB动态代理</font></li>
-<li></li>
+<li><code>Aspect</code>:切面，表示增强功能</li>
+<li><code>Pointcut</code>: 切入点,指多个连接点方法的集合,多个方法</li>
+<li><code>Advice</code>:通知,表示切面功能执行的时间</li>
+<li>切面三个关键要素<ul>
+<li>切面的功能代码，切面要干什么</li>
+<li>切面的执行位置，使用Pointcut表示切面执行的位置</li>
+<li>切面的执行时间，使用Advice表示时间，在目标方法之前，还是目标方法之后</li>
+</ul>
+</li>
+<li>如何理解面向切面编程<ul>
+<li>在分析项目功能时,找出切面</li>
+<li>合理安排切面的执行时间</li>
+<li>合理安排切面的执行位置,在哪个类,哪个方法增加增强功能</li>
+</ul>
+</li>
+</ul>
+<h4 id="aspectj"><a href="#aspectj" class="headerlink" title="aspectj"></a>aspectj</h4><ul>
+<li><p>spring中内置的开源专门做aop的框架</p>
+</li>
+<li><p>实现方式</p>
+<ul>
+<li>使用xml的配置文件</li>
+<li>使用注解</li>
+</ul>
+</li>
+<li><p>execution表达式共四部分</p>
+</li>
+<li><p>execution(访问权限 方法返回值 <font color="red">方法声明(参数)</font> 异常类型)</p>
+<ul>
+<li>execution(public * * (..)) 指定切入点为:任意公共方法</li>
+<li>execution(* set*(..)) 指定切入点为:任何一个以 “set” 开始的方法</li>
+<li>execution(* com.xyz.service.<em>.</em>(..)) 指定切入点为:定义在service包里的任意类的任意方法</li>
+<li>execution(* com.xyz.service..(..)) 指定切入点为:定义在service包或者子包里的任意类的任意方法。“..” 出现在类名中时，后面必须跟 “ * ” ，表示包、子包下的所有类</li>
+<li>execution(* <em>..service.</em> .*(..))  </li>
+</ul>
+</li>
 </ul>
 
                 
@@ -1247,7 +1282,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">85.8k</span>&nbsp;字&nbsp;|
+                class="white-color">86.1k</span>&nbsp;字&nbsp;|
             
             
             
