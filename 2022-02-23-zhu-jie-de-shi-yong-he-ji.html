@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-25
+                    2022-02-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
 
@@ -671,8 +671,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myBefore2</span><span class="token punctuation">(</span><span class="token class-name">JoinPoint</span> joinPoint<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h4 id="AfterReturning"><a href="#AfterReturning" class="headerlink" title="@AfterReturning"></a>@AfterReturning</h4><ul>
 <li><font color="red">后置通知注解</font></li>
 <li>在目标方法之后执行</li>
@@ -697,26 +695,92 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">myAround</span><span class="token punctuation">(</span><span class="token class-name">ProceedingJoinPoint</span> proceedingJoinPoint<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h4><p><font color="red">异常通知注解</font></p>
-<ul>
-<li>参数有一个Exception 和 JoinPoint</li>
-<li> 属性：value 切入点表达式</li>
-<li> throwing 自定义变量，表示方法抛出的异常对象</li>
-<li>变量名和方法参数名一样</li>
-<li>在目标方法抛出异常时执行</li>
-<li>做异常监控程序</li>
+<h4 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h4><ul>
+<li><p><font color="red">异常通知注解</font></p>
+</li>
+<li><p>参数有一个Exception 和 JoinPoint</p>
+</li>
+<li><p> 属性：value 切入点表达式</p>
+</li>
+<li><p> throwing 自定义变量，表示方法抛出的异常对象</p>
+</li>
+<li><p>变量名和方法参数名一样</p>
+</li>
+<li><p>在目标方法抛出异常时执行</p>
+</li>
+<li><p>做异常监控程序</p>
+</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@AfterThrowing</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"execution(* *..SomeServiceImpl.doSecond(..))"</span><span class="token punctuation">,</span> throwing <span class="token operator">=</span> <span class="token string">"ex"</span><span class="token punctuation">)</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myAfterException</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"异常通知,方法发生异常时执行:"</span> <span class="token operator">+</span> ex<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h4><ul>
+<li><font color="red">最终通知注解</font></li>
+<li>参数有一个JoinPoint</li>
+<li>属性：value 切入点表达式</li>
+<li>总是会在目标方法之后执行</li>
+<li>一般做资源清除工作</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@After</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"execution(* *..SomeServiceImpl.doThird(..))"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span>  <span class="token function">myAfter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Pointcut"><a href="#Pointcut" class="headerlink" title="@Pointcut"></a>@Pointcut</h4><ul>
+<li><font color="red">定义管理切入点注解</font></li>
+<li>多个切入点表达式是重复的,可以复用,可以使用@Pointcut</li>
+<li>属性：value 切入点表达式</li>
+<li>当使用@Pointcut定义在一个方法的上面,此时这个方法名称就是切入点表达式,其他通知中,value属性就可以使用这个方法名称,代替切入点表达式</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@After</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"mypt()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span>  <span class="token function">myAfter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"执行最终通知，总是会执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token annotation punctuation">@Pointcut</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"execution(* *..SomeServiceImpl.doThird(..))"</span> <span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">mypt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//无需代码</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Transactional"><a href="#Transactional" class="headerlink" title="@Transactional"></a>@Transactional</h4><p>@Transactional 的所有可选属性如下所示：</p>
+<p> ➢ <code>propagation</code>：用于设置事务传播属性。该属性类型为 Propagation 枚举，默认值为Propagation.REQUIRED。</p>
+<p> ➢<code> isolation</code>：用于设置事务的隔离级别。该属性类型为 Isolation 枚举，默认值为 Isolation.DEFAULT。 ➢ readOnly：用于设置该方法对数据库的操作是否是只读的。该属性为 boolean，默认值 为 false。</p>
+<p> ➢<code> timeout</code>：用于设置本操作与数据库连接的超时时限。单位为秒，类型为 int，默认值为 -1，即没有时限。</p>
+<p> ➢<code> rollbackFor</code>：指定需要回滚的异常类。类型为 Class[]，默认值为空数组。当然，若只有 一个异常类时，可以不使用数组。 </p>
+<p>➢ <code>rollbackForClassName</code>：指定需要回滚的异常类类名。类型为 String[]，默认值为空数组。 当然，若只有一个异常类时，可以不使用数组。</p>
+<p>➢<code> noRollbackFor</code>：指定不需要回滚的异常类。类型为 Class[]，默认值为空数组。当然，若 只有一个异常类时，可以不使用数组。</p>
+<p> ➢ <code>noRollbackForClassName</code>：指定不需要回滚的异常类类名。类型为 String[]，默认值为空 数组。当然，若只有一个异常类时，可以不使用数组。 </p>
+<p> ➢  需要注意的是，@Transactional 若用在方法上，只能用于 public 方法上。对于其他非 public 方法，如果加上了注解@Transactional，虽然 Spring 不会报错，但不会将指定事务织入到该 方法中。因为 Spring 会忽略掉所有非 public 方法上的@Transaction 注解。 若@Transaction 注解在类上，则表示该类上所有的方法均将在执行时织入事务。</p>
+<ul>
+<li>需声明事务管理器对象</li>
+</ul>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--使用spring的事务处理--></span>
+<span class="token comment">&lt;!--声明事务管理器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transactionManager<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.jdbc.datasource.DataSourceTransactionManager<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--连接的数据库,指定数据源--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dataSource<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myDataSource<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>开启注解驱动</li>
+</ul>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">  <span class="token comment">&lt;!--开启事务注解驱动,告诉spring使用注解驱动管理事务,创建代理驱动--></span>
+<span class="token comment">&lt;!--  &lt;tx:annotation-driven  transaction-manager = "transactionManager"/>--></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>annotation-driven</span> <span class="token attr-name">transaction-manager</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transactionManager<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Transactional</span><span class="token punctuation">(</span>
+    propagation <span class="token operator">=</span> <span class="token class-name">Propagation</span><span class="token punctuation">.</span>REQUIRED<span class="token punctuation">,</span>
+    isolation <span class="token operator">=</span> <span class="token class-name">Isolation</span><span class="token punctuation">.</span>DEFAULT<span class="token punctuation">,</span>
+    readOnly <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    rollbackFor <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">NullPointerException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        <span class="token class-name">NotEnoughException</span><span class="token punctuation">.</span><span class="token keyword">class</span>
+            <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span>
+<span class="token comment">// 默认传播行为是REQUIRED,默认隔离级别DEFAULT 抛出运行时异常 回滚事务</span>
+<span class="token annotation punctuation">@Transactional</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-
-<h4 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h4>
                 
             </div>
             <hr/>
@@ -1198,7 +1262,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.5k</span>&nbsp;字&nbsp;|
+                class="white-color">89.8k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1488,7 +1552,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1500,6 +1564,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
