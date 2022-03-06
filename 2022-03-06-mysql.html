@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    944
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -856,11 +856,72 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <span class="token operator">|</span> MILLER <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment">--------+---------+------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>薪资大于1000的并且部门编号是20或30的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal<span class="token punctuation">,</span>deptno <span class="token keyword">from</span> emp <span class="token keyword">where</span> sal<span class="token operator">></span><span class="token number">1000</span> <span class="token operator">and</span> <span class="token punctuation">(</span>deptno <span class="token operator">=</span> <span class="token number">20</span> <span class="token operator">or</span> deptno <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+--------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> sal     <span class="token operator">|</span> deptno <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+--------+</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> <span class="token number">1600.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> <span class="token number">1250.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> <span class="token number">2975.00</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> <span class="token number">1250.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> <span class="token number">2850.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> <span class="token number">1500.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> <span class="token number">1100.00</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+--------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>找出工资是800和5000的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>job<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">where</span> sal <span class="token operator">in</span><span class="token punctuation">(</span><span class="token number">800</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">-------+-----------+---------+</span>
+<span class="token operator">|</span> ename <span class="token operator">|</span> job       <span class="token operator">|</span> sal     <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+-----------+---------+</span>
+<span class="token operator">|</span> SMITH <span class="token operator">|</span> CLERK     <span class="token operator">|</span>  <span class="token number">800.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING  <span class="token operator">|</span> PRESIDENT <span class="token operator">|</span> <span class="token number">5000.00</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+-----------+---------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>模糊查询<ul>
+<li><code>%</code>代表多个字符</li>
+<li><code>_</code>代表单个字符</li>
+</ul>
+</li>
+<li>查询姓名以M开头所有的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> ename <span class="token operator">like</span> <span class="token string">'M%'</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">-------+--------+----------+------+------------+---------+---------+--------+</span>
+<span class="token operator">|</span> EMPNO <span class="token operator">|</span> ENAME  <span class="token operator">|</span> JOB      <span class="token operator">|</span> MGR  <span class="token operator">|</span> HIREDATE   <span class="token operator">|</span> SAL     <span class="token operator">|</span> COMM    <span class="token operator">|</span> DEPTNO <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+--------+----------+------+------------+---------+---------+--------+</span>
+<span class="token operator">|</span>  <span class="token number">7369</span> <span class="token operator">|</span> SMITH  <span class="token operator">|</span> CLERK    <span class="token operator">|</span> <span class="token number">7902</span> <span class="token operator">|</span> <span class="token number">1980</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">17</span> <span class="token operator">|</span>  <span class="token number">800.00</span> <span class="token operator">|</span>    <span class="token boolean">NULL</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">7654</span> <span class="token operator">|</span> MARTIN <span class="token operator">|</span> SALESMAN <span class="token operator">|</span> <span class="token number">7698</span> <span class="token operator">|</span> <span class="token number">1981</span><span class="token operator">-</span><span class="token number">09</span><span class="token operator">-</span><span class="token number">28</span> <span class="token operator">|</span> <span class="token number">1250.00</span> <span class="token operator">|</span> <span class="token number">1400.00</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">7876</span> <span class="token operator">|</span> ADAMS  <span class="token operator">|</span> CLERK    <span class="token operator">|</span> <span class="token number">7788</span> <span class="token operator">|</span> <span class="token number">1987</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">23</span> <span class="token operator">|</span> <span class="token number">1100.00</span> <span class="token operator">|</span>    <span class="token boolean">NULL</span> <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">7900</span> <span class="token operator">|</span> JAMES  <span class="token operator">|</span> CLERK    <span class="token operator">|</span> <span class="token number">7698</span> <span class="token operator">|</span> <span class="token number">1981</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">03</span> <span class="token operator">|</span>  <span class="token number">950.00</span> <span class="token operator">|</span>    <span class="token boolean">NULL</span> <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">7934</span> <span class="token operator">|</span> MILLER <span class="token operator">|</span> CLERK    <span class="token operator">|</span> <span class="token number">7782</span> <span class="token operator">|</span> <span class="token number">1982</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">23</span> <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span>    <span class="token boolean">NULL</span> <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+--------+----------+------+------------+---------+---------+--------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li><p>查询姓名以N结尾的所有的员工</p>
+</li>
+<li><p>查询姓名中包含O的所有的员工</p>
+</li>
+<li><p>查询姓名中第三个字符为A的所有员工</p>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> ename <span class="token operator">like</span> <span class="token string">'%N'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> ename <span class="token operator">like</span> <span class="token string">'%O%'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> ename <span class="token operator">like</span> <span class="token string">'__a%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>查询姓名中有下划线的所有的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> ename <span class="token operator">like</span> <span class="token string">'%\_%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h3 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h3>
                 
             </div>
             <hr/>
@@ -1346,7 +1407,7 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">99.7k</span>&nbsp;字&nbsp;|
+                class="white-color">100k</span>&nbsp;字&nbsp;|
             
             
             
