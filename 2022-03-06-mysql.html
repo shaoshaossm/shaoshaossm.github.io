@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    972
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -835,6 +835,26 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 | FORD   | 3000.00 |
 | MILLER | 1300.00 |
 +--------+---------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>找出那些人没有津贴</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal<span class="token punctuation">,</span>comm <span class="token keyword">from</span> emp <span class="token keyword">where</span> comm <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token operator">or</span> comm <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> sal     <span class="token operator">|</span> comm <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span>  <span class="token number">800.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> <span class="token number">2975.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> <span class="token number">2850.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> <span class="token number">2450.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> <span class="token number">5000.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> <span class="token number">1500.00</span> <span class="token operator">|</span> <span class="token number">0.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> <span class="token number">1100.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span>  <span class="token number">950.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1616,7 +1636,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1628,6 +1648,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
