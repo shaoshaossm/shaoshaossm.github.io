@@ -528,14 +528,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    461
+                    901
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -687,6 +687,158 @@ mysql&gt; select * from salgrade;
 |     4 |  2001 |  3000 |
 |     5 |  3001 |  9999 |
 +-------+-------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>查看数据库版本</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql --version
+mysql -V
+mysql  Ver <span class="token number">8.0</span>.17 <span class="token keyword">for</span> Win64 on x86_64 <span class="token punctuation">(</span>MySQL Community Server - GPL<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>查询当前使用数据库</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select databases();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>终止一条语句</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">\c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>退出mysql</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ctrl + c
+quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li> 查看表的创建语句</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"> show create table emp;
+ --------------------+
+| emp   | CREATE TABLE &#96;emp&#96; (
+  &#96;EMPNO&#96; int(4) NOT NULL,
+  &#96;ENAME&#96; varchar(10) DEFAULT NULL,
+  &#96;JOB&#96; varchar(9) DEFAULT NULL,
+  &#96;MGR&#96; int(4) DEFAULT NULL,
+  &#96;HIREDATE&#96; date DEFAULT NULL,
+  &#96;SAL&#96; double(7,2) DEFAULT NULL,
+  &#96;COMM&#96; double(7,2) DEFAULT NULL,
+  &#96;DEPTNO&#96; int(2) DEFAULT NULL,
+  PRIMARY KEY (&#96;EMPNO&#96;)
+) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8mb4 COLLATE&#x3D;utf8mb4_0900_ai_ci |<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>查看其他库中的表</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show tables from springboot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h4><ul>
+<li>列出员工的编号，姓名和年薪</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; select empno,ename,sal*12 as yearsal from emp;
++-------+--------+----------+
+| empno | ename  | yearsal  |
++-------+--------+----------+
+|  7369 | SMITH  |  9600.00 |
+|  7499 | ALLEN  | 19200.00 |
+|  7521 | WARD   | 15000.00 |
+|  7566 | JONES  | 35700.00 |
+|  7654 | MARTIN | 15000.00 |
+|  7698 | BLAKE  | 34200.00 |
+|  7782 | CLARK  | 29400.00 |
+|  7788 | SCOTT  | 36000.00 |
+|  7839 | KING   | 60000.00 |
+|  7844 | TURNER | 18000.00 |
+|  7876 | ADAMS  | 13200.00 |
+|  7900 | JAMES  | 11400.00 |
+|  7902 | FORD   | 36000.00 |
+|  7934 | MILLER | 15600.00 |
++-------+--------+----------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;或!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>between … and ….</td>
+<td>两个值之间,<strong>等同于 &gt;= and &lt;=</strong>  字符方面：左闭右开</td>
+</tr>
+<tr>
+<td>is null</td>
+<td>为null（is not null 不为空）</td>
+</tr>
+<tr>
+<td><strong>and</strong></td>
+<td>并且</td>
+</tr>
+<tr>
+<td><strong>or</strong></td>
+<td>或者</td>
+</tr>
+<tr>
+<td>in</td>
+<td>包含，相当于多个or（not in不在这个范围中）</td>
+</tr>
+<tr>
+<td>not</td>
+<td>not可以取非，主要用在is 或in中</td>
+</tr>
+<tr>
+<td>like</td>
+<td>like称为模糊查询，支持%或下划线匹配  %匹配任意个字符  下划线，一个下划线只匹配一个字符</td>
+</tr>
+</tbody></table>
+<ul>
+<li>查询薪水为1600到3000的员工</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; select ename,sal from emp where sal between 1100 and 3100;
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| ALLEN  | 1600.00 |
+| WARD   | 1250.00 |
+| JONES  | 2975.00 |
+| MARTIN | 1250.00 |
+| BLAKE  | 2850.00 |
+| CLARK  | 2450.00 |
+| SCOTT  | 3000.00 |
+| TURNER | 1500.00 |
+| ADAMS  | 1100.00 |
+| FORD   | 3000.00 |
+| MILLER | 1300.00 |
++--------+---------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
 
 
                 
@@ -1174,7 +1326,7 @@ mysql&gt; select * from salgrade;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">99.2k</span>&nbsp;字&nbsp;|
+                class="white-color">99.7k</span>&nbsp;字&nbsp;|
             
             
             
