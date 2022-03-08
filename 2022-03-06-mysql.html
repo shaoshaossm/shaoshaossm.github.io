@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-07
+                    2022-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    17 分
                 </div>
                 
 
@@ -743,7 +743,10 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
   <span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">having</span>    <span class="token number">4</span>
   <span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">order</span> <span class="token keyword">by</span>  <span class="token number">6</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">order</span> <span class="token keyword">by</span>  <span class="token number">6</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">limit</span> 
+  <span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token number">7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1130,7 +1133,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <span class="token operator">+</span><span class="token comment">-------+----------+-----------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>找出工资高于平均工资的员工</li>
+<li>找出工资高于平均工资的员工(where后面嵌套子查询)</li>
 </ul>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">where</span> sal <span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> <span class="token keyword">from</span> emp<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">+</span><span class="token comment">-------+---------+</span>
@@ -1154,7 +1157,259 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span> <span class="token number">2916.666667</span> <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment">--------+-------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4>
+<h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><h5 id="sql99"><a href="#sql99" class="headerlink" title="sql99"></a>sql99</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  A
+<span class="token keyword">join</span>
+  B
+<span class="token keyword">on</span>
+  连接条件
+<span class="token keyword">where</span> 
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="内外连接比较"><a href="#内外连接比较" class="headerlink" title="内外连接比较"></a>内外连接比较</h5><ul>
+<li>内连接：假设A和B表进行连接，使用内连接的话，凡是A表和B表能够匹配上的记录查询出来(null查不出来)，这就是内连接。AB两张表没有主副之分，两张表是平等的。</li>
+<li>外连接：假设A和B表进行连接，使用外连接的话，AB两张表中有一张表是主表，一张表是副表，主要查询主表中的数据，捎带着查询副表，当副表中的数据没有和主表中的数据匹配上，副表自动模拟出NULL与之匹配。</li>
+</ul>
+<h5 id="内连接之等值连接"><a href="#内连接之等值连接" class="headerlink" title="内连接之等值连接"></a>内连接之等值连接</h5><ul>
+<li>查询每个员工的部门名称，要求显示员工名和部门名</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>d<span class="token punctuation">.</span>dname <span class="token keyword">from</span> emp e <span class="token keyword">join</span> dept d <span class="token keyword">on</span> e<span class="token punctuation">.</span>deptno<span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> dname      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="内连接之非等值连接"><a href="#内连接之非等值连接" class="headerlink" title="内连接之非等值连接"></a>内连接之非等值连接</h5><ul>
+<li>查询每个员工的工资等级，要求显示员工名，工资，工资等级</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span>s<span class="token punctuation">.</span>grade <span class="token keyword">from</span> emp e <span class="token keyword">join</span> salgrade s <span class="token keyword">on</span> e<span class="token punctuation">.</span>sal <span class="token operator">between</span> s<span class="token punctuation">.</span>losal <span class="token operator">and</span> s<span class="token punctuation">.</span>hisal<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+-------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> sal     <span class="token operator">|</span> grade <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+-------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span>  <span class="token number">800.00</span> <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> <span class="token number">1600.00</span> <span class="token operator">|</span>     <span class="token number">3</span> <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> <span class="token number">1250.00</span> <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> <span class="token number">2975.00</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> <span class="token number">1250.00</span> <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> <span class="token number">2850.00</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> <span class="token number">2450.00</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> <span class="token number">5000.00</span> <span class="token operator">|</span>     <span class="token number">5</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> <span class="token number">1500.00</span> <span class="token operator">|</span>     <span class="token number">3</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> <span class="token number">1100.00</span> <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span>  <span class="token number">950.00</span> <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+-------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h5><p><font color="blue">一张表看做两张表</font></p>
+<ul>
+<li>找出每个员工的上级领导，要求显示员工名和对应的领导名</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename <span class="token keyword">as</span> <span class="token string">'员工名'</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span>ename <span class="token keyword">as</span> <span class="token string">'领导名'</span><span class="token keyword">from</span> emp e <span class="token keyword">join</span> emp b <span class="token keyword">on</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> b<span class="token punctuation">.</span>empno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> 员工名 <span class="token operator">|</span> 领导名 <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> FORD   <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> BLAKE  <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> BLAKE  <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> KING   <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> BLAKE  <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> KING   <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> KING   <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> JONES  <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> BLAKE  <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> SCOTT  <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> BLAKE  <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> JONES  <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> CLARK  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="外连接-左右"><a href="#外连接-左右" class="headerlink" title="外连接(左右)"></a>外连接(左右)</h5><ul>
+<li>找出每个员工的上级领导，要求显示员工名和对应的领导名</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> a<span class="token punctuation">.</span>ename <span class="token string">'员工'</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span>ename <span class="token string">'领导'</span> <span class="token keyword">from</span> emp b <span class="token keyword">right</span> <span class="token keyword">join</span> emp a <span class="token keyword">on</span> a<span class="token punctuation">.</span>mgr<span class="token operator">=</span>b<span class="token punctuation">.</span>empno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span>
+<span class="token operator">|</span> 员工   <span class="token operator">|</span> 领导  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> FORD  <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> <span class="token boolean">NULL</span>  <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> SCOTT <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> CLARK <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> a<span class="token punctuation">.</span>ename <span class="token string">'员工'</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span>ename <span class="token string">'领导'</span> <span class="token keyword">from</span> emp a <span class="token keyword">left</span> <span class="token keyword">join</span> emp b <span class="token keyword">on</span> a<span class="token punctuation">.</span>mgr<span class="token operator">=</span>b<span class="token punctuation">.</span>empno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span>
+<span class="token operator">|</span> 员工   <span class="token operator">|</span> 领导  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> FORD  <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> <span class="token boolean">NULL</span>  <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> SCOTT <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> CLARK <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>找出哪个部门没有员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> d<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> emp e <span class="token keyword">right</span> <span class="token keyword">join</span> dept d <span class="token keyword">on</span> e<span class="token punctuation">.</span>deptno<span class="token operator">=</span>d<span class="token punctuation">.</span>deptno <span class="token keyword">where</span> e<span class="token punctuation">.</span>empno <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+--------+</span>
+<span class="token operator">|</span> DEPTNO <span class="token operator">|</span> DNAME      <span class="token operator">|</span> LOC    <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+--------+</span>
+<span class="token operator">|</span>     <span class="token number">40</span> <span class="token operator">|</span> OPERATIONS <span class="token operator">|</span> BOSTON <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+--------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="三张表查询"><a href="#三张表查询" class="headerlink" title="三张表查询"></a>三张表查询</h5><ul>
+<li>找出每一个员工的部门名称以及工资等级,以及上级领导</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename <span class="token string">'员工'</span><span class="token punctuation">,</span>d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span>s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span>e1<span class="token punctuation">.</span>ename <span class="token string">'领导'</span> <span class="token keyword">from</span> emp e <span class="token keyword">join</span> dept d <span class="token keyword">on</span> e<span class="token punctuation">.</span>deptno<span class="token operator">=</span>d<span class="token punctuation">.</span>deptno <span class="token keyword">join</span> salgrade s <span class="token keyword">on</span> e<span class="token punctuation">.</span>sal <span class="token operator">between</span> s<span class="token punctuation">.</span>losal <span class="token operator">and</span> s<span class="token punctuation">.</span>hisal <span class="token keyword">left</span> <span class="token keyword">join</span> emp e1 <span class="token keyword">on</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> e1<span class="token punctuation">.</span>empno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+-------+-------+</span>
+<span class="token operator">|</span> 员工   <span class="token operator">|</span> dname      <span class="token operator">|</span> grade <span class="token operator">|</span> 领导  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+-------+-------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span> FORD  <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">3</span> <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span> KING  <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>     <span class="token number">5</span> <span class="token operator">|</span> <span class="token boolean">NULL</span>  <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">3</span> <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span> SCOTT <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> SALES      <span class="token operator">|</span>     <span class="token number">1</span> <span class="token operator">|</span> BLAKE <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span> JONES <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>     <span class="token number">2</span> <span class="token operator">|</span> CLARK <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+-------+-------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5><h6 id="from后嵌套子查询"><a href="#from后嵌套子查询" class="headerlink" title="from后嵌套子查询"></a>from后嵌套子查询</h6><ul>
+<li>找出每个部门的平均薪水的薪资等级（）</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> t<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span>grade <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> deptno<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> <span class="token keyword">as</span> avgsal <span class="token keyword">from</span> emp <span class="token keyword">group</span> <span class="token keyword">by</span> deptno<span class="token punctuation">)</span> t <span class="token keyword">join</span> salgrade s <span class="token keyword">on</span> t<span class="token punctuation">.</span>avgsal <span class="token operator">between</span> s<span class="token punctuation">.</span>losal <span class="token operator">and</span> s<span class="token punctuation">.</span>hisal<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+-------------+-------+</span>
+<span class="token operator">|</span> deptno <span class="token operator">|</span> avgsal      <span class="token operator">|</span> grade <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------------+-------+</span>
+<span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span> <span class="token number">2175.000000</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span> <span class="token number">1566.666667</span> <span class="token operator">|</span>     <span class="token number">3</span> <span class="token operator">|</span>
+<span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span> <span class="token number">2916.666667</span> <span class="token operator">|</span>     <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+-------------+-------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>找出每个部门平均的薪水等级</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> emp e <span class="token keyword">join</span> salgrade s <span class="token keyword">on</span> e<span class="token punctuation">.</span>sal <span class="token operator">between</span> s<span class="token punctuation">.</span>losal <span class="token operator">and</span> s<span class="token punctuation">.</span>hisal <span class="token keyword">group</span> <span class="token keyword">by</span> e<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+--------------+</span>
+<span class="token operator">|</span> deptno <span class="token operator">|</span> <span class="token function">avg</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>grade<span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------------+</span>
+<span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>       <span class="token number">2.8000</span> <span class="token operator">|</span>
+<span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>       <span class="token number">2.5000</span> <span class="token operator">|</span>
+<span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>       <span class="token number">3.6667</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="select后嵌套子查询"><a href="#select后嵌套子查询" class="headerlink" title="select后嵌套子查询"></a>select后嵌套子查询</h6><ul>
+<li>找出每个员工所在部门的名称，要求显示员工名和部门名</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>d<span class="token punctuation">.</span>dname <span class="token keyword">from</span> emp e <span class="token keyword">join</span> dept d <span class="token keyword">on</span> e<span class="token punctuation">.</span>deptno<span class="token operator">=</span>d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> d<span class="token punctuation">.</span>dname <span class="token keyword">from</span> dept d <span class="token keyword">where</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">)</span> <span class="token keyword">as</span> dname <span class="token keyword">from</span> emp e<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> dname      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span> RESEARCH   <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> ACCOUNTING <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="union"><a href="#union" class="headerlink" title="union"></a>union</h5><ul>
+<li>主要用于查询毫无关系的两张表</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename <span class="token keyword">from</span> emp <span class="token keyword">union</span> <span class="token keyword">select</span> dname <span class="token keyword">from</span> dept<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">------------+</span>
+<span class="token operator">|</span> ename      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">------------+</span>
+<span class="token operator">|</span> SMITH      <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN      <span class="token operator">|</span>
+<span class="token operator">|</span> WARD       <span class="token operator">|</span>
+<span class="token operator">|</span> JONES      <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN     <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE      <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK      <span class="token operator">|</span>
+<span class="token operator">|</span> SALES      <span class="token operator">|</span>
+<span class="token operator">|</span> OPERATIONS <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><ul>
+<li>取出工资前五名的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> sal <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">-------+---------+</span>
+<span class="token operator">|</span> ename <span class="token operator">|</span> sal     <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+---------+</span>
+<span class="token operator">|</span> KING  <span class="token operator">|</span> <span class="token number">5000.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD  <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT <span class="token operator">|</span> <span class="token number">3000.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES <span class="token operator">|</span> <span class="token number">2975.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE <span class="token operator">|</span> <span class="token number">2850.00</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------+---------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>找出工资排名在第4-9名的员工</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> sal <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> sal     <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span> <span class="token number">2975.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span> <span class="token number">2850.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span> <span class="token number">2450.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span> <span class="token number">1600.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span> <span class="token number">1500.00</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+---------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -1640,7 +1895,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101k</span>&nbsp;字&nbsp;|
+                class="white-color">102.1k</span>&nbsp;字&nbsp;|
             
             
             
