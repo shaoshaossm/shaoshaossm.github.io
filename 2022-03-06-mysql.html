@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-08
+                    2022-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    21 分
                 </div>
                 
 
@@ -733,6 +733,122 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 </ul>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">tables</span> <span class="token keyword">from</span> springboot<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h3 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h3><ul>
+<li><code>char</code> : 不可变长度，当某个字段中的数据长度不发生改变的时候使用</li>
+<li><code>varchar</code>：可变长度，当某个字段中的数据长度不确定时使用</li>
+<li><code>BLOB</code>：二进制大对象（存储图片、视频等流媒体信息） Binary Large OBject （对应java中的Object）</li>
+<li><code>CLOB</code>：字符大对象（存储较大文本，比如，可以存储4G的字符串。） Character Large OBject（对应java中的Object）</li>
+</ul>
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> t_student<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> t_student<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token keyword">no</span><span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'zhangsan'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> t_student <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'jack'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'2000-01-01'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">insert</span> <span class="token keyword">into</span> t_student<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token keyword">no</span><span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'zhangsan'</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'zhangsan3'</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_student<span class="token punctuation">;</span>
+
+<span class="token operator">+</span><span class="token comment">----+-----------+------+------------+</span>
+<span class="token operator">|</span> <span class="token keyword">no</span> <span class="token operator">|</span> name      <span class="token operator">|</span> sex  <span class="token operator">|</span> birth      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-----------+------+------------+</span>
+<span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> jack      <span class="token operator">|</span> <span class="token number">0</span>    <span class="token operator">|</span> <span class="token number">2000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">01</span> <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> zhangsan  <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span> <span class="token boolean">NULL</span>       <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">3</span> <span class="token operator">|</span> zhangsan2 <span class="token operator">|</span> <span class="token number">0</span>    <span class="token operator">|</span> <span class="token boolean">NULL</span>       <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">4</span> <span class="token operator">|</span> zhangsan3 <span class="token operator">|</span> <span class="token number">0</span>    <span class="token operator">|</span> <span class="token boolean">NULL</span>       <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">5</span> <span class="token operator">|</span> zhangsan  <span class="token operator">|</span> <span class="token number">0</span>    <span class="token operator">|</span> <span class="token boolean">NULL</span>       <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-----------+------+------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="表的复制"><a href="#表的复制" class="headerlink" title="表的复制"></a>表的复制</h4><p>语法格式：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> 表名 <span class="token keyword">as</span> <span class="token keyword">select</span> 语句<span class="token punctuation">;</span>
+没有条件整张表字段全部插入<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>将查询结果放入两一张表中</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">table</span> t_student1 <span class="token keyword">as</span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>deptno <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">14</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.04</span> sec<span class="token punctuation">)</span>
+Records: <span class="token number">14</span>  Duplicates: <span class="token number">0</span>  <span class="token keyword">Warnings</span>: <span class="token number">0</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_student1<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> deptno <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+mysql<span class="token operator">></span> <span class="token keyword">insert</span> <span class="token keyword">into</span> t_student1 <span class="token keyword">select</span> ename<span class="token punctuation">,</span>deptno <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">14</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+Records: <span class="token number">14</span>  Duplicates: <span class="token number">0</span>  <span class="token keyword">Warnings</span>: <span class="token number">0</span>
+mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_student1<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> ename  <span class="token operator">|</span> deptno <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SMITH  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ALLEN  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> WARD   <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JONES  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MARTIN <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> BLAKE  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> CLARK  <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> SCOTT  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> KING   <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">|</span> TURNER <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ADAMS  <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> JAMES  <span class="token operator">|</span>     <span class="token number">30</span> <span class="token operator">|</span>
+<span class="token operator">|</span> FORD   <span class="token operator">|</span>     <span class="token number">20</span> <span class="token operator">|</span>
+<span class="token operator">|</span> MILLER <span class="token operator">|</span>     <span class="token number">10</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------+--------+</span>
+<span class="token number">28</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="修改表中数据"><a href="#修改表中数据" class="headerlink" title="修改表中数据"></a>修改表中数据</h4><p>语法格式：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> 表名 <span class="token keyword">set</span> 字段名<span class="token number">1</span><span class="token operator">=</span>值<span class="token number">1</span>，字段名<span class="token number">2</span><span class="token operator">=</span>值<span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">where</span> 条件
+没有条件整张表全部更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>将学生表中编号为1的学生姓名和性别分别改为‘ssm’和‘1‘</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">update</span> t_student <span class="token keyword">set</span> sex <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">'ssm'</span> <span class="token keyword">where</span> <span class="token keyword">no</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="删除表中数据"><a href="#删除表中数据" class="headerlink" title="删除表中数据"></a>删除表中数据</h4><p>语法格式：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>
+没有条件全部删除。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>删除表中编号为0的数据</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">delete</span> <span class="token keyword">from</span> t_student <span class="token keyword">where</span> <span class="token keyword">no</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">row</span> affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>删除所有记录</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> t_student<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="删除大表"><a href="#删除大表" class="headerlink" title="删除大表"></a>删除大表</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">truncate</span> <span class="token keyword">table</span> t_student1<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>    <span class="token number">5</span>
   <span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">from</span>      <span class="token number">1</span>
@@ -747,8 +863,6 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
   <span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">limit</span> 
   <span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token number">7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h4 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h4><ul>
 <li>列出员工的编号，姓名和年薪</li>
@@ -1380,7 +1494,8 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <span class="token operator">|</span> OPERATIONS <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment">------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><ul>
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p>每页显示pageSize条记录：第pageNo页：（pageNo - 1）* pageSize，pageSize</p>
+<ul>
 <li>取出工资前五名的员工</li>
 </ul>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> sal <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">;</span>
@@ -1408,6 +1523,72 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <span class="token operator">|</span> TURNER <span class="token operator">|</span> <span class="token number">1500.00</span> <span class="token operator">|</span>
 <span class="token operator">|</span> MILLER <span class="token operator">|</span> <span class="token number">1300.00</span> <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment">--------+---------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><h4 id="非空约束-notnull"><a href="#非空约束-notnull" class="headerlink" title="非空约束 (notnull)"></a>非空约束 (notnull)</h4><ul>
+<li>非空约束只能出现在列级约束中</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> t_user<span class="token punctuation">(</span>
+    usercode <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="唯一性约束（unique）"><a href="#唯一性约束（unique）" class="headerlink" title="唯一性约束（unique）"></a>唯一性约束（unique）</h4><ul>
+<li>唯一约束修饰的字段具有唯一性，不能重复。但可以为null。</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 多个字段联合添加1个约束unique 【表级约束】</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_user<span class="token punctuation">(</span>
+usercode <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">unique</span><span class="token punctuation">(</span>usercode<span class="token punctuation">,</span>username<span class="token punctuation">)</span> 
+<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token comment"># 单个字段添加1个约束unique 【列级约束】</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_user<span class="token punctuation">(</span>
+usercode <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">unique</span><span class="token punctuation">,</span>
+username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">unique</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h4><ul>
+<li>主键不能为null，且不能重复</li>
+<li>一张表的主键约束只能有一个</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 列级约束</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_user<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span>
+    usercode <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment"># 表级约束</span>
+ <span class="token keyword">create</span> <span class="token keyword">table</span> t_user<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span> <span class="token punctuation">,</span>
+    usercode <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>，
+     <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="主键自增"><a href="#主键自增" class="headerlink" title="主键自增"></a>主键自增</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span>  t_user<span class="token punctuation">(</span>
+	id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+    username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h4><ul>
+<li>子表中的某个字段来自父表中的字段不一定是主键，但一定要具有unique约束，一般是主键</li>
+<li>外键可以为null</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> t_student<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> t_class<span class="token punctuation">;</span>
+<span class="token comment"># 父表</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_class<span class="token punctuation">(</span>
+	cno <span class="token keyword">int</span><span class="token punctuation">,</span>
+    canme <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment"># 子表</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_class<span class="token punctuation">(</span>
+	cno <span class="token keyword">int</span><span class="token punctuation">,</span>
+    sanme <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    classno <span class="token keyword">int</span><span class="token punctuation">,</span>
+    <span class="token keyword">foreign</span> <span class="token keyword">key</span><span class="token punctuation">(</span>classno<span class="token punctuation">)</span> <span class="token keyword">references</span> t_class<span class="token punctuation">(</span>cno<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1895,7 +2076,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.1k</span>&nbsp;字&nbsp;|
+                class="white-color">102.9k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2185,7 +2366,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -2197,6 +2378,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
