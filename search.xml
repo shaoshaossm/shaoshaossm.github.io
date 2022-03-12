@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>linux操作系统问题解决</title>
+      <link href="/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html"/>
+      <url>/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html</url>
+      
+        <content type="html"><![CDATA[<ul><li>Xshell连接不上Ubuntu系统的解决办法<ul><li>安装ssh服务，输入命令：sudo apt-get install openssh-server</li><li>启动服务: /etc/init.d/ssh start</li><li>测试连接即可</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> centos7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot集成thymeleaf</title>
       <link href="/2022-03-06-springboot-ji-cheng-thymeleaf.html"/>
       <url>/2022-03-06-springboot-ji-cheng-thymeleaf.html</url>
@@ -437,7 +464,7 @@
       <link href="/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html"/>
       <url>/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html</url>
       
-        <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li><li>更新<code>pip</code>到最新版本</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python -m pip <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li><li>anaconda</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/5e0deccd8f7a464b8a2072e62752e51f.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li><li>更新<code>pip</code>到最新版本</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python -m pip <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>xshell和xftp</li><li>360<ul><li>为了安装xshell和xftp所缺失的dll文件</li></ul></li></ul><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li><li>anaconda</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/5e0deccd8f7a464b8a2072e62752e51f.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
       
       
       <categories>

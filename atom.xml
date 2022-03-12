@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2022-03-11T08:17:35.294Z</updated>
+  <updated>2022-03-12T10:15:54.346Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux操作系统问题解决</title>
+    <link href="https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html"/>
+    <id>https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html</id>
+    <published>2022-03-12T10:12:15.000Z</published>
+    <updated>2022-03-12T10:15:54.346Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Xshell连接不上Ubuntu系统的解决办法<ul><li>安装ssh服务，输入命令：sudo apt-get install openssh-server</li><li>启动服务: /etc/init.d/ssh start</li><li>测试连接即可</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Xshell连接不上Ubuntu系统的解决办法&lt;ul&gt;
+&lt;li&gt;安装ssh服务，输入命令：sudo apt-get install openssh-server&lt;/li&gt;
+&lt;li&gt;启动服务: /etc/init.d/ssh start&lt;/li&gt;
+&lt;li&gt;测试连接</summary>
+      
+    
+    
+    
+    <category term="操作系" scheme="https://shaoshaossm.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB/"/>
+    
+    
+    <category term="ubuntu" scheme="https://shaoshaossm.github.io/tags/ubuntu/"/>
+    
+    <category term="centos7" scheme="https://shaoshaossm.github.io/tags/centos7/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot集成thymeleaf</title>
@@ -441,9 +471,9 @@
     <link href="https://shaoshaossm.github.io/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html"/>
     <id>https://shaoshaossm.github.io/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html</id>
     <published>2021-12-20T14:10:32.000Z</published>
-    <updated>2022-01-13T09:05:10.120Z</updated>
+    <updated>2022-03-12T10:18:12.980Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li><li>更新<code>pip</code>到最新版本</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python -m pip <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li><li>anaconda</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/5e0deccd8f7a464b8a2072e62752e51f.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul><li>google</li><li>7-zip</li><li>MySQL8.0+Navicat</li><li>pycharm</li><li>IDEA破解</li><li>office+visio</li><li>Typora</li><li>vmware16</li><li>搜狗输入法</li><li>TIM</li><li>更新<code>pip</code>到最新版本</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python -m pip <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>xshell和xftp</li><li>360<ul><li>为了安装xshell和xftp所缺失的dll文件</li></ul></li></ul><h3 id="需要配置的环境变量"><a href="#需要配置的环境变量" class="headerlink" title="需要配置的环境变量"></a>需要配置的环境变量</h3><ul><li>jdk</li><li>git</li><li>node</li><li>Maven</li><li>anaconda</li></ul><p><img src="https://img-blog.csdnimg.cn/34071642a9754bd7a66ac9923eb69267.png" alt="JAVA&amp;MAVEN"></p><p><img src="https://img-blog.csdnimg.cn/5e0deccd8f7a464b8a2072e62752e51f.png" alt="环境变量"></p><h3 id="需要登录的账号"><a href="#需要登录的账号" class="headerlink" title="需要登录的账号"></a>需要登录的账号</h3><ul><li>edge登录</li><li>google登录(用到插件iGG)</li></ul>]]></content>
     
     
       
@@ -484,36 +514,6 @@
     
     
     <category term="Python" scheme="https://shaoshaossm.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jupyter基本操作</title>
-    <link href="https://shaoshaossm.github.io/2021-11-26-jupyter-ji-ben-cao-zuo.html"/>
-    <id>https://shaoshaossm.github.io/2021-11-26-jupyter-ji-ben-cao-zuo.html</id>
-    <published>2021-11-26T06:24:45.000Z</published>
-    <updated>2021-11-26T12:23:24.913Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ul><li>启动: 在终端中录入<code>jupyter notebook</code>,回车即可</li><li>快捷键:<ul><li>添加<code>cell</code>:<code>a</code>或者<code>b</code></li><li>删除:<code>x</code></li><li>修改<code>cell</code>模式:<ul><li>m:<code>Markdown</code>模式</li><li>y :<code>code</code>模式</li></ul></li><li>执行<code>cell</code>: <code>shift+enter</code></li><li><code>tab</code>: 自动补全</li><li>打开帮助文档:<code>shift+tab</code></li></ul></li><li>在idea中使用 jupyter<ul><li><code>pip install jupyter notebook</code></li><li>ctrl + enter : 运行cell</li><li>shift + enter : 新建cell</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;基本使用&quot;&gt;&lt;a href=&quot;#基本使用&quot; class=&quot;headerlink&quot; title=&quot;基本使用&quot;&gt;&lt;/a&gt;基本使用&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;启动: 在终端中录入&lt;code&gt;jupyter notebook&lt;/code&gt;,回车即可&lt;/li&gt;
-&lt;li&gt;快捷</summary>
-      
-    
-    
-    
-    <category term="系统配置" scheme="https://shaoshaossm.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="Python" scheme="https://shaoshaossm.github.io/tags/Python/"/>
-    
-    <category term="pycharm" scheme="https://shaoshaossm.github.io/tags/pycharm/"/>
-    
-    <category term="jupyter" scheme="https://shaoshaossm.github.io/tags/jupyter/"/>
     
   </entry>
   
