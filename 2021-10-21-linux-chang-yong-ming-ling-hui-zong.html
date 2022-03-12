@@ -497,8 +497,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" class="post-category">
-                                系统运维
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
                             </a>
                         
                     </div>
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
 
@@ -579,9 +579,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> 查看目录中的文件
 <span class="token function">ls</span> -l 显示文件和目录的详细资料
+<span class="token function">ls</span> -i 显示文件id和目录的详细资料
+
 <span class="token function">ls</span> -a 列出全部文件，包含隐藏文件
 <span class="token function">ls</span> -R 连同子目录的内容一起列出（递归列出），等于该目录下的所有文件都会显示出来
-<span class="token function">ls</span> <span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span> 显示包含数字的文件名和目录名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">ls</span> <span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span> 显示包含数字的文件名和目录名
+<span class="token function">ls</span> *.txt 通配符*匹配任意个字符
+<span class="token function">ls</span> ??.txt 通配符?匹配单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下</li>
@@ -606,30 +610,65 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 -i ：互动模式，在删除前会询问用户是否操作
 -r ：递归删除，最常用于目录删除，它是一个非常危险的参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>touch命令，用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，系统会建立一个新的文件。</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> <span class="token punctuation">[</span>-acfm<span class="token punctuation">]</span><span class="token punctuation">[</span>-d<span class="token operator">&lt;</span>日期时间<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-r<span class="token operator">&lt;</span>参考文件或目录<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-t<span class="token operator">&lt;</span>日期时间<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>--help<span class="token punctuation">]</span><span class="token punctuation">[</span>--version<span class="token punctuation">]</span><span class="token punctuation">[</span>文件或目录…<span class="token punctuation">]</span>
+-a 改变档案的读取时间记录。
+-m 改变档案的修改时间记录。
+-c 假如目的档案不存在，不会建立新的档案。与 --no-create 的效果一样。
+-f 不使用，是为了与其他 unix 系统的相容性而保留。
+-r 使用参考档的时间记录，与 --file 的效果一样。
+-d 设定时间与日期，可以使用各种不同的格式。
+-t 设定档案的时间记录，格式与 <span class="token function">date</span> 指令相同。
+--no-create 不会建立新档案。
+--help 列出指令格式。
+--version 列出版本讯息。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="2-查看文件内容"><a href="#2-查看文件内容" class="headerlink" title="2.查看文件内容"></a>2.查看文件内容</h3><ul>
 <li>cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> file1 从第一个字节开始正向查看文件的内容
 <span class="token function">tac</span> file1 从最后一行开始反向查看一个文件的内容
 <span class="token function">cat</span> -n file1 标示文件的行数
-<span class="token function">more</span> file1 查看一个长文件的内容
+<span class="token function">cat</span> -b file1 标示文件的行数 去除空行
+<span class="token function">more</span> file1 分页查看一个长文件的内容
 
 <span class="token function">head</span> -n <span class="token number">2</span> file1 查看一个文件的前两行
 <span class="token function">tail</span> -n <span class="token number">2</span> file1 查看一个文件的最后两行
-<span class="token function">tail</span> -n +1000 file1  从1000行开始显示，显示1000行以后的cat filename <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">3000</span> <span class="token operator">|</span> <span class="token function">tail</span> -n +1000  显示1000行到3000行cat filename <span class="token operator">|</span> <span class="token function">tail</span> -n +3000 <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">1000</span>  从第3000行开始，显示1000<span class="token punctuation">(</span>即显示3000~3999行<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">tail</span> -n +1000 file1  从1000行开始显示，显示1000行以后的cat filename <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">3000</span> <span class="token operator">|</span> <span class="token function">tail</span> -n +1000  显示1000行到3000行cat filename <span class="token operator">|</span> <span class="token function">tail</span> -n +3000 <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">1000</span>  从第3000行开始，显示1000<span class="token punctuation">(</span>即显示3000~3999行<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-文件搜索"><a href="#3-文件搜索" class="headerlink" title="3.文件搜索"></a>3.文件搜索</h3><ul>
 <li>find命令，用来查找系统的</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> / -name file1 从 <span class="token string">'/'</span> 开始进入根文件系统搜索文件和目录
+<span class="token function">find</span> / -name file1 -a  -type f 从 <span class="token string">'/'</span> 开始进入根文件系统搜索文件和目录并且根据类型搜索文件
+<span class="token function">find</span> / -name <span class="token string">'a*'</span> -o  -name <span class="token string">'12*'</span> 从 <span class="token string">'/'</span> 开始进入根文件系统搜索a开头的文件或者12开头的文件
+<span class="token function">find</span> / -iname <span class="token string">'aa'</span> 从 <span class="token string">'/'</span> 开始进入根文件系统搜索名称为aa的文件并忽略大小写
 <span class="token function">find</span> / -user user1 搜索属于用户 <span class="token string">'user1'</span> 的文件和目录
+<span class="token function">find</span> / -inum <span class="token number">12345</span> 从 <span class="token string">'/'</span> 开始进入根文件系统搜索id为12345的文件
 <span class="token function">find</span> /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件
 <span class="token function">find</span> /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件
+<span class="token function">find</span> /usr/bin -type f -mmin -10 搜索在10分钟内被创建或者修改过的文件
+<span class="token function">find</span> /usr/bin -type d -mmin +10 搜索在10分钟前被创建或者修改过的文件夹
+<span class="token function">find</span> /usr/bin -type l -mmin <span class="token number">10</span> 搜索在10分钟的时候被创建或者修改过的软连接
 <span class="token function">whereis</span> <span class="token function">halt</span> 显示一个二进制文件、源码或man的位置
-<span class="token function">which</span> <span class="token function">halt</span> 显示一个二进制文件或可执行文件的完整路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">which</span> <span class="token function">halt</span> 显示一个二进制文件或可执行文件的完整路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>删除大于50M的文件：</p>
+<ul>
+<li>删除大于50M的文件：</li>
+</ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> /var/mail/ -size +50M -exec <span class="token function">rm</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> ＼<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>搜索大于100M(100 X 2 X 1024 = 204800)的文件(2块)</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fin /home -size +204800<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h4><ul>
+<li>即创建文件的快捷方式</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> aa a_link<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#4-文件的权限-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a>4.文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</h3><ul>
 <li>chmod命令，改变文件/文件夹权限</li>
@@ -651,11 +690,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <li>grep命令，分析一行的信息，若当中有我们所需要的信息，就将该行显示出来，该命令通常与管道命令一起使用，用于对一些命令的输出进行筛选加工等等</li>
 </ol>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> Aug /var/log/messages  在文件 <span class="token string">'/var/log/messages'</span>中查找关键词<span class="token string">"Aug"</span>
+<span class="token function">grep</span> -v Aug /var/log/messages  在文件 <span class="token string">'/var/log/messages'</span>中查找非关键词<span class="token string">"Aug"</span>
+<span class="token function">grep</span> s$  /var/log/messages  在文件 <span class="token string">'/var/log/messages'</span>中以<span class="token string">"s"</span>结尾的
 <span class="token function">grep</span> ^Aug /var/log/messages 在文件 <span class="token string">'/var/log/messages'</span>中查找以<span class="token string">"Aug"</span>开始的词汇
 <span class="token function">grep</span> <span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span>  /var/log/messages 选择 <span class="token string">'/var/log/messages'</span> 文件中所有包含数字的行
 <span class="token function">grep</span> Aug -R /var/log/* 在目录 <span class="token string">'/var/log'</span> 及随后的目录中搜索字符串<span class="token string">"Aug"</span>
 <span class="token function">sed</span> <span class="token string">'s/stringa1/stringa2/g'</span> example.txt 将example.txt文件中的 <span class="token string">"string1"</span> 替换成 <span class="token string">"string2"</span>
-<span class="token function">sed</span> <span class="token string">'/^$/d'</span> example.txt 从example.txt文件中删除所有空白行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sed</span> <span class="token string">'/^$/d'</span> example.txt 从example.txt文件中删除所有空白行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol>
 <li>paste命令</li>
@@ -831,8 +872,6 @@ root      <span class="token number">3370</span>  <span class="token number">282
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># / 转义一下</span>
 <span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a
 <span class="token builtin class-name">echo</span> Hello Python <span class="token operator">>></span>a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
 
 <p>管道 |</p>
 <ul>
@@ -1329,7 +1368,7 @@ root      <span class="token number">3370</span>  <span class="token number">282
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">105.8k</span>&nbsp;字&nbsp;|
+                class="white-color">106.3k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1619,7 +1658,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1631,6 +1670,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
