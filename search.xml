@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SpringCloud之整体聚合父工程</title>
+      <link href="/2022-03-13-springcloud-zhi-zheng-ti-ju-he-fu-gong-cheng.html"/>
+      <url>/2022-03-13-springcloud-zhi-zheng-ti-ju-he-fu-gong-cheng.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="SpringCloud简介"><a href="#SpringCloud简介" class="headerlink" title="SpringCloud简介"></a>SpringCloud简介</h3><blockquote><p>springcloud官方文档（Hoxton SR5）：<a href="https://cloud.spring.io/spring-cloud-static/Hoxton.SR5/reference/htmlsingle/">https://cloud.spring.io/spring-cloud-static/Hoxton.SR5/reference/htmlsingle/</a><br>springcloud中文文档：<a href="https://www.springcloud.cc/">https://www.springcloud.cc/</a><br>springcloud中国社区文档：<a href="http://docs.springcloud.cn/">http://docs.springcloud.cn/</a><br><a href="https://www.bookstack.cn/read/spring-cloud-docs/docs-index.md">https://www.bookstack.cn/read/spring-cloud-docs/docs-index.md</a></p></blockquote><p>1  新建Empty Project，类似工作空间</p><p>2  新project设置</p><p>  2.1   project都选择8</p><p>  2.2   module点击+号，新建一个maven模块</p><p>3  新Module的设置</p><p>  3.1   由于第一个是pom统一工程，不选择模板create from archetype</p><p>  3.2   G:com.atguigu.springcloud</p><p>​     A:microservicecloud</p><p>​     V:1.0-SNAPSHOT</p><p>  3.3   Language Level 选择 8</p><p>4  新project设置</p><p>  4.1   Editor | File Encodings 设置为UTF8</p><p>  4.2   Build, Execution, Deployment | Compiler | Annotation Processors 每个module都打勾</p><p>  4.3   File | Settings | Build, Execution, Deployment | Compiler | Java Compiler 设置为1.8</p><p>5  microservicecloud该模块下鼠标右键新建其下的子module</p><p>  5.1   新建子module   microservicecloud-api  可以不勾选create from archetype</p><p>  5.2   IDEA工具右边的maven projects视图刷新，出现新的子模块</p><p>  5.3   右上角设置，选择Group Modules</p><p>  5.4   视图上选择+号，选中api里面的pom.xml</p><p>6  IDEA工具隐藏*.iml等</p><p>  点击File–&gt;setting(或者Ctrl+Alt+S)–&gt;Editor–&gt; Flie Types 在ignore files and folders，然后在输入框最后面跟上*.idea;*.iml;</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> SpringCloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux操作系统问题解决</title>
       <link href="/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html"/>
       <url>/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html</url>
@@ -144,7 +171,7 @@
       
       <categories>
           
-          <category> 后端 </category>
+          <category> 框架 </category>
           
       </categories>
       
@@ -169,7 +196,7 @@
       
       <categories>
           
-          <category> 后端 </category>
+          <category> 框架 </category>
           
       </categories>
       
@@ -202,31 +229,6 @@
         <tags>
             
             <tag> druid </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Mybatis框架</title>
-      <link href="/2022-02-26-mybatis-kuang-jia.html"/>
-      <url>/2022-02-26-mybatis-kuang-jia.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Mybatis </tag>
             
         </tags>
       
@@ -269,7 +271,7 @@
       
       <categories>
           
-          <category> 后端 </category>
+          <category> 框架 </category>
           
       </categories>
       
@@ -294,7 +296,7 @@
       
       <categories>
           
-          <category> 后端 </category>
+          <category> 框架 </category>
           
       </categories>
       
@@ -319,7 +321,7 @@
       
       <categories>
           
-          <category> 后端 </category>
+          <category> 框架 </category>
           
       </categories>
       
