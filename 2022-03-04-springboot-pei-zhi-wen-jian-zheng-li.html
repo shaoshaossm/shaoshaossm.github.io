@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -521,14 +521,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-16
+                    2022-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    532
+                    572
                 </div>
                 
 
@@ -643,7 +643,22 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
   <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
     <span class="token key atrule">zookeeper</span><span class="token punctuation">:</span>
-      <span class="token key atrule">connect-string</span><span class="token punctuation">:</span> 192.168.174.131<span class="token punctuation">:</span><span class="token number">2181</span>      <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      <span class="token key atrule">connect-string</span><span class="token punctuation">:</span> 192.168.174.131<span class="token punctuation">:</span><span class="token number">2181</span>     
+      
+<span class="token comment">#consul注册中心  </span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> consul<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">consul</span><span class="token punctuation">:</span>
+      <span class="token key atrule">host</span><span class="token punctuation">:</span> 192.168.174.131
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8500</span>
+      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
+        <span class="token comment">#hostname: 192.168.174.131</span>
+        <span class="token key atrule">service-name</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>spring.application.name<span class="token punctuation">&#125;</span>
+        <span class="token key atrule">heartbeat</span><span class="token punctuation">:</span>
+          <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1131,7 +1146,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">112.6k</span>&nbsp;字&nbsp;|
+                class="white-color">115.6k</span>&nbsp;字&nbsp;|
             
             
             
