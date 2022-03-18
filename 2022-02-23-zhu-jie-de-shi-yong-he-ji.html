@@ -1115,8 +1115,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     SELECT * FROM payment WHERE id=#&#123;idsss&#125;;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>#：<font color="red">占位符</font>，告诉 mybatis 使用实际的参数值代替。并使用 PrepareStatement 对象执行 sql 语句, #{…}代替<br>sql 语句的“?”。这样做更安全，更迅速，通常也是首选做法，</p>
-<p>$ <font color="red">字符串替换</font>，告诉 mybatis 使用$包含的“字符串”替换所在位置。使用 Statement 把 sql 语句和${}的<br>内容连接起来。主要用在替换表名，列名，不同列排序等操作。</p>
+<p>#：<font color="red">占位符</font>，告诉 mybatis 使用实际的参数值代替。并使用 PrepareStatement 对象执行 sql 语句, #{…}代替<br>sql 语句的“?”。这样做更安全，更迅速，通常也是首选做法。</p>
+<p>$ <font color="red">字符串替换</font>，告诉 mybatis 使用$包含的“字符串”替换所在位置。使用 Statement 把 sql 语句和${}的<br>内容连接起来。主要用在替换表名，列名，不同列排序等操作。(sql注入问题)</p>
 <h3 id="dubbo"><a href="#dubbo" class="headerlink" title="dubbo"></a>dubbo</h3><h4 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h4><ul>
 <li>com.alibaba.dubbo.config.annotation.Service;</li>
 <li>位置:服务提供者实现类上</li>
@@ -1817,7 +1817,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.3k</span>&nbsp;字&nbsp;|
+                class="white-color">117.4k</span>&nbsp;字&nbsp;|
             
             
             
