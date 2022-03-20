@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SpringCloud之GateWay</title>
+      <link href="/2022-03-20-springcloud-zhi-gateway.html"/>
+      <url>/2022-03-20-springcloud-zhi-gateway.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/">Gateway官网</a></p><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul><li><p>Gateway是在Spring生态系统之上构建的API网关服务，基于Spring 5，Spring Boot 2和Project Reactor等技术。</p></li><li><p>Gateway旨在提供一种简单而有效的方式来对API进行路由，以及提供一些强大的过滤器功能，例如:熔断、限流、重试等。</p></li><li><p>SpringCloud Gateway是Spring Cloud的一个全新项目，基于Spring 5.0+Spring Boot 2.0和Project Reactor等技术开发的网关，它旨在为微服务架构提供—种简单有效的统一的API路由管理方式。</p></li><li><p>SpringCloud Gateway作为Spring Cloud 生态系统中的网关，目标是替代Zuul，在Spring Cloud 2.0以上版本中，没有对新版本的Zul 2.0以上最新高性能版本进行集成，仍然还是使用的Zuul 1.x非Reactor模式的老版本。而为了提升网关的性能，SpringCloud Gateway是基于WebFlux框架实现的，而WebFlux框架底层则使用了高性能的Reactor模式通信框架Netty。</p></li><li><p>Spring Cloud Gateway的目标提供统一的路由方式且基于 Filter链的方式提供了网关基本的功能，例如:安全，监控/指标，和限流。</p></li></ul><p><strong>作用</strong></p><ul><li>方向代理</li><li>鉴权</li><li>流量控制</li><li>熔断</li><li>日志监控</li></ul><p><strong>SpringCloud Gateway具有如下特性</strong></p><ul><li>基于Spring Framework 5，Project Reactor和Spring Boot 2.0进行构建；</li><li>动态路由：能够匹配任何请求属性；</li><li>可以对路由指定Predicate (断言)和Filter(过滤器)；</li><li>集成Hystrix的断路器功能；</li><li>集成Spring Cloud 服务发现功能；</li><li>易于编写的Predicate (断言)和Filter (过滤器)；</li><li>请求限流功能；</li><li>支持路径重写。</li></ul><h4 id="Gateway模型"><a href="#Gateway模型" class="headerlink" title="Gateway模型"></a>Gateway模型</h4><p>WebFlux是什么？官方文档</p><p>传统的Web框架，比如说: Struts2，SpringMVC等都是基于Servlet APl与Servlet容器基础之上运行的。</p><p>但是在Servlet3.1之后有了异步非阻塞的支持。而WebFlux是一个<strong>典型非阻塞异步的框架</strong>，它的核心是基于Reactor的相关API实现的。相对于传统的web框架来说，它可以运行在诸如Netty，Undertow及支持Servlet3.1的容器上。非阻塞式+函数式编程(Spring 5必须让你使用Java 8)。</p><p>Spring WebFlux是Spring 5.0 引入的新的响应式框架，区别于Spring MVC，它不需要依赖Servlet APl，它是<strong>完全异步非阻塞</strong>的，并且基于Reactor来实现响应式流规范。</p><h3 id="Gateway工作流程"><a href="#Gateway工作流程" class="headerlink" title="Gateway工作流程"></a>Gateway工作流程</h3><p><strong>三大核心概念</strong></p><ul><li>Route(路由) - 路由是构建网关的基本模块,它由ID,目标URI,一系列的断言和过滤器组成,如断言为true则匹配该路由；</li><li>Predicate(断言) - 参考的是Java8的java.util.function.Predicate，开发人员可以匹配HTTP请求中的所有内容(例如请求头或请求参数),如果请求与断言相匹配则进行路由；</li><li>Filter(过滤) - 指的是Spring框架中GatewayFilter的实例,使用过滤器,可以在请求被路由前或者之后对请求进行修改。</li></ul><hr><ul><li><p>web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后，进行一些精细化控制。</p></li><li><p>predicate就是我们的匹配条件；而fliter，就可以理解为一个无所不能的拦截器。有了这两个元素，再加上目标uri，就可以实现一个具体的路由了</p></li></ul><h4 id="Gateway工作流程-1"><a href="#Gateway工作流程-1" class="headerlink" title="Gateway工作流程"></a>Gateway工作流程</h4><p><a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/#gateway-how-it-works">官网总结</a></p><p><img src="https://img-blog.csdnimg.cn/cc5d777034524391b52c1d345d276cd2.png" alt="工作流程"></p><p>客户端向Spring Cloud Gateway发出请求。然后在Gateway Handler Mapping 中找到与请求相匹配的路由，将其发送到GatewayWeb Handler。</p><p>Handler再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回。</p><p>过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前(“pre”)或之后(“post”）执行业务逻辑。</p><p>Filter在“pre”类型的过滤器可以做参数校验、权限校验、流量监控、日志输出、协议转换等，在“post”类型的过滤器中可以做响应内容、响应头的修改，日志的输出，流量监控等有着非常重要的作用。</p><p><font color="red">核心逻辑：路由转发 + 执行过滤器链</font></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringCloud </tag>
+            
+            <tag> GateWay </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringCloud之Hystrix</title>
       <link href="/2022-03-19-springcloud-zhi-hystrix.html"/>
       <url>/2022-03-19-springcloud-zhi-hystrix.html</url>
