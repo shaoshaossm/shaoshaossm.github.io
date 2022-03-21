@@ -528,7 +528,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    920
+                    1.1k
                 </div>
                 
 
@@ -704,7 +704,41 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
           <span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">8001</span>          <span class="token comment">#匹配后提供服务的路由地址</span>
           <span class="token comment">#uri: lb://cloud-payment-service #匹配后提供服务的路由地址</span>
           <span class="token key atrule">predicates</span><span class="token punctuation">:</span>
-            <span class="token punctuation">-</span> Path=/payment/lb/<span class="token important">**</span>         <span class="token comment"># 断言，路径相匹配的进行路由        </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <span class="token punctuation">-</span> Path=/payment/lb/<span class="token important">**</span>         <span class="token comment"># 断言，路径相匹配的进行路由    </span>
+            
+<span class="token comment"># config服务端   </span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span>  cloud<span class="token punctuation">-</span>config<span class="token punctuation">-</span>center <span class="token comment">#注册进Eureka服务器的微服务名</span>
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">config</span><span class="token punctuation">:</span>
+      <span class="token key atrule">server</span><span class="token punctuation">:</span>
+        <span class="token key atrule">git</span><span class="token punctuation">:</span>
+          <span class="token key atrule">uri</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>shaoshaossm/springcloud<span class="token punctuation">-</span>config.git <span class="token comment">#GitHub上面的git仓库名字</span>
+          <span class="token comment">####搜索目录</span>
+          <span class="token key atrule">search-paths</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> springcloud<span class="token punctuation">-</span>config
+      <span class="token comment">####读取分支</span>
+      <span class="token key atrule">label</span><span class="token punctuation">:</span> main
+
+<span class="token comment"># config客户端</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token comment">#Config客户端配置</span>
+    <span class="token key atrule">config</span><span class="token punctuation">:</span>
+      <span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment">#分支名称</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> config <span class="token comment">#配置文件名称</span>
+      <span class="token key atrule">profile</span><span class="token punctuation">:</span> dev <span class="token comment">#读取后缀名称   上述3个综合：master分支上config-dev.yml的配置文件被读取http://config-3344.com:3344/master/config-dev.yml</span>
+      <span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment">#配置中心地址k</span>
+<span class="token comment"># 暴露监控端点</span>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    <span class="token key atrule">web</span><span class="token punctuation">:</span>
+      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+      <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1192,7 +1226,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">128.2k</span>&nbsp;字&nbsp;|
+                class="white-color">130.4k</span>&nbsp;字&nbsp;|
             
             
             
@@ -1482,7 +1516,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -1494,6 +1528,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
