@@ -33,7 +33,7 @@
 
 
 	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 
@@ -521,21 +521,21 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-28
+                    2022-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    32 分
                 </div>
                 
 
@@ -568,6 +568,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <li><code>@Service</code> （用在业务层上面）：放在service的实现类上面，创建service对象，service对象是做业务处理，可以有事务等功能</li>
 <li><code>@Controller</code> (用在控制器上面) ：放在控制器（处理器）类的上面，创建控制器对象，能够接收用户提交的参数，显示请求的处理结果</li>
 <li>在不确定一个类使用在哪个层时，使用@Component注解。</li>
+<li><code>@Repository</code> mapper注入依赖就不会报错（虽然报错也没有影响）</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"myStudent"</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span><span class="token string">"myStudent"</span><span class="token punctuation">)</span> <span class="token comment">// value 可以省略</span>
@@ -1577,16 +1578,101 @@ public String doSomething() &#123;
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Mybatis-Plus"><a href="#Mybatis-Plus" class="headerlink" title="Mybatis-Plus"></a>Mybatis-Plus</h3><h4 id="TableId"><a href="#TableId" class="headerlink" title="@TableId"></a>@TableId</h4><ul>
-<li>设置字段主键增长策略</li>
+<li>将属性所对应的字段指定为主键，默认id为主键</li>
+<li>value：指定字段名与数据库主键字段名相同，用在字段名与数据库主键字段名不相同时</li>
+<li>type：设置字段主键增长策略</li>
 <li>位置：实体类字段上</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@TableId</span><span class="token punctuation">(</span>type <span class="token operator">=</span> <span class="token class-name">IdType</span><span class="token punctuation">.</span>AUTO<span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@TableId</span><span class="token punctuation">(</span>value <span class="token operator">=</span> uid，type <span class="token operator">=</span> <span class="token class-name">IdType</span><span class="token punctuation">.</span>AUTO<span class="token punctuation">)</span>
     <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> email<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="TableName"><a href="#TableName" class="headerlink" title="@TableName"></a>@TableName</h4><ul>
+<li>设置实体类所对应的表明</li>
+<li>当实体类与表名不相同时使用</li>
+<li>位置：实体类上</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@TableName</span><span class="token punctuation">(</span><span class="token string">"t_user"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="TableField-fill-FieldFill-INSERT"><a href="#TableField-fill-FieldFill-INSERT" class="headerlink" title="@TableField(fill = FieldFill.INSERT)"></a>@TableField(fill = FieldFill.INSERT)</h4><ul>
+<li>指定属性所对应的字段名</li>
+<li>当属性与字段名不相同时使用</li>
+<li>位置：实体类属性字段上</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">@TableField(value &#x3D; &quot;create_time&quot;,fill &#x3D; FieldFill.INSERT)
+private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="TableLogic"><a href="#TableLogic" class="headerlink" title="@TableLogic"></a>@TableLogic</h4><ul>
+<li>逻辑删除注解</li>
+<li>位置：实体类上</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@TableLogic</span>
+<span class="token keyword">private</span> <span class="token class-name">Integer</span> isDeleted<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="Version"><a href="#Version" class="headerlink" title="@Version"></a>@Version</h4><ul>
+<li>表示乐观锁版本号字段</li>
+<li>位置：实体类version字段上</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Product</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Version</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> version<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="EnumValue"><a href="#EnumValue" class="headerlink" title="@EnumValue"></a>@EnumValue</h4><ul>
+<li>将注解所标识的属性的值存储到数据库中</li>
+<li>位置：枚举类属性字段上</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">SexEnum</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">MALE</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"男"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">FEMALE</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"女"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@EnumValue</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> sex<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> sexName<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="DS"><a href="#DS" class="headerlink" title="@DS"></a>@DS</h4><ul>
+<li><p>使用 <strong>@DS</strong> 切换数据源。</p>
+</li>
+<li><p>可以注解在方法上或类上，<strong>同时存在就近原则 方法上注解 优先于 类上注解</strong>。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">注解</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">没有@DS</td>
+<td align="center">默认数据源</td>
+</tr>
+<tr>
+<td align="center">@DS(“dsName”)</td>
+<td align="center">dsName可以为组名也可以为具体某个库的名称</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@DS</span><span class="token punctuation">(</span><span class="token string">"slave"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserService</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token annotation punctuation">@Autowired</span>
+  <span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token class-name">List</span> <span class="token function">selectAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span>  jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span><span class="token string">"select * from user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token annotation punctuation">@DS</span><span class="token punctuation">(</span><span class="token string">"slave_1"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token class-name">List</span> <span class="token function">selectByCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span>  jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span><span class="token string">"select * from user where age >10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -2069,7 +2155,7 @@ public String doSomething() &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.6k</span>&nbsp;字&nbsp;|
+                class="white-color">158.8k</span>&nbsp;字&nbsp;|
             
             
             
