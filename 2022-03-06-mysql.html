@@ -521,7 +521,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-10
+                    2022-04-01
                 </div>
                 
 
@@ -1149,12 +1149,12 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <ul>
 <li>取得工作岗位的个数 <font color="red"><code>distinct</code>：去重 只能出现在所有字段的最前面</font></li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select count(distinct job ) from emp;
-+---------------------+
-| count(distinct job) |
-+---------------------+
-|                   5 |
-+---------------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> job <span class="token punctuation">)</span> <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">---------------------+</span>
+<span class="token operator">|</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> job<span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">---------------------+</span>
+<span class="token operator">|</span>                   <span class="token number">5</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">---------------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="sum"><a href="#sum" class="headerlink" title="sum"></a>sum</h4><ul>
 <li>取得薪水的合计（sal+comm）</li>
@@ -2240,7 +2240,7 @@ id(pk)        sno(fk)          tno(fk)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">158.8k</span>&nbsp;字&nbsp;|
+                class="white-color">159.6k</span>&nbsp;字&nbsp;|
             
             
             
