@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2022-04-03T14:37:35.996Z</updated>
+  <updated>2022-04-05T09:43:56.571Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://shaoshaossm.github.io/2022-04-05-test.html"/>
+    <id>https://shaoshaossm.github.io/2022-04-05-test.html</id>
+    <published>2022-04-05T09:43:56.000Z</published>
+    <updated>2022-04-05T09:43:56.571Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Java基础之集合</title>
@@ -516,36 +529,6 @@
     <category term="SpringBoot" scheme="https://shaoshaossm.github.io/tags/SpringBoot/"/>
     
     <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux操作系统问题解决</title>
-    <link href="https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html"/>
-    <id>https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html</id>
-    <published>2022-03-12T10:12:15.000Z</published>
-    <updated>2022-03-26T14:02:00.543Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>Xshell连接不上Ubuntu系统的解决办法<ul><li>安装ssh服务，输入命令：sudo apt-get install openssh-server</li><li>启动服务: /etc/init.d/ssh start</li><li>测试连接即可</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;Xshell连接不上Ubuntu系统的解决办法&lt;ul&gt;
-&lt;li&gt;安装ssh服务，输入命令：sudo apt-get install openssh-server&lt;/li&gt;
-&lt;li&gt;启动服务: /etc/init.d/ssh start&lt;/li&gt;
-&lt;li&gt;测试连接</summary>
-      
-    
-    
-    
-    <category term="错误&amp;bug" scheme="https://shaoshaossm.github.io/categories/%E9%94%99%E8%AF%AF-bug/"/>
-    
-    
-    <category term="centos7" scheme="https://shaoshaossm.github.io/tags/centos7/"/>
-    
-    <category term="ubuntu" scheme="https://shaoshaossm.github.io/tags/ubuntu/"/>
     
   </entry>
   
