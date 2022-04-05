@@ -1732,21 +1732,6 @@ loop<span class="token punctuation">.</span>run_until_complete<span class="token
     }
 </script>
 
-
-    <script>
-        if (localStorage.getItem('dark') === '1') {
-        document.body.classList.add('dark');
-        }
-        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
-        document.body.classList.add('dark');
-        } 
-        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-        }
-    </script>
-    <a onclick="switchNightMode()" id="sma">
-        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
-    </a>
 	 
 
 
