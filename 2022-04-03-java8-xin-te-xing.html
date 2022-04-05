@@ -532,7 +532,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.5k
                 </div>
                 
 
@@ -1282,75 +1282,75 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
 <li>max：返回流中最大值</li>
 <li>min：返回流中最小值</li>
 </ul>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public enum Status&#123;
-        FREE,
-        BUSY,
-        VOCATION;
-    &#125;
-private Status status;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Status</span><span class="token punctuation">&#123;</span>
+        FREE<span class="token punctuation">,</span>
+        BUSY<span class="token punctuation">,</span>
+        VOCATION<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token keyword">private</span> <span class="token class-name">Status</span> status<span class="token punctuation">;</span>
 
-public class TestStreamAPI3 &#123;
-    List&lt;Employee&gt; emps &#x3D; Arrays.asList(
-            new Employee(101, &quot;Z3&quot;, 19, 9999.99, Employee.Status.BUSY),
-            new Employee(102, &quot;L4&quot;, 20, 7777.77, Employee.Status.FREE),
-            new Employee(103, &quot;W5&quot;, 35, 6666.66, Employee.Status.BUSY),
-            new Employee(104, &quot;Tom&quot;, 44, 1111.11, Employee.Status.VOCATION),
-            new Employee(105, &quot;Jerry&quot;, 60, 4444.44, Employee.Status.VOCATION),
-            new Employee(105, &quot;Jerry&quot;, 60, 4444.44, Employee.Status.FREE),
-            new Employee(105, &quot;Jerry&quot;, 60, 4444.44, Employee.Status.BUSY)
-    );
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestStreamAPI3</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> emps <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">,</span> <span class="token string">"Z3"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">9999.99</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">102</span><span class="token punctuation">,</span> <span class="token string">"L4"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">7777.77</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>FREE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">103</span><span class="token punctuation">,</span> <span class="token string">"W5"</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token number">6666.66</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">104</span><span class="token punctuation">,</span> <span class="token string">"Tom"</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">1111.11</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>VOCATION<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span> <span class="token string">"Jerry"</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">4444.44</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>VOCATION<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span> <span class="token string">"Jerry"</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">4444.44</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>FREE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span> <span class="token string">"Jerry"</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">4444.44</span><span class="token punctuation">,</span> <span class="token class-name">Employee<span class="token punctuation">.</span>Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    @Test
-    public void test01() &#123;
-        List&lt;Status&gt; list &#x3D; Arrays.asList(Status.FREE, Status.BUSY, Status.VOCATION);
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Status</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>FREE<span class="token punctuation">,</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">,</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>VOCATION<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        boolean flag1 &#x3D; list.stream()
-                .allMatch((s) -&gt; s.equals(Status.BUSY));
-        System.out.println(flag1);
+        <span class="token keyword">boolean</span> flag1 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">allMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-></span> s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>flag1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        boolean flag2 &#x3D; list.stream()
-                .anyMatch((s) -&gt; s.equals(Status.BUSY));
-        System.out.println(flag2);
+        <span class="token keyword">boolean</span> flag2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">anyMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-></span> s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>flag2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        boolean flag3 &#x3D; list.stream()
-                .noneMatch((s) -&gt; s.equals(Status.BUSY));
-        System.out.println(flag3);
+        <span class="token keyword">boolean</span> flag3 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">noneMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-></span> s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>flag3<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        &#x2F;&#x2F; 避免空指针异常
-        Optional&lt;Status&gt; op1 &#x3D; list.stream()
-                .findFirst();
-        &#x2F;&#x2F; 如果Optional为空 找一个替代的对象
-        Status s1 &#x3D; op1.orElse(Status.BUSY);
-        System.out.println(s1);
+        <span class="token comment">// 避免空指针异常</span>
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Status</span><span class="token punctuation">></span></span> op1 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">findFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 如果Optional为空 找一个替代的对象</span>
+        <span class="token class-name">Status</span> s1 <span class="token operator">=</span> op1<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Optional&lt;Status&gt; op2 &#x3D; list.stream()
-                .findAny();
-        System.out.println(op2);
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Status</span><span class="token punctuation">></span></span> op2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">findAny</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>op2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        long count &#x3D; list.stream()
-                .count();
-        System.out.println(count);
-    &#125;
+        <span class="token keyword">long</span> count <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    @Test
-    public void tet2() &#123;
-        List&lt;Status&gt; list &#x3D; Arrays.asList(Status.FREE, Status.BUSY, Status.VOCATION);
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">tet2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Status</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>FREE<span class="token punctuation">,</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>BUSY<span class="token punctuation">,</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>VOCATION<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Long count &#x3D; list.stream()
-                .count();
-        System.out.println(count);
+        <span class="token class-name">Long</span> count <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Optional&lt;Employee&gt; op1 &#x3D; emps.stream()
-                .max((e1, e2) -&gt; Double.compare(e1.getSalary(), e2.getSalary()));
-&#x2F;&#x2F;                        .max(Comparator.comparingDouble(Employee::getSalary));
-        System.out.println(op1.get());
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> op1 <span class="token operator">=</span> emps<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//                        .max(Comparator.comparingDouble(Employee::getSalary));</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>op1<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Optional&lt;Double&gt; op2 &#x3D; emps.stream()
-                .map(Employee::getSalary)
-                .min(Double::compare);
-        System.out.println(op2.get());
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">></span></span> op2 <span class="token operator">=</span> emps<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Employee</span><span class="token operator">::</span><span class="token function">getSalary</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token class-name">Double</span><span class="token operator">::</span><span class="token function">compare</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>op2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="归约-收集"><a href="#归约-收集" class="headerlink" title="归约 / 收集"></a>归约 / 收集</h4><ul>
 <li>归约：reduce(T identity, BinaryOperator) / reduce(BinaryOperator) 可以将流中的数据反复结合起来，得到一个值</li>
@@ -1971,7 +1971,7 @@ public class TestStreamAPI3 &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.8k</span>&nbsp;字&nbsp;|
+                class="white-color">164.7k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2261,7 +2261,7 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="\js\snow.js"></script>
 
 
 
@@ -2273,6 +2273,6 @@ $(function () {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
