@@ -421,6 +421,31 @@ window.changyan.api.config({
 appid: 'cyvF7Nhg2',
 conf: 'prod_3346d0bbe7d843f56e3e6985c634e0de'
 });
+
+    <script>
+        $.get("https://v1.hitokoto.cn?c=d&c=h&c=j",function(datastatus){
+            if(status=='success'){
+                $('#poem').html(data.hitokoto)
+                if(data.from_who!=null){
+                    $('#info').html(data.from_who+" · "+《 "+data.from+" 》");
+                    }
+                    else{
+                        $('#info').html(" “ "+data.from+"” ");
+                    }
+            }
+            else{$('#poem').html("获取出错啦");}});
+    </script>
+<!-- 加入网易云音乐热门评论，实时更新 -->
+<div class="poem-wrap">
+    <div class="poem-border poem-left">
+    </div>
+    <div class="poem-border poem-right">
+    </div>
+    <h1>热评</h1>
+    <p id="poem">loading...</p>
+    <p id="info">loading...</p>
+</div>
+
 </script>
 
 
