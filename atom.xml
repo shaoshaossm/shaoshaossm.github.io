@@ -33,6 +33,10 @@
     
     
     
+    <category term="随笔" scheme="https://shaoshaossm.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://shaoshaossm.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -66,6 +70,10 @@
     
     
     
+    <category term="后端" scheme="https://shaoshaossm.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="java" scheme="https://shaoshaossm.github.io/tags/java/"/>
     
   </entry>
   
@@ -86,6 +94,12 @@
     
     
     
+    <category term="表达式" scheme="https://shaoshaossm.github.io/categories/%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+    <category term="java" scheme="https://shaoshaossm.github.io/tags/java/"/>
+    
+    <category term="lambda表达式" scheme="https://shaoshaossm.github.io/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
@@ -107,6 +121,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://shaoshaossm.github.io/tags/SpringBoot/"/>
+    
+    <category term="Mybatis-Plus" scheme="https://shaoshaossm.github.io/tags/Mybatis-Plus/"/>
     
   </entry>
   
@@ -128,6 +148,12 @@
     
     
     
+    <category term="接口测试" scheme="https://shaoshaossm.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://shaoshaossm.github.io/tags/SpringBoot/"/>
+    
+    <category term="Swagger" scheme="https://shaoshaossm.github.io/tags/Swagger/"/>
     
   </entry>
   
@@ -148,6 +174,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloudAlibaba" scheme="https://shaoshaossm.github.io/tags/SpringCloudAlibaba/"/>
+    
+    <category term="Seata" scheme="https://shaoshaossm.github.io/tags/Seata/"/>
     
   </entry>
   
@@ -169,6 +201,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloudAlibaba" scheme="https://shaoshaossm.github.io/tags/SpringCloudAlibaba/"/>
+    
+    <category term="Sentinel" scheme="https://shaoshaossm.github.io/tags/Sentinel/"/>
     
   </entry>
   
@@ -189,6 +227,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloudAlibaba" scheme="https://shaoshaossm.github.io/tags/SpringCloudAlibaba/"/>
+    
+    <category term="Nacos" scheme="https://shaoshaossm.github.io/tags/Nacos/"/>
     
   </entry>
   
@@ -211,6 +255,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Sleuth" scheme="https://shaoshaossm.github.io/tags/Sleuth/"/>
     
   </entry>
   
@@ -231,6 +281,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Stream" scheme="https://shaoshaossm.github.io/tags/Stream/"/>
     
   </entry>
   
@@ -252,6 +308,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Bus" scheme="https://shaoshaossm.github.io/tags/Bus/"/>
     
   </entry>
   
@@ -273,6 +335,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Config" scheme="https://shaoshaossm.github.io/tags/Config/"/>
     
   </entry>
   
@@ -294,6 +362,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="GateWay" scheme="https://shaoshaossm.github.io/tags/GateWay/"/>
     
   </entry>
   
@@ -314,6 +388,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Hystrix" scheme="https://shaoshaossm.github.io/tags/Hystrix/"/>
     
   </entry>
   
@@ -334,6 +414,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="OpenFeign" scheme="https://shaoshaossm.github.io/tags/OpenFeign/"/>
     
   </entry>
   
@@ -355,6 +441,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Ribbon" scheme="https://shaoshaossm.github.io/tags/Ribbon/"/>
     
   </entry>
   
@@ -376,6 +468,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Consul" scheme="https://shaoshaossm.github.io/tags/Consul/"/>
     
   </entry>
   
@@ -396,6 +494,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="zookeeper" scheme="https://shaoshaossm.github.io/tags/zookeeper/"/>
     
   </entry>
   
@@ -416,6 +520,12 @@
     
     
     
+    <category term="框架" scheme="https://shaoshaossm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
+    
+    <category term="Eureka" scheme="https://shaoshaossm.github.io/tags/Eureka/"/>
     
   </entry>
   
