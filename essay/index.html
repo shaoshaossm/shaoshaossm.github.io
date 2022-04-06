@@ -444,7 +444,536 @@
 <main class="content">
     
 
+<style>
+/* 文章分类书本样式 */
+.chip-container .tag-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.chip-container .tag-chips a {
+    margin: 0 7px 10px;
+}
+.chip-container .chip {
+    max-width: calc(100% / 4);
+    min-width: 10em;
+    height: 200px;
+    position: relative;
+    transition: .5s linear;
+    padding: 19px 0;
+    line-height: 20px;
+    z-index: 990;
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center 0;
+}
+.chip-container .notebook-cover::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: calc(100% + 2px);
+    top: -1px;
+    z-index: 100;
+    border-radius: 2px;
+    right: 25px;
+    transition: 2s ease;
+    /* background: linear-gradient(to right,#9c2e2b 0,#cc4b48 12%,#9c2e2b 25%,#cc4b48 37%,#9c2e2b 50%,#cc4b48 62%,#9c2e2b 75%,#cc4b48 87%,#9c2e2b 100%); */
+    background: linear-gradient(to right,#1e606e 0,#2e95aa 12%,#1e606e 25%,#2e95aa 37%,#1e606e 50%,#2e95aa 62%,#1e606e 75%,#2e95aa 87%,#1e606e 100%);
+}
 
+.chip .notebook-skin {
+    height: 50px;
+    width: 100%;
+    background: #e8e8e0;
+    margin-top: 42px;
+    padding: 10px 32px 64px 10px;
+    font-size: 19px;
+    position: relative;
+    z-index: 10;
+    color: #222;
+    text-align: left;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+.chip .notebook-skin:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    background: #cddc39;
+}
+.notebook-cover {
+    background: #cc4b48;
+    height: 200px;
+    width: 140px;
+    position: absolute;
+    border-radius: 5px 15px 15px 5px;
+    z-index: 10;
+    transition: .5s linear;
+    transform-style: preserve-3d;
+    transform-origin: left center 0;
+}
+
+.moleskine-wrapper {
+    max-width: calc(100% / 4);
+    min-width: 10em;
+}
+.moleskine-notebook:hover .notebook-cover {
+    transform: rotateY(-50deg);
+    z-index: 99;
+    box-shadow: 20px 10px 50px rgba(0,0,0,.2);
+}
+.moleskine-notebook {
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transition: .5s linear;
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center 0;
+}
+.moleskine-notebook:hover {
+    transform: rotateZ(-10deg);
+}
+.notebook-page.dotted {
+    background: linear-gradient(to bottom,#fbfae8 9px,#e4e4e4 1px);
+    background-size: 100% 10px;
+}
+.chip-container .chip:hover {
+    background: none;
+}
+.notebook-page {
+    height: 100%;
+    width: 140px;
+    position: absolute;
+    top: 10px;
+    background-color: #fbfae8;
+    z-index: 0;
+    border-radius: 5px 16px 16px 5px;
+    overflow: hidden;
+}
+</style>
+
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+       
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <div class="suibianss"><i class="fas fa-bookmark"></i>随便写写 </div>
+                <div class="notice">
+                    <div class="notice-content" id="poem"></div>
+                    <div class="notice-content" id="info"></div>
+                </div>
+                <script>
+                    $.get("https://v1.hitokoto.cn?c=d&c=h",function(data,status){if(status=='success'){$('#poem').html(data.hitokoto);if(data.from_who!=null){$('#info').html(data.from_who+" · "+"《 "+data.from+" 》");}else{$('#info').html(" “ "+data.from+" ” ");}}else{$('#poem').html("获取出错啦");}});
+                </script>
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="wenzhs" title="数据结构和算法">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #cc4b48;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >数据结构和算法    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/office/" class="wenzhs" title="office">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #2e95aa;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >office    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="wenzhs" title="系统配置">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #abc3b5;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >系统配置    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="wenzhs" title="版本控制">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #fed754;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >版本控制    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="wenzhs" title="后端">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #9d6b97;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >后端    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="wenzhs" title="操作系统">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #986453;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >操作系统    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="wenzhs" title="图像处理">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #fed754;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >图像处理    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%88%AC%E8%99%AB/" class="wenzhs" title="爬虫">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #2e95aa;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >爬虫    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" class="wenzhs" title="接口测试">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #2e95aa;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >接口测试    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="wenzhs" title="前端">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #fed754;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >前端    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%A1%86%E6%9E%B6/" class="wenzhs" title="框架">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #2e95aa;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >框架    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E9%94%99%E8%AF%AF-bug/" class="wenzhs" title="错误&bug">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #cc4b48;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >错误&bug    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E9%9A%8F%E7%AC%94/" class="wenzhs" title="随笔">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #9d6b97;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >随笔    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%AE%B9%E5%99%A8/" class="wenzhs" title="容器">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #abc3b5;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >容器    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="wenzhs" title="数据库">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #cc4b48;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >数据库    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/hexo/" class="wenzhs" title="hexo">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #abc3b5;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >hexo    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="wenzhs" title="配置文件">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #2e95aa;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >配置文件    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="wenzhs" title="设计模式">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #8dac65;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >设计模式    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="wenzhs" title="离散数学">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #9d6b97;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >离散数学    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="wenzhs" title="表达式">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #fed754;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >表达式    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" class="wenzhs" title="微机原理">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #9d6b97;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >微机原理    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="wenzhs" title="数据分析">
+                    <div class="moleskine-wrapper">
+                        <div class="moleskine-notebook">
+                            <div class="chip notebook-cover center-align waves-effect waves-light
+                             chip-default "
+                                    style="background-color: #abc3b5;">                                               
+                                <div class="notebook-skin
+                                     chip-default "
+                                    >数据分析    
+                                                        
+                                </div>
+                            </div>
+                            <div class="notebook-page dotted"></div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
