@@ -1192,7 +1192,16 @@ $(function () {
 
 
 <!-- 雪花特效 -->
-<script type="text/javascript" src="\js\snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- <script type="text/javascript" src="\js\snow.js"></script>-->
+<!-- 樱花特效 -->
+
+    <script type="text/javascript">
+    //只在桌面版网页启用特效
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        document.write('<script type="text/javascript" src="/js/sakura.js"></script>');
+    }
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
