@@ -739,14 +739,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-01
+                    2022-04-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.6k
+                    5.5k
                 </div>
                 
 
@@ -1919,46 +1919,50 @@ mysql&gt; explain select ename,sal from emp where sal &#x3D; 800;
 <li><p> 站在不同的角度去看到数据。(同一张表的数据，通过不同的角度去看待)</p>
 </li>
 <li><p>创建视图，删除视图</p>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> myview <span class="token keyword">as</span> <span class="token keyword">select</span> empno<span class="token punctuation">,</span>ename <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">view</span> myview<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <ul>
-<li>```sql<br>create view myview as select empno,ename from emp;<br>drop view myview;<pre class="line-numbers language-none"><code class="language-none">
-- 对试图进行增删改查，会影响到原表数据。(通过视图影响原表数据，不是直接操作的原表)
-
-- 试图可以隐藏表的实现细节。保密级别较高的系统，数据库只对外提供相关的视图，java程序员只对视图对象进行CRUD。
-
-### 数据库设计三范式
-
-- 三范式都是哪些？
-- 第一范式：任何一张表都应该有主键，并且每一个字段原子性不可再分。
-- 第二范式：建立在第一范式的基础上，所有非主键字段完全依赖主键，不能产生部份依赖。
-- &lt;font color&#x3D;&quot;red&quot;&gt;多对多？三张表，关系表两个外键。&lt;&#x2F;font&gt;
-
-&#96;&#96;&#96;sql
-# 多对多？三张表，关系表两个外键。
+<li><p>对试图进行增删改查，会影响到原表数据。(通过视图影响原表数据，不是直接操作的原表)</p>
+</li>
+<li><p>试图可以隐藏表的实现细节。保密级别较高的系统，数据库只对外提供相关的视图，java程序员只对视图对象进行CRUD。</p>
+</li>
+</ul>
+<h3 id="数据库设计三范式"><a href="#数据库设计三范式" class="headerlink" title="数据库设计三范式"></a>数据库设计三范式</h3><ul>
+<li>三范式都是哪些？</li>
+<li>第一范式：任何一张表都应该有主键，并且每一个字段原子性不可再分。</li>
+<li>第二范式：建立在第一范式的基础上，所有非主键字段完全依赖主键，不能产生部份依赖。</li>
+<li><font color="red">多对多？三张表，关系表两个外键。</font></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">
+<span class="token comment"># 多对多？三张表，关系表两个外键。</span>
 t_student学生表
-sno(pk)       sname
----------------------
-1             张三
-2             李四 
-3             王五
+sno<span class="token punctuation">(</span>pk<span class="token punctuation">)</span>       sname
+<span class="token comment">---------------------</span>
+<span class="token number">1</span>             张三
+<span class="token number">2</span>             李四 
+<span class="token number">3</span>             王五
 
 t_teacher 讲师表
-tno(pk)            tname
-----------------------
-1			王老师
-2			张老师
-3			李老师
+tno<span class="token punctuation">(</span>pk<span class="token punctuation">)</span>            tname
+<span class="token comment">----------------------</span>
+<span class="token number">1</span>			王老师
+<span class="token number">2</span>			张老师
+<span class="token number">3</span>			李老师
 
 t_student_teacher_relation 学生讲师关系表
-id(pk)        sno(fk)          tno(fk)
--------------------------------------------
-1	      1                 3
-2	      1			1
-3	      2			2
-4	      2			3
-5	      3			1
-6	      3			3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
+id<span class="token punctuation">(</span>pk<span class="token punctuation">)</span>        sno<span class="token punctuation">(</span>fk<span class="token punctuation">)</span>          tno<span class="token punctuation">(</span>fk<span class="token punctuation">)</span>
+<span class="token comment">-------------------------------------------</span>
+<span class="token number">1</span>	      <span class="token number">1</span>                 <span class="token number">3</span>
+<span class="token number">2</span>	      <span class="token number">1</span>			<span class="token number">1</span>
+<span class="token number">3</span>	      <span class="token number">2</span>			<span class="token number">2</span>
+<span class="token number">4</span>	      <span class="token number">2</span>			<span class="token number">3</span>
+<span class="token number">5</span>	      <span class="token number">3</span>			<span class="token number">1</span>
+<span class="token number">6</span>	      <span class="token number">3</span>			<span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
 <li><p>第三范式：建立在第二范式的基础上，所有非主键字段直接依赖主键，不能产生传递依赖。</p>
 </li>
 <li><p><font color="red">一对多？两张表，多的表加外键。</font></p>
