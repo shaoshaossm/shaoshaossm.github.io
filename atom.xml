@@ -6,7 +6,7 @@
   <link href="https://shaoshaossm.github.io/atom.xml" rel="self"/>
   
   <link href="https://shaoshaossm.github.io/"/>
-  <updated>2022-04-09T14:51:21.867Z</updated>
+  <updated>2022-04-10T02:36:38.597Z</updated>
   <id>https://shaoshaossm.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu安装SqlServer</title>
+    <link href="https://shaoshaossm.github.io/2022-04-10-ubuntu-an-zhuang-sqlserver.html"/>
+    <id>https://shaoshaossm.github.io/2022-04-10-ubuntu-an-zhuang-sqlserver.html</id>
+    <published>2022-04-10T02:00:25.000Z</published>
+    <updated>2022-04-10T02:36:38.597Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul><li>前提准本</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt update &amp;&amp; sudo apt upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>安装msssql-server包</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">wget -qO- https:&#x2F;&#x2F;packages.microsoft.com&#x2F;keys&#x2F;microsoft.asc | sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>注册 Microsoft SQL Server Ubuntu 存储库： 对于 Ubuntu 18.04：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo add-apt-repository &quot;$(wget -qO- https:&#x2F;&#x2F;packages.microsoft.com&#x2F;config&#x2F;ubuntu&#x2F;18.04&#x2F;mssql-server-2019.list)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>运行以下命令以安装 SQL Server：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt-get updatesudo apt-get install -y mssql-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>包安装完成后，运行 mssql-conf setup，按照提示设置 SA 密码并选择版本。</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo &#x2F;opt&#x2F;mssql&#x2F;bin&#x2F;mssql-conf setup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>选择版本 8 ，设置密钥（HMWJ3-KY3J2-NMVD7-KG4JR-X2G8G），设置SA密码。</p><blockquote><p>请确保为 SA 帐户指定强密码（最少 8 个字符，包括大写和小写字母、十进制数字和/或非字母数字符号）。</p></blockquote><ul><li>完成配置后，验证服务是否正在运行：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">systemctl status mssql-server --no-pager<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>如果计划远程连接，可能还需要在防火墙上打开 SQL Server TCP 端口（默认值为 1433）。</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo ufw allow 22&#x2F;tcp  --允许所有的外部IP访问本机的22&#x2F;tcp (默认ssh)端口，ssh登录的远程服务器别忘了把自己的ssh端口先打开sudo ufw allow 80  --允许所有的外部IP访问本机的80 (默认网站)端口sudo ufw allow 1433  --允许所有的外部IP访问本机的1433 (默认MSSQL)端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><blockquote><p>关闭防火墙也可</p></blockquote><h3 id="安装SQL-Server命令行工具。"><a href="#安装SQL-Server命令行工具。" class="headerlink" title="安装SQL Server命令行工具。"></a>安装SQL Server命令行工具。</h3><ul><li>安装 curl</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt-get update sudo apt install curl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>导入公共存储库 GPG 密钥。</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">curl https:&#x2F;&#x2F;packages.microsoft.com&#x2F;keys&#x2F;microsoft.asc | sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>注册 Microsoft Ubuntu 存储库。对于 Ubuntu 18.04：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">curl https:&#x2F;&#x2F;packages.microsoft.com&#x2F;config&#x2F;ubuntu&#x2F;18.04&#x2F;prod.list | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;msprod.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>更新源列表，并使用 unixODBC 开发人员包运行安装命令。</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt-get update sudo apt-get install mssql-tools unixodbc-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><blockquote><p>若要将 mssql-tools 更新至最新版本，请运行以下命令：</p><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt-get update sudo apt-get install mssql-tools<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></blockquote><p><strong>可选</strong>：添加到 bash shell 中的 <strong>PATH</strong> 环境变量。</p><ul><li>要使 sqlcmd/bcp 能从登陆会话的 bash shell 进行访问，请使用下列命令修改 ~/.bash_profile 文件中的 PATH ：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">echo &#39;export PATH&#x3D;&quot;$PATH:&#x2F;opt&#x2F;mssql-tools&#x2F;bin&quot;&#39; &gt;&gt; ~&#x2F;.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>要使 sqlcmd/bcp 能从交互式/非登录会话的 bash shell 进行访问，请使用下列命令修改 ~/.bashrc 文件中的 PATH ：</li></ul><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">echo &#39;export PATH&#x3D;&quot;$PATH:&#x2F;opt&#x2F;mssql-tools&#x2F;bin&quot;&#39; &gt;&gt; ~&#x2F;.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="本地连接"><a href="#本地连接" class="headerlink" title="本地连接"></a>本地连接</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sqlcmd -S localhost -U SA -P &#39;&lt;YourPassword&gt;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><ol><li>如果成功，应会显示 sqlcmd 命令提示符：&gt;</li></ol></blockquote><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul><li>创建一个名为 <code>TestDB</code> 的新数据库。</li></ul><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> TestDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>查询以返回服务器上所有数据库的名称：</li></ul><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Name <span class="token keyword">from</span> sys<span class="token punctuation">.</span><span class="token keyword">Databases</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>前两个命令没有立即执行。 必须在新行中键入 <code>GO</code> 才能执行以前的命令：</li></ul><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">GO<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="navicat"><a href="#navicat" class="headerlink" title="navicat"></a>navicat</h3><p>此时需要配置ODBC驱动器管理器</p><p>windows搜索ODBC数据源64位</p><p><img src="https://img-blog.csdnimg.cn/c80cfcf9fa78447ab067e654c0c23272.png" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/8dcc65e4023a4f468f09b9d77714014d.png" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/5f45edc92d2d42829b33cb3c7594d640.png" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/6c99dc710963475784aa9d558b40bb52.png" alt="选择数据库"></p><p><img src="https://img-blog.csdnimg.cn/4a14bad0f0b74e9aa9b3d49ffb46bd88.png" alt="完成"></p><p><img src="https://img-blog.csdnimg.cn/d8d983c80f4d41b4a2fdcba61b8785d2.png" alt="测试成功"></p><blockquote><p>此时连接sqlserver时需要安装一个软件，一直下一步即可</p></blockquote><p><img src="https://img-blog.csdnimg.cn/c67b04f475ab42be91be6087e8970774.png" alt="连接成功"></p><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.cnblogs.com/qq2806933146xiaobai/p/14657048.html">blog</a></p><p><a href="https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-linux-2017">微软原文</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;前提准本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;line-numbers language-sh&quot; data-langu</summary>
+      
+    
+    
+    
+    <category term="数据库" scheme="https://shaoshaossm.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="SqlServer" scheme="https://shaoshaossm.github.io/tags/SqlServer/"/>
+    
+    <category term="Ububtu" scheme="https://shaoshaossm.github.io/tags/Ububtu/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础之集合</title>
@@ -516,36 +545,6 @@
     <category term="SpringBoot" scheme="https://shaoshaossm.github.io/tags/SpringBoot/"/>
     
     <category term="SpringCloud" scheme="https://shaoshaossm.github.io/tags/SpringCloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux操作系统问题解决</title>
-    <link href="https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html"/>
-    <id>https://shaoshaossm.github.io/2022-03-12-linux-cao-zuo-xi-tong-wen-ti-jie-jue.html</id>
-    <published>2022-03-12T10:12:15.000Z</published>
-    <updated>2022-03-26T14:02:00.543Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>Xshell连接不上Ubuntu系统的解决办法<ul><li>安装ssh服务，输入命令：sudo apt-get install openssh-server</li><li>启动服务: /etc/init.d/ssh start</li><li>测试连接即可</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;Xshell连接不上Ubuntu系统的解决办法&lt;ul&gt;
-&lt;li&gt;安装ssh服务，输入命令：sudo apt-get install openssh-server&lt;/li&gt;
-&lt;li&gt;启动服务: /etc/init.d/ssh start&lt;/li&gt;
-&lt;li&gt;测试连接</summary>
-      
-    
-    
-    
-    <category term="错误&amp;bug" scheme="https://shaoshaossm.github.io/categories/%E9%94%99%E8%AF%AF-bug/"/>
-    
-    
-    <category term="centos7" scheme="https://shaoshaossm.github.io/tags/centos7/"/>
-    
-    <category term="ubuntu" scheme="https://shaoshaossm.github.io/tags/ubuntu/"/>
     
   </entry>
   
