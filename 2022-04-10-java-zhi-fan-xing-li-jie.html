@@ -9,7 +9,7 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta name="google-site-verification" content="W3rQDi_ot7AlJfjBjlum6f3mwT4c9MsdhY7qE6LmqfY" />
     <meta charset="utf-8">
-    <meta name="keywords" content="SpringCloud之Ribbon, 秋水墨色染">
+    <meta name="keywords" content="java之泛型理解, 秋水墨色染">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SpringCloud之Ribbon | 秋水墨色染</title>
+    <title>java之泛型理解 | 秋水墨色染</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
@@ -597,12 +597,12 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SpringCloud之Ribbon</h1>
+                    <h1 class="description center-align post-title">java之泛型理解</h1>
                 </div>
             </div>
         </div>
@@ -747,12 +747,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SpringCloud/">
-                                <span class="chip bg-color">SpringCloud</span>
-                            </a>
-                        
-                            <a href="/tags/Ribbon/">
-                                <span class="chip bg-color">Ribbon</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -763,8 +759,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
-                                框架
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -780,28 +776,28 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-17
+                    2022-04-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-17
+                    2022-04-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    684
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -824,145 +820,189 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。</p>
-<p>​        简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。</p>
-<p>​        简单的说，就是在配置文件中列出Load Balancer(简称LB)后面所有的机器，Ribbon会自动的帮助你基于某种规则(如简单轮询，随机连接等）去连接这些机器。我们很容易使用Ribbon实现自定义的负载均衡算法。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Netflix/ribbon/wiki/Getting-Started">Github - Ribbon</a></p>
-<ul>
-<li>LB负载均衡(Load Balance)是什么？</li>
+                <h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><ul>
+<li>用泛型来指定集合中存储的数据类型</li>
 </ul>
-<p>简单的说就是将用户的请求平摊的分配到多个服务上，从而达到系统的HA (高可用)。</p>
-<ul>
-<li><p>常见的负载均衡有软件Nginx，LVS，硬件F5等。</p>
-</li>
-<li><p>Ribbon本地负载均衡客户端VS Nginx服务端负载均衡区别</p>
-<ul>
-<li>Nginx是服务器负载均衡，客户端所有请求都会交给nginx，然后由nginx实现转发请求。即负载均衡是由服务端实现的。</li>
-<li>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现RPC远程服务调用技术。</li>
-</ul>
-</li>
-<li><p>集中式LB</p>
-<ul>
-<li>即在服务的消费方和提供方之间使用独立的LB设施(可以是硬件，如F5, 也可以是软件，如nginx)，由该设施负责把访问请求通过某种策略转发至服务的提供方;</li>
-</ul>
-</li>
-<li><p>进程内LB</p>
-<ul>
-<li>将LB逻辑集成到消费方，消费方从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</li>
-<li>Ribbon就属于进程内LB，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</li>
-</ul>
-</li>
-</ul>
-<p>负载均衡 + RestTemplate调用</p>
-<p><strong>Ribbon其实就是一个软负载均衡的客户端组件，它可以和其他所需请求的客户端结合使用，和Eureka结合只是其中的一个实例</strong></p>
-<p>Ribbon在工作时分成两步：</p>
-<ul>
-<li><p>第一步先选择EurekaServer ,它优先选择在同一个区域内负载较少的server。</p>
-</li>
-<li><p>第二步再根据用户指定的策略，在从server取到的服务注册列表中选择一个地址。</p>
-</li>
-<li><p>其中Ribbon提供了多种策略：比如<strong>轮询</strong>（默认）、随机和根据响应时间加权。</p>
-</li>
-</ul>
-<h3 id="Ribbon的负载均衡和Rest调用"><a href="#Ribbon的负载均衡和Rest调用" class="headerlink" title="Ribbon的负载均衡和Rest调用"></a>Ribbon的负载均衡和Rest调用</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f971aad9aa8344e49a1e13f40b3ddcd9.png" alt="依赖"></p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupld</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupld</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactld</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-ribbon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactid</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
-<p>spring-cloud-starter-netflix-eureka-client自带了spring-cloud-starter-ribbon引用。</p>
+<p>优点：</p>
+<ul>
+<li>集合中存储的元素类型统一</li>
+<li>从集合中取出的元素类型是泛型指定的类型，不需要大量的“向下转型”</li>
+</ul>
 </blockquote>
-<h4 id="RestTemplate的再次使用"><a href="#RestTemplate的再次使用" class="headerlink" title="RestTemplate的再次使用"></a>RestTemplate的再次使用</h4><p><code>getForObject() / getForEntity() </code>- GET请求方法</p>
-<p><code>postForObject() / postForEntity()</code> - POST请求方法</p>
-<p><code>getForObject()</code>：返回对象为响应体中数据转化成的对象，基本上可以理解为Json。</p>
-<p><code>getForEntity()</code>：返回对象为ResponseEntity对象，包含了响应中的一些重要信息，比如响应头、响应状态码、响应体等。</p>
-<p>OrderController</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
-<span class="token annotation punctuation">@Slf4j</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderController</span> <span class="token punctuation">&#123;</span>
-<span class="token comment">//    public static final String PAYMENT_URL = "http://localhost:8001";</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> PAYMENT_URL <span class="token operator">=</span> <span class="token string">"http://CLOUD-PAYMENT-SERVICE"</span><span class="token punctuation">;</span> <span class="token comment">//服务名称</span>
-    <span class="token annotation punctuation">@Resource</span>
-    <span class="token keyword">private</span> <span class="token class-name">RestTemplate</span> restTemplate<span class="token punctuation">;</span>
+<p><strong>案例</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GenericTest01</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/* 没有使用泛型
+     List list = new ArrayList();
+        Cat cat = new Cat();
+        Bird bird = new Bird();
+        list.add(cat);
+        list.add(bird);
+        Iterator iterator =list.iterator();
+        while (iterator.hasNext())&#123;
+            Object object = iterator.next();
+            if (object instanceof Animal)&#123;
+                Animal animal = (Animal)object;
+                animal.move();
+            &#125;
+            if (object instanceof Bird)&#123;
+                Bird bird1 = (Bird)object;
+                bird1.fly();
+            &#125;else if (object instanceof Cat)&#123;
+               Cat cat1 = (Cat)object;
+               cat1.catchMouse();
+            &#125;
+        &#125;*/</span>
 
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/consumer/payment/create"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CommonResult</span><span class="token punctuation">></span></span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">Payment</span> payment<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> restTemplate<span class="token punctuation">.</span><span class="token function">postForEntity</span><span class="token punctuation">(</span>PAYMENT_URL <span class="token operator">+</span> <span class="token string">"/payment/create"</span><span class="token punctuation">,</span> payment<span class="token punctuation">,</span> <span class="token class-name">CommonResult</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//使用泛型</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//list.add("dada"); 错误 只能存储Animal</span>
+        <span class="token class-name">Cat</span> cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Bird</span> bird <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bird</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>bird<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span> iterator <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">Animal</span> animal <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//animal.move();</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>animal <span class="token keyword">instanceof</span> <span class="token class-name">Cat</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token class-name">Cat</span> cat1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Cat</span><span class="token punctuation">)</span>animal<span class="token punctuation">;</span>
+                cat1<span class="token punctuation">.</span><span class="token function">catchMouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">if</span> <span class="token punctuation">(</span>animal <span class="token keyword">instanceof</span> <span class="token class-name">Bird</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token class-name">Bird</span> bird1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Bird</span><span class="token punctuation">)</span>animal<span class="token punctuation">;</span>
+                bird1<span class="token punctuation">.</span><span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Animal</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"动物在移动!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">catchMouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"猫捉老鼠"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/consumer/payment/get/&#123;id&#125;"</span><span class="token punctuation">,</span>produces <span class="token operator">=</span> <span class="token class-name">MediaType</span><span class="token punctuation">.</span>APPLICATION_JSON_UTF8_VALUE<span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">CommonResult</span> <span class="token function">getPayment</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>PAYMENT_URL<span class="token operator">+</span><span class="token string">"/payment/get/"</span><span class="token operator">+</span>id<span class="token punctuation">,</span><span class="token class-name">CommonResult</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Bird</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"鸟儿在飞翔"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token comment">// 再次使用</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/consumer/payment/getForEntity/&#123;id&#125;"</span><span class="token punctuation">,</span>produces <span class="token operator">=</span> <span class="token class-name">MediaType</span><span class="token punctuation">.</span>APPLICATION_JSON_UTF8_VALUE<span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">CommonResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Payment</span><span class="token punctuation">></span></span> <span class="token function">getPayment2</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CommonResult</span><span class="token punctuation">></span></span> forEntity <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForEntity</span><span class="token punctuation">(</span>PAYMENT_URL <span class="token operator">+</span> <span class="token string">"/payment/get/"</span> <span class="token operator">+</span> id<span class="token punctuation">,</span> <span class="token class-name">CommonResult</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>forEntity<span class="token punctuation">.</span><span class="token function">getStatusCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is2xxSuccessful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> forEntity<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CommonResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">444</span><span class="token punctuation">,</span><span class="token string">"操作失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="类型自动推断"><a href="#类型自动推断" class="headerlink" title="类型自动推断"></a>类型自动推断</h3><ul>
+<li>后面的类型可以省略<code>List&lt;Animal&gt; list = new ArrayList&lt;&gt;();</code></li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+* 自动类型推断机制 钻石表达式
+* */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GenericTest02</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Bird</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span> iterator <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">Animal</span> animal <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            animal<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span> <span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"dadaaaaaaaaaaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"abcdefghigklmn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> iterator1 <span class="token operator">=</span> list1<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator1<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> string <span class="token operator">=</span> iterator1<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>string<span class="token operator">+</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> newString <span class="token operator">=</span> string<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>newString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Ribbon核心组件IRule"><a href="#Ribbon核心组件IRule" class="headerlink" title="Ribbon核心组件IRule"></a>Ribbon核心组件IRule</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5cfe5238df50401ba986cadfa648cb89.png" alt="IRule"></p>
-<ul>
-<li><code>IRule</code>:根据特定算法从服务列表中选取一个要访问的服务<ul>
-<li><code>com.netflix.loadbalancer.RoundRobinRule</code> 轮询</li>
-<li><code>com.netflix.loadbalancer.RandomRule</code> 随机</li>
-<li><code>com.netflix.loadbalancer.RetryRule</code>   先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重试</li>
-<li><code>WeightedResponseTimeRule</code>  对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择</li>
-<li><code>BestAvailableRule</code>  会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务</li>
-<li><code>AvailabilityFilteringRule</code>   先过滤掉故障实例，再选择并发较小的实例</li>
-<li><code>ZoneAvoidanceRule</code>  默认规则，复合判断server所在区域的性能和server的可用性选择服务器</li>
-</ul>
-</li>
-</ul>
-<h3 id="修改Ribbon默认负载均衡规则"><a href="#修改Ribbon默认负载均衡规则" class="headerlink" title="修改Ribbon默认负载均衡规则"></a>修改Ribbon默认负载均衡规则</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/23c30ef2fb8c4d6794cdc4eee840356f.png" alt="警告"></p>
-<h4 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h4><ul>
-<li>在原有的eureka项目上稍作修改即可</li>
-</ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8de3d6663b614eaa9d847b20a8882e84.png" alt="目录结构"></p>
-<p>OrderMain80</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
-<span class="token annotation punctuation">@EnableEurekaClient</span>
-<span class="token comment">// CLOUD-PAYMENT-SERVICE 服务明大写</span>
-<span class="token annotation punctuation">@RibbonClient</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"CLOUD-PAYMENT-SERVICE"</span><span class="token punctuation">,</span>configuration <span class="token operator">=</span> <span class="token class-name">MySelfRule</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderMain80</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="自定义泛型"><a href="#自定义泛型" class="headerlink" title="自定义泛型"></a>自定义泛型</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">Example6</span><span class="token punctuation">;</span>
+<span class="token comment">// E 标识符 随便写</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GenericTest03</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSome</span><span class="token punctuation">(</span><span class="token class-name">E</span> o<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">OrderMain80</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//GenercicTest03&lt;String> genercicTest03 = new GenercicTest03();</span>
+        <span class="token comment">//genercicTest03.doSome("\033[32;4m" + "123" + "\033[0m") ;</span>
+        <span class="token class-name">GenericTest03</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> genercicTest031 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GenericTest03</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        genercicTest031<span class="token punctuation">.</span><span class="token function">doSome</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+       <span class="token comment">/* System.out.println("\033[30;4m" + "123" + "\033[0m");
+        System.out.println("\033[31;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[32;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[33;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[34;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[35;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[36;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[37;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[40;31;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[41;32;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[42;33;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[43;34;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[44;35;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[45;36;4m" + "Hello" + "\033[0m");
+        System.out.println("\033[46;37;4m" + "Hello" + "\033[0m");*/</span>
+
+        <span class="token class-name">MyIterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span> <span class="token punctuation">></span></span> myIterator <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> s <span class="token operator">=</span> myIterator<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">MyIterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span> <span class="token punctuation">></span></span> myIterator2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Animal</span> s2 <span class="token operator">=</span> myIterator2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">GenericTest03</span> genercicTest032 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GenericTest03</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        genercicTest032<span class="token punctuation">.</span><span class="token function">doSome</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>MySelfRule</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MySelfRule</span> <span class="token punctuation">&#123;</span>
 
-    <span class="token annotation punctuation">@Bean</span>
-    <span class="token keyword">public</span> <span class="token class-name">IRule</span> <span class="token function">myRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RandomRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//定义为随机</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">MyIterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">T</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8db8da6de5ae4a9eb1e100978418d69c.png" alt="测试运行为随机访问"></p>
 <blockquote>
-<p>其余规则同理修改配置类即可</p>
+<p>java源代码中经常出现的是：</p>
+<p>​    <E> 和 <T></p>
+<p>E：Element单词首字母</p>
+<p>T：Type单词首字母</p>
 </blockquote>
-<h3 id="Ribbon负载均衡算法"><a href="#Ribbon负载均衡算法" class="headerlink" title="Ribbon负载均衡算法"></a>Ribbon负载均衡算法</h3><p>负载均衡算法：<font color="red">rest接口第几次请求数 % 服务器集群总数量 = 实际调用服务器位置下标 ，每次服务重启动后rest接口计数从1开始。</font></p>
-<p><font color="blue">List<ServiceInstance> instances = discoveryClient.getInstances(“CLOUD-PAYMENT-SERVICE”);</font></p>
-<ul>
-<li><p>List [0] instances = 127.0.0.1:8002</p>
-</li>
-<li><p>List [1] instances = 127.0.0.1:8001</p>
-</li>
-</ul>
-<p>8001+ 8002 组合成为集群，它们共计2台机器，集群总数为2， 按照轮询算法原理：</p>
-<p>当总请求数为1时： 1 % 2 =1 对应下标位置为1 ，则获得服务地址为127.0.0.1:8001</p>
-<p>当总请求数位2时： 2 % 2 =0 对应下标位置为0 ，则获得服务地址为127.0.0.1:8002</p>
-<p>当总请求数位3时： 3 % 2 =1 对应下标位置为1 ，则获得服务地址为127.0.0.1:8001</p>
-<p>当总请求数位4时： 4 % 2 =0 对应下标位置为0 ，则获得服务地址为127.0.0.1:8002</p>
-<p>以此类推……</p>
+<div style="position: relative; padding: 30% 45%;">
+    <iframe style="
+        position: absolute; 
+        width: 100%; 
+        height: 100%; 
+        left: 0; top: 0;" 
+        src="//player.bilibili.com/player.html?aid=11361088&bvid=BV1Rx411876f&cid=231253056&page=689&high_quality=1" 
+        scrolling="no" 
+        border="0" 
+        frameborder="no" 
+        framespacing="0" 
+        allowfullscreen="true">
+    </iframe>
+</div>
 
                 
             </div>
@@ -989,7 +1029,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://shaoshaossm.github.io/2022-03-17-springcloud-zhi-ribbon.html">https://shaoshaossm.github.io/2022-03-17-springcloud-zhi-ribbon.html</a>
+                    <a href="https://shaoshaossm.github.io/2022-04-10-java-zhi-fan-xing-li-jie.html">https://shaoshaossm.github.io/2022-04-10-java-zhi-fan-xing-li-jie.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1027,12 +1067,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SpringCloud/">
-                                    <span class="chip bg-color">SpringCloud</span>
-                                </a>
-                            
-                                <a href="/tags/Ribbon/">
-                                    <span class="chip bg-color">Ribbon</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -1529,50 +1565,48 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022-03-18-springcloud-zhi-openfeign.html">
+                <a href="/2022-04-10-java-zhi-fan-xing-li-jie.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="SpringCloud之OpenFeign">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/22.jpg" class="responsive-img" alt="java之泛型理解">
                         
-                        <span class="card-title">SpringCloud之OpenFeign</span>
+                        <span class="card-title">java之泛型理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结springcloud中使用openfeign--------------------------------------
+                            总结在java中使用泛型------------------------------------
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
-                                    框架
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringCloud/">
-                        <span class="chip bg-color">SpringCloud</span>
-                    </a>
-                    
-                    <a href="/tags/OpenFeign/">
-                        <span class="chip bg-color">OpenFeign</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -1586,31 +1620,30 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022-03-17-springcloud-zhi-consul.html">
+                <a href="/2022-04-10-ubuntu-an-zhuang-sqlserver.html">
                     <div class="card-image">
                         
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/83ff328cb2fa41319612e57e0ec4c457.png" class="responsive-img" alt="Ubuntu安装SqlServer">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="SpringCloud之Consul">
-                        
-                        <span class="card-title">SpringCloud之Consul</span>
+                        <span class="card-title">Ubuntu安装SqlServer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结SpringCloud中使用Consul-------------------------------------
+                            在ubuntu上安装sqlserver、配置ODBC并且用navicat远程连接
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
-                                    框架
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -1620,12 +1653,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringCloud/">
-                        <span class="chip bg-color">SpringCloud</span>
+                    <a href="/tags/SqlServer/">
+                        <span class="chip bg-color">SqlServer</span>
                     </a>
                     
-                    <a href="/tags/Consul/">
-                        <span class="chip bg-color">Consul</span>
+                    <a href="/tags/Ububtu/">
+                        <span class="chip bg-color">Ububtu</span>
                     </a>
                     
                 </div>

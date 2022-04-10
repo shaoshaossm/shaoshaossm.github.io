@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
@@ -794,7 +794,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    771
+                    822
                 </div>
                 
 
@@ -825,7 +825,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>前提准本</li>
+<li>前提准备</li>
 </ul>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo apt update &amp;&amp; sudo apt upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -914,6 +914,19 @@ sudo apt-get install mssql-tools<span aria-hidden="true" class="line-numbers-row
 <li>如果成功，应会显示 sqlcmd 命令提示符：&gt;</li>
 </ol>
 </blockquote>
+<ul>
+<li>停止、启动或重新启动数据库引擎服务</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo systemctl stop mssql-server
+sudo systemctl start mssql-server
+sudo systemctl restart mssql-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>设置开机自启并启动sqlserver</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo systemctl enable mssql-server
+sudo systemctl start mssql-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul>
 <li>创建一个名为 <code>TestDB</code> 的新数据库。</li>
 </ul>
@@ -1514,51 +1527,46 @@ sudo apt-get install mssql-tools<span aria-hidden="true" class="line-numbers-row
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022-04-10-ubuntu-an-zhuang-sqlserver.html">
+                <a href="/2022-04-10-java-zhi-fan-xing-li-jie.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/83ff328cb2fa41319612e57e0ec4c457.png" class="responsive-img" alt="Ubuntu安装SqlServer">
                         
-                        <span class="card-title">Ubuntu安装SqlServer</span>
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/22.jpg" class="responsive-img" alt="java之泛型理解">
+                        
+                        <span class="card-title">java之泛型理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在ubuntu上安装sqlserver、配置ODBC并且用navicat远程连接
+                            总结在java中使用泛型------------------------------------
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SqlServer/">
-                        <span class="chip bg-color">SqlServer</span>
-                    </a>
-                    
-                    <a href="/tags/Ububtu/">
-                        <span class="chip bg-color">Ububtu</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -1815,7 +1823,7 @@ sudo apt-get install mssql-tools<span aria-hidden="true" class="line-numbers-row
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">168.4k</span>&nbsp;字&nbsp;|
+                class="white-color">169.4k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2137,7 +2145,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -2148,6 +2156,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
