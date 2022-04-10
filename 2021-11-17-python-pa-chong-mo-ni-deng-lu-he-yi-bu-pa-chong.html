@@ -783,7 +783,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-19
+                    2022-04-10
                 </div>
                 
 
@@ -850,7 +850,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     code_img_data <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>code_img_src<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>content
     <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./code.jpg'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
         fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>code_img_data<span class="token punctuation">)</span>
-    chaojiying <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'19858165529'</span><span class="token punctuation">,</span> <span class="token string">'hxl158120'</span><span class="token punctuation">,</span> <span class="token string">'925040'</span><span class="token punctuation">)</span>  <span class="token comment"># 用户中心>>软件ID 生成一个替换 96001</span>
+    chaojiying <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'手机号'</span><span class="token punctuation">,</span> <span class="token string">'密码'</span><span class="token punctuation">,</span> <span class="token string">'925040'</span><span class="token punctuation">)</span>  <span class="token comment"># 用户中心>>软件ID 生成一个替换 96001</span>
     im <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./code.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 本地图片文件路径 来替换 a.jpg 有时WIN系统须要//</span>
     code <span class="token operator">=</span> chaojiying<span class="token punctuation">.</span>PostPic<span class="token punctuation">(</span>im<span class="token punctuation">,</span> <span class="token number">1004</span><span class="token punctuation">)</span>
     code_img <span class="token operator">=</span> code<span class="token punctuation">[</span><span class="token string">'pic_str'</span><span class="token punctuation">]</span>
@@ -2325,7 +2325,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -2336,6 +2336,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
