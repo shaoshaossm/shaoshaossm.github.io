@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaoshaossm.github.io/2022-04-03-java-ji-chu-zhi-ji-he.html</loc>
+    
+    <lastmod>2022-04-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaoshaossm.github.io/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html</loc>
     
     <lastmod>2022-04-10</lastmod>
@@ -57,15 +66,6 @@
   
   <url>
     <loc>https://shaoshaossm.github.io/2021-09-22-java-ji-chu.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaoshaossm.github.io/2022-04-03-java-ji-chu-zhi-ji-he.html</loc>
     
     <lastmod>2022-04-10</lastmod>
     
