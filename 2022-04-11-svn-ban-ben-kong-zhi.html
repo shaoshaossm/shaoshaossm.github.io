@@ -793,14 +793,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-11
+                    2022-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    115
+                    359
                 </div>
                 
 
@@ -846,8 +846,86 @@ var _hmt = _hmt || [];
 <li>存储重要的文件</li>
 <li>内部文件共享，并能按目录划分权限</li>
 </ul>
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>**创建 项目 **</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ol>
+<li>创建项目</li>
+</ol>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1e09a1498d704b19a3dc5bb2e555c2d3.png" alt="创建项目"></p>
+<blockquote>
+<p>可不用勾选自动创建</p>
+</blockquote>
+<ol start="2">
+<li>复制项目地址</li>
+<li>新建工作文件夹，右键SVN Checkout</li>
+</ol>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/a44ef2bacbbe407999a1cd8c3aa52882.png" alt="ok"></p>
+<ol start="4">
+<li>输入账号密码即可</li>
+</ol>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d683e18cfd6c4e8d925eee07e14c963e.png" alt="OK"></p>
+<ol start="5">
+<li>放入一些文件，右键SVN Commit</li>
+</ol>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/952cf33d6a784299a2301db62da9cfb2.png" alt="在这里插入图片描述"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0e9d2493e84843659bd1e99932e115be.png" alt="提交成功"></p>
+<ol start="6">
+<li>测试修改提交</li>
+</ol>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4e741a283c07423c95500132e5ae8990.png" alt="修改提交"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/687e8c3add594ec58fbed2033037abbb.png" alt="修改成功"></p>
+<h3 id="撤销和恢复"><a href="#撤销和恢复" class="headerlink" title="撤销和恢复"></a>撤销和恢复</h3><h4 id="撤销本地修改"><a href="#撤销本地修改" class="headerlink" title="撤销本地修改"></a>撤销本地修改</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/230d8548b89844639df87ec201da5426.png" alt="Revert"><br><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/bdb759b270874aa9b8486496fb730b7a.png" alt="ok"></p>
+<h4 id="撤销已提交的内容"><a href="#撤销已提交的内容" class="headerlink" title="撤销已提交的内容"></a>撤销已提交的内容</h4><blockquote>
+<p><font color="orange">在文件中修改完毕后，及时<code>SVN Update</code></font></p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/e8b86030ef114b47aec0a66a9bb491e0.png" alt="show log"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/29457f3f88fa41dca647de58bfeba884.png" alt="Revert changes from this revision"></p>
+<blockquote>
+<p>恢复完后提交即可</p>
+</blockquote>
+<h4 id="恢复到指定版本"><a href="#恢复到指定版本" class="headerlink" title="恢复到指定版本"></a>恢复到指定版本</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/e8b86030ef114b47aec0a66a9bb491e0.png" alt="show log"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/74e01a80b01848efb3c67a657f3c4519.png" alt="Revert to this revision"></p>
+<blockquote>
+<p>恢复完后提交即可</p>
+</blockquote>
+<h3 id="添加忽略"><a href="#添加忽略" class="headerlink" title="添加忽略"></a>添加忽略</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/881337e16bd64334a9f6652baf6cc24c.png" alt="忽略文件"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d46b2ed09fdc4b2a86bbc125aad043f1.png" alt="忽略index.md"><br><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9b3a7595d92742348be3b1a0a2332171.png" alt="成功"></p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><ul>
+<li>什么情况容易发生冲突<ul>
+<li>多个人修改了同个文件的同一行</li>
+<li>无法进行合并的二进制文件</li>
+</ul>
+</li>
+<li>如何避免冲突<ul>
+<li>经常update同步下他人的代码</li>
+<li>二进制文件不要多个人同时操作</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/32ee7c7618ba48d397df9b998397a67e.png" alt="解决冲突"></p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ul>
+<li>SVN经典目录结构<ul>
+<li>trunk</li>
+<li>branches</li>
+<li>tags</li>
+</ul>
+</li>
+</ul>
+<h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7709cf3cbecc44a79a070652ff78ba48.png" alt="Branch/tag"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/288f598e459f4693948701d5a1aa98ae.png" alt="v1.0"></p>
+<h4 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0c1faaf15dd04cdca22d8c3f90cd49bb.png" alt="检出"><br><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9273ef3f0d0f4c5387c5c4160b5ca4d0.png" alt="复制"></p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5acdac8528b844f7869bd70ec81b896f.png" alt="选择主目录即可"></p>
+<blockquote>
+<p>记得提交哦</p>
+</blockquote>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><blockquote>
+<p>创建一个online2.0分支</p>
+<p>commit 哦</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/98f1146bed654c47802146cf7e163be5.png" alt="Switch"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2dc391b09e764a2fb5ad027fc7b58188.png" alt="切换分支"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2b2aab516f304b1c96efe7f289f508ab.png" alt="切换成功"></p>
+<h3 id="代码暂存和取出"><a href="#代码暂存和取出" class="headerlink" title="代码暂存和取出"></a>代码暂存和取出</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/62b3fe6443d84b95b27e27e1c655677b.png" alt="在这里插入图片描述"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/a68d3a0c40144991aa903646a627e00a.png" alt="ok"></p>
+<h3 id="复杂代码合并"><a href="#复杂代码合并" class="headerlink" title="复杂代码合并"></a>复杂代码合并</h3><p>用软件BCompare，老朋友了🎈🎈</p>
 
                 
             </div>
@@ -1743,7 +1821,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">172.4k</span>&nbsp;字&nbsp;|
+                class="white-color">172.6k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2065,7 +2143,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 
@@ -2076,6 +2154,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
