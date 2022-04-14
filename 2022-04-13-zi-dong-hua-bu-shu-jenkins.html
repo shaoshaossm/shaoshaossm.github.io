@@ -793,21 +793,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-13
+                    2022-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    483
+                    552
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -835,15 +835,14 @@ var _hmt = _hmt || [];
 <p>安装过程中会测试8080端口号是否被占用，提示java8在未来不在支持，建议选择java11</p>
 </blockquote>
 <ul>
-<li><p>进入网站localhost：8080</p>
-</li>
-<li><p>输入管理员密码（在系统提示的位置）：cc1518c3ac944782b903204c9d37ca2a</p>
-</li>
-<li><p>跳过插件安装</p>
-</li>
-<li><p>创建用户admin</p>
-</li>
+<li>进入网站localhost：8080</li>
+<li>输入管理员密码（在系统提示的位置）：cc1518c3ac944782b903204c9d37ca2a</li>
+<li>跳过插件安装</li>
+<li>创建用户admin</li>
 </ul>
+<blockquote>
+<p>版本2.33.23</p>
+</blockquote>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/735c418ac2aa489bb4fc642fcc4e678d.png" alt="创建用户"></p>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8b808898e1e643e59230b626fd7bb18a.png" alt="登录成功"></p>
 <h4 id="修改工作空间"><a href="#修改工作空间" class="headerlink" title="修改工作空间"></a>修改工作空间</h4><p>在F盘新建文件夹JenkinsWorkspace</p>
@@ -912,13 +911,36 @@ var _hmt = _hmt || [];
 <li>在Job配置页面，增加构建步骤Execute system Groovy script</li>
 </ul>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/67ed1988f3b344638bf193b6071be418.png" alt="Execute"></p>
-<h3 id="邮件配置和发送"><a href="#邮件配置和发送" class="headerlink" title="邮件配置和发送"></a>邮件配置和发送</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6641796dda464ace8cd2a00a188ab85e.png" alt="默认配置"></p>
-<p>安装插件Email Extension</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f3098d6ed29a4ddb89e5c3c603cbb196.png" alt="在这里插入图片描述"></p>
+<h3 id="邮件配置和发送"><a href="#邮件配置和发送" class="headerlink" title="邮件配置和发送"></a>邮件配置和发送</h3><p><strong>默认配置</strong></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6641796dda464ace8cd2a00a188ab85e.png" alt="默认配置"></p>
+<p><strong>安装插件Email Extension配置</strong></p>
+<h4 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h4><p>进入configure system</p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ddc8fab0c8fa4297a203bdfe8b9853c4.png" alt="发件人邮箱"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b1b16d21d89f4e6aaae51b8334def6ee.png" alt="Extend E-mail Nofification"></p>
+<blockquote>
+<p>点击高级，add-Jenkins</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/076e835794af484c80deeaa80110e7cd.png" alt="username &amp;&amp; password"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b6b9f3730d794517b82199a46bcb2758.png" alt="获取密码"></p>
+<blockquote>
+<p>密码：mtfzrkdyojgwhccc</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/cd75fbedbebd4b96aa6521b0076c8090.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>删除Jenkins默认邮件中的所有配置</p>
+</blockquote>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5904aca7af834b7b8f43d27d3b27a92e.png" alt="在这里插入图片描述"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ddc8fab0c8fa4297a203bdfe8b9853c4.png" alt="在这里插入图片描述"></p>
-<p>mtfzrkdyojgwhccc</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/79e7eb799f3f4c8d9234c3263b339185.png" alt="在这里插入图片描述"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2e2bb1155cdc45009ccaf7d2cb1ef516.png" alt="在这里插入图片描述"></p>
+<h4 id="job任务配置邮件通知"><a href="#job任务配置邮件通知" class="headerlink" title="job任务配置邮件通知"></a>job任务配置邮件通知</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/79e7eb799f3f4c8d9234c3263b339185.png" alt="输入内容"></p>
+<blockquote>
+<p>翻到最下面点击高级设置</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b79a8821a31e4d65987213e7621b35b3.png" alt="advance settings"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/632feafd63524d4d957ce41c0070d788.png" alt="Always"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5d5faaf120364f649749526016dc7440.png" alt="无需任何配置"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b8f35f94fe1e4824b5eb5294fc813d4f.png" alt="build now success"></p>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gongwei1121355014/article/details/121720234">参考文章</a></p>
+<p>TODO</p>
 
                 
             </div>
@@ -1814,7 +1836,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173.1k</span>&nbsp;字&nbsp;|
+                class="white-color">173.2k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2136,7 +2158,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -2147,6 +2169,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
