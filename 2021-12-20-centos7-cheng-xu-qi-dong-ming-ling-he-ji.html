@@ -797,14 +797,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-25
+                    2022-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    538
+                    574
                 </div>
                 
 
@@ -873,6 +873,11 @@ git@github.com:1600767556/mybatis.git
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭防火墙</span>
 systemctl stop firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<h3 id="通用关闭服务命令"><a href="#通用关闭服务命令" class="headerlink" title="通用关闭服务命令"></a>通用关闭服务命令</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看pid
+ps -ef|grep 服务名
+# 关闭服务
+kill -9 pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="zookeeper3-4-8"><a href="#zookeeper3-4-8" class="headerlink" title="zookeeper3.4.8"></a>zookeeper3.4.8</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
 <span class="token builtin class-name">cd</span> usr/java/zookeeper-3.4.8/bin/
 <span class="token comment"># 启动</span>
@@ -888,7 +893,10 @@ systemctl stop firewalld<span aria-hidden="true" class="line-numbers-rows"><span
 <h3 id="Redis3-2-9"><a href="#Redis3-2-9" class="headerlink" title="Redis3.2.9"></a>Redis3.2.9</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> usr/java/redis-3.2.9/src/
 <span class="token comment"># 启动</span>
 ./redis-server <span class="token punctuation">..</span>/redis.conf <span class="token operator">&amp;</span>
-./redis-cli -a <span class="token number">123456</span> -h <span class="token number">192.168</span>.174.131<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 指定连接客户端</span>
+./redis-cli -a <span class="token number">123456</span> -h <span class="token number">192.168</span>.174.131
+<span class="token comment"># 关闭</span>
+redis-cli <span class="token function">shutdown</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b3bd6fd80b16464e932f276b6976e36b.png" alt="启动结果"></p>
 <h3 id="nginx1-18-0"><a href="#nginx1-18-0" class="headerlink" title="nginx1.18.0"></a>nginx1.18.0</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> usr/java/nginx/sbin/
@@ -1851,7 +1859,7 @@ http:&#x2F;&#x2F;192.168.174.131:1111&#x2F;nacos&#x2F;#&#x2F;login<span aria-hid
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173.2k</span>&nbsp;字&nbsp;|
+                class="white-color">173.8k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2173,7 +2181,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -2184,6 +2192,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

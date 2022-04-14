@@ -9,7 +9,7 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta name="google-site-verification" content="W3rQDi_ot7AlJfjBjlum6f3mwT4c9MsdhY7qE6LmqfY" />
     <meta charset="utf-8">
-    <meta name="keywords" content="Github搜索语法, 秋水墨色染">
+    <meta name="keywords" content="Redis, 秋水墨色染">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Github搜索语法 | 秋水墨色染</title>
+    <title>Redis | 秋水墨色染</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
@@ -611,12 +611,12 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/57b7107d43574e2ebbdc62e848b42bd3.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Github搜索语法</h1>
+                    <h1 class="description center-align post-title">Redis</h1>
                 </div>
             </div>
         </div>
@@ -757,8 +757,8 @@ var _hmt = _hmt || [];
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
                             </a>
                         
                     </div>
@@ -769,8 +769,8 @@ var _hmt = _hmt || [];
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="post-category">
-                                版本控制
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -786,21 +786,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-25
+                    2022-04-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-26
+                    2022-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    881
+                    858
                 </div>
                 
 
@@ -830,93 +830,224 @@ var _hmt = _hmt || [];
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p> 可以使⽤<a target="_blank" rel="noopener" href="https://github.com/">搜索</a>页面或<a target="_blank" rel="noopener" href="https://github.com/search">高级搜索</a>页面来搜索GitHub </p>
-<table>
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>Remote Dictionary Server(远程字典服务器),是一个用C语言编写的、开源的、基于内存运行并支持持久化的、高性能的NoSQL<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>.也是当前热门的NoSQL数据库之一。</li>
+</ul>
+<p><strong>特点</strong></p>
+<ul>
+<li><p>支持数据持久化</p>
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。</li>
+</ul>
+</li>
+<li><p>支持多种数据结构</p>
+<ul>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+</ul>
+</li>
+<li><p>支持数据备份</p>
+<ul>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
+<p>linux上安装，这个以前已经安装好，此处不在赘述，如需安装参考文档（阿里云盘有）</p>
+</blockquote>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><h4 id="前台启动"><a href="#前台启动" class="headerlink" title="前台启动"></a>前台启动</h4><blockquote>
+<p>在任何目录下执行： redis-server</p>
+</blockquote>
+<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><blockquote>
+<p>在任何目录下执行： redis-server &amp;</p>
+</blockquote>
+<h4 id="常用启动"><a href="#常用启动" class="headerlink" title="常用启动"></a>常用启动</h4><blockquote>
+<p>在任何目录下执行：启动redis服务时，指定配置文件：redis-server redis.conf &amp;</p>
+</blockquote>
+<p><strong>Redis3.2.9</strong></p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd usr&#x2F;java&#x2F;redis-3.2.9&#x2F;src&#x2F;
+# 启动
+.&#x2F;redis-server ..&#x2F;redis.conf &amp;
+# 指定连接客户端
+.&#x2F;redis-cli -a 123456 -h 192.168.174.131
+# 关闭
+redis-cli shutdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>默认连接的是本机本地的redis</p>
+</blockquote>
+<h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><ul>
+<li>测试redis性能</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">[root@localhost src] redis-benchmark -a 123456 -h 192.168.174.131<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>查看redis服务是否正常运行</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 进入客户端
+.&#x2F;redis-cli -a 123456 -h 192.168.174.131
+ping<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/33c311fa2e9b4f42b7ead3cf8321bd70.png" alt="PONG"></p>
+<ul>
+<li>查看redis服务器的统计信息</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 进入客户端
+.&#x2F;redis-cli -a 123456 -h 192.168.174.131
+info # 查看redis服务器的所有的统计信息
+info [信息段]# 查看redis服务器的指定的统计信息，如 info Replication<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>默认创建 16个数据库，指定使用数据库</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">select index # index:0-15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>查看当前数据库实例中key的数目 </li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">dbsize<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>查看当前数据库实例中所有的key </li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">keys *<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>清空数据库实例 </li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">flushdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>清空所有数据库实例</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">flushall<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>查看redis中所有的配置信息</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">config get *<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>查看redis中指定的配置信息</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看redis中占用的端口号</span>
+config get port <span class="token comment"># get 后跟参数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="redis的5种数据结构"><a href="#redis的5种数据结构" class="headerlink" title="redis的5种数据结构"></a>redis的5种数据结构</h4><ul>
+<li><p>字符串类型<code>string</code></p>
+<ul>
+<li><p>字符串类型是<code>Redis</code>中最基本的数据结构，它能存储任何类型的数据，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。最大512M。</p>
+</li>
+<li><table>
 <thead>
 <tr>
-<th>Query</th>
-<th>Examples</th>
+<th align="left">key</th>
+<th>value</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>&gt;n</td>
-<td>cats stars:&gt;100 匹配关键字“cats”且stars大于100的仓库</td>
-</tr>
-<tr>
-<td>&lt;n</td>
-<td>cats stars:&gt;100 匹配关键字“cats”且stars小于100的仓库</td>
-</tr>
-<tr>
-<td>&gt;=n</td>
-<td>cats stars:&gt;=100 匹配关键字“cats”且stars大于等于100的仓库</td>
-</tr>
-<tr>
-<td>&lt;=n</td>
-<td>cats stars:&lt;=100 匹配关键字“cats”且stars小于等于100的仓库</td>
-</tr>
-<tr>
-<td>n..*</td>
-<td>cats stars:100..* 匹配关键字“cats”且stars大于等于100的仓库</td>
-</tr>
-<tr>
-<td>*..n</td>
-<td>cats stars:*..100 匹配关键字“cats”且stars小于等于100的仓库</td>
-</tr>
-<tr>
-<td>n..n</td>
-<td>cats stars:10..50 匹配关键字“cats”且stars大于10小于50的仓库</td>
+<td align="left">username</td>
+<td>张三</td>
 </tr>
 </tbody></table>
-<h3 id="搜索代码"><a href="#搜索代码" class="headerlink" title="搜索代码"></a>搜索代码</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
-<li> 只能搜索⼩于384 KB的⽂件。</li>
-<li> 只能搜索少于500,000个⽂件的存储库。</li>
-<li> 登录的⽤户可以搜索所有公共存储库 。</li>
-<li>除<code>filename</code>搜索外，搜索源代码时，必须包含一个搜索词。例如：搜索<code>language:java</code>无效，而是这样：<code>amazing language:java</code></li>
-<li> 搜索结果最多可以显示来⾃同⼀⽂件的两个⽚段，但⽂件中可能会有更多结果。  </li>
-<li> 不能将以下通配符用作搜索查询的一部分<code>. , : ; / \  &#39; &quot; = * ! ? # $ &amp; + ^ | ~ &lt; &gt; ( ) &#123; &#125; [ ]</code>,搜索将忽略这些符号。</li>
+</li>
 </ul>
-<h4 id="日期条件"><a href="#日期条件" class="headerlink" title="日期条件"></a>日期条件</h4><p><code>cats pushed:&lt;2012-07-05</code> 搜索在2012年07⽉05⽇前push代码，且cats作为关键字</p>
-<p><code>cats pushed:2016-04-30..2016-07-04</code>⽇期区间</p>
-<p><code>cats created:&gt;=2017-04-01</code>创建时间</p>
-<h4 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h4><p>AND、OR、NOT</p>
-<h4 id="排除运算"><a href="#排除运算" class="headerlink" title="排除运算"></a>排除运算</h4><p><code>cats pushed:&lt;2012-07-05 -language:java </code>搜索在2012年07⽉05⽇前push代码，且cats作为关键字，排除 <code>java </code>语⾔仓库。</p>
-<h4 id="包含搜索"><a href="#包含搜索" class="headerlink" title="包含搜索"></a>包含搜索</h4><p><code>cats in:file</code> 搜索⽂件中包含cats的代码</p>
-<p><code>cats in:path</code> 搜索路径中包含cats的代码</p>
-<p><code>cats in:path,file </code>搜索路径、⽂件中包含cats的代码</p>
-<p><code>console path:app/public language:javascript</code> 搜索关键字<code>console</code>，且语⾔为javascript，在app/public下的代码</p>
-<h4 id="主体搜索"><a href="#主体搜索" class="headerlink" title="主体搜索"></a>主体搜索</h4><p><code>user:USERNAME</code> ⽤户名搜索</p>
-<p><code>org: ORGNAME</code> 组织搜索</p>
-<p><code>repo:USERNAME/REPOSITORY</code> 指定仓库搜索</p>
-<h4 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h4><p><code>size&gt;10000</code>搜索大小大于1kb的文件</p>
-<h4 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h4><p><code>filename:config.php language:php</code> 搜索文件名为config.php,且语言为php的代码</p>
-<h4 id="扩展名"><a href="#扩展名" class="headerlink" title="扩展名"></a>扩展名</h4><p><code>extension:EXTENSION </code><strong>指定扩展名</strong></p>
-<h3 id="常见用法示例"><a href="#常见用法示例" class="headerlink" title="常见用法示例"></a>常见用法示例</h3><p><code> in:name mini-app</code> #仓库标题搜索含有关键字”mini-app”</p>
-<p><code> in:descripton web</code> #仓库描述搜索含有关键字”web” </p>
-<p><code>in:readme node #README</code>文件搜素含有关键字”node” </p>
-<p>`org:github`` #匹配github名下的仓库</p>
-<p><code> stars:&gt;3000</code> #stars数量大于3000的搜索仓库</p>
-<p><code> stars:1000..3000</code> #stars数量大于1000小于3000的仓库</p>
-<p><code> forks:&gt;1000</code> #forks数量大于1000的搜索关键字</p>
-<p><code>forks:1000..3000</code>#forks数量大于1000小于3000的搜索仓库</p>
-<p><code> size:&gt;=5000</code> #指定仓库大于5000k(5M)的搜索仓库</p>
-<p><code> pushed:&gt;2019-02-12</code> #发布时间大于2019-02-12的仓库</p>
-<p><code> created:&gt;2019-02-12</code> #创建时间大于2019-02-12的仓库</p>
-<p><code> mirror:true(false)</code> #是否是镜像仓库 archived:true(false) #是否是废弃的仓库</p>
-<p><code> user:jack</code> #用户名为”jack”的仓库</p>
-<p><code> license:apache-2.0</code> #仓库的 LICENSE为”apache-2.0”</p>
-<p><code> language:java</code> #使用”java”语言的仓库</p>
-<p><code> user:jack in:name web</code> #组合搜索,用户名为”jack”,且标题含有”web”的</p>
-<p><code> topic:jekyll</code> #匹配topic中含有关键字”jekyll”的仓库</p>
-<p><code> topic:5</code> #匹配拥有5个topic的仓库</p>
-<p><code> topic:&gt;3</code> #匹配拥有3个以上topic的仓库</p>
-<p><code> is:public</code> #公开的仓库</p>
-<p><code> is:private</code> #匹配有权限的私有仓库 </p>
-<hr>
-<p>案例演示：</p>
-<p><code>in:name spring cloud stars:&gt;3000 pushed:&gt;2021-10-01</code></p>
-<p><code>in:description 植物大战僵尸 stars:&gt;100 language：java</code></p>
-<p><code>in:readme 植物大战僵尸 stars:&gt;100 created:&gt;2019</code></p>
-
+</li>
+<li><p>列表类型<code>list</code></p>
+<ul>
+<li><p><code>Redis</code>列表是简单的字符串列表，按照插入顺序排序，元素可以重复。你可以添加一个元素到列表的头部（左边）或者尾部（右边）,底层是个链表结构。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">region</td>
+<td>北京 上海 天津</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>集合类型<code>set</code></p>
+<ul>
+<li><p><code>Redis</code>的<code>Set</code>是<code>string</code>类型的无序无重复集合。</p>
+</li>
+<li><table>
+    <tr>
+        <th>key</th>
+        <th>value</th>
+    </tr >
+    <tr >
+        <td rowspan="3">framework</td>
+        <td>spring</td>
+    </tr>
+    <tr>
+        <td>mybatis</td>
+    </tr>
+    <tr>
+        <td>springcloud</td>
+    </tr>
+</table></li>
+</ul>
+</li>
+<li><p>哈希类型<code>hash</code></p>
+<ul>
+<li><p><code>Redis hash</code> 是一个<code>string</code>类型的<code>field</code>和<code>value</code>的映射表，hash特别适合用于存储对象。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>key</th>
+<th>loginuser</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>field</td>
+<td>value</td>
+</tr>
+<tr>
+<td>uname</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>times</td>
+<td>6</td>
+</tr>
+<tr>
+<td>region</td>
+<td>北京</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>有序集合类型<code>zset （sorted set）</code></p>
+<ul>
+<li><p><code>Redis </code>有序集合<code>zset</code>和集合<code>set</code>一样也是<code>string</code>类型元素的集合，且不允许重复的成员。不同的是<code>zset</code>的每个元素都会关联一个分数（分数可以重复），<code>redis</code>通过分数来为集合中的成员进行从小到大的排序。</p>
+</li>
+<li><table>
+    <tr>
+        <th>key</th>
+        <th>value score</th>
+    </tr >
+    <tr >
+        <td rowspan="3">salary</td>
+        <td>张三 3500</td>
+    </tr>
+    <tr>
+        <td>李四 5000</td>
+    </tr>
+    <tr>
+        <td>王五 6500</td>
+    </tr>
+</table></li>
+</ul>
+</li>
+</ul>
+<h3 id="常用操作命令"><a href="#常用操作命令" class="headerlink" title="常用操作命令"></a>常用操作命令</h3>
                 
             </div>
             <hr/>
@@ -942,7 +1073,7 @@ var _hmt = _hmt || [];
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://shaoshaossm.github.io/2021-11-25-github-sou-suo-yu-fa.html">https://shaoshaossm.github.io/2021-11-25-github-sou-suo-yu-fa.html</a>
+                    <a href="https://shaoshaossm.github.io/2022-04-14-redis.html">https://shaoshaossm.github.io/2022-04-14-redis.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -980,8 +1111,8 @@ var _hmt = _hmt || [];
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
                                 </a>
                             
                         </div>
@@ -1478,54 +1609,47 @@ var _hmt = _hmt || [];
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021-11-26-jupyter-ji-ben-cao-zuo.html">
+                <a href="/2022-04-14-redis.html">
                     <div class="card-image">
                         
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/57b7107d43574e2ebbdc62e848b42bd3.png" class="responsive-img" alt="Redis">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="jupyter基本操作">
-                        
-                        <span class="card-title">jupyter基本操作</span>
+                        <span class="card-title">Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对jupyter的基本操作、快捷键 numpy------------------------
+                            掌握Redis五大数据类型、常用操作命令、Redis持久化、主从复制、事务控制以及用Jedis等
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="post-category">
-                                    系统配置
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/pycharm/">
-                        <span class="chip bg-color">pycharm</span>
-                    </a>
-                    
-                    <a href="/tags/jupyter/">
-                        <span class="chip bg-color">jupyter</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>
@@ -1539,30 +1663,30 @@ var _hmt = _hmt || [];
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021-11-24-python-yi-xie-lei-ku-de-ji-ben-cao-zuo.html">
+                <a href="/2022-04-13-zi-dong-hua-bu-shu-jenkins.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c3cf15ea0c2b4f758b5c2d10ae8e54a9.png" class="responsive-img" alt="Python一些类库的基本操作">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/60993392df7341889e1366463ec03117.png" class="responsive-img" alt="自动化部署Jenkins">
                         
-                        <span class="card-title">Python一些类库的基本操作</span>
+                        <span class="card-title">自动化部署Jenkins</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对Python一些类库的基本操作----------------------------
+                            总结从自动化部署Jenkins从环境配置到项目的开发
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/" class="post-category">
+                                    自动化
                                 </a>
                             
                             
@@ -1572,8 +1696,8 @@ var _hmt = _hmt || [];
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/jekins/">
+                        <span class="chip bg-color">jekins</span>
                     </a>
                     
                 </div>

@@ -2,7 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaoshaossm.github.io/2022-04-14-redis.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-02-23-zhu-jie-de-shi-yong-he-ji.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaoshaossm.github.io/2022-04-13-zi-dong-hua-bu-shu-jenkins.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-04-11-svn-ban-ben-kong-zhi.html</loc>
     
     <lastmod>2022-04-14</lastmod>
     
@@ -21,15 +57,6 @@
   
   <url>
     <loc>https://shaoshaossm.github.io/2021-12-20-xi-tong-chong-zhuang-hou-xu-yao-pei-zhi-de-di-fang.html</loc>
-    
-    <lastmod>2022-04-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaoshaossm.github.io/2022-04-11-svn-ban-ben-kong-zhi.html</loc>
     
     <lastmod>2022-04-12</lastmod>
     
@@ -245,15 +272,6 @@
   </url>
   
   <url>
-    <loc>https://shaoshaossm.github.io/2022-02-23-zhu-jie-de-shi-yong-he-ji.html</loc>
-    
-    <lastmod>2022-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaoshaossm.github.io/2021-09-19-idea-pycharm-pei-zhi.html</loc>
     
     <lastmod>2022-04-02</lastmod>
@@ -392,15 +410,6 @@
     <loc>https://shaoshaossm.github.io/2022-03-25-springcloudalibaba-zhi-sentinel.html</loc>
     
     <lastmod>2022-03-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</loc>
-    
-    <lastmod>2022-03-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1127,6 +1136,13 @@
   
   <url>
     <loc>https://shaoshaossm.github.io/tags/jekins/</loc>
+    <lastmod>2022-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/tags/Redis/</loc>
     <lastmod>2022-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
