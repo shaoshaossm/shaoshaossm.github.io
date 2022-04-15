@@ -1,0 +1,2250 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta name="google-site-verification" content="W3rQDi_ot7AlJfjBjlum6f3mwT4c9MsdhY7qE6LmqfY" />
+    <meta charset="utf-8">
+    <meta name="keywords" content="单词整理, 秋水墨色染">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>单词整理 | 秋水墨色染</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/jquery/jquery.min.js"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a3d30dca6cbaefd4f839604e3486af1b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>	
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
+
+
+<link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
+<!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <!-- 页面加载动画 -->
+  <script>
+    $(document).ready(function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loading-box').classList.add("loaded")
+    })
+  </script>
+
+
+
+
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">秋水墨色染</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/census" class="waves-effect waves-light">
+      
+      <i class="fas fa-layer-group" style="zoom: 0.6;"></i>
+      
+      <span>统计</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>娱乐</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/video">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>影音</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>清单</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>友情链接</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/todolist">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>待办事项</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tools">
+          
+          <i class="fas fa-suitcase" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>资源文档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">秋水墨色染</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/census" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-layer-group"></i>
+			
+			统计
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			娱乐
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/video " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>影音</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			清单
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>友情链接</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/todolist " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>待办事项</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tools " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-suitcase" style="position: absolute;left:50px" ></i>
+			      
+		          <span>资源文档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shaoshaossm" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shaoshaossm" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/1450cf20ae6648a1b6bc69d9c7b899d5.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">单词整理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        
+
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8D%95%E8%AF%8D/">
+                                <span class="chip bg-color">单词</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                英语
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-04-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <pre class="line-numbers language-none"><code class="language-none">retrieve 取回 收回 挽回 补救 community 社区 共同 团体 ascribe 把...归于 (&#x3D;attribute) 属性 cater 服务 
+distinguish 辨别 出名 cultivate 耕作 培养 specific 特有的 具体的 详细 细节 journal 杂志 日志
+project 投射 使伸出 项目 compound 合成 复合物  despite 不管 不顾 confuse 混乱 混淆 grant 助学金 同意 给予
+commit 委托,使承担 义务承诺 调拨 用于 犯错 lobby 前厅 休息室 considerable 重要的 相当大(或多)的
+council 委员会 理事会 crime 犯罪 crisis 危机 overseas 海外的 overwhelming 势不可挡 压倒性的
+pursuit 追赶 reveal 揭露 展示 enhance 增强 revive 复苏 复兴 恢复 scale 刻度 标尺  deny 否认 拒绝 
+suppress 压制 镇压 抑制 忍住 deliver 递送交付解救 发表 表达 combat 战斗 搏斗 格斗  conceal 隐藏 隐瞒
+boost 提高增加推进促进宣扬 eliminate 消除排除淘汰 dwell 住 居留 dominate 支配控制俯视 detect 发觉 察觉
+derive 起源于 deposit 沉淀存放,储存,沉积物 criticism 批评评论 contrast 对比 差异 对照 cite 引用 引证
+complex 复杂的综合的联合体 comply 遵照 照做 conceive 构思 设想 孕育 emphasis 强调重要性 endeavor 努力 尽力
+equivalent 相等的 evaluate 评估评价 exaggerate 夸大 夸张 neglect 忽视忽略 nevertheless 然而,不过
+objective 目标 客观的 premium 奖品奖金津贴 高价优质的 preserve 保护 immerse 使浸没 impose 把...强加于
+privilege 特权 荣幸 indulge 纵容 放任 沉迷 沉溺于 reflect 反射 反省 reject 拒绝丢弃 keen 热心的 敏锐的敏捷
+launch 发射 发动 shift 移动转嫁轮班 shortage 不足 缺少 stuff 原料 填满 让...吃饱 superior 卓越的 优良的
+temper 脾气 testify 证实 说明 treaten 威胁 恐吓预示 aline 外国的不相容的外来者 alter 修改 改变
+ambiguous 含糊不清的 引起歧义 模棱两可 amuse 逗乐逗笑娱乐消遣 appliance 器械 用具电器 
+accommodation向...提供住宿 容纳 顺应适应 beam 梁 柱 发光微笑 budget 预算 低价 便宜的 campaign 战役 运动
+capable 有能力的 有本领的 congress 国会议会 consist 由...组成 constant 持续的不断地经常的永恒的常数 恒量
+contemplate 凝视静思 深思熟虑 certify 证实 发证书 contrive 设法做到 谋划策划设计 chronic长期的慢性的严重坏的 clarify 澄清 阐明  convention 大会协定 公约 惯例 习俗 command 命令 指挥掌握精通  enroll 登记 注册
+concentrate 专注 专心 集中 浓缩 designate 标出 表明 表示 命名 diminish 减少 缩小 递减 evacuate 使撤退 疏散<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">disable 使(身体)丧失能力 discharge 卸货 准许某人离开 解雇 发射 enrich 使富足 使充实 使丰富 dismiss 解雇开除
+entitle 给...取名 给予权力(资格)  essence 本质 实质  dispute 争论 争辩 辩论 争议 dissolve 溶解 解散
+domain 领地 领域 范围 eccentric 古怪的偏心异常的 extravagant 过分的 奢侈的 flush 冲洗 赶出 脸红 齐平 同高的
+handicap 妨碍 使不利 不利条件 haunt 萦绕心头 hint 暗示 线索 建议 hook 钩子 imitate 模仿 
+impair 损害 损伤 减少 manifest 明白的 表明 显示显现 minimum 最小值 maximum 最大值 initial 开始 最初的
+initiate 开始 发动 使初步了解 让...加入 monitor 显示器 监视 监控 negative 消极否定 负的 inject 注射 注入
+novel 新颖的 新奇的 小说 institute 设立 学院 研究所 obscure 模糊的 晦涩 不出名的 intense 剧烈的 强烈的
+intuition 直觉 justify 证明 opponent 敌人 对手反对者 patch 补丁 peak 山峰 最高点 lens 透镜 镜片
+liberal 慷慨的自由 丰富 思想开明的 privacy 私事 隐私 隐居 prospect 景色 前途前程 勘察 resist 抵抗 忍得住
+radiate 辐射 放射 散布 recall 回忆 收回 refine 精炼 精制 提纯 refrain 抑制 克制避免 retain 保持 保留
+revenue 收入 税收 regulate 控制 调节 校准 经常  rigorous 严密的 缜密的 严格严厉的 release 释放发行放开放松
+relevant 有关相应的 sample 样品 品尝 体验 secretary 秘书 干事 部长 skeptical 怀疑 slump 突然倒下 暴跌剧降
+repel 击退 排斥 厌恶 抵制 拒绝 specialize 专门研究 专攻 stimulate 刺激 使兴奋 鼓舞 strategy 战略 策略
+sufficient 足够充分的 suspicious 多疑 疑心的 sustain 承受 支撑 持续 忍受 switch 开关 转换 temporary 短暂的
+transfer 转移 调动 trial 审讯 考验 adverse 敌对的 不利的 危害的 alert 机灵的 灵活的 警惕的 tumble 摔倒 跌倒
+undergo 经历 经受  upset 心烦意乱的 yield 屈服 服从 生长 生产 让出 放弃 产量 收获 amplify 放大增强 
+analogy 比拟 类比 appease 使满足 平息 抚慰 arrogant 自大的 傲慢的 articulate 明确有力的表达 善于表达的
+absurd 荒唐的 可笑的 accomplish 完成实现达到 assess 估价 评定 ascertain 确定查明弄清 asset 有点长处 财产+-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">complain 抱怨申诉 疾病 compose 创作 由...组成 构成 baffle 使困惑 使难倒 compulsory 义务的 强制的 必修的
+barren 贫瘠 荒芜的 无效 无实际内容的 concrete 具体实在的 basement 地下室 建筑物的底部 comform 按照 符合
+confront 面临 遭遇 面对 bias 偏见 偏心 boast 自夸 夸耀 breakdown 破裂损坏 consecutive 连续的 接续的
+consistent 坚持 一贯 一致 符合 console 安慰 抚慰 chill 使寒冷 chip 削 碎片 薄片 construct 建造 构筑 构想
+circulation 传播 发行 循环流通 competent 有能力 能胜任的 contradict 反驳 矛盾 contention 争论 论点 主张
+coordinate 同等的 并列的 协调 调节 deteriorate 使恶化 变坏 disguise 假装 伪装 disperse 分散 消散 驱散
+counterpart 对应的人或物 disrupt 弄乱 打乱 crash 碰撞 撞击 爆裂声 critical 批评 危急的 divorce 离婚 分离
+deceive 欺骗 decisive 决定性的坚定的 deduce 演绎 推断 divert 使转向 改道 转移 使消遣娱乐 drift 漂流
+deem 认为相信 demonstrate 演示 示范 论证 证实 depress 按下 压下 deprive 夺取 使丧失 
+elastic 松紧带 弹性 灵活的 eject 喷射 驱逐 dubious 半信半疑 没把握的 elaborate 精心制作 详细说明 详尽的
+elbow 肘部 extract 抽出 拔出 设法得到 摘录 elicit 诱出 引出 eligible 有资格合格的合适的 enclose 围住 附寄
+endow 赋予 资助 捐赠 endure 持久 持续 忍受 容忍 faculty 才能天赋 系 学院 全体教学人员 faithful 守信的忠实的
+fatal 致命的 favorable 有利的 format 设计 样式 使格式化 foundation  地基 建立 创立 根据 基本原理 
+generate 产生 创造 ensue 接着发生 接踵而来 enterprise 进取心 事业心 guard 保卫 警卫 提防 erase 擦掉 消除
+exert 尽(力) 施加(压力) exquisite 精美的 精湛的 harsh 粗糙而使人不舒服的 严厉的 hamper 妨碍 阻碍
+hop 跳跃 跳上 instantaneous 瞬间 片刻的 institute 机构 团体 制度 惯例 insulate 使绝缘  使隔热 隔离
+integral 完整的 integrate 成为一个整体 ignite 引燃 激起 illustrate 举例说明 impart 赋予 给予 告知 透露
+incentive 刺激 鼓励 动机 incidentally 附带的 顺便提及 indispensable 必需的 industrial 工业的 产业的
+intelligible 可理解的 明白易懂的 investigate 调查 inflict 打击 使遭受 强加于 ingenious 机敏的 精巧 独创性
+innovation 创新 革新 新方法 新事物 jeopardize 危急 危害 lawsuit 诉讼案件 leap 跳跃<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">lease 租赁 出租 lest 唯恐 免得 liable 有责任的 有...倾向的 有可能的 linger 逗留 徘徊 苟延残喘 磨蹭 拖延
+loan 贷款 借出 muscle 肌肉 体力 negotiate 谈判 交涉  nominate 提名任命 numerous 众多的 许多的
+offend 冒犯 使恼火 offspring 子孙 后代 结果 magnify 放大 扩大 outdate 过时 陈旧 overall 综合全面的 大体上
+mature 熟的 成熟 mislead 带错路 误入歧途 误解 momentum 冲力 势头 panic 惊慌 恐慌 overturn 翻到 推翻
+overtake 追上超过 以外侵袭 突然降临 overflow 溢出 泛滥 parallel 类似 平行 同时发生 patriot 爱国者
+pension 养老金 退休金 perceive 察觉 感知 领悟 理解 permanent 永久的 持久的 practically 实际上 几乎 简直
+permeate 弥漫 散布 渗透 perpetual 永久 永恒的 pitch 投掷扔 沥青 prevalent 流行 普遍 prevail 流行 盛行
+prior 在前 优先的 profitable 有利可图 有益的 profound 深刻 渊博 深邃的 plead 请求  以...为辩护 为理由
+provoke 挑衅 激怒  quota 定额 配额 限额 radical 重大的 激进 极端的 根本 基本的 rash 轻率的 鲁莽的 
+reassure 放心 安心 rectify 纠正 矫正 整顿 refute 驳斥 反驳 regarding 关于 remedy 治疗措施 纠正 补救
+reproach 责备 指责 resident 居住 retreat 撤退 退却 reverse 倒转 反转 revise 在看 订阅 
+saturate 充满 饱和 湿透 浸透 scope 范围 (发挥能力的)机会 余地 secondary 次要 中级的 segregate 隔离 分开
+sensation 感觉 激动 轰动 sensible 明智 合理的明显的 sensitive 敏感的 易受伤的 shield 防护物 护罩 保护 防护
+signify 表示 意味着 要紧 重要性 simulate 假装 冒充 模仿 模拟 simultaneous 同时存在 sketch 素描 草图随笔简介
+skim 擦过浏览略读 skip 跳 跳过 slack 松弛 懈怠 懒散的 slash 砍 劈 切口 slip 滑到 溜走 疏忽 
+stun 震惊 目瞪口呆 打昏 stretch 拉长 一段时间路程 strain 绷紧 紧张 焦虑 stimulus 刺激 激励 spur 激励 刺激
+species 种类 spacious 宽广的 宽敞的 solitary 独自的 单独 孤独 subsidiary 附属的 次要的 surge 急剧上升 激增
+surpass 超过胜过  tempt 吸引 感兴趣 引诱 tilt 倾斜 trace 追踪 transcend 超出 超越范围 transient 短暂的
+transit 运输运载 transmit 传播 发射 传导 传递 ultimate 最终的 最后的根本 极限 underlying 潜在的 含蓄的
+unify 使联合 统一 unveil 除去...面纱 揭开 揭幕 urge 催促 鼓励 促进 utmost 极度的 极端的 极限 最大可能
+utter 彻底的 vary 变化 改变 verge 边缘 接近濒临 vessel 容器 血管 volume 卷 体积 容量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">vow 誓言 发誓 advisable 可取的 明智的 vulnerable 脆弱的 易受伤攻击的 whereas 而 却 反之 bleed  流血
+affiliate 附属 分公司  afflict 身体痛苦 折磨 aggravate 使加重 恶化 加剧 allergic 过敏性的 bloom 繁荣 兴旺
+accordance 一致 和谐 ally 同盟 支持者 alternate 轮流 交替 alternative 可供选择的 替换物 二选一
+anonymous 匿名 无名的 无特色的 bachelor 学士 学位 单身汉 bankrupt 破产 彻底缺乏的 battery 一系列 一套
+bolt 疾跑 闪电 breed 繁殖 抚养 养育 产生 引起 品种 种类 brighten 发光 快活 broaden 加宽 扩大 
+cabinet 橱柜 文件柜 cable 缆绳 电报 电缆 capacity 容量 容积 能量 能力 capture 捕获 夺得 攻占 吸引注意
+casualty 伤亡人员 受害者 chorus 齐声说话 合唱 circuit 环形 巡回 电路 commend 表扬 称赞 推荐
+committee 委员会 commodity 商品 物品 collide 碰撞 冲突  抵触 collaboration 合作 协作 勾结 
+coherent 粘着 连贯 一致的 cognitive 认识的 认知的 coalition 结合 联合体 联盟 cluster 串 簇 组 群集
+commonplace 平凡的 寻常的事物 comparison 比较 比喻 compel 强迫 迫使 compile 汇编 编辑 compliment 称赞 恭维 
+component 组成部分 组成的 构成的 concede 承认失败 认输 conception 构想 设想 思想 概念 concise 简明 简洁的
+confer 商谈 授予赋予 confidential 机密 亲信的 confine 局限 限制 conjunction 连接 联结 consent 同意 赞同
+conserve 保存 保护 considering 就...而论 constrain 强迫 强制 contend 竞争 contract 合同合约 收缩 缩小
+conviction 确信 说服 信服 定罪 判罪 counter 反对 反制 计数 柜台 筹码 courtesy 谦恭有礼 有礼貌
+crack 裂缝破裂 cripple 残疾 criterion 标注 准则 crucial 至关重要的 决定性的 culminate 达到顶点高潮
+cumulative 积累 渐增的 dart 飞奔 疾驰 dash 猛冲 dazzle 炫目的光 惊叹 decree 法令 判决 裁定
+dedicate 奉献 把...用于 将...献给 default 违约拖欠 缺席 弃权 despair 绝望 失望 desirable 值得向往的 称心的
+deport 把...驱逐出境 放逐 density 密集 denounce 指责 democracy 民主 国家 deliberate 仔细考虑 慎重的 故意的 delegate 代表 degrade 降低...身份  贬低 definitive 决定性的 最权威可靠的 defiance 违抗 蔑视 defendant 被告<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">destined 命中注定的 预定的 以...为目的 destiny 命运 命数 destruction 破坏的 devise 设计 发明 diagnose 诊断
+dilute 冲淡的 dim 暗淡的 discard 扔掉 丢弃 discrete 个别的 分离的 不连续的 dismay 惊恐 失望 
+dispose 处理 处置  disregard 忽视 不管 不顾 distinctive 特色的 distort 变形 扭曲 distract 分心 打扰
+distress 极大地痛苦 困境 伤心 dividend 红利 股息 被除数 division  分割 分配 除数 domestic 本国 家庭的驯养的
+doom 命运劫数 注定 dread 恐惧 担心 duplicate 复制 副本 embed 嵌入 埋入 embody 具体化 体现 包括 emerge 出现
+emit 发射 engagement 约会 订婚 envisage 想象 设想 epidemic 流行性的 equation 等式 相等 evoke 引起 唤起
+evolve 进化 excess 过量 过剩 exclaim 呼喊 呼叫 exclusive 独占的 排他的 exempt 赦免 免除 
+expire 死亡 失效 到期 extinct 熄灭 灭绝 fabricate 捏造 编造 建造 制造 facet 面 方面 facilitate 便利 有助于
+farewell 再会 告别 fascinate 强烈吸引 迷住 feasible 可行的 行得通的 feminime 女性的 娇柔 fertilizer 肥料
+finance 财政 资金 finite 有限的 flare 闪耀 闪烁 flip 轻抛 轻弹 flutter 挥动 飘动 forecast 预测 预报
+foretell 预测 语言 forge 伪造 建立 formula 公式 formulate 公式表示 固定格式 系统性阐述  forum 论坛 讨论会
+foster 收养 养育 促进 助长 fragile 易碎的  脆弱的 fringe 外围 围绕 furnish 布置房间 提供 
+generosity 慷慨 大方  given 规定的 特定的 考虑到 gleam 微光 闪光 gossip 流言蜚语 govern 统治 管理 支配
+gracious 亲切 客气的 grieve 伤心 悲伤 groan 呻吟 抱怨 halt 暂停 hierarchy 等级制度 统治集团 hike 提高 上升
+hinge 合页 依...而定 hoist 举起 升高 horizon 地平线 范围 限度 hospitality 好客 殷勤 hostile 敌对的 敌意的
+hover 飞翔 徘徊 humble 谦卑的 贬低 identical 同一 同样的 ignorant 不知道 不懂得 immigrant 移民
+imperative 必要的事 必须完成的 impetus 推动 促进 implement 贯彻 实现 工具 inaugurate 正式就任 开始 展开
+incur 遭受 招致 infinite 无限的 无穷的 inflation 通货膨胀 infringe 违法 违背 inhabitant 居住 栖息
+inhibit 抑制 阻止 initiative 主动性 installment 分期付款 连载 intensive 集中 intent 企图 专心的
+intermittent 间歇的 断断续续的 intervene 干涉 介入 intricate 错综复杂的 intrigue 阴谋诡计 激起好奇心 迷住
+invade 入侵 invaluable 无价的 宝贵的 junction 连接 结合 layer 层 layoff 下岗 layout 布局 陈设
+lever 杠杆 手段 方法 limitation 限制 局限 limp 爬行 lounge 休息室 客厅 闲逛 loyal 忠诚的 luminous 发光亮的
+lure 诱饵 诱惑吸引力 manipulate 操纵 控制 影响 manoeuvre  诱使 策划 策略 花招<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-none"><code class="language-none">mediate 调停 调节 medium 中等 媒介物 merge 结合 合并 merit 优点 功绩 midst 中间 当中 mill 作坊 工厂
+miniature 微型 微笑 缩小 mission 使命 代表团 mode 方式 模式 moderate 中等 适度 温和的 节制 molecule 分子
+monopoly 垄断 专卖 motel 汽车旅馆 motivation 作为...动机 激发...兴趣 鼓励 激励 multitude 众多 大众
+nourish 提供养分 养育 nurture 培育 养育 培养 obstacle 障碍 妨碍 occurrence 事件 offence 犯规 违法 进攻
+originate 起源 首创 创造 output 输出 产量 outrage 暴行 愤慨 overlap 重叠 交叠 overstate 言过其实
+overthrow 推翻 颠覆 paralyze&#x2F;-ise 瘫痪 丧失作用 particle 粒子 微粒 partition 分隔 隔离 patent 专利 特许
+pathetic 可怜 怜悯 可悲 令人生厌的 差距 patrol 巡逻 penalty 处罚 惩罚 penetrate 渗入 穿过 persist 坚持
+perspective 观点 看法 透视 petition 请愿书 请求 Pierce 刺穿 穿孔 pirate 盗版 剽窃 poll民意测验 选票
+portray 描绘 扮演 preach 鼓吹 宣传 precaution 预防 警惕 predecessor 前任 前辈 pregnant 怀孕 妊娠的
+prescribe 规定指示 president 主席 主持 principle probe 调查 探索 proceed 进行 继续下去 
+rational 合理 理性的 ratio 比率 raid 突袭 quench 破灭 解渴 punctual 准时达 publication 出版 公布
+publicity 宣扬 宣传 proximity 接近 临近 provocative 挑衅的 煽动的 provided 假如 倘若 
+proportion 部分 比例 均衡 prone 易于...的可能 promising 有希望的 有前途的 prominent 杰出的 突出的
+rebel 反叛 rebound 反弹 recession 衰退 reciprocal 相互的 交互的 reclaim 收回 归还 recruit 招收 新成员
+recur  发生 重现 reel 卷筒 线轴 referee 裁判 鉴定 refugee 避难 逃亡者 refund  退还(钱款) reign 统治 支配
+reinforce 增强 relay 传达 接班人 reliance 依靠 依赖 render 回报 归还 致使 resemble 像 类似于
+respectable 可敬的 高尚的 resume 摘要 简历 继续进行 重新开始 retention 保留 保持 retort 反驳
+retrospect 回顾 追忆 revelation 揭示 透露 revenge 报复 复仇 ridge 山脊 屋脊 rival 竞争者 竞争 与...匹敌
+roar 吼叫 呐喊 rot  腐烂 胡说 rupture 破裂 断绝 sacrifice 献祭 牺牲 scarce 稀少的 缺乏的
+scramble 爬行 攀登 争夺 扰乱 scrutiny 详细检查 仔细观察 seal 盖章 封印 海豹 segment 部分 片段 
+sentiment 感情 情绪 意见 观点 setback 挫折 失败 shatter 粉碎 使破灭 使震惊 shed 摆脱 照亮 小库房
+sheer 全然的 十足的 垂直的 shove 猛推 随意放 挤 signature 签名 签字 simplicity 简单 简易的 朴实 朴素
+smash 打碎 破碎 snatch 抢夺  sore (painful)疼痛的 sparkle 闪耀 spectrum 光谱 范围 spice 香味 香气<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">spite 恶意 怨恨 split 劈开 分裂 spray 浪水花 喷雾 喷射 stale 不新鲜 陈旧 腐朽 stall 摊位 拖延<span class="token punctuation">,</span>推迟
+staple 主要的 重要的 stereotype 老套 固定的看法 strand 使搁浅 一缕 一串 striking 显著 惊人的 
+stroke 击 敲    strive 努力奋斗 stubborn 顽固的 倔强的 subordinate 次要的 从属的 subsequent 随后而来的
+succession 连续 继承 sue 控告 请求 suicide 自杀 summon 召唤 召集 superiority 优越性 优势 
+susceptible 易受影响的 swell 肿胀 增大增强 tame 驯服 沉闷 乏味的 tan 晒黑 surrender 放弃 投降
+tangle 纠结 混乱 tender 投标 嫩的 温和的 tension 紧张 thermal 热的 保暖的 threshold 门槛 入门
+tick 打勾号 timely 及时的 适时地 timid 胆怯的 怯懦的 tone 腔调 语调 trail 痕迹 追踪 拖 拉 transaction 交易
+traverse 穿过 横线 tremendous 极大地 巨大的 tribute 贡品 礼物 trigger 导致 引起 trivial 琐碎的 无足轻重的
+tuck 夹着 藏着 抱抱 turbulent  吵闹的 混乱的 turnover 周转 underestimate 低估 undertake 承担 保证
+underway 在进行中的 utilize 利用 vacant 空虚的 vain 徒劳 白费 valid 有效力的 合理的 venture 冒险 敢于
+verbal 口头的 用文字的 verify 证明 证实 versatile 通用的 万能的 versus 对抗 violate 违反 侵犯 妨碍
+vocal 直言的 坦率地 warrant 保证 担保 whirl 旋转 急转 withstand 经受的住 wretched 不愉快的 讨厌的
+zone 地区 区域 accession 就职 职位 accessory 附属的 附件 accord 一致 符合 accountbele 有义务责任的
+acquisition 获得 获得物 adhere 粘附 坚持 遵守 adjoin 靠近 admittance 进入 adventurous 大胆的 有冒险精神的
+aerial 空中的 affirm 肯定 确认 affix 固定 粘上 aggregate 聚集 收集 airborne 空运的 aisle 通道 走廊
+allege 宣称 断言 alleviate 减轻 缓和 alliance 结盟 联姻 allotment 分配 配给 aloft 高处 高的 amend 修改
+anew 重新 animate 有生命的 有生气的 annoy 恼怒的 anticipate 预料 预计 apparatus 器械 装置 applaud 称赞
+appraisal 估计 appreciate 赏识 感激 approximate 近似 接近 apt 恰当 适合的 arch 拱形 archive 档案
+armor 装备 配备 artful 熟练巧妙的 artificial 人工的 <span class="token keyword">assert</span> 断言 坚持 assimilate 消化 吸收 atlas 地图集
+atomic 原子的 attain 获得 得到 attendant 服务员 伴随者 auction 拍卖 authentic 真的 可靠的 可信的
+avail 有用 有助于 avenue 大街 途径 手段 aviation 航空飞行 ballot 投票 banquet 宴会 batch 一批 一组<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">battalion 大军 batter 猛击 <span class="token punctuation">,</span>打烂 bearing 举止 风度 beforehand 预先 事先 belongings 财产 betray 背叛
+bewilder 迷惑 blade 刀刃 blast 爆炸 blaze 燃烧 blink 闪烁亮 blossom 开花 发展 繁荣 blunder 犯错
+blunt 直率的 迟钝 blur 模糊 blush 脸红 bonus 奖金 booklet 小册子 boycut 抵制 拒绝参与 brace 支架
+bracket 方括号 托架 breach 违反 brew 酿造 bribe 贿赂 briefcase 公文包 brink 边缘 brood 一窝 沉思
+browse 放牧 浏览<span class="token punctuation">(</span>书籍<span class="token punctuation">)</span> bruise 伤痕 bubble 沸腾 气泡 bulk 体积 大量的 bully 胁迫 bump 碰撞 bundle 捆
+bureaucracy 官僚制度 bust 胸围 破裂 buzz 嘈杂的谈话 bystander 旁观者 calling 职业 天职 cane 甘蔗
+capsule 胶囊 caption 标题 字母 cardinal 主要的 红色的 crave 雕刻 cast 投射扔 catalogue 目录 cavity 洞穴
+champion 冠军 chaos 混乱 charitable 慈善 宽厚的 charity 仁慈 charter 租用 契约 choke 窒息 阻塞 chop 砍
+chord 和弦 <span class="token class-name">Christ</span> 基督 clamp 夹紧 固定 clasp 扣子 钩住 classified 分类 机密的 climax 顶点 高潮 cling 粘着
+clip 架子 修剪 closet 壁橱 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">shaoshaossm</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://shaoshaossm.github.io/2022-03-02-dan-ci-zheng-li.html">https://shaoshaossm.github.io/2022-03-02-dan-ci-zheng-li.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">shaoshaossm</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8D%95%E8%AF%8D/">
+                                    <span class="chip bg-color">单词</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+  <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+    <i class="fas fa-comments"></i>
+  </a>
+</div>
+
+<style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Y34n5WbH8TJ6MzlUheGoAU5n-gzGzoHsz',
+        appKey: 'oHddg2G3fHbJX3XjGLFRYfag',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '昵称填写qq可以显示qq头像和昵称哦~',
+        enableQQ: true,
+        emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+        // 表情title和图片映射
+        emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+        "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+        "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+        "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+        "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+        "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+        "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+        "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+        "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+        "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+        "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+        "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+        "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+        "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+        "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+        "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+        "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+        "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+        "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+        "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+        "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+        "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+        "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+        "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+        "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+        "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+        "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+        "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+        "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+        },
+        requiredFields: ['nick','mail'], //设置必填项
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022-03-02-bug-wen-ti-zong-jie.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/22.jpg" class="responsive-img" alt="bug问题总结">
+                        
+                        <span class="card-title">bug问题总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录学习过程中遇到的bug---------------------------------------------
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%94%99%E8%AF%AF-bug/" class="post-category">
+                                    错误&bug
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                    <a href="/tags/bug/">
+                        <span class="chip bg-color">bug</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022-03-01-springboot.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="SpringBoot">
+                        
+                        <span class="card-title">SpringBoot</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对SpringBoot的再次学习,总结SpringBoot知识点-----------------------------
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    框架
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('60')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 秋水墨色染<br />'
+            + '文章作者: shaoshaossm<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 白天和黑夜主题 -->
+<div class="sum-moon-box">
+  <a class="btn-floating btn-large waves-effect waves-light" onclick="switchNightMode()" title="切换主题" >
+    <i id="sum-moon-icon" class="fas fa-sun" style="width:48px; height:48px; font-size: 28px;"></i>
+  </a>
+</div>
+
+<script>
+  function switchNightMode() {
+    $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+      setTimeout(function () {
+        $('body').hasClass('DarkMode') 
+        ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+        : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+          
+        setTimeout(function () {
+          $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+            $(this).remove()
+          })
+        }, 2e3)
+      })
+  }
+</script>
+<div class="stars-con">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>  
+</div>
+<script>
+    if (localStorage.getItem('isDark') === '1') {
+        document.body.classList.add('DarkMode');
+        $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+    } else {
+        document.body.classList.remove('DarkMode');
+        $('#sum-moon-icon').removeleClass("fa-sun").addClass('fa-moon')
+    }
+</script>
+
+	 
+
+
+
+
+
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">shaoshaossm</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">179.1k</span>&nbsp;字&nbsp;|
+            
+            
+            
+            
+            
+           
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        <i class="fa fa-heart-o"></i>
+        本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+    </span>
+
+
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        人次&nbsp; |&nbsp; 访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+    </span>
+
+            <br>
+<span id="sitetime"></span>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shaoshaossm" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1600767556@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1600767556" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1600767556" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ha-ha-21-68-74" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ha-ha-21-68-74" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+    <a href="https://space.bilibili.com/383204566" class="tooltipped" target="_blank" data-tooltip="在B站上关注我" " data-position="top" data-delay="50">
+        <i class="fas fa-play-circle"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 09, 17, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+
+
+
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "1dc7dfb8"
+        });
+        daovoice('update');
+    </script>
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+
+
+
+
+
+<!-- 雪花特效 -->
+<!-- <script type="text/javascript" src="\js\snow.js"></script>-->
+<!-- 樱花特效 -->
+<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>
