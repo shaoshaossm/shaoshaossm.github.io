@@ -793,21 +793,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-14
+                    2022-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    858
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    20 分
                 </div>
                 
 
@@ -1047,7 +1047,711 @@ config get port <span class="token comment"># get 后跟参数</span><span aria-
 </ul>
 </li>
 </ul>
-<h3 id="常用操作命令"><a href="#常用操作命令" class="headerlink" title="常用操作命令"></a>常用操作命令</h3>
+<h3 id="常用操作命令"><a href="#常用操作命令" class="headerlink" title="常用操作命令"></a>常用操作命令</h3><h4 id="redis中有关key的操作命令"><a href="#redis中有关key的操作命令" class="headerlink" title="redis中有关key的操作命令"></a>redis中有关key的操作命令</h4><h5 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h5><ul>
+<li><p>语法：keys pattern</p>
+</li>
+<li><p>作用：查找所有符合模式pattern的key. pattern可以使用通配符。</p>
+</li>
+</ul>
+<blockquote>
+<p>通配符：</p>
+<ul>
+<li><p>*：表示0或多个字符，例如：keys * 查询所有的key。</p>
+</li>
+<li><p>？：表示单个字符，例如：wo?d , 匹配 word , wood</p>
+</li>
+<li><p>[] ：表示选择[]内的一个字符，例如wo[or]d, 匹配word, wood, 不匹配wold、woord</p>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7ce0463a877d4cb0a5c958d2e14be982.png" alt="keys"></p>
+<h5 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h5><ul>
+<li><p>语法：exists key [key…]</p>
+</li>
+<li><p>判断key在数据库中是否存在</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：整数，存在key返回1，其他返回0。使用多个key，返回存在的key的数量。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f28c2e05d7094935bb2b36626f18e1d9.png" alt="exists"></p>
+<h5 id="move"><a href="#move" class="headerlink" title="move"></a>move</h5><ul>
+<li><p>语法：move key db</p>
+</li>
+<li><p>作用：移动key到指定的数据库，移动的key在原库被删除。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：移动成功返回1，失败返回0.</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1fad6d09e3944e3ab08dac273a3b7534.png" alt="move"></p>
+<h5 id="ttl"><a href="#ttl" class="headerlink" title="ttl"></a>ttl</h5><ul>
+<li><p>语法：ttl key</p>
+</li>
+<li><p>作用：查看key的剩余生存时间（ttl: time to live），以秒为单位。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：</p>
+<p>l -1 ：没有设置key的生存时间， key永不过期。</p>
+<p>l -2：key不存在</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/a283a91c013c49c2ab91d29129b0e316.png" alt="ttl"></p>
+<h5 id="expire"><a href="#expire" class="headerlink" title="expire"></a>expire</h5><ul>
+<li><p>语法：expire key seconds</p>
+</li>
+<li><p>作用：设置key的生存时间，超过时间，key自动删除。单位是秒。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设置成功返回数字 1，其他情况是 0 。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/34be0de0e8c74a1bbda9f02cd4b26caf.png" alt="expire"></p>
+<h5 id="type"><a href="#type" class="headerlink" title="type"></a>type</h5><ul>
+<li><p>语法：type key</p>
+</li>
+<li><p>作用：查看key所存储值的数据类型</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：字符串表示的数据类型</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/60fb511dae98471caaf19c4a3ace0dec.png" alt="type"></p>
+<h5 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h5><ul>
+<li>语法：rename key newkey</li>
+<li>作用：将key改为名newkey。当 key 和 newkey 相同，或者 key 不存在时，返回一个错误。</li>
+</ul>
+<blockquote>
+<p>当 newkey 已经存在时， RENAME 命令将覆盖旧值。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5ad76e59ba4741a9972529a92598102b.png" alt="rename"></p>
+<h5 id="del"><a href="#del" class="headerlink" title="del"></a>del</h5><ul>
+<li><p>语法：del key [key…]</p>
+</li>
+<li><p>作用：删除存在的key，不存在的key忽略。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数字，删除的key的数量。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8257a6345e6b4d819edb9e4db27737e8.png" alt="del"></p>
+<h4 id="字符串类型（string）"><a href="#字符串类型（string）" class="headerlink" title="字符串类型（string）"></a>字符串类型（string）</h4><blockquote>
+<p>字符串类型是Redis中最基本的数据类型，它能存储任何形式的字符串，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。</p>
+<p>字符串类型的数据操作总的思想是通过key操作value，key是数据标识，value是我们感兴趣的业务数据。</p>
+</blockquote>
+<h5 id="set"><a href="#set" class="headerlink" title="set"></a>set</h5><ul>
+<li>语法：set key value</li>
+<li>功能：将字符串值 value 设置到 key 中，如果key已存在，后放的值会把前放的值覆盖掉。</li>
+</ul>
+<blockquote>
+<p>返回值：OK表示成功</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7c280ced48b14d63bf02b9ddb981cc1b.png" alt="set"></p>
+<h5 id="get"><a href="#get" class="headerlink" title="get"></a>get</h5><ul>
+<li><p>语法：get key</p>
+</li>
+<li><p>功能：获取 key 中设置的字符串值</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：key存在，返回key对应的value；key不存在，返回nil</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/3e934b2c4d214c02ab2684e1b3bd36af.png" alt="get"></p>
+<h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><ul>
+<li><p>语法：append key value</p>
+</li>
+<li><p>功能：如果 key 存在，则将 value 追加到 key 原来旧值的末尾如果 key 不存在，则将key 设置值为 value</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：追加字符串之后的总长度(字符个数)</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/e36388e9f51a4243857bc5e7e3efbad7.png" alt="append"></p>
+<h5 id="strlen"><a href="#strlen" class="headerlink" title="strlen"></a>strlen</h5><ul>
+<li>语法：strlen key</li>
+<li>功能：返回 key 所储存的字符串值的长度</li>
+</ul>
+<blockquote>
+<p>返回值：如果key存在，返回字符串值的长度；key不存在，返回0</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/21828ab991724d3b8260b068010664b3.png" alt="strlen"></p>
+<h5 id="incr"><a href="#incr" class="headerlink" title="incr"></a>incr</h5><ul>
+<li>语法：incr key</li>
+<li>功能：将 key 中储存的数字值加1，如果 key 不存在，则 key 的值先被初始化为 0 再执行incr操作。</li>
+</ul>
+<blockquote>
+<p>返回值：返回加1后的key值</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/bfd3334fec104214b24f5870644ab2d3.png" alt="incr"></p>
+<h5 id="decr"><a href="#decr" class="headerlink" title="decr"></a>decr</h5><ul>
+<li><p>语法：decr key</p>
+</li>
+<li><p>功能：将 key 中储存的数字值减1，如果 key 不存在，则么 key 的值先被初始化为 0 再执行 decr 操作。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回减1后的key值</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ed24544f8f034110aeff2b988407f816.png" alt="decr"></p>
+<h5 id="incrby"><a href="#incrby" class="headerlink" title="incrby"></a>incrby</h5><ul>
+<li><p>语法：incrby key offset</p>
+</li>
+<li><p>功能：将 key 所储存的值加上增量值，如果 key 不存在，则 key 的值先被初始化为 0 再执行 INCRBY 命令。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回增量之后的key值。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4570234fd69845cfbbe874156e09b2a0.png" alt="incrby"></p>
+<h5 id="decrby"><a href="#decrby" class="headerlink" title="decrby"></a>decrby</h5><ul>
+<li><p>语法：decrby key offset</p>
+</li>
+<li><p>功能：将 key 所储存的值减去减量值，如果 key 不存在，则 key 的值先被初始化为 0 再执行 DECRBY 命令。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回减量之后的key值。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/bc9cda4d1474474f9622a2b0ee3f9d3d.png" alt="decrby"></p>
+<h5 id="getrange"><a href="#getrange" class="headerlink" title="getrange"></a>getrange</h5><ul>
+<li>语法：getrange key startIndex endIndex</li>
+<li>功能：获取 key 中字符串值从 startIndex 开始到 endIndex 结束的子字符串,包括startIndex和endIndex, 负数表示从字符串的末尾开始，-1 表示最后一个字符。</li>
+</ul>
+<blockquote>
+<p>返回值：截取后的字符串</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/21ec81aa9bd34bccad00940aad3c982c.png" alt="setrange"></p>
+<h5 id="setrange"><a href="#setrange" class="headerlink" title="setrange"></a>setrange</h5><ul>
+<li>语法：setrange key offsetIndex value</li>
+<li>功能：用value覆盖key的存储的值从offset开始。</li>
+</ul>
+<blockquote>
+<p>返回值：修改后的字符串的长度。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1dfb0caa1d4f4c30ab45c6af7ce3ffa3.png" alt="getrange"></p>
+<h5 id="setex"><a href="#setex" class="headerlink" title="setex"></a>setex</h5><ul>
+<li><p>语法：setex key seconds value</p>
+</li>
+<li><p>功能：设置key的值，并将 key 的生存时间设为 seconds (以秒为单位) ，如果key已经存在，将覆盖旧值。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设置成功，返回OK。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8152a56690d84a9584d4c21cafb467c3.png" alt="setex"></p>
+<h5 id="setnx"><a href="#setnx" class="headerlink" title="setnx"></a>setnx</h5><ul>
+<li><p>语法：setnx key value</p>
+</li>
+<li><p>功能：setnx 是 set if not exists 的简写，如果key不存在，则 set 值，存在则不设置值。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设置成功，返回1</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1bf03d6bf0a94c5d9d72a062c408f4c3.png" alt="setnx"></p>
+<h5 id="mset"><a href="#mset" class="headerlink" title="mset"></a>mset</h5><ul>
+<li><p>语法：mset key value [key value…]</p>
+</li>
+<li><p>功能：同时设置一个或多个 key-value 对</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设置成功，返回OK。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f2b4c3a8400944e1915feab13a373548.png" alt="mset"></p>
+<h5 id="mget"><a href="#mget" class="headerlink" title="mget"></a>mget</h5><ul>
+<li><p>语法：mget key [key …]</p>
+</li>
+<li><p>功能：获取所有(一个或多个)给定 key 的值</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：包含所有key的列表，如果key不存在，则返回nil。</p>
+</blockquote>
+<h5 id="msetnx"><a href="#msetnx" class="headerlink" title="msetnx"></a>msetnx</h5><ul>
+<li><p>语法：msetnx key value[key value…]</p>
+</li>
+<li><p>功能：同时设置一个或多个 key-value 对，如果有一个key是存在的，则设置不成功。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设置成功，返回1设置失败，返回0</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d25d21cb390e476b9f131258bec0b2f9.png" alt="msetnx"></p>
+<h4 id="列表（list）"><a href="#列表（list）" class="headerlink" title="列表（list）"></a>列表（list）</h4><blockquote>
+<p>Redis列表是简单的字符串列表，按照插入顺序排序，左边（头部）、右边（尾部）或者中间都可以添加元素。链表的操作无论是头或者尾效率都极高，但是如果对中间元素进行操作，那效率会大大降低了。</p>
+<p>列表类型的数据操作总的思想是通过key和下标操作value，key是数据标识，下标是数据在列表中的位置，value是我们感兴趣的业务数据。</p>
+</blockquote>
+<h5 id="lpush"><a href="#lpush" class="headerlink" title="lpush"></a>lpush</h5><ul>
+<li><p>语法：lpush key value [value…]</p>
+</li>
+<li><p>功能：将一个或多个值 value 插入到列表 key 的最左边（表头），各个value值依次插入到表头位置。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：插入之后的列表的长度。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8f702ed367cf43358e93f364f51ac567.png" alt="lpush"></p>
+<h5 id="rpush"><a href="#rpush" class="headerlink" title="rpush"></a>rpush</h5><ul>
+<li><p>语法：rpush key value [value…]</p>
+</li>
+<li><p>功能：将一个或多个值 value 插入到列表 key 的最右边（表尾），各个 value 值按依次插入到表尾。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：插入之后的列表的长度。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ad658410e5b040f099ce70b848bb3c2b.png" alt="rpush"></p>
+<h5 id="lrange"><a href="#lrange" class="headerlink" title="lrange"></a>lrange</h5><ul>
+<li><p>语法：lrange key startIndex endIndex</p>
+</li>
+<li><p>功能：获取列表 key 中指定下标区间内的元素，下标从0开始，到列表长度-1；下标也可以是负数，表示列表从后往前取，-1表示倒数第一个元素，-2表示倒数第二个元素，以此类推；startIndex和endIndex超出范围不会报错。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：获取到的元素列表。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ea4e60cac40b43cd80ba62e17ee05f42.png" alt="lrange"></p>
+<h5 id="rpop"><a href="#rpop" class="headerlink" title="rpop"></a>rpop</h5><ul>
+<li><p>语法：rpop key</p>
+</li>
+<li><p>功能：移除并返回列表key尾部第一个元素，即列表右侧的第一个元素。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：列表右侧第一个元素的值；列表key不存在，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/78118f04f4924fdeb725c0ccdc4e387f.png" alt="rpop"></p>
+<h5 id="lindex"><a href="#lindex" class="headerlink" title="lindex"></a>lindex</h5><ul>
+<li><p>语法：lindex key index</p>
+</li>
+<li><p>功能：获取列表 key 中下标为指定 index 的元素，列表元素不删除，只是查询。0 表示列表的第一个元素，1 表示列表的第二个元素；index也可以负数的下标， -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：key存在时，返回指定元素的值；Key不存在时，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f51f35644ac54b08a0bdac3e28b99e80.png" alt="lindex"></p>
+<h5 id="llen"><a href="#llen" class="headerlink" title="llen"></a>llen</h5><ul>
+<li><p>语法：llen key</p>
+</li>
+<li><p>功能：获取列表 key 的长度</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数值，列表的长度；key不存在返回0</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/fe2930e7005e4734a8134054c40357b0.png" alt="llen"></p>
+<h5 id="lrem"><a href="#lrem" class="headerlink" title="lrem"></a>lrem</h5><ul>
+<li><p>语法：lrem key count value</p>
+</li>
+<li><p>功能：根据参数 count 的值，移除列表中与参数 value 相等的元素，</p>
+<ul>
+<li>count &gt;0 ，从列表的左侧向右开始移除；</li>
+<li>count &lt; 0 从列表的尾部开始移除；</li>
+<li>count = 0移除表中所有与 value 相等的值。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数值，移除的元素个数</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/68dcc4de97e3440d9db21682f581df81.png" alt="lrem"></p>
+<h5 id="ltrim"><a href="#ltrim" class="headerlink" title="ltrim"></a>ltrim</h5><ul>
+<li><p>语法：ltrim key startIndex endIndex</p>
+</li>
+<li><p>功能：截取key的指定下标区间的元素，并且赋值给key。下标从0开始，一直到列表长度-1；下标也可以是负数，表示列表从后往前取，-1表示倒数第一个元素，-2表示倒数第二个元素，以此类推；startIndex和endIndex超出范围不会报错。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：执行成功返回ok</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b55b407609484f1d8c385a2f8174df89.png" alt="ltrim"></p>
+<h5 id="lset"><a href="#lset" class="headerlink" title="lset"></a>lset</h5><ul>
+<li><p>语法：lset key index value</p>
+</li>
+<li><p>功能：将列表 key 下标为 index 的元素的值设置为 value。</p>
+</li>
+</ul>
+<blockquote>
+<p>设置成功返回ok ; key不存在或者index超出范围返回错误信息。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1d8644e0e8714fe6b094d55838adf7fa.png" alt="lset"></p>
+<h5 id="linsert"><a href="#linsert" class="headerlink" title="linsert"></a>linsert</h5><ul>
+<li><p>语法：linsert key before/after pivot value</p>
+</li>
+<li><p>功能：将值 value 插入到列表 key 当中位于值 pivot 之前或之后的位置。key不存在或者pivot不在列表中，不执行任何操作。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：命令执行成功，返回新列表的长度。没有找到pivot返回 -1， key不存在返回0。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/77487b5c3f9f4ef98272b3ebe0ada696.png" alt="linsert"></p>
+<h4 id="集合类型（set）"><a href="#集合类型（set）" class="headerlink" title="集合类型（set）"></a>集合类型（set）</h4><blockquote>
+<p>Redis的Set是string类型的无序不重复集合。</p>
+<p>集合类型的数据操作总的思想是通过key确定集合，key是集合标识，元素没有下标，只有直接操作业务数据和数据的个数。</p>
+</blockquote>
+<h5 id="sadd"><a href="#sadd" class="headerlink" title="sadd"></a>sadd</h5><ul>
+<li><p>语法：sadd key member [member…]</p>
+</li>
+<li><p>功能：将一个或多个 member 元素加入到集合 key 当中，已经存在于集合的 member 元素将被忽略，不会再加入。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：加入到集合的新元素的个数(不包括被忽略的元素)。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/cfc25b6b3b154895970a26a94122cb29.png" alt="sadd"></p>
+<h5 id="smembers"><a href="#smembers" class="headerlink" title="smembers"></a>smembers</h5><ul>
+<li><p>语法：smembers key</p>
+</li>
+<li><p>功能：获取集合 key 中的所有成员元素，不存在的key视为空集合。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回指定集合的所有元素集合，不存在的key，返回空集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2313c7417dc6460eacf4d14d0242760d.png" alt="smembers"></p>
+<h5 id="sismember"><a href="#sismember" class="headerlink" title="sismember"></a>sismember</h5><ul>
+<li><p>语法：sismember key member</p>
+</li>
+<li><p>功能：判断 member 元素是否是集合 key 的元素</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：member是集合成员返回1，其他返回 0 。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ae358edee3bc4fafb7628ee833277e71.png" alt="sismember"></p>
+<h5 id="scard"><a href="#scard" class="headerlink" title="scard"></a>scard</h5><ul>
+<li><p>语法：scard key</p>
+</li>
+<li><p>功能：获取集合里面的元素个数</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数字，key的元素个数。其他情况返回 0 。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c4194f4167af4190bf6c455b49fb525f.png" alt="scard"></p>
+<h5 id="srem"><a href="#srem" class="headerlink" title="srem"></a>srem</h5><ul>
+<li><p>语法：srem key member [member…]</p>
+</li>
+<li><p>功能：移除集合中一个或多个元素，不存在的元素被忽略。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数字，成功移除的元素个数，不包括被忽略的元素。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/26c922784c99447a9a86966ead7079dc.png" alt="srem"></p>
+<h5 id="srandmember"><a href="#srandmember" class="headerlink" title="srandmember"></a>srandmember</h5><ul>
+<li><p>语法：srandmember key[count]</p>
+</li>
+<li><p>功能：只提供key，随机返回集合中一个元素，元素不删除，依然在集合中；提供了count时，count 正数, 返回包含count个数元素的集合，集合元素各不重复。count是负数，返回一个count绝对值的长度的集合，集合中元素可能会重复多次。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：一个元素或者多个元素的集合</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/07f6f2dcd57b4db8945952837819c3c8.png" alt="srandmember"></p>
+<h5 id="spop"><a href="#spop" class="headerlink" title="spop"></a>spop</h5><ul>
+<li><p>语法：spop key[count]</p>
+</li>
+<li><p>功能：随机从集合中删除一个或count个元素。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：被删除的元素，key不存在或空集合返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6629c2b06a004ed09daef6228d549bd1.png" alt="spop"></p>
+<h5 id="smove"><a href="#smove" class="headerlink" title="smove"></a>smove</h5><ul>
+<li><p>语法：smove src dest member</p>
+</li>
+<li><p>功能：将 member 元素从src集合移动到dest集合，member不存在，smove不执行操作，返回0，如果dest存在member，则仅从src中删除member。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：成功返回 1 ，其他返回 0 。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/54fa17d3fb654566833fb53eeab7439e.png" alt="smove"></p>
+<h5 id="sdiff"><a href="#sdiff" class="headerlink" title="sdiff"></a>sdiff</h5><ul>
+<li><p>语法：sdiff key key [key…]</p>
+</li>
+<li><p>功能：返回指定集合的差集，以第一个集合为准进行比较，即第一个集合中有但在其它任何集合中都没有的元素组成的集合。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回第一个集合中有而后边集合中都没有的元素组成的集合，如果第一个集合中的元素在后边集合中都有则返回空集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7ff9e7bae7f042f687f5eeef4c27f5b1.png" alt="sdiff"></p>
+<h5 id="sinter"><a href="#sinter" class="headerlink" title="sinter"></a>sinter</h5><ul>
+<li><p>语法：sinter key key [key…]</p>
+</li>
+<li><p>功能：返回指定集合的交集，即指定的所有集合中都有的元素组成的集合。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：交集元素组成的集合，如果没有则返回空集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/65850261a5b84aa59e55a2a66d17b3d2.png" alt="sinter"></p>
+<h5 id="sunion"><a href="#sunion" class="headerlink" title="sunion"></a>sunion</h5><ul>
+<li><p>语法：sunion key key [key…]</p>
+</li>
+<li><p>功能：返回指定集合的并集，即指定的所有集合元素组成的大集合，如果元素有重复，则保留一个。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回所有集合元素组成的大集合，如果所有key都不存在，返回空集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/34e5a6110390472e8f110e2a93e1cc43.png" alt="sunion"></p>
+<h4 id="哈希类型（hash）"><a href="#哈希类型（hash）" class="headerlink" title="哈希类型（hash）"></a>哈希类型（hash）</h4><blockquote>
+<p>Redis的hash 是一个string类型的key和value的映射表，这里的value是一系列的键值对，hash特别适合用于存储对象。</p>
+<p>哈希类型的数据操作总的思想是通过key和field操作value，key是数据标识，field是域，value是我们感</p>
+<p>兴趣的业务数据。</p>
+</blockquote>
+<h5 id="hset"><a href="#hset" class="headerlink" title="hset"></a>hset</h5><ul>
+<li><p>语法：hset key field value  [field value …]</p>
+</li>
+<li><p>功能：将键值对field-value设置到哈希列表key中，如果key不存在，则新建哈希列表，然后执行赋值，如果key下的field已经存在，则value值覆盖。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回设置成功的键值对个数。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/3725bd24074b4e4094c37ea87349d885.png" alt="hset"></p>
+<h5 id="hget"><a href="#hget" class="headerlink" title="hget"></a>hget</h5><ul>
+<li><p>语法：hget key field</p>
+</li>
+<li><p>功能：获取哈希表 key 中给定域 field 的值。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：field域的值，如果key不存在或者field不存在返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/95183cb268fd43a38ef4dab840b117c5.png" alt="hget"></p>
+<h5 id="hmset"><a href="#hmset" class="headerlink" title="hmset"></a>hmset</h5><ul>
+<li><p>语法：hmget key field [field…]</p>
+</li>
+<li><p>功能：获取哈希表 key 中一个或多个给定域的值</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回和field顺序对应的值，如果field不存在，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/96818eb24b964245b867a90a630e469b.png" alt="hmset"></p>
+<h5 id="hmget"><a href="#hmget" class="headerlink" title="hmget"></a>hmget</h5><ul>
+<li><p>语法：hmget key field [field…]</p>
+</li>
+<li><p>功能：获取哈希表 key 中一个或多个给定域的值</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回和field顺序对应的值，如果field不存在，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ac38e18c251e4c969885f14635d2aeac.png" alt="hmget"></p>
+<h5 id="hgetall"><a href="#hgetall" class="headerlink" title="hgetall"></a>hgetall</h5><ul>
+<li><p>语法：hgetall key</p>
+</li>
+<li><p>功能：获取哈希表 key 中所有的域和值</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：以列表形式返回hash中域和域的值，key不存在，返回空hash.</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5bf0b4422a134a949491f49c6f3dafed.png" alt="hgetall"></p>
+<h5 id="hdel"><a href="#hdel" class="headerlink" title="hdel"></a>hdel</h5><ul>
+<li><p>语法：hdel key field [field…]</p>
+</li>
+<li><p>功能：删除哈希表 key 中的一个或多个指定域field，不存在field直接忽略。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：成功删除的field的数量。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d6b857174a64443f812b77242d706cba.png" alt="hdel"></p>
+<h5 id="hlen"><a href="#hlen" class="headerlink" title="hlen"></a>hlen</h5><ul>
+<li><p>语法：hlen key</p>
+</li>
+<li><p>功能：获取哈希表 key 中域field的个数</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数值，field的个数。key不存在返回0.</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9c19988aea30476183ad8f7f1a7c20ad.png" alt="hlen"></p>
+<h5 id="hexists"><a href="#hexists" class="headerlink" title="hexists"></a>hexists</h5><ul>
+<li><p>语法：hexists key field</p>
+</li>
+<li><p>功能：查看哈希表 key 中，给定域 field 是否存在</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：如果field存在，返回1，其他返回0。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2b4440ee965d4681938c8f04c6ba7207.png" alt="hexists"></p>
+<h5 id="hkeys"><a href="#hkeys" class="headerlink" title="hkeys"></a>hkeys</h5><ul>
+<li><p>语法：hkeys key</p>
+</li>
+<li><p>功能：查看哈希表 key 中的所有field域列表</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：包含所有field的列表，key不存在返回空列表</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0026d05f2e0e466eb434b4f449f44ccc.png" alt="hkeys"></p>
+<h5 id="hvals"><a href="#hvals" class="headerlink" title="hvals"></a>hvals</h5><ul>
+<li><p>语法：hvals key</p>
+</li>
+<li><p>功能：返回哈希表 中所有域的值列表</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：包含哈希表所有域值的列表，key不存在返回空列表。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/622c1a58148249caa3f04257d6938163.png" alt="hvals"></p>
+<h5 id="hincrby"><a href="#hincrby" class="headerlink" title="hincrby"></a>hincrby</h5><ul>
+<li><p>语法：hincrby key field int</p>
+</li>
+<li><p>功能：给哈希表key中的field域增加int</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回增加之后的field域的值</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9dcc8094be0944b6bd8bc17801ea19e3.png" alt="hincrby"></p>
+<h5 id="hincrbyfloat"><a href="#hincrbyfloat" class="headerlink" title="hincrbyfloat"></a>hincrbyfloat</h5><ul>
+<li><p>语法：hincrbyfloat key field float</p>
+</li>
+<li><p>功能：给哈希表key中的field域增加float</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回增加之后的field域的值</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/98e4409a07eb41dfb88aeefe6fc6ddd1.png" alt="hincrbyfloat"></p>
+<h5 id="hsetnx"><a href="#hsetnx" class="headerlink" title="hsetnx"></a>hsetnx</h5><ul>
+<li><p>语法：hsetnx key field value</p>
+</li>
+<li><p>功能：将哈希表 key 中的域 field 的值设置为 value ，当且仅当域 field 不存在的时候才设置，否则不设置。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：设值成功返回1，其他返回0.</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7529b63343e1417181f4db53ed396031.png" alt="hsetnx"></p>
+<h4 id="有序集合类型-Zset"><a href="#有序集合类型-Zset" class="headerlink" title="有序集合类型(Zset)"></a>有序集合类型(Zset)</h4><blockquote>
+<p>Redis 有序集合zset和集合set一样也是string类型元素的集合，且不允许重复的成员。</p>
+<p>不同的是zset的每个元素都会关联一个分数（分数可以重复），redis通过分数来为集合中的成员进行从小到大的排序。</p>
+</blockquote>
+<h5 id="zadd"><a href="#zadd" class="headerlink" title="zadd"></a>zadd</h5><ul>
+<li><p>语法：zadd key score member [score member…]</p>
+</li>
+<li><p>功能：将一个或多个 member 元素及其 score 值加入到有序集合 key 中，如果member存在集合中，则覆盖原来的值；score可以是整数或浮点数.</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：数字，新添加的元素个数.</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/eab6979bbeb34045a58174b3b6b1ccc5.png" alt="zadd"></p>
+<h5 id="zrange"><a href="#zrange" class="headerlink" title="zrange"></a>zrange</h5><ul>
+<li><p>语法：zrange key startIndex endIndex [WITHSCORES]</p>
+</li>
+<li><p>功能：查询有序集合，指定区间的内的元素。集合成员按score值从小到大来排序；startIndex和endIndex都是从0开始表示第一个元素，1表示第二个元素，以此类推； startIndex和endIndex都可以取负数，表示从后往前取，-1表示倒数第一个元素；WITHSCORES选项让score和value一同返回。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定区间的成员组成的集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/a5641ba276f74e3bb207dcd5095a13d1.png" alt="zrange"></p>
+<h5 id="zrangebyscore"><a href="#zrangebyscore" class="headerlink" title="zrangebyscore"></a>zrangebyscore</h5><ul>
+<li><p>语法：zrangebyscore key min max [WITHSCORES ] [LIMIT offset count]</p>
+</li>
+<li><p>功能：获取有序集 key 中，所有 score 值介于 min 和 max 之间（包括min和max）的成员，有序成员是按递增（从小到大）排序；使用符号”(“ 表示包括min但不包括max；withscores 显示score和 value；limit用来限制返回结果的数量和区间，在结果集中从第offset个开始，取count个。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定区间的集合数据</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/63b1cfd45f3a4aa69afdbbf9d498c91d.png" alt="zrangebyscore"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/31705db925b54315ab92f3a4062090f5.png" alt="zrangebyscore"></p>
+<h5 id="zrem"><a href="#zrem" class="headerlink" title="zrem"></a>zrem</h5><ul>
+<li><p>语法：zrem key member [member…]</p>
+</li>
+<li><p>功能：删除有序集合 key 中的一个或多个成员，不存在的成员被忽略。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：被成功删除的成员数量，不包括被忽略的成员。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/391895dbb5984073bfadf949d9e15c37.png" alt="zrem"></p>
+<h5 id="zcard"><a href="#zcard" class="headerlink" title="zcard"></a>zcard</h5><ul>
+<li><p>语法：zcard key</p>
+</li>
+<li><p>作用：获取有序集 key 的元素成员的个数。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：key存在，返回集合元素的个数； key不存在，返回0。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/667cd347dec441c1ad3e2e5c8bab75f3.png" alt="zcard"></p>
+<h5 id="zcount"><a href="#zcount" class="headerlink" title="zcount"></a>zcount</h5><ul>
+<li><p>语法：zcount key min max</p>
+</li>
+<li><p>功能：返回有序集 key 中， score 值在 min 和 max 之间(包括 score 值等于 min 或 max )的成员的数量。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定有序集合中分数在指定区间内的元素数量。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0bc3cdf8f8944742947be25ebb851c74.png" alt="zcount"></p>
+<h5 id="zrank"><a href="#zrank" class="headerlink" title="zrank"></a>zrank</h5><ul>
+<li><p>语法：zrank key member</p>
+</li>
+<li><p>功能：获取有序集 key 中成员 member 的排名，有序集成员按 score 值从小到大顺序排列，从0开始排名，score最小的是0 。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定元素在有序集合中的排名；如果指定元素不存在，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f0d19721eaf046caad789707ebc4de46.png" alt="zrank"></p>
+<h5 id="zscore"><a href="#zscore" class="headerlink" title="zscore"></a>zscore</h5><ul>
+<li><p>语法：zscore key member</p>
+</li>
+<li><p>功能：获取有序集合key中元素member的分数。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：返回指定有序集合元素的分数。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6ad4247f2cdf4b98893d4aaab8d1c60c.png" alt="zscore"></p>
+<h5 id="zrevrank"><a href="#zrevrank" class="headerlink" title="zrevrank"></a>zrevrank</h5><ul>
+<li><p>语法：zrevrank key member</p>
+</li>
+<li><p>功能：获取有序集 key 中成员 member 的排名，有序集成员按 score 值从大到小顺序排列，从0开始排名，score最大的是0 。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定元素在有序集合中的排名；如果指定元素不存在，返回nil。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5f56c3d110734b22b906e4e258213a98.png" alt="zrevrank"></p>
+<h5 id="zrevrange"><a href="#zrevrange" class="headerlink" title="zrevrange"></a>zrevrange</h5><ul>
+<li><p>语法：zrevrange key startIndex endIndex [WITHSCORES]</p>
+</li>
+<li><p>功能：查询有序集合，指定区间的内的元素。集合成员按score值从大到小来排序；startIndex和endIndex都是从0开始表示第一个元素，1表示第二个元素，以此类推； startIndex和endIndex都可以取负数，表示从后往前取，-1表示倒数第一个元素；WITHSCORES选项让score和value一同返回。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定区间的成员组成的集合。</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/85f39c0314454b85ab84e602074c0355.png" alt="zrevrange"></p>
+<h5 id="zrevrangebyscore"><a href="#zrevrangebyscore" class="headerlink" title="zrevrangebyscore"></a>zrevrangebyscore</h5><ul>
+<li><p>语法：zrevrangebyscore key max min  [WITHSCORES ] [LIMIT offset count]</p>
+</li>
+<li><p>功能：获取有序集 key 中，所有 score 值介于 max 和 min 之间（包括max和min）的成员，有序成员是按递减（从大到小）排序；使用符号”(“ 表示不包括min和max；withscores 显示score和 value；limit用来限制返回结果的数量和区间，在结果集中从第offset个开始，取count个。</p>
+</li>
+</ul>
+<blockquote>
+<p>返回值：指定区间的集合数据</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/67493bf04fbd4eed97195b992d56ba12.png" alt="zrevrangebyscore"></p>
+<h3 id="Redis的配置文件"><a href="#Redis的配置文件" class="headerlink" title="Redis的配置文件"></a>Redis的配置文件</h3>
                 
             </div>
             <hr/>
@@ -1942,7 +2646,7 @@ config get port <span class="token comment"># get 后跟参数</span><span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">179.1k</span>&nbsp;字&nbsp;|
+                class="white-color">183.6k</span>&nbsp;字&nbsp;|
             
             
             
@@ -2264,7 +2968,7 @@ var windowWidth = $(window).width();
 if (windowWidth > 768) {
     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
 }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 
@@ -2275,6 +2979,6 @@ if (windowWidth > 768) {
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
