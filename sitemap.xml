@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://shaoshaossm.github.io/bb/index.html</loc>
+    <loc>https://shaoshaossm.github.io/2022-04-16-typora-picgo-github-shi-xian-tu-pian-kuai-su-shang-chuan-1.html</loc>
     
     <lastmod>2022-04-16</lastmod>
     
@@ -13,7 +13,34 @@
   <url>
     <loc>https://shaoshaossm.github.io/2022-04-14-redis.html</loc>
     
-    <lastmod>2022-04-15</lastmod>
+    <lastmod>2022-04-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-04-16-typora-picgo-github-shi-xian-tu-pian-kuai-su-shang-chuan.html</loc>
+    
+    <lastmod>2022-04-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</loc>
+    
+    <lastmod>2022-04-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/bb/index.html</loc>
+    
+    <lastmod>2022-04-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -32,15 +59,6 @@
     <loc>https://shaoshaossm.github.io/2022-03-02-dan-ci-zheng-li.html</loc>
     
     <lastmod>2022-04-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</loc>
-    
-    <lastmod>2022-04-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1177,6 +1195,13 @@
   
   <url>
     <loc>https://shaoshaossm.github.io/tags/%E5%8D%95%E8%AF%8D/</loc>
+    <lastmod>2022-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaoshaossm.github.io/tags/Typora/</loc>
     <lastmod>2022-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

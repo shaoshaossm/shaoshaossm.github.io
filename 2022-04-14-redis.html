@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-15
+                    2022-04-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    6.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    24 分
                 </div>
                 
 
@@ -889,10 +889,10 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd usr&#x2F;java&#x2F;redis-3.2.9&#x2F;src&#x2F;
 # 启动
 .&#x2F;redis-server ..&#x2F;redis.conf &amp;
-# 指定连接客户端
+# 指定连接客户端 -p 指定端口号
 .&#x2F;redis-cli -a 123456 -h 192.168.174.131
 # 关闭
-redis-cli shutdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+redis-cli -a 123456 -h 192.168.174.131 shutdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>默认连接的是本机本地的redis</p>
@@ -1773,7 +1773,99 @@ config get port <span class="token comment"># get 后跟参数</span><span aria-
 <p>返回值：指定区间的集合数据</p>
 </blockquote>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/67493bf04fbd4eed97195b992d56ba12.png" alt="zrevrangebyscore"></p>
-<h3 id="Redis的配置文件"><a href="#Redis的配置文件" class="headerlink" title="Redis的配置文件"></a>Redis的配置文件</h3>
+<h3 id="Redis的配置文件"><a href="#Redis的配置文件" class="headerlink" title="Redis的配置文件"></a>Redis的配置文件</h3><h4 id="redis-conf"><a href="#redis-conf" class="headerlink" title="redis.conf"></a>redis.conf</h4><blockquote>
+<ul>
+<li>Redis的安装根目录下(/opt/redis-5.0.2)，Redis在启动时会加载这个配置文件，在运行时按照配置进行工作。 这个文件有时候我们会拿出来，单独存放在某一个位置，启动的时候<font color="red">必须明确指定</font>使用哪个配置文件，此文件才会生效。</li>
+</ul>
+</blockquote>
+<h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><blockquote>
+<ul>
+<li><p><code>bind</code>：绑定IP地址，其它机器可以通过此IP访问Redis，默认绑定127.0.0.1，也可以修改为本机的IP地址。</p>
+</li>
+<li><p><code>port</code>：配置Redis占用的端口，默认是6379。</p>
+</li>
+<li><p><code>tcp-keepalive</code>：TCP连接保活策略，可以通过tcp-keepalive配置项来进行设置，单位为秒，假如设置为60秒，则server端会每60秒向连接空闲的客户端发起一次ACK请求，以检查客户端是否已经挂掉，对于无响应的客户端则会关闭其连接。如果设置为0，则不会进行保活检测。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="常规配置"><a href="#常规配置" class="headerlink" title="常规配置"></a>常规配置</h4><blockquote>
+<ul>
+<li><p><code>loglevel</code>：日志级别，开发阶段可以设置成debug，生产阶段通常设置为notice或者warning.</p>
+</li>
+<li><p><code>logfile</code>：指定日志文件名，如果不指定，Redis只进行标准输出。要保证日志文件所在的目录必须存在，文件可以不存在。还要在redis启动时指定所使用的配置文件，否则配置不起作用。</p>
+</li>
+<li><p><code>databases</code>：配置Redis数据库的个数，默认是16个。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h4><blockquote>
+<ul>
+<li><code>requirepass</code>：配置Redis的访问密码。默认不配置密码，即访问不需要密码验证。此配置项需要在protected-mode=yes时起作用。使用密码登录客户端：redis-cli -h ip -p 6379 -a pwd</li>
+</ul>
+</blockquote>
+<h3 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h3><blockquote>
+<p><code>redis</code>是内存数据库，它把数据存储在内存中，这样在加快读取速度的同时也对数据安全性产生了新的问题，即当<code>redis</code>所在服务器发生宕机后，redis数据库里的所有数据将会全部丢失。为了解决这个问题，<code>redis</code>提供了持久化功能——<code>RDB</code>和<code>AOF</code>（Append Only File）。</p>
+</blockquote>
+<h4 id="RDB配置"><a href="#RDB配置" class="headerlink" title="RDB配置"></a>RDB配置</h4><blockquote>
+<ul>
+<li><p>save <seconds> <changes>：配置复合的快照触发条件，即Redis 在seconds秒内key改变changes次，Redis把快照内的数据保存到磁盘中一次。默认的策略是：</p>
+<ul>
+<li><p><font color="orange">1分钟内改变了1万次</font></p>
+</li>
+<li><p><font color="orange">或者5分钟内改变了10次</font></p>
+</li>
+<li><p><font color="orange">或者15分钟内改变了1次</font></p>
+<blockquote>
+<p>如果要禁用Redis的持久化功能，则把所有的save配置都注释掉。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>stop-writes-on-bgsave-error</code>：当bgsave快照操作出错时停止写数据到磁盘，这样能保证内存数据和磁盘数据的一致性，但如果不在乎这种一致性，要在bgsave快照操作出错时继续写操作，这里需要配置为no。</p>
+</li>
+<li><p><code>rdbcompression</code>：设置对于存储到磁盘中的快照是否进行压缩，设置为yes时，Redis会采用LZF算法进行压缩；如果不想消耗CPU进行压缩的话，可以设置为no，关闭此功能。</p>
+</li>
+<li><p><code>rdbchecksum</code>：在存储快照以后，还可以让Redis使用CRC64算法来进行数据校验，但这样会消耗一定的性能，如果系统比较在意性能的提升，可以设置为no，关闭此功能。</p>
+</li>
+<li><p><code>dbfilename</code>：Redis持久化数据生成的文件名，默认是dump.rdb，也可以自己配置。</p>
+</li>
+<li><p><code>dir</code>：Redis持久化数据生成文件保存的目录，默认是./即redis的启动目录，也可以自己配置。</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>RDB策略：在指定时间间隔内，redis服务执行指定次数的写操作，会自动触发一次持久化操作。</p>
+<p>RDB策略是redis默认的持久化策略，redis服务开启时这个持久化策略就已经默认开启了。</p>
+</blockquote>
+<h4 id="AOF配置"><a href="#AOF配置" class="headerlink" title="AOF配置"></a>AOF配置</h4><blockquote>
+<ul>
+<li><p><code>appendonly</code>：配置是否开启AOF，yes表示开启，no表示关闭。默认是no。</p>
+</li>
+<li><p><code>appendfilename</code>：AOF保存文件名</p>
+</li>
+<li><p><code>appendfsync</code>：AOF异步持久化策略</p>
+<ul>
+<li><code>always</code>：同步持久化，每次发生数据变化会立刻写入到磁盘中。性能较差但数据完整性比较好（慢，安全）</li>
+<li><code> everysec</code>：出厂默认推荐，每秒异步记录一次（默认值）</li>
+<li><code> no</code>：不即时同步，由操作系统决定何时同步。</li>
+</ul>
+</li>
+<li><p><code>no-appendfsync-on-rewrite</code>：重写时是否可以运用appendsync，默认no，可以保证数据的安全性。</p>
+</li>
+<li><p><code>auto-aof-rewrite-percentage</code>：设置重写的基准百分比</p>
+</li>
+<li><p><code>auto-aof-rewrite-min-size</code>：设置重写的基准值</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>采用操作日志来记录进行每一次写操作，每次redis服务启动时，都会重新执行一遍操作日志中的指令。</p>
+<p>效率低下，redis默认不开启AOF功能。</p>
+</blockquote>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><blockquote>
+<p>根据数据的特点决定开启那种持久化策略，一般情况，使用默认的开启RDB策略就够了。</p>
+</blockquote>
+<h3 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h3>
 
 
 
@@ -2346,47 +2438,45 @@ config get port <span class="token comment"># get 后跟参数</span><span aria-
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022-04-14-redis.html">
+                <a href="/2022-04-16-typora-picgo-github-shi-xian-tu-pian-kuai-su-shang-chuan.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/57b7107d43574e2ebbdc62e848b42bd3.png" class="responsive-img" alt="Redis">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8e02487ce1de4d1081aa0a127d262acb.png" class="responsive-img" alt="Typora+PicGo+GitHub实现图片快速上传">
                         
-                        <span class="card-title">Redis</span>
+                        <span class="card-title">Typora+PicGo+GitHub实现图片快速上传</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            掌握Redis五大数据类型、常用操作命令、Redis持久化、主从复制、事务控制以及用Jedis等
+                            使用Typora+PicGo+GitHub实现图片快速上传，不再使用csdn了
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    系统配置
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
                     </a>
                     
                 </div>
@@ -2679,7 +2769,7 @@ config get port <span class="token comment"># get 后跟参数</span><span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">183.6k</span>&nbsp;字&nbsp;|
+                class="white-color">184.8k</span>&nbsp;字&nbsp;|
             
             
             
