@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -898,6 +898,8 @@ var _hmt = _hmt || [];
 <span class="token attr-name">spring.thymeleaf.suffix</span><span class="token punctuation">=</span><span class="token attr-value">.html</span>
 <span class="token comment"># 关闭页面缓存</span>
 <span class="token attr-name">spring.thymeleaf.cache</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token comment"># 自定义错误页处理</span>
+<span class="token attr-name">spring.mvc.locale-resolver</span><span class="token punctuation">=</span><span class="token attr-value">fixed</span>
 
 <span class="token comment"># 开启自动配置报告</span>
 <span class="token attr-name">debug</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
@@ -931,7 +933,14 @@ var _hmt = _hmt || [];
 <span class="token comment"># 设置静态资源访问前缀</span>
 <span class="token attr-name">spring.mvc.static-path-pattern</span><span class="token punctuation">=</span><span class="token attr-value">/res/**</span>
 <span class="token comment"># 缓存配置</span>
-<span class="token attr-name">spring.resources.cache.period</span><span class="token punctuation">=</span><span class="token attr-value">11000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token attr-name">spring.resources.cache.period</span><span class="token punctuation">=</span><span class="token attr-value">11000</span>
+
+<span class="token comment"># 文件上传</span>
+<span class="token comment"># 设置单个文件上传大小</span>
+<span class="token attr-name">spring.servlet.multipart.max-request-size</span><span class="token punctuation">=</span><span class="token attr-value">10MB</span>
+<span class="token comment"># 设置多个个文件集体上传大小</span>
+<span class="token attr-name">spring.servlet.multipart.max-file-size</span><span class="token punctuation">=</span><span class="token attr-value">10MB</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">eureka</span><span class="token punctuation">:</span>
   <span class="token key atrule">instance</span><span class="token punctuation">:</span>
@@ -2089,7 +2098,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">192.4k</span>&nbsp;字&nbsp;|
+                class="white-color">194.2k</span>&nbsp;字&nbsp;|
             
             
             

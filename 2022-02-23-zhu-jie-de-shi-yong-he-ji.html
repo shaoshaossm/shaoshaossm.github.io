@@ -822,14 +822,14 @@ var _hmt = _hmt || [];
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.7k
+                    9.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    37 分
+                    39 分
                 </div>
                 
 
@@ -1419,7 +1419,7 @@ var _hmt = _hmt || [];
 <p>JSESSIONID：每个浏览器CookieValu都不一样，自行获取</p>
 </blockquote>
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/dada36f96cfb4ab6b3aa10bca68f81b6.png" alt="Cookie"></p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><ul>
+<h4 id="RequestAttribute"><a href="#RequestAttribute" class="headerlink" title="@RequestAttribute"></a>@RequestAttribute</h4><ul>
 <li>获取request域对象</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
@@ -1445,6 +1445,101 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://localhost:8080/goto">http://localhost:8080/goto</a></p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"annotation"</span><span class="token operator">:</span><span class="token string">"success..."</span><span class="token punctuation">,</span><span class="token property">"reqMethod"</span><span class="token operator">:</span><span class="token string">"success..."</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h4 id="MatrixVariable"><a href="#MatrixVariable" class="headerlink" title="@MatrixVariable"></a>@MatrixVariable</h4><ul>
+<li>语法： 请求路径：/cars/sell;low=34;brand=byd,audi,yd</li>
+<li>SpringBoot默认是禁用了矩阵变量的功能<ul>
+<li>手动开启：原理。对于路径的处理。UrlPathHelper进行解析。</li>
+<li>removeSemicolonContent（移除分号内容）支持矩阵变量的</li>
+</ul>
+</li>
+<li>矩阵变量必须有url路径变量才能被解析</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 手动开启矩阵变量：两种方式第一种：
+ */</span>
+<span class="token annotation punctuation">@Configuration</span><span class="token punctuation">(</span>proxyBeanMethods <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configurePathMatch</span><span class="token punctuation">(</span><span class="token class-name">PathMatchConfigurer</span> configurer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+        <span class="token class-name">UrlPathHelper</span> urlPathHelper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UrlPathHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 不移除；后面的内容。矩阵变量功能就可以生效</span>
+        urlPathHelper<span class="token punctuation">.</span><span class="token function">setRemoveSemicolonContent</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configurer<span class="token punctuation">.</span><span class="token function">setUrlPathHelper</span><span class="token punctuation">(</span>urlPathHelper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/**
+ * 手动开启矩阵变量：两种方式第二种：
+ */</span>
+<span class="token annotation punctuation">@Configuration</span><span class="token punctuation">(</span>proxyBeanMethods <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebConfig2</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token function">webMvcConfigurer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WebMvcConfigurer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configurePathMatch</span><span class="token punctuation">(</span><span class="token class-name">PathMatchConfigurer</span> configurer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">UrlPathHelper</span> urlPathHelper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UrlPathHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 不移除；后面的内容。矩阵变量功能就可以生效</span>
+                urlPathHelper<span class="token punctuation">.</span><span class="token function">setRemoveSemicolonContent</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                configurer<span class="token punctuation">.</span><span class="token function">setUrlPathHelper</span><span class="token punctuation">(</span>urlPathHelper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/cars/&#123;path&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span> <span class="token function">carsSell</span><span class="token punctuation">(</span><span class="token annotation punctuation">@MatrixVariable</span><span class="token punctuation">(</span><span class="token string">"low"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> low<span class="token punctuation">,</span>
+                    <span class="token annotation punctuation">@MatrixVariable</span><span class="token punctuation">(</span><span class="token string">"brand"</span><span class="token punctuation">)</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> brand<span class="token punctuation">,</span>
+                    <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> path<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"low"</span><span class="token punctuation">,</span>low<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"brand"</span><span class="token punctuation">,</span>brand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// /boss/1;age=20/2;age=10</span>
+
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/boss/&#123;bossId&#125;/&#123;empId&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span> <span class="token function">boss</span><span class="token punctuation">(</span><span class="token annotation punctuation">@MatrixVariable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"age"</span><span class="token punctuation">,</span>pathVar <span class="token operator">=</span> <span class="token string">"bossId"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> bossAge<span class="token punctuation">,</span>
+                <span class="token annotation punctuation">@MatrixVariable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"age"</span><span class="token punctuation">,</span>pathVar <span class="token operator">=</span> <span class="token string">"empId"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> empAge<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"bossAge"</span><span class="token punctuation">,</span>bossAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"empAge"</span><span class="token punctuation">,</span>empAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/cars/sell;low=34;brand=byd,audi,yd">http://localhost:8080/cars/sell;low=34;brand=byd,audi,yd</a></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"path"</span><span class="token operator">:</span><span class="token string">"sell"</span><span class="token punctuation">,</span><span class="token property">"low"</span><span class="token operator">:</span><span class="token number">34</span><span class="token punctuation">,</span><span class="token property">"brand"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">"byd"</span><span class="token punctuation">,</span><span class="token string">"audi"</span><span class="token punctuation">,</span><span class="token string">"yd"</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/boss/1;age=20/2;age=10">http://localhost:8080/boss/1;age=20/2;age=10</a></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"bossAge"</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token property">"empAge"</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h4 id="RequestPart"><a href="#RequestPart" class="headerlink" title="@RequestPart"></a>@RequestPart</h4><ul>
+<li><code>@RequestPart</code>这个注解用在<code>multipart/form-data</code>表单提交请求的方法上。</li>
+<li>支持的请求方法的方式<code>MultipartFile</code>，属于Spring的<code>MultipartResolver</code>类。这个请求是通过<code>http协议</code>传输的</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"> <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">"headerImg"</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span> headerImg<span class="token punctuation">,</span>
+                     <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">"photos"</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span><span class="token punctuation">[</span><span class="token punctuation">]</span> photos<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>详情请查看springboot文件上传</p>
+</blockquote>
+<h4 id="EnableWebMvc"><a href="#EnableWebMvc" class="headerlink" title="@EnableWebMvc"></a>@EnableWebMvc</h4><ul>
+<li>全面接管</li>
+<li><code>@EnableWebMvc </code>+ <code>WebMvcConfigurer</code> —— <code>@Bean</code>  可以全面接管<code>SpringMVC</code>，所有规则全部自己重新配置； 实现定制和扩展功能</li>
+</ul>
+<blockquote>
+<p>大大大大大大佬的专属注解    </p>
+<p>原理请查阅：<a target="_blank" rel="noopener" href="https://www.yuque.com/atguigu/springboot/vgzmgh">https://www.yuque.com/atguigu/springboot/vgzmgh</a></p>
 </blockquote>
 <h4 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h4><ul>
 <li>定义此类为配置类,相当于xml文件</li>
@@ -1633,6 +1728,9 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p>记得在启动类上加<code>@ServletComponentScan(basePackages = &quot;com.bjpowernode.springboot.servlet&quot;)</code></p>
+</blockquote>
 <h4 id="ServletComponentScan"><a href="#ServletComponentScan" class="headerlink" title="@ServletComponentScan"></a>@ServletComponentScan</h4><ul>
 <li>开启扫描指定包下的servlet类、filter类</li>
 <li>位置:springboot启动类上</li>
@@ -1653,7 +1751,33 @@ var _hmt = _hmt || [];
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@WebFilter</span><span class="token punctuation">(</span>urlPatterns <span class="token operator">=</span> <span class="token string">"/myfilter"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyFilter</span> <span class="token keyword">implements</span> <span class="token class-name">Filter</span> <span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doFilter</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> servletRequest<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> servletResponse<span class="token punctuation">,</span> <span class="token class-name">FilterChain</span> filterChain<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------------过滤器---------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        filterChain<span class="token punctuation">.</span><span class="token function">doFilter</span><span class="token punctuation">(</span>servletRequest<span class="token punctuation">,</span> servletResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>记得在启动类上加<code>@ServletComponentScan(basePackages = &quot;com.bjpowernode.springboot.servlet&quot;)</code></p>
+</blockquote>
+<h4 id="WebListener"><a href="#WebListener" class="headerlink" title="@WebListener"></a>@WebListener</h4><ul>
+<li>监听器</li>
+<li>位置:类(实现Listener)的上面</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@WebListener</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyServletContextListener</span> <span class="token keyword">implements</span> <span class="token class-name">ServletContextListener</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextInitialized</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextDestroyed</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目销毁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="ImportResource"><a href="#ImportResource" class="headerlink" title="@ImportResource"></a>@ImportResource</h4><ul>
 <li>导入xml配置，等同于xml文件的resources</li>
@@ -3161,7 +3285,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">192.4k</span>&nbsp;字&nbsp;|
+                class="white-color">194.2k</span>&nbsp;字&nbsp;|
             
             
             

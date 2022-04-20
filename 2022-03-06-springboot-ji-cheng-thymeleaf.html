@@ -819,21 +819,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-11
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -856,7 +856,102 @@ var _hmt = _hmt || [];
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="SpringBoot-集成-Thymeleaf-模板"><a href="#SpringBoot-集成-Thymeleaf-模板" class="headerlink" title="SpringBoot 集成 Thymeleaf 模板"></a>SpringBoot 集成 Thymeleaf 模板</h3><h4 id="关闭页面缓存"><a href="#关闭页面缓存" class="headerlink" title="关闭页面缓存"></a>关闭页面缓存</h4><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">spring.thymeleaf.cache</span><span class="token punctuation">=</span><span class="token attr-value">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p><strong>导入依赖</strong></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-thymeleaf<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="1、表达式"><a href="#1、表达式" class="headerlink" title="1、表达式"></a>1、表达式</h4><table>
+<thead>
+<tr>
+<th>表达式名字</th>
+<th>语法</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>变量取值</td>
+<td>${…}</td>
+<td>获取请求域、session域、对象等值</td>
+</tr>
+<tr>
+<td>选择变量</td>
+<td>*{…}</td>
+<td>获取上下文对象值</td>
+</tr>
+<tr>
+<td>消息</td>
+<td>#{…}</td>
+<td>获取国际化等值</td>
+</tr>
+<tr>
+<td>链接</td>
+<td>@{…}</td>
+<td>生成链接</td>
+</tr>
+<tr>
+<td>片段表达式</td>
+<td>~{…}</td>
+<td>jsp:include 作用，引入公共页面片段</td>
+</tr>
+</tbody></table>
+<h4 id="2、字面量"><a href="#2、字面量" class="headerlink" title="2、字面量"></a>2、字面量</h4><p>文本值: <strong>‘one text’</strong> <strong>,</strong> <strong>‘Another one!’</strong> <strong>,…</strong>数字: <strong>0</strong> <strong>,</strong> <strong>34</strong> <strong>,</strong> <strong>3.0</strong> <strong>,</strong> <strong>12.3</strong> <strong>,…</strong>布尔值: <strong>true</strong> <strong>,</strong> <strong>false</strong></p>
+<p>空值: <strong>null</strong></p>
+<p>变量： one，two，…. 变量不能有空格</p>
+<h4 id="3、文本操作"><a href="#3、文本操作" class="headerlink" title="3、文本操作"></a>3、文本操作</h4><p>字符串拼接: <strong>+</strong></p>
+<p>变量替换: <strong>|The name is ${name}|</strong> </p>
+<h4 id="4、数学运算"><a href="#4、数学运算" class="headerlink" title="4、数学运算"></a>4、数学运算</h4><p>运算符: + , - , * , / , %</p>
+<h4 id="5、布尔运算"><a href="#5、布尔运算" class="headerlink" title="5、布尔运算"></a>5、布尔运算</h4><p>运算符:  <strong>and</strong> <strong>,</strong> <strong>or</strong></p>
+<p>一元运算: <strong>!</strong> <strong>,</strong> <strong>not</strong> </p>
+<h4 id="6、比较运算"><a href="#6、比较运算" class="headerlink" title="6、比较运算"></a>6、比较运算</h4><p>比较: <strong>&gt;</strong> <strong>,</strong> <strong>&lt;** **,** **&gt;=</strong> <strong>,</strong> <strong>&lt;=</strong> <strong>(</strong> <strong>gt</strong> <strong>,</strong> <strong>lt</strong> <strong>,</strong> <strong>ge</strong> <strong>,</strong> <strong>le</strong> **)**等式: <strong>==</strong> <strong>,</strong> <strong>!=</strong> <strong>(</strong> <strong>eq</strong> <strong>,</strong> <strong>ne</strong> <strong>)</strong> </p>
+<h4 id="7、条件运算"><a href="#7、条件运算" class="headerlink" title="7、条件运算"></a>7、条件运算</h4><pre class="line-numbers language-html" data-language="html"><code class="language-html">If-then: **(if) ? (then)**
+
+If-then-else: **(if) ? (then) : (else)**
+
+Default: (value) **?: (defaultvalue)** <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8、特殊操作"><a href="#8、特殊操作" class="headerlink" title="8、特殊操作"></a>8、特殊操作</h4><p>无操作： _</p>
+<h3 id="3、设置属性值-th-attr"><a href="#3、设置属性值-th-attr" class="headerlink" title="3、设置属性值-th:attr"></a>3、设置属性值-th:attr</h3><p>设置单个值</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subscribe.html<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>action=@&#123;/subscribe&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fieldset</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Subscribe!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>value=#&#123;subscribe.submit&#125;<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fieldset</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>设置多个值</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../images/gtvglogo.png<span class="token punctuation">"</span></span>  <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>src=@&#123;/images/gtvglogo.png&#125;,title=#&#123;logo&#125;,alt=#&#123;logo&#125;<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以上两个的代替写法 th:xxxx</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Subscribe!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#&#123;subscribe.submit&#125;<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subscribe.html<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@&#123;/subscribe&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>所有h5兼容的标签写法</p>
+<p><a target="_blank" rel="noopener" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-value-to-specific-attributes">https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-value-to-specific-attributes</a></p>
+<h3 id="4、迭代"><a href="#4、迭代" class="headerlink" title="4、迭代"></a>4、迭代</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod : $&#123;prods&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.name&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.price&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.inStock&#125;? #&#123;true&#125; : #&#123;false&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod,iterStat : $&#123;prods&#125;<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;iterStat.odd&#125;? <span class="token punctuation">'</span>odd<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.name&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.price&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;prod.inStock&#125;? #&#123;true&#125; : #&#123;false&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5、条件运算"><a href="#5、条件运算" class="headerlink" title="5、条件运算"></a>5、条件运算</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comments.html<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@&#123;/product/comments(prodId=$&#123;prod.id&#125;)&#125;<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;not #lists.isEmpty(prod.comments)&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>view<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">th:</span>switch</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;user.role&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>admin<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is an administrator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#&#123;roles.manager&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is a manager<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>*<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is some other thing<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6、属性优先级"><a href="#6、属性优先级" class="headerlink" title="6、属性优先级"></a>6、属性优先级</h3><h4 id="关闭页面缓存"><a href="#关闭页面缓存" class="headerlink" title="关闭页面缓存"></a>关闭页面缓存</h4><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">spring.thymeleaf.cache</span><span class="token punctuation">=</span><span class="token attr-value">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/cac435e160a9441e90687d60ea2dcef5.png" alt="关闭缓存"></p>
 <p>UserController</p>
@@ -1971,7 +2066,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">192.4k</span>&nbsp;字&nbsp;|
+                class="white-color">194.2k</span>&nbsp;字&nbsp;|
             
             
             

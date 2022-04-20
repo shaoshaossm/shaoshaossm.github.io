@@ -822,14 +822,14 @@ var _hmt = _hmt || [];
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.5k
+                    7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    34 分
                 </div>
                 
 
@@ -1435,7 +1435,7 @@ var _hmt = _hmt || [];
 <ul>
 <li> 指定后不用在pom文件中手动指定资源文件夹为resources</li>
 </ul>
-<h4 id="SpringBoot-事务支持"><a href="#SpringBoot-事务支持" class="headerlink" title="SpringBoot 事务支持"></a>SpringBoot 事务支持</h4><p>Spring Boot 使用事务非常简单，底层依然采用的是 Spring 本身提供的事务管理</p>
+<h4 id="SpringBoot集成Mybatis-plus"><a href="#SpringBoot集成Mybatis-plus" class="headerlink" title="SpringBoot集成Mybatis-plus"></a>SpringBoot集成Mybatis-plus</h4><h4 id="SpringBoot-事务支持"><a href="#SpringBoot-事务支持" class="headerlink" title="SpringBoot 事务支持"></a>SpringBoot 事务支持</h4><p>Spring Boot 使用事务非常简单，底层依然采用的是 Spring 本身提供的事务管理</p>
 <p> ➢ 在入口类中使用注解 @EnableTransactionManagement 开启事务支持</p>
 <p> ➢ 在访问数据库的 Service 方法上添加注解 @Transactional 即可</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
@@ -1771,8 +1771,6 @@ var _hmt = _hmt || [];
     <span class="token class-name">String</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-
-
 <p>StudentServiceImpl</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StudentServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">StudentService</span> <span class="token punctuation">&#123;</span>
@@ -1926,6 +1924,65 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="SpringBoot文件上传"><a href="#SpringBoot文件上传" class="headerlink" title="SpringBoot文件上传"></a>SpringBoot文件上传</h3><h4 id="页面表单"><a href="#页面表单" class="headerlink" title="页面表单"></a>页面表单</h4><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/upload<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="文件上传代码"><a href="#文件上传代码" class="headerlink" title="文件上传代码"></a>文件上传代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * MultipartFile 自动封装上传过来的文件
+ * @param email
+ * @param username
+ * @param headerImg
+ * @param photos
+ * @return
+ */</span>
+<span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> email<span class="token punctuation">,</span>
+                     <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> username<span class="token punctuation">,</span>
+                     <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">"headerImg"</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span> headerImg<span class="token punctuation">,</span>
+                     <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">"photos"</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span><span class="token punctuation">[</span><span class="token punctuation">]</span> photos<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"上传的信息：email=&#123;&#125;，username=&#123;&#125;，headerImg=&#123;&#125;，photos=&#123;&#125;"</span><span class="token punctuation">,</span>
+            email<span class="token punctuation">,</span>username<span class="token punctuation">,</span>headerImg<span class="token punctuation">.</span><span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>photos<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>headerImg<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//保存到文件服务器，OSS服务器</span>
+        <span class="token class-name">String</span> originalFilename <span class="token operator">=</span> headerImg<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        headerImg<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"H:\\cache\\"</span><span class="token operator">+</span>originalFilename<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>photos<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> photo <span class="token operator">:</span> photos<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>photo<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token class-name">String</span> originalFilename <span class="token operator">=</span> photo<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                photo<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"H:\\cache\\"</span><span class="token operator">+</span>originalFilename<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> <span class="token string">"main"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Spring-Boot-默认错误处理机制"><a href="#Spring-Boot-默认错误处理机制" class="headerlink" title="Spring Boot 默认错误处理机制"></a>Spring Boot 默认错误处理机制</h3><ul>
+<li><p>默认情况下，Spring Boot提供<code>/error</code>处理所有错误的映射</p>
+</li>
+<li><p>机器客户端，它将生成JSON响应，其中包含错误，HTTP状态和异常消息的详细信息。对于浏览器客户端，响应一个“ whitelabel”错误视图，以HTML格式呈现相同的数据</p>
+</li>
+<li><p>要对其进行自定义，添加<code>View</code>解析为<code>error</code></p>
+</li>
+<li><p>要完全替换默认行为，可以实现<code> ErrorController</code>并注册该类型的Bean定义，或添加<code>ErrorAttributes类型的组件</code>以使用现有机制但替换其内容。</p>
+</li>
+<li><p><code>/templates/error/</code>下的4xx，5xx页面会被自动解析</p>
+</li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/60f6d3ee5de1468ebb5b4b09e4425426.png" alt="error"></p>
+<blockquote>
+<p><font color="red">在2.x版本我们需要在配置文件（application.properties）中配置 <code>spring.mvc.locale-resolver=fixed</code></font></p>
+</blockquote>
+<blockquote>
+<p>记得加入thymeleaf模板引擎依赖</p>
+</blockquote>
 <h3 id="Spring-Boot-中使用-Servlet（了解）"><a href="#Spring-Boot-中使用-Servlet（了解）" class="headerlink" title="Spring Boot 中使用 Servlet（了解）"></a>Spring Boot 中使用 Servlet（了解）</h3><ul>
 <li>创建一个Servlet他要继承HttpServlet</li>
 <li>在web.xml配置文件中使用servlet,servlet-mapping(注解)</li>
@@ -2007,8 +2064,7 @@ var _hmt = _hmt || [];
         <span class="token keyword">return</span>  filterRegistrationBean<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyFilter</span> <span class="token keyword">implements</span> <span class="token class-name">Filter</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Override</span>
@@ -2033,6 +2089,54 @@ var _hmt = _hmt || [];
         <span class="token keyword">return</span> <span class="token string">"center"</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Spring-Boot-中使用-Listener（了解）"><a href="#Spring-Boot-中使用-Listener（了解）" class="headerlink" title="Spring Boot 中使用 Listener（了解）"></a>Spring Boot 中使用 Listener（了解）</h3><h4 id="第一种方式-注解-2"><a href="#第一种方式-注解-2" class="headerlink" title="第一种方式(注解)"></a>第一种方式(注解)</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@WebListener</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyServletContextListener</span> <span class="token keyword">implements</span> <span class="token class-name">ServletContextListener</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextInitialized</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"监听到项目初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextDestroyed</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"监听到项目销毁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目销毁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@ServletComponentScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"com.bjpowernode.springboot.filter"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Application</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b817f013ad4844d2b50585e59366d231.png" alt="Listenter"></p>
+<h4 id="第二种方式-注册组件-1"><a href="#第二种方式-注册组件-1" class="headerlink" title="第二种方式(注册组件)"></a>第二种方式(注册组件)</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRegisterConfig</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">ServletListenerRegistrationBean</span> <span class="token function">myListenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">MyServletContextListener</span> myServletContextListener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyServletContextListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ServletListenerRegistrationBean</span><span class="token punctuation">(</span>myServletContextListener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyServletContextListener</span> <span class="token keyword">implements</span> <span class="token class-name">ServletContextListener</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextInitialized</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextDestroyed</span><span class="token punctuation">(</span><span class="token class-name">ServletContextEvent</span> sce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"监听到项目销毁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Spring-Boot-项目配置字符编码"><a href="#Spring-Boot-项目配置字符编码" class="headerlink" title="Spring Boot 项目配置字符编码"></a>Spring Boot 项目配置字符编码</h3><h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SystemConfig</span> <span class="token punctuation">&#123;</span>
@@ -2220,32 +2324,6 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <h3 id="小TIP"><a href="#小TIP" class="headerlink" title="小TIP"></a>小TIP</h3><h4 id="关闭logo"><a href="#关闭logo" class="headerlink" title="关闭logo"></a>关闭logo</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">&#123;</span>
@@ -3173,7 +3251,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">192.4k</span>&nbsp;字&nbsp;|
+                class="white-color">194.2k</span>&nbsp;字&nbsp;|
             
             
             
