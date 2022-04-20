@@ -22,7 +22,7 @@
 
 
     <title>springboot配置文件整理 | 秋水墨色染</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -815,7 +815,7 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-18
+                    2022-04-19
                 </div>
                 
 
@@ -866,13 +866,9 @@ var _hmt = _hmt || [];
 <span class="token comment"># dubbo配置</span>
 <span class="token attr-name">spring.application.name</span><span class="token punctuation">=</span><span class="token attr-value">024-springboot-dubbo-ssm-provider</span>
 <span class="token attr-name">spring.dubbo.server</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
 <span class="token comment"># 指定注册中心</span>
 <span class="token attr-name">spring.dubbo.registry</span><span class="token punctuation">=</span><span class="token attr-value">zookeeper://192.168.174.131:2181</span>
-
-<span class="token comment"># redis配置</span>
-<span class="token attr-name">spring.redis.host</span><span class="token punctuation">=</span><span class="token attr-value">192.168.174.131</span>
-<span class="token attr-name">spring.redis.port</span><span class="token punctuation">=</span><span class="token attr-value">6379</span>
-<span class="token attr-name">spring.redis.password</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
 
 <span class="token comment">#配置视图解析器</span>
 <span class="token attr-name">spring.mvc.view.prefix</span><span class="token punctuation">=</span><span class="token attr-value">/</span>
@@ -903,6 +899,9 @@ var _hmt = _hmt || [];
 <span class="token comment"># 关闭页面缓存</span>
 <span class="token attr-name">spring.thymeleaf.cache</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
 
+<span class="token comment"># 开启自动配置报告</span>
+<span class="token attr-name">debug</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
 <span class="token comment"># 应用名称</span>
 <span class="token comment">#Redis服务器地址</span>
 <span class="token attr-name">spring.redis.host</span><span class="token punctuation">=</span><span class="token attr-value">127.0.0.1</span>
@@ -920,7 +919,19 @@ var _hmt = _hmt || [];
 <span class="token attr-name">spring.redis.lettuce.pool.max-idle</span><span class="token punctuation">=</span><span class="token attr-value">5</span>
 <span class="token comment">#连接池中的最小空闲连接</span>
 <span class="token attr-name">spring.redis.lettuce.pool.min-idle</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token comment"># redis配置</span>
+<span class="token attr-name">spring.redis.host</span><span class="token punctuation">=</span><span class="token attr-value">192.168.174.131</span>
+<span class="token attr-name">spring.redis.port</span><span class="token punctuation">=</span><span class="token attr-value">6379</span>
+<span class="token attr-name">spring.redis.password</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
+
+<span class="token comment"># 静态资源</span>
+<span class="token comment"># 设置静态资源访问路径</span>
+<span class="token attr-name">spring.resources.static-locations</span><span class="token punctuation">=</span><span class="token attr-value">classpath:/haha/</span>
+<span class="token comment"># 设置静态资源访问前缀</span>
+<span class="token attr-name">spring.mvc.static-path-pattern</span><span class="token punctuation">=</span><span class="token attr-value">/res/**</span>
+<span class="token comment"># 缓存配置</span>
+<span class="token attr-name">spring.resources.cache.period</span><span class="token punctuation">=</span><span class="token attr-value">11000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">eureka</span><span class="token punctuation">:</span>
   <span class="token key atrule">instance</span><span class="token punctuation">:</span>
@@ -1374,10 +1385,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1749,7 +1760,7 @@ var _hmt = _hmt || [];
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="MySql">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/25.jpg" class="responsive-img" alt="MySql">
                         
                         <span class="card-title">MySql</span>
                     </div>
@@ -1798,7 +1809,7 @@ var _hmt = _hmt || [];
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/22.jpg" class="responsive-img" alt="bug问题总结">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/25.jpg" class="responsive-img" alt="bug问题总结">
                         
                         <span class="card-title">bug问题总结</span>
                     </div>
@@ -2078,7 +2089,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">191k</span>&nbsp;字&nbsp;|
+                class="white-color">192.4k</span>&nbsp;字&nbsp;|
             
             
             

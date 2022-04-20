@@ -22,7 +22,7 @@
 
 
     <title>SpringBoot | 秋水墨色染</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-18
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    6.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    31 分
                 </div>
                 
 
@@ -882,15 +882,127 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 设置端口号</span>
 <span class="token attr-name">server.port</span><span class="token punctuation">=</span><span class="token attr-value">8080</span>
 <span class="token comment"># 设置上下文根</span>
-<span class="token attr-name">server.servlet.context-path</span><span class="token punctuation">=</span><span class="token attr-value">/</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token attr-name">server.servlet.context-path</span><span class="token punctuation">=</span><span class="token attr-value">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>application.yaml</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
-  port: 8081
-  servlet:
-    context-path: &#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span>
+  <span class="token key atrule">servlet</span><span class="token punctuation">:</span>
+    <span class="token key atrule">context-path</span><span class="token punctuation">:</span> /<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p><strong>基本语法</strong></p>
+<ul>
+<li>key: value；kv之间有空格</li>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进不允许使用tab，只允许空格</li>
+<li>缩进的空格数不重要，只要相同层级的元素左对齐即可</li>
+<li>‘#’表示注释</li>
+<li>字符串无需加引号，如果要加，’’与””表示字符串内容 会被 转义/不转义</li>
+</ul>
+</blockquote>
+<ul>
+<li>字面量：单个的、不可再分的值。date、boolean、string、number、null</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">k</span><span class="token punctuation">:</span> v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>对象：键值对的集合。map、hash、set、object </li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">行内写法：  k</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>k1<span class="token punctuation">:</span>v1<span class="token punctuation">,</span>k2<span class="token punctuation">:</span>v2<span class="token punctuation">,</span>k3<span class="token punctuation">:</span>v3<span class="token punctuation">&#125;</span>
+<span class="token comment">#或</span>
+<span class="token key atrule">k</span><span class="token punctuation">:</span> 
+	<span class="token key atrule">k1</span><span class="token punctuation">:</span> v1
+  <span class="token key atrule">k2</span><span class="token punctuation">:</span> v2
+  <span class="token key atrule">k3</span><span class="token punctuation">:</span> v3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>数组：一组按次序排列的值。array、list、queue</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">行内写法：  k</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>v1<span class="token punctuation">,</span>v2<span class="token punctuation">,</span>v3<span class="token punctuation">]</span>
+<span class="token comment">#或者</span>
+<span class="token key atrule">k</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> v1
+ <span class="token punctuation">-</span> v2
+ <span class="token punctuation">-</span> v3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>yaml示例</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># yaml表示以上对象</span>
+<span class="token key atrule">person</span><span class="token punctuation">:</span>
+  <span class="token key atrule">userName</span><span class="token punctuation">:</span> zhangsan
+  <span class="token key atrule">boss</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">birth</span><span class="token punctuation">:</span> 2019/12/12 20<span class="token punctuation">:</span><span class="token datetime number">12:33</span>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">18</span>
+  <span class="token key atrule">pet</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> tomcat
+    <span class="token key atrule">weight</span><span class="token punctuation">:</span> <span class="token number">23.4</span>
+  <span class="token key atrule">interests</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>篮球<span class="token punctuation">,</span>游泳<span class="token punctuation">]</span>
+  <span class="token key atrule">animal</span><span class="token punctuation">:</span> 
+    <span class="token punctuation">-</span> jerry
+    <span class="token punctuation">-</span> mario
+  <span class="token key atrule">score</span><span class="token punctuation">:</span>
+    <span class="token key atrule">english</span><span class="token punctuation">:</span> 
+      <span class="token key atrule">first</span><span class="token punctuation">:</span> <span class="token number">30</span>
+      <span class="token key atrule">second</span><span class="token punctuation">:</span> <span class="token number">40</span>
+      <span class="token key atrule">third</span><span class="token punctuation">:</span> <span class="token number">50</span>
+    <span class="token key atrule">math</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">131</span><span class="token punctuation">,</span><span class="token number">140</span><span class="token punctuation">,</span><span class="token number">148</span><span class="token punctuation">]</span>
+    <span class="token key atrule">chinese</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token key atrule">first</span><span class="token punctuation">:</span> <span class="token number">128</span><span class="token punctuation">,</span><span class="token key atrule">second</span><span class="token punctuation">:</span> <span class="token number">136</span><span class="token punctuation">&#125;</span>
+  <span class="token key atrule">salarys</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">3999</span><span class="token punctuation">,</span><span class="token number">4999.98</span><span class="token punctuation">,</span><span class="token number">5999.99</span><span class="token punctuation">]</span>
+  <span class="token key atrule">allPets</span><span class="token punctuation">:</span>
+    <span class="token key atrule">sick</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token punctuation">&#123;</span><span class="token key atrule">name</span><span class="token punctuation">:</span> tom<span class="token punctuation">&#125;</span>
+      <span class="token punctuation">-</span> <span class="token punctuation">&#123;</span><span class="token key atrule">name</span><span class="token punctuation">:</span> jerry<span class="token punctuation">,</span><span class="token key atrule">weight</span><span class="token punctuation">:</span> <span class="token number">47</span><span class="token punctuation">&#125;</span>
+    <span class="token key atrule">health</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token key atrule">name</span><span class="token punctuation">:</span> mario<span class="token punctuation">,</span><span class="token key atrule">weight</span><span class="token punctuation">:</span> <span class="token number">47</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>自定义类绑定配置</strong></p>
+<blockquote>
+<p>自定义的类和配置文件绑定一般没有提示。</p>
+</blockquote>
+<p>加入依赖</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-configuration-processor<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- 打包的时候排除自定义类绑定配置--></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>excludes</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclude</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-configuration-processor<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclude</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>excludes</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Person</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"person"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ToString</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> userName<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Boolean</span> boss<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> birth<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Pet</span> pet<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> interests<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> animal<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> score<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">></span></span> salarys<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Pet</span><span class="token punctuation">></span><span class="token punctuation">></span></span> allPets<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7eb7fbc1a2cc49d494add83218c51179.png" alt="person"></p>
 <h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><h5 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h5><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># springboot核心主配置文件</span>
 <span class="token comment"># 激活使用的配置文件</span>
 <span class="token attr-name">spring.profiles.active</span><span class="token punctuation">=</span><span class="token attr-value">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1065,8 +1177,7 @@ var _hmt = _hmt || [];
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mysql.version</span><span class="token punctuation">></span></span>8.0.17<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mysql.version</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h4><ul>
 <li><p>自动配好Tomcat</p>
@@ -1086,43 +1197,44 @@ var _hmt = _hmt || [];
 
 <ul>
 <li><p>自动配好SpringMVC</p>
-</li>
-<li><ul>
+<ul>
 <li>引入SpringMVC全套组件</li>
 <li>自动配好SpringMVC常用组件（功能）</li>
 </ul>
 </li>
 <li><p>自动配好Web常见功能，如：字符编码问题</p>
-</li>
-<li><ul>
+<ul>
 <li>SpringBoot帮我们配置好了所有web开发的常见场景</li>
 </ul>
 </li>
 <li><p>默认的包结构</p>
-</li>
-<li><ul>
-<li><p><font color="red">主程序所在包及其下面的所有子包里面的组件都会被默认扫描进来</font></p>
 <ul>
-<li><blockquote>
+<li><font color="red">主程序所在包及其下面的所有子包里面的组件都会被默认扫描进来</font></li>
+</ul>
+<blockquote>
 <p>这个真的很重要</p>
 </blockquote>
-</li>
-</ul>
-</li>
-<li><p>无需以前的包扫描配置</p>
-</li>
-<li><p>想要改变扫描路径，@SpringBootApplication(scanBasePackages=<strong>“com.ssm”</strong>)</p>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<ul>
+<li>无需以前的包扫描配置</li>
+<li>想要改变扫描路径，@SpringBootApplication(scanBasePackages=<strong>“com.ssm”</strong>)</li>
 <li>或者@ComponentScan 指定扫描路径</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<ul>
+<li>SpringBoot先加载所有的自动配置类  <code>xxxxxAutoConfiguration</code></li>
+<li>每个自动配置类按照条件进行生效，默认都会绑定配置文件指定的值。<code>xxxxProperties</code>里面拿。<code>xxxProperties</code>和配置文件进行了绑定</li>
+<li>生效的配置类就会给容器中装配很多组件</li>
+<li>只要容器中有这些组件，相当于这些功能就有了</li>
+<li>定制化配置<ul>
+<li>用户直接自己<code>@Bean</code>替换底层的组件</li>
+<li>用户去看这个组件是获取的配置文件什么值就去修改。</li>
+</ul>
 </li>
 </ul>
+<p><font color="orange"><strong>xxxxxAutoConfiguration —&gt; 组件  —&gt;</strong> <strong>xxxxProperties里面拿值  —-&gt; application.properties</strong></font></p>
+</blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 等同于
 <span class="token annotation punctuation">@SpringBootConfiguration</span>
@@ -1150,8 +1262,82 @@ var _hmt = _hmt || [];
 </ul>
 <blockquote>
 <p>详情请参考：<a target="_blank" rel="noopener" href="https://www.yuque.com/atguigu/springboot/qb7hy2">https://www.yuque.com/atguigu/springboot/qb7hy2</a></p>
+<ul>
+<li><p>引入场景依赖：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter">https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter</a></li>
+</ul>
+</li>
+<li><p>照文档修改配置项：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties">https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties</a></li>
+</ul>
+</li>
+</ul>
 </blockquote>
-<h3 id="Spring-Boot-框架-Web-开发"><a href="#Spring-Boot-框架-Web-开发" class="headerlink" title="Spring Boot 框架 Web 开发"></a>Spring Boot 框架 Web 开发</h3><h4 id="Spring-Boot-集成-MyBatis"><a href="#Spring-Boot-集成-MyBatis" class="headerlink" title="Spring Boot 集成 MyBatis"></a>Spring Boot 集成 MyBatis</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4a513ca475974120a7f49c0dc85250ff.png" alt="目录结构"></p>
+<h3 id="Spring-Boot-框架-Web-开发"><a href="#Spring-Boot-框架-Web-开发" class="headerlink" title="Spring Boot 框架 Web 开发"></a>Spring Boot 框架 Web 开发</h3><h4 id="静态资源规则与定制化"><a href="#静态资源规则与定制化" class="headerlink" title="静态资源规则与定制化"></a>静态资源规则与定制化</h4><blockquote>
+<p>只要静态资源放在类路径下： called /<code>static</code> (or /<code>public</code> or /<code>resources </code>or /<code>META-INF/resources</code><br>访问 ： 当前项目根路径/ + 静态资源名<br>原理： 静态映射/**。<br>请求进来，先去找Controller看能不能处理。不能处理的所有请求又都交给静态资源处理器。静态资源也找不到则响应404页面。<br><font color="orange">不行的记得clean项目即可</font></p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1bf2ca9a6bfb4b2eb75bc4bbd98bbe04.png" alt="源码分析"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b42220c75c124c3d875264c11dd193fe.png" alt="访问静态资源"></p>
+<blockquote>
+<p>改变默认的静态资源路径，/<code>static</code>，/<code>public</code>,/<code>resources</code>, /<code>META-INF/resources</code>失效</p>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">resources</span><span class="token punctuation">:</span>
+  <span class="token key atrule">static-locations</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>classpath<span class="token punctuation">:</span>/haha/<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d8c7ff1eb04b411790a4888e966ea488.png" alt="改变默认资源路径"></p>
+<p><strong>静态资源返回前缀</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mvc</span><span class="token punctuation">:</span>
+    <span class="token key atrule">static-path-pattern</span><span class="token punctuation">:</span> /res/<span class="token important">**</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/37bcde66c387446aa9884c7de7db3124.png" alt="加前缀访问静态资源"></p>
+<blockquote>
+<p>当前项目 + static-path-pattern + 静态资源名 = 静态资源文件夹下找</p>
+</blockquote>
+<p><strong>webjar</strong></p>
+<p>自动映射 /<a target="_blank" rel="noopener" href="http://localhost:8080/webjars/jquery/3.5.1/jquery.js">webjars</a>/**<a target="_blank" rel="noopener" href="https://www.webjars.org/">https://www.webjars.org/</a></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.webjars<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>jquery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.5.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>访问地址：<a target="_blank" rel="noopener" href="http://localhost:8080/webjars/jquery/3.5.1/jquery.js">http://localhost:8080/webjars/<strong>jquery/3.5.1/jquery.js</strong></a>   后面地址要按照依赖里面的包路径</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/e1377c161859433297178b7bf9d0ff00.png" alt="webjar"></p>
+<p><strong>欢迎页支持</strong></p>
+<ul>
+<li><p>静态资源路径下  index.html</p>
+</li>
+<li><ul>
+<li>可以配置静态资源路径</li>
+<li>但是不可以配置静态资源的访问前缀。否则导致 index.html不能被默认访问</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f9a6b8ee6ef645f2aec511b0498cc963.png" alt="源码分析"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/db12146e2bb1419f91af788614049e2b.png" alt="欢迎页"></p>
+<blockquote>
+<ul>
+<li>controller能处理/index</li>
+</ul>
+</blockquote>
+<p><strong>自定义Favicon</strong></p>
+<blockquote>
+<p>favicon.ico 放在静态资源目录下即可。</p>
+<p>文件名必须是:  favicon.ico</p>
+</blockquote>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 这个会导致 Favicon 功能失效</span>
+<span class="token attr-name">spring.mvc.static-path-pattern</span><span class="token punctuation">=</span><span class="token attr-value">/res/** </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/26b5a1a8de0040899262ff516aa37cf4.png" alt="Favicon"></p>
+<blockquote>
+<p>不行记得重启浏览器和清理缓存</p>
+</blockquote>
+<h4 id="Spring-Boot-集成-MyBatis"><a href="#Spring-Boot-集成-MyBatis" class="headerlink" title="Spring Boot 集成 MyBatis"></a>Spring Boot 集成 MyBatis</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4a513ca475974120a7f49c0dc85250ff.png" alt="目录结构"></p>
 <ul>
 <li>添加mybatis依赖,MySQL驱动</li>
 </ul>
@@ -1324,6 +1510,11 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p>源码分析：<font color="orange">各是各的,不影响案例</font></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c09831b5f8834696bdcf09fd4ef1e16d.png" alt="源码分析"></p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/48cb7e47e3014c27bade7fb955ac453a.png" alt="源码分析"></p>
+</blockquote>
 <h4 id="Spring-Boot实现RESTful"><a href="#Spring-Boot实现RESTful" class="headerlink" title="Spring Boot实现RESTful"></a>Spring Boot实现RESTful</h4><ul>
 <li><p>比如我们要访问一个 http 接口：<a target="_blank" rel="noopener" href="http://localhost:8080/boot/order?id=1021&amp;status=1">http://localhost:8080/boot/order?id=1021&amp;status=1</a></p>
 </li>
@@ -1387,6 +1578,9 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p>详细注解请参考注解使用合集</p>
+</blockquote>
 <h4 id="Spring-Boot-集成-Redis"><a href="#Spring-Boot-集成-Redis" class="headerlink" title="Spring Boot 集成 Redis"></a>Spring Boot 集成 Redis</h4><ul>
 <li>添加springboot继承redis依赖</li>
 </ul>
@@ -2280,10 +2474,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -2703,7 +2897,7 @@ var _hmt = _hmt || [];
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="SpringMVC">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/24.jpg" class="responsive-img" alt="SpringMVC">
                         
                         <span class="card-title">SpringMVC</span>
                     </div>
@@ -2979,7 +3173,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">191k</span>&nbsp;字&nbsp;|
+                class="white-color">192.4k</span>&nbsp;字&nbsp;|
             
             
             

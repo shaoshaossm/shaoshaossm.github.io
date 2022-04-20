@@ -22,7 +22,7 @@
 
 
     <title>git命令学习 | 秋水墨色染</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -815,7 +815,7 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-02
+                    2022-04-19
                 </div>
                 
 
@@ -867,20 +867,41 @@ var _hmt = _hmt || [];
 </ul>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git rm --cached &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
-<li>将暂存区的文件提交到本地库<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># &quot;first commit&quot; 提交信息
-git commit -m &quot;first commit&quot; &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>查看历史版本<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看历史版本日志
+<li>将暂存区的文件提交到本地库</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># &quot;first commit&quot; 提交信息
+git commit -m &quot;first commit&quot; &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>查看历史版本</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看历史版本日志
 git reflog
 # 查看历史版本详细日志
-git log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>版本穿梭<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 版本回退
+git log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>版本穿梭</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 版本回退
 git reflog # 查看回退的版本号
-git reset --hard 版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>查看分支<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git branch -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>创建分支<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git branch 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>切换分支<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git checkout 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>合并分支（主分支没修改）<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 站在主要的的分支上操作要合并的分支
-git merge 要合并的分支名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+git reset --hard 版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>查看分支</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git branch -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>创建分支</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git branch 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>切换分支</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git checkout 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>合并分支（主分支没修改）</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 站在主要的的分支上操作要合并的分支
+git merge 要合并的分支名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
 <li>分支冲突<ul>
 <li>合并分支时，两个分支在同一个文件的<font color="red">同一个位置</font>有两套完全不同的修改。Git 无法替 我们决定使用哪一个。必须<font color="red">人为决定</font>新代码内容。</li>
 <li>冲突产生的表现：后面状态为 <code> (master|MERGING)</code></li>
@@ -890,25 +911,44 @@ git merge 要合并的分支名<span aria-hidden="true" class="line-numbers-rows
 <li>特殊符号：<font color="red">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</font> 当前分支的代码 <font color="red">=======</font>合并过来的代码 <font color="red">&gt;&gt;&gt;&gt;&gt;&gt;&gt; hot-fix</font></li>
 <li>手动修改文件</li>
 <li>添加到暂存区</li>
-<li>执行提交（注意：此时使用<code>git commit</code>命令时<font color="red">不能带文件名</font>）<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看状态  (master|MERGING)
+<li>执行提交（注意：此时使用<code>git commit</code>命令时<font color="red">不能带文件名</font>）</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看状态  (master|MERGING)
 git status
 # 添加到暂存区
 git add &lt;file&gt;
 # 执行提交
-git commit -m &quot;merge conflict&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+git commit -m &quot;merge conflict&quot; 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>查看当前所有远程库地址别名</li>
 </ul>
-</li>
-<li>查看当前所有远程库地址别名<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>创建远程库别名<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote add 别名 远程库https地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>提交本地分支到远程库<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git push 仓库别名&#x2F;仓库地址 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>拉取远程库代码到本地<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git pull 仓库别名&#x2F;仓库地址 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>创建远程库别名</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote add 别名 远程库https地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>提交本地分支到远程库</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git push 仓库别名&#x2F;仓库地址 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>拉取远程库代码到本地</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git pull 仓库别名&#x2F;仓库地址 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
 <li>克隆远程库到本地</li>
 <li>clone会做如下操作<ul>
 <li>拉取代码</li>
 <li>初始化本地库</li>
-<li>创建别名<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git clone https仓库地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建别名</li>
 </ul>
 </li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git clone https仓库地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
 <li>若下载分支的话需要加 <font color="dd0000"> -b </font>  + 分支名称 + 下载地址</li>
 </ul>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ git clone -b backup git@github.com:shaoshaossm&#x2F;shaoshaossm.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1131,10 +1171,10 @@ git commit -m &quot;merge conflict&quot; <span aria-hidden="true" class="line-nu
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1506,7 +1546,7 @@ git commit -m &quot;merge conflict&quot; <span aria-hidden="true" class="line-nu
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/7.jpg" class="responsive-img" alt="hexo-matery问题解决">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/28.jpg" class="responsive-img" alt="hexo-matery问题解决">
                         
                         <span class="card-title">hexo-matery问题解决</span>
                     </div>
@@ -1555,7 +1595,7 @@ git commit -m &quot;merge conflict&quot; <span aria-hidden="true" class="line-nu
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/8.jpg" class="responsive-img" alt="java数据结构和算法(一)">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/27.jpg" class="responsive-img" alt="java数据结构和算法(一)">
                         
                         <span class="card-title">java数据结构和算法(一)</span>
                     </div>
@@ -1831,7 +1871,7 @@ git commit -m &quot;merge conflict&quot; <span aria-hidden="true" class="line-nu
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">191k</span>&nbsp;字&nbsp;|
+                class="white-color">192.4k</span>&nbsp;字&nbsp;|
             
             
             

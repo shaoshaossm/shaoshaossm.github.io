@@ -22,7 +22,7 @@
 
 
     <title>注解的使用合集 | 秋水墨色染</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/27.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-18
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.3k
+                    8.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    35 分
+                    37 分
                 </div>
                 
 
@@ -925,8 +925,16 @@ var _hmt = _hmt || [];
 <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
 <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"张飞"</span><span class="token punctuation">)</span> <span class="token comment">// value 可以省略</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;myname&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;myage&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">myname</span><span class="token punctuation">=</span><span class="token attr-value">zhangsan</span>
+<span class="token attr-name">myage</span><span class="token punctuation">=</span><span class="token attr-value">30</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="Autowired-Qualifier"><a href="#Autowired-Qualifier" class="headerlink" title="@Autowired @Qualifier"></a>@Autowired @Qualifier</h4><ul>
 <li>引用类型，实现引用类型的赋值</li>
@@ -1130,22 +1138,37 @@ var _hmt = _hmt || [];
 <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"returnStringData.do"</span><span class="token punctuation">,</span>produces <span class="token operator">=</span> <span class="token string">"text/plain;charset=utf-8"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h4><ul>
-<li>解决请求中参数名和处理器方法的形参名不一样</li>
+<li><code>&quot;rname&quot;</code>解决请求中参数名和处理器方法的形参名不一样</li>
 <li>value：请求中的参数名称</li>
 <li>require：false （这个参数不是必须的）</li>
 <li>在处理器方法的形参定义前面</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">ModelAndView</span> <span class="token function">doSome</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"rname"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> name<span class="token punctuation">,</span><span class="token class-name">Integer</span> age<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/car"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token function">getCar2</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"rage"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> age<span class="token punctuation">,</span>
+                                   <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"inters"</span><span class="token punctuation">)</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> inters<span class="token punctuation">,</span>
+                                   <span class="token annotation punctuation">@RequestParam</span>  <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> params<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"age"</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"inters"</span><span class="token punctuation">,</span> inters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"params"</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p>请求路径：<a target="_blank" rel="noopener" href="http://localhost:8080/car?rage=18&amp;inters=basketball">http://localhost:8080/car?rage=18&amp;inters=basketball</a></p>
+</blockquote>
 <h4 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h4><ul>
-<li>主要用来接收前端传递给后端的json字符串中的数据的(请求体中的数据的)；</li>
+<li>主要用来接收前端表单传递给后端的json字符串中的数据的(请求体中的数据的)；</li>
 <li>一般都用POST方式进行提交</li>
 <li>在后端的同一个接收方法里，@RequestBody与@RequestParam()可以同时使用，@RequestBody最多只能有一个，而@RequestParam()可以有多个。</li>
 <li>位置：一般放在controller层的具体请求方法的入参中</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">CommonResult</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Payment</span> payment<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/save"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span> <span class="token function">postMethod</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">String</span> content<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"content"</span><span class="token punctuation">,</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><ul>
 <li>把处理器的方法返回对象转为json后，通过HttpServletResponse输出给浏览器</li>
@@ -1347,18 +1370,82 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h4><ul>
-<li>获取 url 中参数的数据</li>
+<li>获取 url 中<font color="orange">路径变量</font>的数据</li>
 <li><font color="red">该注解是实现 RESTFul 最主要的一个注解</font></li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/student/Detail/&#123;id&#125;/&#123;age&#125;"</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">student1</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id<span class="token punctuation">,</span>
-                       <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"age"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> age<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> retMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    retMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"id"</span> <span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    retMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"age"</span> <span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> retMap<span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/car/&#123;id&#125;/&#123;username&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token function">getCar</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> id<span class="token punctuation">,</span>
+                                  <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> username<span class="token punctuation">,</span>
+                                  <span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">></span></span> pv<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span>  map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pv"</span><span class="token punctuation">,</span>pv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>@PathVariable Map&lt;String,String&gt; pv</code>: 获取所有请求参数</p>
+</blockquote>
+<h4 id="RequestHeader"><a href="#RequestHeader" class="headerlink" title="@RequestHeader"></a>@RequestHeader</h4><ul>
+<li>获取请求头信息</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/car"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token function">getCar</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestHeader</span><span class="token punctuation">(</span><span class="token string">"User-Agent"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> userAgent<span class="token punctuation">,</span>
+                                  <span class="token annotation punctuation">@RequestHeader</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> header<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"userAgent"</span><span class="token punctuation">,</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"headers"</span><span class="token punctuation">,</span>header<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p><code>@RequestHeader Map&lt;String, String&gt; header</code>：获取所有请求头信息</p>
+</blockquote>
+<h4 id="CookieValue"><a href="#CookieValue" class="headerlink" title="@CookieValue"></a>@CookieValue</h4><ul>
+<li>获取页面请求cookie</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token function">getCar2</span><span class="token punctuation">(</span><span class="token annotation punctuation">@CookieValue</span><span class="token punctuation">(</span><span class="token string">"JSESSIONID"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> JSESSIONID<span class="token punctuation">,</span>
+                                   <span class="token annotation punctuation">@CookieValue</span><span class="token punctuation">(</span><span class="token string">"JSESSIONID"</span><span class="token punctuation">)</span> <span class="token class-name">Cookie</span> cookie
+                                   <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"JSESSIONID"</span><span class="token punctuation">,</span> JSESSIONID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cookie<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"--->"</span><span class="token operator">+</span>cookie<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>JSESSIONID：每个浏览器CookieValu都不一样，自行获取</p>
+</blockquote>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/dada36f96cfb4ab6b3aa10bca68f81b6.png" alt="Cookie"></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><ul>
+<li>获取request域对象</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RequestController</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/goto"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">goToPage</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">,</span><span class="token string">"success..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"forward:/success"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/success"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Map</span> <span class="token function">success</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> msg<span class="token punctuation">,</span>
+                      <span class="token annotation punctuation">@RequestAttribute</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> code<span class="token punctuation">,</span>
+                      <span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">Object</span> msg1 <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"reqMethod"</span><span class="token punctuation">,</span>msg1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"annotation"</span><span class="token punctuation">,</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/goto">http://localhost:8080/goto</a></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"annotation"</span><span class="token operator">:</span><span class="token string">"success..."</span><span class="token punctuation">,</span><span class="token property">"reqMethod"</span><span class="token operator">:</span><span class="token string">"success..."</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
 <h4 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h4><ul>
 <li>定义此类为配置类,相当于xml文件</li>
 <li>位置：类的上面</li>
@@ -2374,10 +2461,10 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -2749,7 +2836,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="依赖使用合集">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/29.jpg" class="responsive-img" alt="依赖使用合集">
                         
                         <span class="card-title">依赖使用合集</span>
                     </div>
@@ -2798,7 +2885,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="spring框架">
+                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="spring框架">
                         
                         <span class="card-title">spring框架</span>
                     </div>
@@ -3074,7 +3161,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">191k</span>&nbsp;字&nbsp;|
+                class="white-color">192.4k</span>&nbsp;字&nbsp;|
             
             
             
