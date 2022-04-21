@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-20
+                    2022-04-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.3k
+                    9.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    39 分
+                    42 分
                 </div>
                 
 
@@ -1799,8 +1799,7 @@ var _hmt = _hmt || [];
 <span class="token keyword">public</span> <span class="token keyword">class</span> springConfig<span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><hr>
-<h4 id="待补充"><a href="#待补充" class="headerlink" title="待补充"></a>待补充</h4><h4 id="Param"><a href="#Param" class="headerlink" title="@Param"></a>@Param</h4><ul>
+<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><h4 id="Param"><a href="#Param" class="headerlink" title="@Param"></a>@Param</h4><ul>
 <li>作用是用于传递参数，从而可以与SQL中的的字段名相对应，一般在2=&lt;参数数&lt;=5时使用最佳。</li>
 <li>当 Dao 接口方法多个参数，需要<strong>通过名称使用参数</strong>。在方法形参前面加入@Param(“自定义参数名”)，</li>
 <li>如果你的<strong>dao层</strong>的方法只需要<strong>一个</strong>参数，那么用不用**@Param**注解都可以</li>
@@ -1815,8 +1814,27 @@ var _hmt = _hmt || [];
     SELECT * FROM payment WHERE id=#&#123;idsss&#125;;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>#：<font color="red">占位符</font>，告诉 mybatis 使用实际的参数值代替。并使用 PrepareStatement 对象执行 sql 语句, #{…}代替<br>sql 语句的“?”。这样做更安全，更迅速，通常也是首选做法。</p>
+<p>#：<font color="red">占位符</font>，告诉 mybatis 使用实际的参数值代替。并使用<code> PrepareStatement</code> 对象执行 sql 语句, #{…}代替<br>sql 语句的“?”。这样做更安全，更迅速，通常也是首选做法。</p>
 <p>$ <font color="red">字符串替换</font>，告诉 mybatis 使用$包含的“字符串”替换所在位置。使用 Statement 把 sql 语句和${}的<br>内容连接起来。主要用在替换表名，列名，不同列排序等操作。(sql注入问题)</p>
+<h4 id="Select、-Insert、-Update、-Delete、-Options"><a href="#Select、-Insert、-Update、-Delete、-Options" class="headerlink" title="@Select、@Insert、@Update、@Delete、@Options"></a>@Select、@Insert、@Update、@Delete、@Options</h4><ul>
+<li>数据库增删改查注解</li>
+<li>直接将sql语句写在Mapper接口方法上，不用在Mapper.xml上写</li>
+<li><code>@Options</code>：设置主键自增</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">StudentMapper</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select * from t_student where id=#&#123;id&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">City</span> <span class="token function">getById</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Insert</span><span class="token punctuation">(</span><span class="token string">"insert into t_student(`name`) values(#&#123;name&#125;)"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Options</span><span class="token punctuation">(</span>useGeneratedKeys <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> keyProperty <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">City</span> city<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>用的不多唉，适用于简单数据库操作</p>
+</blockquote>
 <h3 id="dubbo"><a href="#dubbo" class="headerlink" title="dubbo"></a>dubbo</h3><h4 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h4><ul>
 <li>com.alibaba.dubbo.config.annotation.Service;</li>
 <li>位置:服务提供者实现类上</li>
@@ -2379,6 +2397,138 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="JUnit5"><a href="#JUnit5" class="headerlink" title="JUnit5"></a>JUnit5</h3><h4 id="SpringBootTest、-Test"><a href="#SpringBootTest、-Test" class="headerlink" title="@SpringBootTest、@Test"></a>@SpringBootTest、@Test</h4><ul>
+<li>指定当前类为测试类、指定当前方法为测试方法，可直接运行</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">class</span> <span class="token class-name">Boot05WebAdminApplicationTests</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">void</span> <span class="token function">contextLoads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="DisplayName"><a href="#DisplayName" class="headerlink" title="@DisplayName"></a>@DisplayName</h4><ul>
+<li>为测试类或者测试方法设置展示名称</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JUnit5Test</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">void</span> <span class="token function">testDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="BeforeEach"><a href="#BeforeEach" class="headerlink" title="@BeforeEach"></a>@BeforeEach</h4><ul>
+<li>表示在每个单元测试之前执行</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JUnit5Test</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token annotation punctuation">@BeforeEach</span>
+    <span class="token keyword">void</span> <span class="token function">testBeforeEach</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试方法要开始了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="AfterEach"><a href="#AfterEach" class="headerlink" title="@AfterEach"></a>@AfterEach</h4><ul>
+<li>表示在每个单元测试之后执行</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JUnit5Test</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token annotation punctuation">@AfterEach</span>
+<span class="token keyword">void</span> <span class="token function">testAfterEach</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试方法要结束了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="BeforeAll"><a href="#BeforeAll" class="headerlink" title="@BeforeAll"></a>@BeforeAll</h4><ul>
+<li>表示在所有单元测试之前执行</li>
+</ul>
+<h4 id="AfterAll"><a href="#AfterAll" class="headerlink" title="@AfterAll"></a>@AfterAll</h4><ul>
+<li>表示在所有单元测试之后执行</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JUnit5Test</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">void</span> <span class="token function">testDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类2"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">void</span> <span class="token function">testDisplayName2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@BeforeEach</span>
+    <span class="token keyword">void</span> <span class="token function">testBeforeEach</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试方法要开始了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@AfterEach</span>
+    <span class="token keyword">void</span> <span class="token function">testAfterEach</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试方法要结束了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@BeforeAll</span>
+    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testBeforeAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"所有测试方法要开始了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：<code>@BeforeAll</code>和<code>@AfterAll</code>所修饰的方法必须是<code>static</code></p>
+</blockquote>
+<h4 id="Tag"><a href="#Tag" class="headerlink" title="@Tag"></a>@Tag</h4><ul>
+<li>表示单元测试类别，类似于JUnit4中的@Categories</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"aa"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">testDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Disabled"><a href="#Disabled" class="headerlink" title="@Disabled"></a>@Disabled</h4><ul>
+<li>表示测试类或测试方法不执行，类似于JUnit4中的@Ignore</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Disabled</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">testDisplayName2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Timeout"><a href="#Timeout" class="headerlink" title="@Timeout"></a>@Timeout</h4><ul>
+<li>表示测试方法运行如果超过了指定时间将会返回错误</li>
+<li>value：时间，默认是秒</li>
+<li>unit：设置时间格式</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token annotation punctuation">@Timeout</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span>unit <span class="token operator">=</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">)</span>
+<span class="token keyword">void</span> <span class="token function">testTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="ExtendWith"><a href="#ExtendWith" class="headerlink" title="@ExtendWith"></a>@ExtendWith</h4><ul>
+<li>为测试类或测试方法提供扩展类引用</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@BootstrapWith</span><span class="token punctuation">(</span><span class="token class-name">SpringBootTestContextBootstrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">SpringBootTest</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="RepeatedTest"><a href="#RepeatedTest" class="headerlink" title="@RepeatedTest"></a>@RepeatedTest</h4><ul>
+<li>重复对测试类进行单元测试</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JUnit5Test</span> <span class="token punctuation">&#123;</span>
+<span class="token annotation punctuation">@RepeatedTest</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testRepeat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -3285,7 +3435,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">194.2k</span>&nbsp;字&nbsp;|
+                class="white-color">195.8k</span>&nbsp;字&nbsp;|
             
             
             

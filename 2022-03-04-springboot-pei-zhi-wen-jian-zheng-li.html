@@ -815,14 +815,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-20
+                    2022-04-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -1187,6 +1187,40 @@ var _hmt = _hmt || [];
 <span class="token comment">#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)</span>
   <span class="token comment"># 扫描枚举的包</span>
   <span class="token key atrule">type-enums-package</span><span class="token punctuation">:</span> com.ssm.mybatis_plus.enums<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># druid数据源</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/db_account
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
+
+    <span class="token key atrule">druid</span><span class="token punctuation">:</span>
+      <span class="token key atrule">aop-patterns</span><span class="token punctuation">:</span> com.atguigu.admin.*  <span class="token comment">#监控SpringBean</span>
+      <span class="token key atrule">filters</span><span class="token punctuation">:</span> stat<span class="token punctuation">,</span>wall     <span class="token comment"># 底层开启功能，stat（sql监控），wall（防火墙）</span>
+
+      <span class="token key atrule">stat-view-servlet</span><span class="token punctuation">:</span>   <span class="token comment"># 配置监控页功能</span>
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">login-username</span><span class="token punctuation">:</span> admin
+        <span class="token key atrule">login-password</span><span class="token punctuation">:</span> admin
+        <span class="token key atrule">resetEnable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+      <span class="token key atrule">web-stat-filter</span><span class="token punctuation">:</span>  <span class="token comment"># 监控web</span>
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">urlPattern</span><span class="token punctuation">:</span> /*
+        <span class="token key atrule">exclusions</span><span class="token punctuation">:</span> <span class="token string">'*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'</span>
+
+
+      <span class="token key atrule">filter</span><span class="token punctuation">:</span>
+        <span class="token key atrule">stat</span><span class="token punctuation">:</span>    <span class="token comment"># 对上面filters里面的stat的详细配置</span>
+          <span class="token key atrule">slow-sql-millis</span><span class="token punctuation">:</span> <span class="token number">1000</span>
+          <span class="token key atrule">logSlowSql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+          <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">wall</span><span class="token punctuation">:</span>
+          <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+          <span class="token key atrule">config</span><span class="token punctuation">:</span>
+            <span class="token key atrule">drop-table-allow</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2098,7 +2132,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">194.2k</span>&nbsp;字&nbsp;|
+                class="white-color">195.8k</span>&nbsp;字&nbsp;|
             
             
             
