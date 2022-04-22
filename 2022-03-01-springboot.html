@@ -822,14 +822,14 @@ var _hmt = _hmt || [];
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.9k
+                    11.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    48 分
+                    52 分
                 </div>
                 
 
@@ -2748,6 +2748,291 @@ var _hmt = _hmt || [];
 <li>前置条件在 org.junit.jupiter.api.Assumptions 类中。</li>
 </ul>
 </blockquote>
+<h3 id="指标监控"><a href="#指标监控" class="headerlink" title="指标监控"></a>指标监控</h3><p><strong>引入依赖</strong></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<ul>
+<li>访问 <a target="_blank" rel="noopener" href="http://localhost:8080/actuator/">http://localhost:8080/actuator/</a></li>
+</ul>
+</blockquote>
+<p><strong>暴露所有监控信息为HTTP</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled-by-default</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#暴露所有端点信息</span>
+    <span class="token key atrule">web</span><span class="token punctuation">:</span>
+      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'*'</span>  <span class="token comment">#以web方式暴露</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>测试</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/actuator/beans">http://localhost:8080/actuator/beans</a></p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/actuator/configprops">http://localhost:8080/actuator/configprops</a></p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/actuator/metrics">http://localhost:8080/actuator/metrics</a></p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/actuator/metrics/jvm.gc.pause">http://localhost:8080/actuator/metrics/jvm.gc.pause</a></p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/actuator/metrics">http://localhost:8080/actuator/</a>endpointName/detailPath<br>。。。。。。</p>
+</blockquote>
+<h4 id="Actuator-Endpoint"><a href="#Actuator-Endpoint" class="headerlink" title="Actuator Endpoint"></a>Actuator Endpoint</h4><p><strong>最常使用的端点</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>auditevents</code></td>
+<td>暴露当前应用程序的审核事件信息。需要一个<code>AuditEventRepository组件</code>。</td>
+</tr>
+<tr>
+<td><code>beans</code></td>
+<td>显示应用程序中所有Spring Bean的完整列表。</td>
+</tr>
+<tr>
+<td><code>caches</code></td>
+<td>暴露可用的缓存。</td>
+</tr>
+<tr>
+<td><code>conditions</code></td>
+<td>显示自动配置的所有条件信息，包括匹配或不匹配的原因。</td>
+</tr>
+<tr>
+<td><code>configprops</code></td>
+<td>显示所有<code>@ConfigurationProperties</code>。</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>暴露Spring的属性<code>ConfigurableEnvironment</code></td>
+</tr>
+<tr>
+<td><code>flyway</code></td>
+<td>显示已应用的所有Flyway数据库迁移。 需要一个或多个<code>Flyway</code>组件。</td>
+</tr>
+<tr>
+<td><code>health</code></td>
+<td>显示应用程序运行状况信息。</td>
+</tr>
+<tr>
+<td><code>httptrace</code></td>
+<td>显示HTTP跟踪信息（默认情况下，最近100个HTTP请求-响应）。需要一个<code>HttpTraceRepository</code>组件。</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td>显示应用程序信息。</td>
+</tr>
+<tr>
+<td><code>integrationgraph</code></td>
+<td>显示Spring <code>integrationgraph</code> 。需要依赖<code>spring-integration-core</code>。</td>
+</tr>
+<tr>
+<td><code>loggers</code></td>
+<td>显示和修改应用程序中日志的配置。</td>
+</tr>
+<tr>
+<td><code>liquibase</code></td>
+<td>显示已应用的所有Liquibase数据库迁移。需要一个或多个<code>Liquibase</code>组件。</td>
+</tr>
+<tr>
+<td><code>metrics</code></td>
+<td>显示当前应用程序的“指标”信息。</td>
+</tr>
+<tr>
+<td><code>mappings</code></td>
+<td>显示所有<code>@RequestMapping</code>路径列表。</td>
+</tr>
+<tr>
+<td><code>scheduledtasks</code></td>
+<td>显示应用程序中的计划任务。</td>
+</tr>
+<tr>
+<td><code>sessions</code></td>
+<td>允许从Spring Session支持的会话存储中检索和删除用户会话。需要使用Spring Session的基于Servlet的Web应用程序。</td>
+</tr>
+<tr>
+<td><code>shutdown</code></td>
+<td>使应用程序正常关闭。默认禁用。</td>
+</tr>
+<tr>
+<td><code>startup</code></td>
+<td>显示由<code>ApplicationStartup</code>收集的启动步骤数据。需要使用<code>SpringApplication</code>进行配置<code>BufferingApplicationStartup</code>。</td>
+</tr>
+<tr>
+<td><code>threaddump</code></td>
+<td>执行线程转储。</td>
+</tr>
+</tbody></table>
+<p>如果您的应用程序是Web应用程序（Spring MVC，Spring WebFlux或Jersey），则可以使用以下附加端点：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>heapdump</code></td>
+<td>返回<code>hprof</code>堆转储文件。</td>
+</tr>
+<tr>
+<td><code>jolokia</code></td>
+<td>通过HTTP暴露JMX bean（需要引入Jolokia，不适用于WebFlux）。需要引入依赖<code>jolokia-core</code>。</td>
+</tr>
+<tr>
+<td><code>logfile</code></td>
+<td>返回日志文件的内容（如果已设置<code>logging.file.name</code>或<code>logging.file.path</code>属性）。支持使用HTTP<code>Range</code>标头来检索部分日志文件的内容。</td>
+</tr>
+<tr>
+<td><code>prometheus</code></td>
+<td>以Prometheus服务器可以抓取的格式公开指标。需要依赖<code>micrometer-registry-prometheus</code>。</td>
+</tr>
+</tbody></table>
+<p>最常用的Endpoint</p>
+<ul>
+<li><strong>Health：监控状况</strong></li>
+</ul>
+<blockquote>
+<p>健康检查端点，我们一般用于在云平台，平台会定时的检查应用的健康状况，我们就需要Health Endpoint可以为平台返回当前应用的一系列组件健康状况的集合。</p>
+<p>重要的几点：</p>
+<ul>
+<li>health endpoint返回的结果，应该是一系列健康检查后的一个汇总报告</li>
+<li>很多的健康检查默认已经自动配置好了，比如：数据库、redis等</li>
+<li>可以很容易的添加自定义的健康检查机制</li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9752459d90e2401189760279af76a11f.png" alt="health"></p>
+</blockquote>
+<ul>
+<li><strong>Metrics：运行时指标</strong></li>
+</ul>
+<blockquote>
+<p>提供详细的、层级的、空间指标信息，这些信息可以被pull（主动推送）或者push（被动获取）方式得到；</p>
+<ul>
+<li>通过Metrics对接多种监控系统</li>
+<li>简化核心Metrics开发</li>
+<li>添加自定义Metrics或者扩展已有Metrics</li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4401cecbd0a44d5ab9dff9ecb8291d9d.png" alt="metrics"></p>
+</blockquote>
+<ul>
+<li><strong>Loggers：日志记录</strong></li>
+</ul>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c9cdb32376ed43928f21a4fee0bc6987.png" alt="loggers"></p>
+<h4 id="管理Endpoints"><a href="#管理Endpoints" class="headerlink" title="管理Endpoints"></a>管理Endpoints</h4><p><strong>开启与禁用Endpoints</strong></p>
+<blockquote>
+<ul>
+<li>默认所有的Endpoint除过shutdown都是开启的。</li>
+<li>需要开启或者禁用某个Endpoint。配置模式为  <strong>management.endpoint.<strong><strong><endpointName></strong></strong>.enabled = tru</strong></li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoint</span><span class="token punctuation">:</span>
+    <span class="token key atrule">beans</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<ul>
+<li>或者禁用所有的Endpoint然后手动开启指定的Endpoint</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled-by-default</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#不暴露所有端点信息</span>
+    <span class="token key atrule">web</span><span class="token punctuation">:</span>
+      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'*'</span>  <span class="token comment">#以web方式暴露</span>
+  <span class="token key atrule">endpoint</span><span class="token punctuation">:</span>
+    <span class="token key atrule">health</span><span class="token punctuation">:</span>
+      <span class="token key atrule">show-details</span><span class="token punctuation">:</span> always
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">info</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">beans</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">metrics</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="定制-Endpoint"><a href="#定制-Endpoint" class="headerlink" title="定制 Endpoint"></a>定制 Endpoint</h4><h5 id="定制-Health-信息"><a href="#定制-Health-信息" class="headerlink" title="定制 Health 信息"></a>定制 Health 信息</h5><blockquote>
+<p>自定义的Health类名必须叫xxxHealthIndicator.xxx则是组件名字</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyComHealthIndicator</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHealthIndicator</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 真实的检查方法
+     * @param builder
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doHealthCheck</span><span class="token punctuation">(</span><span class="token class-name">Health<span class="token punctuation">.</span>Builder</span> builder<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//mongodb。  获取连接进行测试</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 检查完成</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token comment">//            builder.up(); //健康</span>
+            builder<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>UP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"ms"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+<span class="token comment">//            builder.down();</span>
+            builder<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span>OUT_OF_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"err"</span><span class="token punctuation">,</span><span class="token string">"连接超时"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"ms"</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+
+        builder<span class="token punctuation">.</span><span class="token function">withDetail</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">withDetails</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/cf5ca314972e47c8a871c6ae968d49cc.png" alt="mycom"></p>
+<h5 id="定制info信息"><a href="#定制info信息" class="headerlink" title="定制info信息"></a>定制info信息</h5><blockquote>
+<p>两种方式</p>
+</blockquote>
+<p><strong>1.编写配置文件</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">info</span><span class="token punctuation">:</span>
+  <span class="token key atrule">appName</span><span class="token punctuation">:</span> boot<span class="token punctuation">-</span>admin
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> 2.0.1
+  <span class="token key atrule">mavenProjectName</span><span class="token punctuation">:</span> @project.artifactId@  <span class="token comment">#使用@@可以获取maven的pom文件值</span>
+  <span class="token key atrule">mavenProjectVersion</span><span class="token punctuation">:</span> @project.version@<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>2.编写InfoContributor</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExampleInfoContributor</span> <span class="token keyword">implements</span> <span class="token class-name">InfoContributor</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contribute</span><span class="token punctuation">(</span><span class="token class-name">Info<span class="token punctuation">.</span>Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        builder<span class="token punctuation">.</span><span class="token function">withDetail</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">,</span>
+                <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">singletonMap</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/a3f04608c73a48e4a6d5b1a20f1099d5.png" alt="info"></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">info</span><span class="token punctuation">:</span>
+  <span class="token key atrule">appName</span><span class="token punctuation">:</span> boot<span class="token punctuation">-</span>admin
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> 2.0.1
+  <span class="token key atrule">mavenProjectName</span><span class="token punctuation">:</span> @project.artifactId@  <span class="token comment">#使用@@可以获取maven的pom文件值</span>
+  <span class="token key atrule">mavenProjectVersion</span><span class="token punctuation">:</span> @project.version@<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h3 id="Spring-Boot-项目配置字符编码"><a href="#Spring-Boot-项目配置字符编码" class="headerlink" title="Spring Boot 项目配置字符编码"></a>Spring Boot 项目配置字符编码</h3><h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SystemConfig</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Bean</span>
@@ -3861,7 +4146,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">198.5k</span>&nbsp;字&nbsp;|
+                class="white-color">199.7k</span>&nbsp;字&nbsp;|
             
             
             
