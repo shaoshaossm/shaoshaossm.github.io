@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-21
+                    2022-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.8k
+                    10.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    42 分
+                    46 分
                 </div>
                 
 
@@ -1956,7 +1956,7 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="RibbonClient-name-“CLOUD-PAYMENT-SERVICE”-configuration-MySelfRule-class"><a href="#RibbonClient-name-“CLOUD-PAYMENT-SERVICE”-configuration-MySelfRule-class" class="headerlink" title="@RibbonClient(name = “CLOUD-PAYMENT-SERVICE”,configuration = MySelfRule.class)"></a>@RibbonClient(name = “CLOUD-PAYMENT-SERVICE”,configuration = MySelfRule.class)</h4><ul>
+<h4 id="RibbonClient"><a href="#RibbonClient" class="headerlink" title="@RibbonClient"></a>@RibbonClient</h4><ul>
 <li>配置Ribbon负载均衡策略</li>
 <li><code>name </code>：服务提供者名称 </li>
 <li><code>configuration</code> ：负载均衡配置类</li>
@@ -2455,12 +2455,12 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
 
     <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类"</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@Test</span>
-    <span class="token keyword">void</span> <span class="token function">testDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"junit5功能测试类2"</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@Test</span>
-    <span class="token keyword">void</span> <span class="token function">testDisplayName2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testDisplayName2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token annotation punctuation">@BeforeEach</span>
@@ -2529,6 +2529,188 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="ValueSource、-NullSource、-EnumSource、-MethodSource、-CsvFileSource"><a href="#ValueSource、-NullSource、-EnumSource、-MethodSource、-CsvFileSource" class="headerlink" title="@ValueSource、@NullSource、@EnumSource、 @MethodSource、@CsvFileSource"></a>@ValueSource、@NullSource、@EnumSource、 @MethodSource、@CsvFileSource</h4><ul>
+<li><p><code>@ValueSource</code>: 为参数化测试指定入参来源，支持八大基础类以及String类型,Class类型</p>
+</li>
+<li><p><code>@NullSource</code>: 表示为参数化测试提供一个null的入参</p>
+</li>
+<li><p><code>@EnumSource</code>: 表示为参数化测试提供一个枚举入参</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Season</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">SPRING</span><span class="token punctuation">(</span><span class="token string">"春天"</span><span class="token punctuation">,</span><span class="token string">"春暖花开"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">SUMMER</span><span class="token punctuation">(</span><span class="token string">"夏天"</span><span class="token punctuation">,</span><span class="token string">"夏日炎炎"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">AUTUMN</span><span class="token punctuation">(</span><span class="token string">"秋天"</span><span class="token punctuation">,</span><span class="token string">"秋高气爽"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">WINTER</span><span class="token punctuation">(</span><span class="token string">"冬天"</span><span class="token punctuation">,</span><span class="token string">"白雪皑皑"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> seasonName<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> seasonDesc<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Season</span><span class="token punctuation">(</span><span class="token class-name">String</span> seasonName<span class="token punctuation">,</span> <span class="token class-name">String</span> seasonDesc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>seasonName <span class="token operator">=</span> seasonName<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>seasonDesc <span class="token operator">=</span> seasonDesc<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSeasonName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> seasonName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSeasonDesc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> seasonDesc<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"Season&#123;"</span> <span class="token operator">+</span>
+                <span class="token string">"seasonName='"</span> <span class="token operator">+</span> seasonName <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">", seasonDesc='"</span> <span class="token operator">+</span> seasonDesc <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>@MethodSource</code>：表示读取指定方法的返回值作为参数化测试入参(注意方法返回需要是一个流)</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ssm</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Assertions</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">DisplayName</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span></span><span class="token class-name">ParameterizedTest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">EnumSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">MethodSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">NullSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">ValueSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>platform<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">StringUtils</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span></span><span class="token class-name">Stream</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ParameterizedTest01</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@ParameterizedTest</span>
+    <span class="token annotation punctuation">@ValueSource</span><span class="token punctuation">(</span>strings <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"one"</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">,</span> <span class="token string">"three"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"参数化测试1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">parameterizedTest1</span><span class="token punctuation">(</span><span class="token class-name">String</span> string<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assertions</span><span class="token punctuation">.</span><span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isNotBlank</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@ParameterizedTest</span>
+    <span class="token annotation punctuation">@NullSource</span>
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"参数化测试1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">parameterizedTest2</span><span class="token punctuation">(</span><span class="token class-name">String</span> a<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@ParameterizedTest</span>
+    <span class="token annotation punctuation">@EnumSource</span>
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"参数化测试1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">parameterizedTest3</span><span class="token punctuation">(</span><span class="token class-name">Season</span> season<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Season</span> chu <span class="token operator">=</span> <span class="token class-name">Season</span><span class="token punctuation">.</span>SPRING<span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>chu<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>season<span class="token punctuation">.</span><span class="token function">getSeasonName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>season<span class="token punctuation">.</span><span class="token function">getSeasonDesc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@ParameterizedTest</span>
+    <span class="token annotation punctuation">@MethodSource</span><span class="token punctuation">(</span><span class="token string">"method"</span><span class="token punctuation">)</span>    <span class="token comment">//指定方法名</span>
+    <span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"方法来源参数"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testWithExplicitLocalMethodSource</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assertions</span><span class="token punctuation">.</span><span class="token function">assertNotNull</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">static</span> <span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>@CsvFileSource</code>：表示读取指定CSV文件内容作为参数化测试入参</li>
+</ul>
+<p>Insurance</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Insurance</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">Basic_PREMIUM_RATE</span> <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> SETTING <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">28</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">150</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">250</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">calcSetting</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">16</span> <span class="token operator">||</span> age <span class="token operator">></span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">35</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> SETTING<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">calcInsurance</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">,</span><span class="token keyword">int</span> score<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> insuranceMoney <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>score <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> score<span class="token operator">&lt;</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> setting <span class="token operator">=</span> <span class="token function">calcSetting</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>setting<span class="token operator">!=</span>SETTING<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> safeDrivingDiscount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> ageCoeffcient <span class="token operator">=</span> setting<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> scoreThreshold <span class="token operator">=</span> setting<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>score<span class="token operator">></span>scoreThreshold<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    safeDrivingDiscount <span class="token operator">=</span> setting<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                insuranceMoney <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token class-name">Basic_PREMIUM_RATE</span><span class="token operator">/</span><span class="token number">10</span><span class="token operator">*</span>ageCoeffcient<span class="token punctuation">)</span><span class="token operator">-</span>safeDrivingDiscount<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> insuranceMoney<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>按住ctrl + shift + T,自动生成测试类如下：</p>
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4677b4893eb246258ac12536a3e452f8.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>InsuranceTest</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ssm</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span></span><span class="token class-name">ParameterizedTest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>params<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">CsvFileSource</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Assertions</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InsuranceTest</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token class-name">Insurance</span> insurance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Insurance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ParameterizedTest</span>
+    <span class="token annotation punctuation">@CsvFileSource</span><span class="token punctuation">(</span>resources <span class="token operator">=</span> <span class="token string">"/test.csv"</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">calcInsurance</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">,</span><span class="token keyword">int</span> score<span class="token punctuation">,</span><span class="token keyword">int</span> money<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">assertEquals</span><span class="token punctuation">(</span>money<span class="token punctuation">,</span>insurance<span class="token punctuation">.</span><span class="token function">calcInsurance</span><span class="token punctuation">(</span>age<span class="token punctuation">,</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>resources-test.csv</p>
+<pre class="line-numbers language-csv" data-language="csv"><code class="language-csv"><span class="token value">20</span><span class="token punctuation">,</span><span class="token value">12</span><span class="token punctuation">,</span><span class="token value">2750</span>
+<span class="token value">20</span><span class="token punctuation">,</span><span class="token value">6</span><span class="token punctuation">,</span><span class="token value">2800</span>
+<span class="token value">30</span><span class="token punctuation">,</span><span class="token value">11</span><span class="token punctuation">,</span><span class="token value">1700</span>
+<span class="token value">30</span><span class="token punctuation">,</span><span class="token value">5</span><span class="token punctuation">,</span><span class="token value">1800</span>
+<span class="token value">40</span><span class="token punctuation">,</span><span class="token value">10</span><span class="token punctuation">,</span><span class="token value">850</span>
+<span class="token value">40</span><span class="token punctuation">,</span><span class="token value">4</span><span class="token punctuation">,</span><span class="token value">1000</span>
+<span class="token value">52</span><span class="token punctuation">,</span><span class="token value">9</span><span class="token punctuation">,</span><span class="token value">600</span>
+<span class="token value">52</span><span class="token punctuation">,</span><span class="token value">3</span><span class="token punctuation">,</span><span class="token value">800</span>
+<span class="token value">70</span><span class="token punctuation">,</span><span class="token value">10</span><span class="token punctuation">,</span><span class="token value">1250</span>
+<span class="token value">70</span><span class="token punctuation">,</span><span class="token value">4</span><span class="token punctuation">,</span><span class="token value">1500</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/3598deef8a354482a10a67502d59284c.png" alt="测试结构"></p>
+<blockquote>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Zheng_lan/article/details/115223343">https://blog.csdn.net/Zheng_lan/article/details/115223343</a></p>
+</blockquote>
 
 
 
@@ -3435,7 +3617,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">195.8k</span>&nbsp;字&nbsp;|
+                class="white-color">198.5k</span>&nbsp;字&nbsp;|
             
             
             
