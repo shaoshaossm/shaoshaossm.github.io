@@ -819,7 +819,7 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-31
+                    2022-04-23
                 </div>
                 
 
@@ -951,7 +951,7 @@ var _hmt = _hmt || [];
 <p>application.properties</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#数据库连接配置</span>
 <span class="token attr-name">spring.datasource.username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
-<span class="token attr-name">spring.datasource.password</span><span class="token punctuation">=</span><span class="token attr-value">hxl158120</span>
+<span class="token attr-name">spring.datasource.password</span><span class="token punctuation">=</span>
 <span class="token comment">#mysql5~8 驱动不同driver-class-name     8需要增加时区的配置serverTimezone=UTC</span>
 <span class="token comment">#useSSL=false 安全连接</span>
 <span class="token attr-name">spring.datasource.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true</span>
@@ -1724,7 +1724,7 @@ VERSION <span class="token keyword">INT</span><span class="token punctuation">(<
         <span class="token comment">// 设置我们需要创建在哪的路径</span>
         <span class="token class-name">String</span> path <span class="token operator">=</span> <span class="token string">"E:\\ideaProjectAll\\mybatis_plus"</span><span class="token punctuation">;</span>
         <span class="token comment">// 这里我是mysql8 5版本可以换成 jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf-8&amp;useSSL=false</span>
-        <span class="token class-name">FastAutoGenerator</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true"</span><span class="token punctuation">,</span> <span class="token string">"root"</span><span class="token punctuation">,</span> <span class="token string">"hxl158120"</span><span class="token punctuation">)</span>
+        <span class="token class-name">FastAutoGenerator</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true"</span><span class="token punctuation">,</span> <span class="token string">"root"</span><span class="token punctuation">,</span> <span class="token string">"数据库密码"</span><span class="token punctuation">)</span>
                 <span class="token punctuation">.</span><span class="token function">globalConfig</span><span class="token punctuation">(</span>builder <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
                     builder<span class="token punctuation">.</span><span class="token function">author</span><span class="token punctuation">(</span><span class="token string">"ssm"</span><span class="token punctuation">)</span> <span class="token comment">// 设置作者</span>
                             <span class="token comment">// .enableSwagger() // 开启 swagger 模式</span>
@@ -1785,12 +1785,12 @@ VERSION <span class="token keyword">INT</span><span class="token punctuation">(<
           <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/mybatis_plus<span class="token punctuation">?</span>useSSL=false<span class="token important">&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true</span>
           <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
           <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-          <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">'hxl158120'</span>
+          <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">'数据库密码'</span>
         <span class="token key atrule">slave_1</span><span class="token punctuation">:</span>
           <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/mybatis_plus_1<span class="token punctuation">?</span>useSSL=false<span class="token important">&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true</span>
           <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
           <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-          <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">'hxl158120'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">'数据库密码'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>测试</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
@@ -2725,7 +2725,7 @@ VERSION <span class="token keyword">INT</span><span class="token punctuation">(<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">200.6k</span>&nbsp;字&nbsp;|
+                class="white-color">200.9k</span>&nbsp;字&nbsp;|
             
             
             

@@ -822,14 +822,14 @@ var _hmt = _hmt || [];
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.7k
+                    10.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    47 分
+                    48 分
                 </div>
                 
 
@@ -939,20 +939,31 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">myname</span><span class="token punctuation">=</span><span class="token attr-value">zhangsan</span>
 <span class="token attr-name">myage</span><span class="token punctuation">=</span><span class="token attr-value">30</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h4 id="Autowired-Qualifier"><a href="#Autowired-Qualifier" class="headerlink" title="@Autowired @Qualifier"></a>@Autowired @Qualifier</h4><ul>
-<li>引用类型，实现引用类型的赋值</li>
-<li><font color="red">默认使用的是byType自动注入</font></li>
-<li>如果要使用<code>byName</code>方式<ul>
-<li>在属性上面加入@Autowired</li>
-<li>在属性上面加入@Qualifier(value = “bean的id”) ：表示使用指定名称的bean完成赋值</li>
+<h4 id="Autowire、-Qualifier、-Primary"><a href="#Autowire、-Qualifier、-Primary" class="headerlink" title="@Autowire、@Qualifier、@Primary"></a>@Autowire、@Qualifier、@Primary</h4><ul>
+<li><p>引用类型，实现引用类型的赋值</p>
+</li>
+<li><p><font color="red">默认使用的是byType自动注入</font></p>
+</li>
+<li><p>如果要使用<code>byName</code>方式</p>
+<ul>
+<li>在属性上面加入<code>@Autowired</code></li>
+<li>在属性上面加入<code>@Qualifier(value = &quot;bean的id&quot;) </code>：表示使用指定名称的bean完成赋值</li>
 </ul>
 </li>
-<li>属性：required，是一个boolean类型的，默认是true<ul>
+<li><p>属性：required，是一个boolean类型的，默认是true</p>
+<ul>
 <li>require=true: 表示引用类型赋值失败，程序报错，并终止执行</li>
 <li>require=false：表示引用类型赋值失败，程序正常执行，引用类型是null</li>
 </ul>
 </li>
-<li>位置：<ul>
+<li><p><code>@Primary</code>：标注优先使用哪一个实现类。</p>
+<ul>
+<li>让spring进行自动装配的时候，默认使用首选的Bean</li>
+<li>不能和<code>@Qualifier</code>一起使用</li>
+</ul>
+</li>
+<li><p>位置：</p>
+<ul>
 <li>在属性定义上面，无需set方法，推荐使用</li>
 <li>在set方法上面</li>
 </ul>
@@ -965,6 +976,55 @@ var _hmt = _hmt || [];
 <span class="token annotation punctuation">@Autowired</span>
 <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"mySchool"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">School</span> school<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span><span class="token string">"com.ssm.service"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfigOfAutowired</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Primary</span>
+	<span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"bookDao2"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token class-name">BookDao</span> <span class="token function">bookDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">BookDao</span> bookDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BookDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		bookDao<span class="token punctuation">.</span><span class="token function">setLable</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> bookDao<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//	@Qualifier("bookDao") // 要让首选装配起效果，@Qualifier自然就不能用了</span>
+	<span class="token annotation punctuation">@Autowired</span><span class="token punctuation">(</span>required<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+	<span class="token keyword">private</span> <span class="token class-name">BookDao</span> bookDao<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Lazy"><a href="#Lazy" class="headerlink" title="@Lazy"></a>@Lazy</h4><ul>
+<li>懒加载：容器启动不创建对象。第一次使用（获取）Bean创建对象，并初始化</li>
+<li>单实例bean：默认在容器启动的时候创建对象</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfig</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Lazy</span>
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Person</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"给容器中添加Person"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张三"</span>，<span class="token number">22</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Scope"><a href="#Scope" class="headerlink" title="@Scope"></a>@Scope</h4><ul>
+<li>设置组件作用域 <ul>
+<li><code>prototype</code>:多例的</li>
+<li><code>singleton</code>:单例的（默认值）</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfig</span><span class="token punctuation">&#123;</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token string">"prototype"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Lazy</span>
+<span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Person</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"给容器中添加Person"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张三"</span>，<span class="token number">22</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4><ul>
 <li>引用类型</li>
@@ -3686,7 +3746,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">200.6k</span>&nbsp;字&nbsp;|
+                class="white-color">200.9k</span>&nbsp;字&nbsp;|
             
             
             
