@@ -815,21 +815,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-22
+                    2022-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.5k
+                    10.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    46 分
+                    47 分
                 </div>
                 
 
@@ -912,7 +912,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><ul>
 <li>简单类型的属性赋值</li>
-<li>属性：value 是string类型的，表示简单类型的属性值</li>
+<li>属性：value 是string类型的，表示简单类型的属性值，：默认值</li>
 <li>位置：<ul>
 <li>在属性定义的上面，无需set方法，推荐使用</li>
 <li>在set方法上面</li>
@@ -931,7 +931,10 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;myname&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
 <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;myage&#125;"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+<span class="token comment">// 读取不到的话用默认值20</span>
+<span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;myage:20&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">myname</span><span class="token punctuation">=</span><span class="token attr-value">zhangsan</span>
 <span class="token attr-name">myage</span><span class="token punctuation">=</span><span class="token attr-value">30</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1798,6 +1801,72 @@ var _hmt = _hmt || [];
 <span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages<span class="token operator">=</span><span class="token string">"com.ssm.vo"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> springConfig<span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Endpoint、-ReadOperation、-WriteOperation"><a href="#Endpoint、-ReadOperation、-WriteOperation" class="headerlink" title="@Endpoint、@ReadOperation、@WriteOperation"></a>@Endpoint、@ReadOperation、@WriteOperation</h4><ul>
+<li><code>@Endpoint</code>：定制endpoint端点名称</li>
+<li><code>@ReadOperation</code>：读操作</li>
+<li><code>@WriteOperation</code>：写操作</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Endpoint</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"container"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DockerEndpoint</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@ReadOperation</span>
+    <span class="token keyword">public</span> <span class="token class-name">Map</span> <span class="token function">getDockerInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">singletonMap</span><span class="token punctuation">(</span><span class="token string">"info"</span><span class="token punctuation">,</span><span class="token string">"docker started..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@WriteOperation</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">restartDocker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"docker restarted...."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="EnableAdminServer"><a href="#EnableAdminServer" class="headerlink" title="@EnableAdminServer"></a>@EnableAdminServer</h4><ul>
+<li>开启springboot可视化</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableAdminServer</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BootAdminserverApplication</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">BootAdminserverApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Profile"><a href="#Profile" class="headerlink" title="@Profile"></a>@Profile</h4><ul>
+<li>位置：类、方法上，不同的位置作用域不同</li>
+<li>value：指定环境<ul>
+<li>default：使用默认环境</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span><span class="token string">"prod"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyConfig</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyConfig</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Color</span> <span class="token function">green</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Color</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"prod"</span><span class="token punctuation">,</span><span class="token string">"default"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token keyword">implements</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><h4 id="Param"><a href="#Param" class="headerlink" title="@Param"></a>@Param</h4><ul>
 <li>作用是用于传递参数，从而可以与SQL中的的字段名相对应，一般在2=&lt;参数数&lt;=5时使用最佳。</li>
@@ -3617,7 +3686,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">199.7k</span>&nbsp;字&nbsp;|
+                class="white-color">200.6k</span>&nbsp;字&nbsp;|
             
             
             
