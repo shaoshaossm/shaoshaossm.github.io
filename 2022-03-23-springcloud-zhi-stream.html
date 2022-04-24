@@ -871,7 +871,7 @@ var _hmt = _hmt || [];
 <p><font color="orange">目前仅支持RabbitMQ、 Kafka。</font></p>
 </blockquote>
 <h3 id="Stream的设计思想"><a href="#Stream的设计思想" class="headerlink" title="Stream的设计思想"></a>Stream的设计思想</h3><p><strong>标准MQ</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/fd1072bb8c6c4a478d7f389f64db61a9.png" alt="标准MQ"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/fd1072bb8c6c4a478d7f389f64db61a9.png" alt="标准MQ"></p>
 <ul>
 <li>生产者/消费者之间靠消息媒介传递信息内容</li>
 <li>消息必须走特定的通道 - 消息通道 Message Channel</li>
@@ -879,7 +879,7 @@ var _hmt = _hmt || [];
 </ul>
 <p><strong>为什么用Cloud Stream？</strong></p>
 <p>比方说我们用到了RabbitMQ和Kafka，由于这两个消息中间件的架构上的不同，像RabbitMQ有exchange，kafka有Topic和Partitions分区。</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1f4fee05aa3d406286e0063ca42205fe.png" alt="设计思想"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/1f4fee05aa3d406286e0063ca42205fe.png" alt="设计思想"></p>
 <p>这些中间件的差异性导致我们实际项目开发给我们造成了一定的困扰，我们如果用了两个消息队列的其中一种，后面的业务需求，我想往另外一种消息队列进行迁移，这时候无疑就是一个灾难性的，一大堆东西都要重新推倒重新做，因为它跟我们的系统耦合了，这时候Spring Cloud Stream给我们提供了—种解耦合的方式。</p>
 <p><strong>Stream凭什么可以统一底层差异？</strong></p>
 <p>在没有绑定器这个概念的情况下，我们的SpringBoot应用要直接与消息中间件进行信息交互的时候，由于各消息中间件构建的初衷不同，它们的实现细节上会有较大的差异性通过定义绑定器作为中间层，完美地实现了<font color="orange">应用程序与消息中间件细节之间的隔离</font>。通过向应用程序暴露统一的Channel通道，使得应用程序不需要再考虑各种不同的消息中间件实现。</p>
@@ -893,7 +893,7 @@ var _hmt = _hmt || [];
 <li><p><code>OUTPUT</code>对应于生产者</p>
 </li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/cc7e41d72aa544c996188c18e5d94513.png" alt="处理架构"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/cc7e41d72aa544c996188c18e5d94513.png" alt="处理架构"></p>
 <p><strong>Stream中的消息通信方式遵循了发布-订阅模式</strong></p>
 <p>Topic主题进行广播</p>
 <ul>
@@ -901,12 +901,12 @@ var _hmt = _hmt || [];
 <li>在Kakfa中就是Topic</li>
 </ul>
 <h3 id="Stream编码常用注解简介"><a href="#Stream编码常用注解简介" class="headerlink" title="Stream编码常用注解简介"></a>Stream编码常用注解简介</h3><p><strong>Spring Cloud Stream标准流程套路</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/39fe7b00a2414e7b9215e6616809b008.png" alt="标准流程套路"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/39fe7b00a2414e7b9215e6616809b008.png" alt="标准流程套路"></p>
 <p><code>Binder</code> - 很方便的连接中间件，屏蔽差异。</p>
 <p><code>Channel </code>- 通道，是队列Queue的一种抽象，在消息通讯系统中就是实现存储和转发的媒介，通过Channel对队列进行配置。</p>
 <p><code>Source和Sink</code> - 简单的可理解为参照对象是Spring Cloud Stream自身，从Stream发布消息就是输出，接受消息就是输入。</p>
 <p><strong>编码API和常用注解</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/22b4dcb2deae4a38aa0da586b6b2dc48.png" alt="常用注解"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/22b4dcb2deae4a38aa0da586b6b2dc48.png" alt="常用注解"></p>
 <h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul>
 <li><p>准备RabbitMQ环境（79_Bus之RabbitMQ环境配置有提及）</p>
 </li>
@@ -918,7 +918,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="Stream消息驱动之生产者"><a href="#Stream消息驱动之生产者" class="headerlink" title="Stream消息驱动之生产者"></a>Stream消息驱动之生产者</h4><p><strong>new module</strong><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/570d8edc6f004480bb40395559404a7e.png" alt="目录结构"></p>
+<h4 id="Stream消息驱动之生产者"><a href="#Stream消息驱动之生产者" class="headerlink" title="Stream消息驱动之生产者"></a>Stream消息驱动之生产者</h4><p><strong>new module</strong><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/570d8edc6f004480bb40395559404a7e.png" alt="目录结构"></p>
 <p>POM.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1053,9 +1053,9 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ec98fc0015314ead950a9d09e7afc8fd.png" alt="测试成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/ec98fc0015314ead950a9d09e7afc8fd.png" alt="测试成功"></p>
 <h4 id="Stream消息驱动之消费者"><a href="#Stream消息驱动之消费者" class="headerlink" title="Stream消息驱动之消费者"></a>Stream消息驱动之消费者</h4><p><strong>new module</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/43b38cf4623f4559aa7e1be8d7006046.png" alt="目录结构"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/43b38cf4623f4559aa7e1be8d7006046.png" alt="目录结构"></p>
 <p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1173,7 +1173,7 @@ var _hmt = _hmt || [];
 <li>启动StreamMQMain8802</li>
 <li>8801发送8802接收消息</li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4d0a662c075848849ff1985dc0e50528.png" alt="接收成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/4d0a662c075848849ff1985dc0e50528.png" alt="接收成功"></p>
 <h3 id="Stream之消息重复消费"><a href="#Stream之消息重复消费" class="headerlink" title="Stream之消息重复消费"></a>Stream之消息重复消费</h3><p>依照8802，克隆出来一份运行 8803 - cloud-stream-rabbitmq-consumer8803。</p>
 <p><strong>启动</strong></p>
 <ul>
@@ -1193,7 +1193,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><strong>生产实际案例</strong></p>
 <p>比如在如下场景中，订单系统我们做集群部署，都会从RabbitMQ中获取订单信息，那<font color="orange">如果一个订单同时被两个服务获取到</font>，那么就会造成数据错误，我们得避免这种情况。这时我们就可以<font color="orange">使用Stream中的消息分组来解决</font>。</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/60dccd3b52f94f2da08728b13153fb86.png" alt="图解"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/60dccd3b52f94f2da08728b13153fb86.png" alt="图解"></p>
 <blockquote>
 <p>注意在Stream中处于同一个group中的多个消费者是竞争关系，就能够保证消息只会被其中一个应用消费一次。<font color="red">不同组是可以全面消费的(重复消费)。</font></p>
 <p><font color="red">同一组内会发生竞争关系，只有其中一个可以消费</font></p>
@@ -1242,7 +1242,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>还是处在两个不同A、B组</p>
 </blockquote>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c1a48a8cb2fc4704b61ce4249b3db9ea.png" alt="测试group"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/c1a48a8cb2fc4704b61ce4249b3db9ea.png" alt="测试group"></p>
 <p><strong>8802/8803都变成相同组，group两个相同</strong></p>
 <ul>
 <li><p>8802修改YML<code>group: ssmA</code></p>
@@ -1255,8 +1255,8 @@ var _hmt = _hmt || [];
 <li>8001发送两次消息</li>
 <li>8002和8003分别收到一次</li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2031fe1e52ae4946abe73cec1572a961.png" alt="8002"><br><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/fc39b2c090564b9e8ff7b2445f3ddb00.png" alt="8003"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f3cbc83beab2462c844ab94be8aaece0.png" alt="测试成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/2031fe1e52ae4946abe73cec1572a961.png" alt="8002"><br><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/fc39b2c090564b9e8ff7b2445f3ddb00.png" alt="8003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f3cbc83beab2462c844ab94be8aaece0.png" alt="测试成功"></p>
 <h3 id="Stream之消息持久化"><a href="#Stream之消息持久化" class="headerlink" title="Stream之消息持久化"></a>Stream之消息持久化</h3><ul>
 <li><p>停止8802/8803并去除掉8802的分组group: ssmA，8803的分组group: A_Group没有去掉。</p>
 </li>
@@ -1267,7 +1267,7 @@ var _hmt = _hmt || [];
 <li><p>再启动8803，有分组属性配置，后台<font color="red">打出来了MQ上的4消息</font>。(消息持久化体现)</p>
 </li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/7486f0be480544ac8d6a65da95aa9007.png" alt="消息持久化"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/7486f0be480544ac8d6a65da95aa9007.png" alt="消息持久化"></p>
 
 
 
@@ -1478,10 +1478,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1852,7 +1852,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-23-springcloud-zhi-sleuth.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8684333b93a54da58a593fbc20db9c62.png" class="responsive-img" alt="SpringCloud之Sleuth">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8684333b93a54da58a593fbc20db9c62.png" class="responsive-img" alt="SpringCloud之Sleuth">
                         
                         <span class="card-title">SpringCloud之Sleuth</span>
                     </div>
@@ -1904,7 +1904,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-22-springcloud-zhi-bus.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/02cc733f1f9145fa8542c30bebdf903c.png" class="responsive-img" alt="SpringCloud之Bus">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/02cc733f1f9145fa8542c30bebdf903c.png" class="responsive-img" alt="SpringCloud之Bus">
                         
                         <span class="card-title">SpringCloud之Bus</span>
                     </div>

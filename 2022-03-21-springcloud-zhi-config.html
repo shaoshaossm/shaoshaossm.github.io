@@ -860,7 +860,7 @@ var _hmt = _hmt || [];
 <p>微服务意味着要将单体应用中的业务拆分成一个个子服务，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一套集中式的、动态的配置管理设施是必不可少的。</p>
 <p>SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自己带着一个application.yml，上百个配置文件的管理.……</p>
 <p>SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为<font color="orange">各个不同微服务应用</font>的所有环境提供了一个<font color="orange">中心化的外部配置</font>。</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/bb3496cd42ac49d3b158a5d624283eb3.png" alt="图解"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/bb3496cd42ac49d3b158a5d624283eb3.png" alt="图解"></p>
 <p><strong>怎么玩</strong></p>
 <ul>
 <li>SpringCloud Config分为<font color="orange">服务端和客户端两部分</font>。<ul>
@@ -881,9 +881,9 @@ var _hmt = _hmt || [];
 <p><a target="_blank" rel="noopener" href="https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.2.1.RELEASE/reference/html/">官网</a></p>
 <h3 id="Config配置总控中心搭建-服务端"><a href="#Config配置总控中心搭建-服务端" class="headerlink" title="Config配置总控中心搭建(服务端)"></a>Config配置总控中心搭建(服务端)</h3><p>在自己的github上新建一个名为springcloud-config的新Repository,选择readm.md。</p>
 <p>clone配置文件<code> git clone git@github.com:zzyybs/springcloud-config.git</code></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/372be261195a4b4684bdf1b1628b3d4f.png" alt="git clone"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/372be261195a4b4684bdf1b1628b3d4f.png" alt="git clone"></p>
 <p>上传文件到自己的仓库中</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/001e623c4f384b5284547f1aeaa45835.png" alt="springcloud-config"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/001e623c4f384b5284547f1aeaa45835.png" alt="springcloud-config"></p>
 <ul>
 <li>config-dev.yml</li>
 </ul>
@@ -902,7 +902,7 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">config</span><span class="token punctuation">:</span>
   <span class="token key atrule">info</span><span class="token punctuation">:</span> <span class="token string">"master branch,springcloud-config/config-test.yml version=1"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/97c770af31db46849d1dcab60a21f810.png" alt="目录结构"></p>
+<h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/97c770af31db46849d1dcab60a21f810.png" alt="目录结构"></p>
 <p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
        <span class="token comment">&lt;!--添加消息总线RabbitMQ支持--></span>
@@ -986,7 +986,7 @@ var _hmt = _hmt || [];
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">127.0.0.1 config-3344.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>浏览器访问 <a target="_blank" rel="noopener" href="http://config-3344.com:3344/main/config-dev.yml">http://config-3344.com:3344/main/config-dev.yml</a></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f67ce1d506ac43a0b072a732d09a16a1.png" alt="测试成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f67ce1d506ac43a0b072a732d09a16a1.png" alt="测试成功"></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.2.1.RELEASE/reference/html/#_quick_start">官方文档</a></li>
 <li>/{label}/{application}-{profile}.yml（推荐）<ul>
@@ -997,7 +997,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>成功实现了用SpringCloud Config通过GitHub获取配置信息</p>
-<h3 id="Config客户端配置与测试"><a href="#Config客户端配置与测试" class="headerlink" title="Config客户端配置与测试"></a>Config客户端配置与测试</h3><h4 id="new-module-1"><a href="#new-module-1" class="headerlink" title="new module"></a>new module</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6c145d42a4374769a07f151ad67a0ada.png" alt="目录结构"></p>
+<h3 id="Config客户端配置与测试"><a href="#Config客户端配置与测试" class="headerlink" title="Config客户端配置与测试"></a>Config客户端配置与测试</h3><h4 id="new-module-1"><a href="#new-module-1" class="headerlink" title="new module"></a>new module</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/6c145d42a4374769a07f151ad67a0ada.png" alt="目录结构"></p>
 <p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1122,8 +1122,8 @@ var _hmt = _hmt || [];
 <li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/main/config-dev.yml">http://config-3344.com:3344/main/config-dev.yml</a></li>
 <li><a target="_blank" rel="noopener" href="http://localhost:3355/configInfo">http://localhost:3355/configInfo</a></li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2ed43028332847899b7c7ebcbd5fab6c.png" alt="http://config-3344.com:3344/main/config-dev.yml"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/92fdaaa745d84ab1a2cb062ee5cea508.png" alt="http://localhost:3355/configInfo"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/2ed43028332847899b7c7ebcbd5fab6c.png" alt="http://config-3344.com:3344/main/config-dev.yml"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/92fdaaa745d84ab1a2cb062ee5cea508.png" alt="http://localhost:3355/configInfo"></p>
 <p>成功实现了客户端3355访问SpringCloud Config3344通过GitHub获取配置信息可题随时而来</p>
 <ul>
 <li>分布式配置的动态刷新问题<ul>
@@ -1156,8 +1156,8 @@ var _hmt = _hmt || [];
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>刷新一下3355配置中心服务端 <code>curl -X POST &quot;http://localhost:3355/actuator/refresh&quot; </code></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/9ca8436d5e68455f833e82682d94ed11.png" alt="刷新"></p>
-<h4 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/04384509adf844e6a144e2ae2f4aa31b.png" alt="测试成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9ca8436d5e68455f833e82682d94ed11.png" alt="刷新"></p>
+<h4 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/04384509adf844e6a144e2ae2f4aa31b.png" alt="测试成功"></p>
 <blockquote>
 <p>避免了服务重启</p>
 </blockquote>
@@ -1371,10 +1371,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1745,7 +1745,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-22-springcloud-zhi-bus.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/02cc733f1f9145fa8542c30bebdf903c.png" class="responsive-img" alt="SpringCloud之Bus">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/02cc733f1f9145fa8542c30bebdf903c.png" class="responsive-img" alt="SpringCloud之Bus">
                         
                         <span class="card-title">SpringCloud之Bus</span>
                     </div>
@@ -1798,7 +1798,7 @@ var _hmt = _hmt || [];
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="SpringCloud之GateWay">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="SpringCloud之GateWay">
                         
                         <span class="card-title">SpringCloud之GateWay</span>
                     </div>

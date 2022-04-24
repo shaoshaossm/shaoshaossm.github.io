@@ -860,12 +860,12 @@ var _hmt = _hmt || [];
 <li><p><font color="blue">Spring Cloud Bus配合Spring Cloud Config使用可以实现配置的动态刷新</font>。</p>
 </li>
 <li><p>Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，<font color="red">它整合了Java的事件处理机制和消息中间件的功能</font>。Spring Clud Bus目前支持RabbitMQ和Kafka。</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/461d0c86eb3b49f99a8ca0f8902a8ecc.png" alt="图解"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/461d0c86eb3b49f99a8ca0f8902a8ecc.png" alt="图解"></p>
 </li>
 <li><p>Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个分布式执行器，可用于广播状态更改、事件推送等，也可以当作微服务间的通信通道。</p>
 </li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f23e1aae4fcd4163a1d4d2b34d3da2cb.png" alt="设计思想"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f23e1aae4fcd4163a1d4d2b34d3da2cb.png" alt="设计思想"></p>
 <p><strong>什么是总线</strong></p>
 <p>​        在微服务架构的系统中，通常会使用轻量级的消息代理来构建一个共用的消息主题，并让系统中所有微服务实例都连接上来。由于该主题中产生的消息会被所有实例监听和消费，所以称它为消息总线。在总线上的各个实例，都可以方便地广播一些需要让其他连接在该主题上的实例都知道的消息。</p>
 <p><strong>基本原理</strong></p>
@@ -875,11 +875,11 @@ var _hmt = _hmt || [];
 <li>登录账号：admin 密码：****你懂得</li>
 <li>输入地址 <code>http://192.168.174.131:15672/#/</code></li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/c14bd2b22256411c9b7a384d59da43e1.png" alt="登录成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/c14bd2b22256411c9b7a384d59da43e1.png" alt="登录成功"></p>
 <h3 id="Bus动态刷新全局广播的设计思想和选型"><a href="#Bus动态刷新全局广播的设计思想和选型" class="headerlink" title="Bus动态刷新全局广播的设计思想和选型"></a>Bus动态刷新全局广播的设计思想和选型</h3><ul>
 <li>演示广播效果，增加复杂度，再以3355为模板再制作一个3366</li>
 </ul>
-<h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/ae13fd211385403b957108f07a6a580c.png" alt="目录结构"></p>
+<h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/ae13fd211385403b957108f07a6a580c.png" alt="目录结构"></p>
 <p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1052,9 +1052,9 @@ management:
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h4><p>1.利用消息总线触发一个客户端/bus/refresh,而刷新所有客户端的配置</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/94684fd352564593b0427dfcab91fe1a.png" alt="设计思想1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/94684fd352564593b0427dfcab91fe1a.png" alt="设计思想1"></p>
 <p>2.利用消息总线触发一个服务端ConfigServer的/bus/refresh端点，而刷新所有客户端的配置</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/fdd0d6bb82104d869a7426e61c0e9fa9.png" alt="设计思想2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/fdd0d6bb82104d869a7426e61c0e9fa9.png" alt="设计思想2"></p>
 <p>图二的架构显然更加适合，图—不适合的原因如下：</p>
 <p>打破了微服务的职责单一性，因为微服务本身是业务模块，它本不应该承担配置刷新的职责。</p>
 <p>破坏了微服务各节点的对等性。</p>
@@ -1228,7 +1228,7 @@ management:
 </ul>
 </li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/77cc5cad168a40459a38b5cb96101303.png" alt="刷新"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/77cc5cad168a40459a38b5cb96101303.png" alt="刷新"></p>
 <ul>
 <li>配置中心<ul>
 <li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config-dev.yml">http://config-3344.com:3344/config-dev.yml</a></li>
@@ -1242,7 +1242,7 @@ management:
 </li>
 </ul>
 <p><strong>—次修改，广播通知，处处生效</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8ccb9d1603b648278d0e517d048e2412.png" alt="运行成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8ccb9d1603b648278d0e517d048e2412.png" alt="运行成功"></p>
 <h3 id="Bus动态刷新定点通知"><a href="#Bus动态刷新定点通知" class="headerlink" title="Bus动态刷新定点通知"></a>Bus动态刷新定点通知</h3><ul>
 <li>不想全部通知，只想定点通知<ul>
 <li>只通知3355</li>
@@ -1255,8 +1255,8 @@ management:
 <p>/bus/refresh请求不再发送到具体的服务实例上，而是发给config server通过destination参数类指定需要更新配置的服务或实例</p>
 <p><strong>案例</strong></p>
 <p>我们这里以刷新运行在3355端口上的config-client（配置文件中设定的应用名称）为例，只通知3355，不通知3366<br><code>curl -X POST &quot;http://localhost:3344/actuator/bus-refresh/config-client:3355</code></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5acb19423776424ca0560f9bd40ec694.png" alt="刷新"><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/66e824d7774146a48f223fd23e9bec5b.png" alt="测试成功"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0c96205e4c634b4590ecc54c3d9c787b.png" alt="通知总结"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/5acb19423776424ca0560f9bd40ec694.png" alt="刷新"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/66e824d7774146a48f223fd23e9bec5b.png" alt="测试成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/0c96205e4c634b4590ecc54c3d9c787b.png" alt="通知总结"></p>
 
 
 
@@ -1467,10 +1467,10 @@ management:
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1841,7 +1841,7 @@ management:
                 <a href="/2022-03-23-springcloud-zhi-stream.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/2ef05ed8fec84dd19c72b01d1185cc4a.png" class="responsive-img" alt="SpringCloud之Stream">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/2ef05ed8fec84dd19c72b01d1185cc4a.png" class="responsive-img" alt="SpringCloud之Stream">
                         
                         <span class="card-title">SpringCloud之Stream</span>
                     </div>
@@ -1893,7 +1893,7 @@ management:
                 <a href="/2022-03-21-springcloud-zhi-config.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/63fb5c4aae2046ac83048dbe180622f1.png" class="responsive-img" alt="SpringCloud之Config">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/63fb5c4aae2046ac83048dbe180622f1.png" class="responsive-img" alt="SpringCloud之Config">
                         
                         <span class="card-title">SpringCloud之Config</span>
                     </div>

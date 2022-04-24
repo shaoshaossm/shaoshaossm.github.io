@@ -896,7 +896,7 @@ var _hmt = _hmt || [];
 <li><p>其中Ribbon提供了多种策略：比如<strong>轮询</strong>（默认）、随机和根据响应时间加权。</p>
 </li>
 </ul>
-<h3 id="Ribbon的负载均衡和Rest调用"><a href="#Ribbon的负载均衡和Rest调用" class="headerlink" title="Ribbon的负载均衡和Rest调用"></a>Ribbon的负载均衡和Rest调用</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/f971aad9aa8344e49a1e13f40b3ddcd9.png" alt="依赖"></p>
+<h3 id="Ribbon的负载均衡和Rest调用"><a href="#Ribbon的负载均衡和Rest调用" class="headerlink" title="Ribbon的负载均衡和Rest调用"></a>Ribbon的负载均衡和Rest调用</h3><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f971aad9aa8344e49a1e13f40b3ddcd9.png" alt="依赖"></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupld</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupld</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactld</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-ribbon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactid</span><span class="token punctuation">></span></span>
@@ -938,7 +938,7 @@ var _hmt = _hmt || [];
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Ribbon核心组件IRule"><a href="#Ribbon核心组件IRule" class="headerlink" title="Ribbon核心组件IRule"></a>Ribbon核心组件IRule</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/5cfe5238df50401ba986cadfa648cb89.png" alt="IRule"></p>
+<h3 id="Ribbon核心组件IRule"><a href="#Ribbon核心组件IRule" class="headerlink" title="Ribbon核心组件IRule"></a>Ribbon核心组件IRule</h3><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/5cfe5238df50401ba986cadfa648cb89.png" alt="IRule"></p>
 <ul>
 <li><code>IRule</code>:根据特定算法从服务列表中选取一个要访问的服务<ul>
 <li><code>com.netflix.loadbalancer.RoundRobinRule</code> 轮询</li>
@@ -951,11 +951,11 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="修改Ribbon默认负载均衡规则"><a href="#修改Ribbon默认负载均衡规则" class="headerlink" title="修改Ribbon默认负载均衡规则"></a>修改Ribbon默认负载均衡规则</h3><p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/23c30ef2fb8c4d6794cdc4eee840356f.png" alt="警告"></p>
+<h3 id="修改Ribbon默认负载均衡规则"><a href="#修改Ribbon默认负载均衡规则" class="headerlink" title="修改Ribbon默认负载均衡规则"></a>修改Ribbon默认负载均衡规则</h3><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/23c30ef2fb8c4d6794cdc4eee840356f.png" alt="警告"></p>
 <h4 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h4><ul>
 <li>在原有的eureka项目上稍作修改即可</li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8de3d6663b614eaa9d847b20a8882e84.png" alt="目录结构"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8de3d6663b614eaa9d847b20a8882e84.png" alt="目录结构"></p>
 <p>OrderMain80</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token annotation punctuation">@EnableEurekaClient</span>
@@ -977,7 +977,7 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/8db8da6de5ae4a9eb1e100978418d69c.png" alt="测试运行为随机访问"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8db8da6de5ae4a9eb1e100978418d69c.png" alt="测试运行为随机访问"></p>
 <blockquote>
 <p>其余规则同理修改配置类即可</p>
 </blockquote>
@@ -1205,10 +1205,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1579,7 +1579,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-18-springcloud-zhi-openfeign.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/1bf5ea7d7af04fdca544e9c9c599275b.png" class="responsive-img" alt="SpringCloud之OpenFeign">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/1bf5ea7d7af04fdca544e9c9c599275b.png" class="responsive-img" alt="SpringCloud之OpenFeign">
                         
                         <span class="card-title">SpringCloud之OpenFeign</span>
                     </div>
@@ -1631,7 +1631,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-17-springcloud-zhi-consul.html">
                     <div class="card-image">
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/d5a77e59770d49848be4c7c84cccbf7b.png" class="responsive-img" alt="SpringCloud之Consul">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/d5a77e59770d49848be4c7c84cccbf7b.png" class="responsive-img" alt="SpringCloud之Consul">
                         
                         <span class="card-title">SpringCloud之Consul</span>
                     </div>

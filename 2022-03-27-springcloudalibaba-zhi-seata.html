@@ -886,12 +886,12 @@ var _hmt = _hmt || [];
 <li>TM向TC发起针对XID的全局提交或回滚决议；</li>
 <li>TC调度XID下管辖的全部分支事务完成提交或回滚请求。</li>
 </ul>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b158d07ab187478f87ae3fc9f50b58cf.png" alt="处理过程"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/b158d07ab187478f87ae3fc9f50b58cf.png" alt="处理过程"></p>
 <h3 id="Seata-Server1-4-2安装"><a href="#Seata-Server1-4-2安装" class="headerlink" title="Seata-Server1.4.2安装"></a>Seata-Server1.4.2安装</h3><p><a target="_blank" rel="noopener" href="https://github.com/seata/seata/releases">下载地址</a></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/511a1217cee149d1821c2b5f212a7996.png" alt="在这里插入图片描述"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/511a1217cee149d1821c2b5f212a7996.png" alt="在这里插入图片描述"></p>
 <p><strong>SEATA 的分布式交易解决方案</strong></p>
 <p>我们只需要使用一个 <code>@GlobalTransactional</code> 注解在业务方法上:</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/410ab2312cc84042a92317f1d804baf0.png" alt="分布式交易解决方案"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/410ab2312cc84042a92317f1d804baf0.png" alt="分布式交易解决方案"></p>
 <ul>
 <li>解压文件到指定目录并修改conf</li>
 </ul>
@@ -903,12 +903,12 @@ url = <span class="token string">"jdbc:mysql://127.0.0.1:3306/seata?useSSL=false
 user = <span class="token string">"root"</span>
 password = <span class="token string">"密码"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/77901d12a584424fa9c2f31687badcf1.png" alt="file.conf"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/805a38066ec84651a19cc40a1551c41a.png" alt="更换数据源"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/77901d12a584424fa9c2f31687badcf1.png" alt="file.conf"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/805a38066ec84651a19cc40a1551c41a.png" alt="更换数据源"></p>
 <p>新建数据库seata，在seata库里建表</p>
 <p>去README.md文件中链接官网执行sql脚本</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/67c7fc620e134c3c859d0a2e65c53a9d.png" alt="跳转官网"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/6f227ddc2c3842989fab3418cebb5a4c.png" alt="sql文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/67c7fc620e134c3c859d0a2e65c53a9d.png" alt="跳转官网"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/6f227ddc2c3842989fab3418cebb5a4c.png" alt="sql文件"></p>
 <p>建表语句</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- -------------------------------- The script used when storeMode is 'db' --------------------------------</span>
 <span class="token comment">-- the table to store GlobalSession data</span>
@@ -993,11 +993,11 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
 <span class="token attr-name">  password</span> <span class="token punctuation">=</span> <span class="token attr-value">""</span>
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/eb63e7a89c5b4a97b75a4949e92d5d9c.png" alt="registry.conf"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/eb63e7a89c5b4a97b75a4949e92d5d9c.png" alt="registry.conf"></p>
 <p>目的是：指明注册中心为nacos，及修改nacos连接信息</p>
 <p>先启动Nacos端口号8848 nacos\bin\startup.cmd</p>
 <p>再启动seata-server - seata-server-1.4.2\seata\bin\seata-server.bat</p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/258f228c15d046cebad9ff498396d004.png" alt="启动seata成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/258f228c15d046cebad9ff498396d004.png" alt="启动seata成功"></p>
 <h3 id="Seata业务数据库准备"><a href="#Seata业务数据库准备" class="headerlink" title="Seata业务数据库准备"></a>Seata业务数据库准备</h3><p>这里我们会创建三个服务，一个订单服务，一个库存服务，一个账户服务。</p>
 <p><font color="blue">当用户下单时,会在订单服务中创建一个订单, 然后通过远程调用库存服务来扣减下单商品的库存，再通过远程调用账户服务来扣减用户账户里面的余额，最后在订单服务中修改订单状态为已完成。</font></p>
 <p>该操作跨越三个数据库，有两次远程调用，很明显会有分布式事务问题。</p>
@@ -1063,8 +1063,8 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
 
 <p>按照上述3库分别建对应的回滚日志表</p>
 <p>订单-库存-账户3个库下<strong>都需要建各自的回滚日志表</strong></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/b8a91d10344c410ea719f951b43dfbbd.png" alt="跳转官网"></p>
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/4f1c209f1015408290444c1299553c62.png" alt="sql文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/b8a91d10344c410ea719f951b43dfbbd.png" alt="跳转官网"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/4f1c209f1015408290444c1299553c62.png" alt="sql文件"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- for AT mode you must to init this sql for you business database. the seata server not need it.</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>undo_log<span class="token punctuation">`</span>
 <span class="token punctuation">(</span>
@@ -1080,7 +1080,7 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
   <span class="token keyword">AUTO_INCREMENT</span> <span class="token operator">=</span> <span class="token number">1</span>
   <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span> <span class="token operator">=</span> utf8mb4 <span class="token keyword">COMMENT</span> <span class="token operator">=</span><span class="token string">'AT transaction mode undo table'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://img-blog.csdnimg.cn/0c55dadf4ca84703b280045104068552.png" alt="数据库整体概览"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/0c55dadf4ca84703b280045104068552.png" alt="数据库整体概览"></p>
 <h3 id="Seata之Order-Module配置搭建"><a href="#Seata之Order-Module配置搭建" class="headerlink" title="Seata之Order-Module配置搭建"></a>Seata之Order-Module配置搭建</h3><p>下订单 -&gt; 减库存 -&gt; 扣余额 -&gt; 改（订单）状态</p>
 <p>// TODO 待做</p>
 <p>重点注解<code>@GlobalTransactional(name = &quot;fsp-create-order&quot;, rollbackFor = Exception.class)</code></p>
@@ -1294,10 +1294,10 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1669,7 +1669,7 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="SpringBoot集成Swagger">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="SpringBoot集成Swagger">
                         
                         <span class="card-title">SpringBoot集成Swagger</span>
                     </div>
@@ -1722,7 +1722,7 @@ password = <span class="token string">"密码"</span><span aria-hidden="true" cl
                     <div class="card-image">
                         
                         
-                        <img src="https://nekodeng.gitee.io/medias/loading.svg" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/24.jpg" class="responsive-img" alt="SpringCloudAlibaba之Sentinel">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/24.jpg" class="responsive-img" alt="SpringCloudAlibaba之Sentinel">
                         
                         <span class="card-title">SpringCloudAlibaba之Sentinel</span>
                     </div>
