@@ -823,14 +823,14 @@ var _hmt = _hmt || [];
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    11 分
                 </div>
                 
 
@@ -1155,6 +1155,288 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <td align="left"></td>
 </tr>
 </tbody></table>
+<h4 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h4><blockquote>
+<ul>
+<li>forEach()方法需要一个回调函数作为参数，</li>
+<li>数组中有几个元素，回调函数就会被调用几次，</li>
+<li>每次调用时，都会将遍历到的信息以实参的形式传递进来，</li>
+<li>我们可以定义形参来获取这些信息。<ul>
+<li><code>value</code>:正在遍历的元素</li>
+<li><code>index</code>:正在遍历元素的索引</li>
+<li><code>obj</code>:被遍历对象</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">数组<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value <span class="token punctuation">,</span> index <span class="token punctuation">,</span> obj</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  
+  
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span> i<span class="token operator">&lt;</span>数组<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  
+    <span class="token comment">//数组[i]  </span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="常用类和方法"><a href="#常用类和方法" class="headerlink" title="常用类和方法"></a>常用类和方法</h3><h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">"月/日/年 时:分:秒"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">getDate()</td>
+<td align="left">当前日期对象是几日（1-31）</td>
+</tr>
+<tr>
+<td align="left">getDay()</td>
+<td align="left">返回当前日期对象时周几（0-6） 0 周日 1 周一 。。。</td>
+</tr>
+<tr>
+<td align="left">getMonth()</td>
+<td align="left">返回当前日期对象的月份（0-11） 0 一月 1 二月 。。。</td>
+</tr>
+<tr>
+<td align="left">getFullYear()</td>
+<td align="left">从 Date 对象以四位数字返回年份。</td>
+</tr>
+<tr>
+<td align="left">getHours()</td>
+<td align="left">返回 Date 对象的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td align="left">getMinutes()</td>
+<td align="left">返回 Date 对象的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td align="left">getSeconds()</td>
+<td align="left">返回 Date 对象的秒数 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td align="left">getMilliseconds()</td>
+<td align="left">返回 Date 对象的毫秒(0 ~ 999)。</td>
+</tr>
+<tr>
+<td align="left">getTime()</td>
+<td align="left">返回当前日期对象的时间戳 时间戳，指的是从1970年月1日 0时0分0秒，<strong>到现在时间的毫秒数</strong> 计算机底层保存时间都是以时间戳的形式保存的。</td>
+</tr>
+<tr>
+<td align="left">Date.now()</td>
+<td align="left">可以获取当前代码执行时的时间戳</td>
+</tr>
+<tr>
+<td align="left">setHours()</td>
+<td align="left">设置 Date 对象中的小时 (0 ~ 23)</td>
+</tr>
+</tbody></table>
+<h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 1-6之间的随机数</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5.</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.PI</td>
+<td>常量，圆周率</td>
+</tr>
+<tr>
+<td>Math.abs()</td>
+<td>绝对值运算</td>
+</tr>
+<tr>
+<td>Math.ceil()</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>Math.floor()</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>Math.round()</td>
+<td>四舍五入取整</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>生成一个01之间的随机数</td>
+</tr>
+<tr>
+<td>生成一个xy之间的随机数</td>
+<td>Math.round(Math.random()*(y-x)+x);</td>
+</tr>
+<tr>
+<td>Math.pow(x,y)</td>
+<td>求x的y次幂</td>
+</tr>
+<tr>
+<td>Math.max()</td>
+<td>求多个数中最大值</td>
+</tr>
+<tr>
+<td>Math.min()</td>
+<td>求多个数中的最小值</td>
+</tr>
+<tr>
+<td>Math.sqrt()</td>
+<td>对一个数进行开方</td>
+</tr>
+</tbody></table>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><ul>
+<li>页面加载</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>getElementById()</code>：返回带有指定ID 的元素。</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>button id<span class="token operator">=</span><span class="token string">"btn1"</span> name<span class="token operator">=</span><span class="token string">"anniu"</span><span class="token operator">></span>按钮<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token keyword">var</span> btn <span class="token operator">=</span>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"btn1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 获取btn下的bs元素</span>
+<span class="token keyword">var</span> btnlist <span class="token operator">=</span>  btn<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"bs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>getElementsByTagName()</code>：返回包含带有指定<strong>标签名称</strong>的所有元素的节点列表(集合/节点数组)。</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>button <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn3"</span><span class="token operator">></span>按钮<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token keyword">var</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 取出第1个Tag</span>
+<span class="token keyword">var</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>getElementsByClassName()</code>：返回包含带有指定类名的所有元素的节点列表。</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>button <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn3"</span><span class="token operator">></span>按钮<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token keyword">var</span> btn2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">"btn2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>getElementsByName(&#39;gender&#39;)</code>：通过name属性获取一组元素节点对象</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"radio"</span> name<span class="token operator">=</span><span class="token string">"gender"</span> value<span class="token operator">=</span><span class="token string">"male"</span> <span class="token operator">/</span><span class="token operator">></span>male
+<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"radio"</span> name<span class="token operator">=</span><span class="token string">"gender"</span> value<span class="token operator">=</span><span class="token string">"female"</span> <span class="token operator">/</span><span class="token operator">></span>female
+<span class="token keyword">var</span> btn3 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span><span class="token string">"gender"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li> <code>document.querySelector(&#39;#a&#39;) </code>通过CSS选择器来获取一个元素节点对象</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+
+
+
+- </span><span class="token template-punctuation string">`</span></span>childNodes<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">获取当前元素的**所有子节点**
+
+> &lt;font color="orange">会获取到空白的文本子节点&lt;/font>,&lt;font color="red">推荐使用下面方式&lt;/font>
+
+</span><span class="token template-punctuation string">`</span></span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span>js
+<span class="token keyword">var</span> city <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"city"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> childNodes <span class="token operator">=</span> city<span class="token punctuation">.</span>childNodes<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>parentNode<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p><code>children</code>获取当前元素的<strong>所有子元素</strong></p>
+  <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> city <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"city"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> childrens <span class="token operator">=</span> city<span class="token punctuation">.</span>children<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>childrens<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p><font color="red">推荐使用这种方式</font></p>
+</blockquote>
+<ul>
+<li><code>firstChild</code>获取当前元素的<strong>第一个子节点</strong>，会获取到空白的文本子节点</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> firstChild <span class="token operator">=</span> city<span class="token punctuation">.</span>firstChild<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>lastChild</code>获取当前元素的<strong>最后一个子节点</strong></li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> lastChild <span class="token operator">=</span> city<span class="token punctuation">.</span>lastChild<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>parentNode</code>：获取当前元素的父元素</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> shanxi <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"shanxi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> parentNode <span class="token operator">=</span> shanxi<span class="token punctuation">.</span>parentNode<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>parentNode<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>previousSibling</code>：获取当前元素的前一个兄弟节点 <font color ="green">能获取到空白的文本</font></li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> shanxi <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"shanxi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> zhejiang <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"zhejiang"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> previousSibling <span class="token operator">=</span> zhejiang<span class="token punctuation">.</span>previousSibling<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>previousSibling<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>previousElementSibling</code>：获取前一个兄弟元素，IE8及以下不支持</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> shanxi <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"shanxi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> zhejiang <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"zhejiang"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> previousElementSibling <span class="token operator">=</span> zhejiang<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>previousElementSibling<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> shanxi <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"shanxi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> parentNode <span class="token operator">=</span> shanxi<span class="token punctuation">.</span>parentNode<span class="token punctuation">;</span>
+<span class="token comment">// 获取元素内容</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>parentNode<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span>
+<span class="token comment">// 获取元素内部文本内容</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>parentNode<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+<p>document.querySelectorAll(‘span’) 通过CSS选择器来获取一组元素节点对象<br>                appendChild()   把新的子节点添加到指定节点。<br>                removeChild()   删除子节点。<br>                replaceChild()  替换子节点。<br>                insertBefore()  在指定的子节点前面插入新的子节点。<br>                createAttribute()   创建属性节点。</p>
+<p>createElement() 创建元素节点。<br>                createTextNode()    创建文本节点。<br>                getAttribute()  返回指定的属性值。<br>                setAttribute()  把指定属性设置或修改为指定的值。<br>                当前节点.paretNode   表示当前节点的父节点<br>                当前节点.previousSibling 表示当前节点的前一个兄弟节点<br>                当前节点.nextSibling 表示当前节点的后一个兄弟节点<br>                父节点.firstchild 可以获取第一个子节点(包括空白文本节点)<br>                父节点.firstElementchild 可以获取第一个子元素(不包括空白文本节点)<br>                父节点.childNodes 表示当前节点的所有子节点</p>
+<p><strong>元素的属性</strong></p>
+<blockquote>
+<p>读取元素的属性：</p>
+<blockquote>
+<p>语法：元素.属性名<br>ele.name<br>ele.id<br>ele.value<br>ele.className</p>
+</blockquote>
+<p>修改元素的属性：</p>
+<blockquote>
+<p>语法：元素.属性名 = 属性值</p>
+<p>innerHTML<br>使用该属性可以获取或设置元素内部的HTML代码</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>鼠标单击事件</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">btn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token operator">...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2061,7 +2343,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">202.3k</span>&nbsp;字&nbsp;|
+                class="white-color">203.5k</span>&nbsp;字&nbsp;|
             
             
             
