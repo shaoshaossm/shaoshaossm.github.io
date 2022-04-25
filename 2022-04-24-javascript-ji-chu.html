@@ -10,7 +10,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta name="baidu-site-verification" content="code-BqAKK38w2Z" />
     <meta name="google-site-verification" content="W3rQDi_ot7AlJfjBjlum6f3mwT4c9MsdhY7qE6LmqfY" />
     <meta charset="utf-8">
-    <meta name="keywords" content="Open-CV图像处理, 秋水墨色染">
+    <meta name="keywords" content="JavaScript基础, 秋水墨色染">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -22,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Open-CV图像处理 | 秋水墨色染</title>
+    <title>JavaScript基础 | 秋水墨色染</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
@@ -634,12 +634,12 @@ var _hmt = _hmt || [];
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/73b0a3b1ec8349e594f53f3495bcd81c.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Open-CV图像处理</h1>
+                    <h1 class="description center-align post-title">JavaScript基础</h1>
                 </div>
             </div>
         </div>
@@ -780,8 +780,8 @@ var _hmt = _hmt || [];
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/OpenCV/">
-                                <span class="chip bg-color">OpenCV</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -792,8 +792,8 @@ var _hmt = _hmt || [];
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                图像处理
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -809,28 +809,28 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-14
+                    2022-04-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-21
+                    2022-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    772
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -853,150 +853,253 @@ var _hmt = _hmt || [];
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="几何变换"><a href="#几何变换" class="headerlink" title="几何变换"></a>几何变换</h3><h4 id="图像缩放"><a href="#图像缩放" class="headerlink" title="图像缩放"></a>图像缩放</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
+                <p>[TOC]</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="JS代码编写的三个位置："><a href="#JS代码编写的三个位置：" class="headerlink" title="JS代码编写的三个位置："></a>JS代码编写的三个位置：</h4><blockquote>
+<p>编写到标签的指定属性中</p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>我是按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:alert(<span class="token punctuation">'</span>aaa<span class="token punctuation">'</span>);<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>超链接<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> cv2 <span class="token keyword">as</span> cv
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<blockquote>
+<p>可以编写到script标签中</p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">  
+<span class="token comment">//编写js代码  </span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">  
+<span class="token comment">//编写js代码  </span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<blockquote>
+<p>将代码编写到外部的js文件中，然后通过标签将其引入</p>
+<p><font color="orange">script标签一旦用于引入外部文件了，就不能在编写代码了，即使编写了浏览器也会忽略 ,如果需要则可以在创建一个新的script标签用于编写内部代码</font></p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>文件路径<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-img <span class="token operator">=</span> cv<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">'1.jpg'</span><span class="token punctuation">)</span>
+<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><blockquote>
+<p>浏览器弹窗</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"输出"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<blockquote>
+<p>页面输入</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"输出"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>img<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<blockquote>
+<p>控制台输出</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"输出"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//单行注释</span>
+<span class="token comment">/*
+ 多行注释
+ */</span>
+<span class="token comment">/*
+ * 多行注释
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment"># 绝对尺寸  esc + m</span>
-rows<span class="token punctuation">,</span>cols <span class="token operator">=</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+<h5 id="typeof运算符"><a href="#typeof运算符" class="headerlink" title="typeof运算符"></a>typeof运算符</h5><blockquote>
+<p>用来检查一个变量的数据类型<br>语法：typeof 变量<br>它会返回一个用于描述类型的字符串作为结果</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'3'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> num<span class="token punctuation">)</span> <span class="token comment">// number</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> str<span class="token punctuation">)</span> <span class="token comment">// string</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h5 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h5><blockquote>
+<p>代码块中的代码要么都执行，要么都不执行</p>
+<p><font color="orange">仅仅具有分组的作用</font></p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-rows
+<h5 id="prompt"><a href="#prompt" class="headerlink" title="prompt()"></a>prompt()</h5><blockquote>
+<p>prompt()：弹出一个提示框，提示框中带有一个文本框</p>
+</blockquote>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
+<p>常用创建对象的方式</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">"zs"</span>
+obj<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">18</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+<span class="token comment">// 判断 obj 里面是否有 "name"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"name"</span> <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token comment">// trues</span>
+<span class="token comment">// 遍历</span>
+<span class="token keyword">var</span> obj4 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'0'</span><span class="token operator">:</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'1'</span><span class="token operator">:</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'2'</span><span class="token operator">:</span><span class="token string">'c'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token comment">#%%</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> obj4<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token string">":"</span><span class="token punctuation">,</span>obj4<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-cols
+<blockquote>
+<p>使用字面量创建对象</p>
+<p>里面还可以再次创建对象：类似二维数组</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> obj3 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span><span class="token string">"ww"</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><blockquote>
+<p>函数返回值也可以是一个函数</p>
+<p>函数的参数也可以是一个函数</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>o</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"函数2"</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">var</span> c <span class="token operator">=</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> objo <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span><span class="token string">"aa"</span>
+<span class="token punctuation">&#125;</span>
 
-res <span class="token operator">=</span> cv<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>cols<span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">*</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> result <span class="token operator">=</span>  <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span>objo<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h5 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h5><blockquote>
+<p>立即执行函数往往只会执行一次</p>
+<blockquote>
+<p>给前一个函数加上分号，不然会报错</p>
+</blockquote>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"a = "</span> <span class="token operator">+</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"b = "</span> <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<p>函数也可以作为对象的属性，即<font color="red">方法</font></p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> obj5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj5<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ssm"</span>
+obj5<span class="token punctuation">.</span><span class="token function-variable function">sayName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj5<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+obj5<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><blockquote>
+<p>全局作用域：</p>
+<ul>
+<li>创建的变量都会作为window对象的属性保存</li>
+<li>创建的函数都会作为window对象的方法保存</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>使用var关键字声明的变量，会在所有代码执行之前被声明</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">10</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>d<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-res<span class="token punctuation">.</span>shape
+<blockquote>
+<p>函数作用域：</p>
+<ul>
+<li>调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁</li>
+<li>每调用一次就会创建一个新的函数作用域，他们之间相互独立</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fungobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> <span class="token keyword">as</span>  <span class="token operator">=</span> <span class="token number">45</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">fungobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><blockquote>
+<p>this的不同的情况：</p>
+<ul>
+<li>以函数的形式调用时，this是window</li>
+<li>以方法的形式调用时，this就是调用方法的对象</li>
+<li>以构造函数的形式调用时，this就是新创建的对象</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"全局this"</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">funthis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-res1 <span class="token operator">=</span> cv<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token boolean">None</span><span class="token punctuation">,</span>fx<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span>fy<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> objthis1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span><span class="token string">"this1"</span><span class="token punctuation">,</span>
+    sayName<span class="token operator">:</span>funthis
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> objthis2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span><span class="token string">"this2"</span><span class="token punctuation">,</span>
+    sayName<span class="token operator">:</span>funthis
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token function">funthis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+objthis1<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+objthis2<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+全局<span class="token keyword">this</span>
+this1
+this2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">#%%</span>
-
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>res1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-res1<span class="token punctuation">.</span>shape
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="图像平移"><a href="#图像平移" class="headerlink" title="图像平移"></a>图像平移</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%% md</span>
-
-<span class="token comment"># 图像平移</span>
-
-<span class="token comment">#%%</span>
-
-rows
-
-<span class="token comment">#%%</span>
-
-M <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-res2 <span class="token operator">=</span> cv<span class="token punctuation">.</span>warpAffine<span class="token punctuation">(</span>img<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>res2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-
-<span class="token comment">#%%</span>
-
-res2 <span class="token operator">=</span> cv<span class="token punctuation">.</span>warpAffine<span class="token punctuation">(</span>img<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>res2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="图像旋转"><a href="#图像旋转" class="headerlink" title="图像旋转"></a>图像旋转</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#%%</span>
-
-M <span class="token operator">=</span> cv<span class="token punctuation">.</span>getRotationMatrix2D<span class="token punctuation">(</span><span class="token punctuation">(</span>cols<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>rows<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-res3 <span class="token operator">=</span> cv<span class="token punctuation">.</span>warpAffine<span class="token punctuation">(</span>img<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">#%%</span>
-
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>res3<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="图像仿射变换"><a href="#图像仿射变换" class="headerlink" title="图像仿射变换"></a>图像仿射变换</h4><p>图像的仿射变换涉及到图像的形状位置角度的变化，是深度学习预处理中常到的功能,仿射变换主要是对图像的缩放，旋转，翻转和平移等操作的组合。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 2.1 创建变换矩阵</span>
-pts1 <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-pts2 <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">250</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-M <span class="token operator">=</span> cv<span class="token punctuation">.</span>getAffineTransform<span class="token punctuation">(</span>pts1<span class="token punctuation">,</span>pts2<span class="token punctuation">)</span>
-<span class="token comment"># 2.2 完成仿射变换</span>
-dst <span class="token operator">=</span> cv<span class="token punctuation">.</span>warpAffine<span class="token punctuation">(</span>img<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="图像的投射变换"><a href="#图像的投射变换" class="headerlink" title="图像的投射变换"></a>图像的投射变换</h4><p>透射变换是视角变化的结果，是指利用透视中心、像点、目标点三点共线的条件，按透视旋转定律使承影面（透视面）绕迹线（透视轴）旋转某一角度，破坏原有的投影光线束，仍能保持承影面上投影几何图形不变的变换。</p>
-<p>它的本质将图像投影到一个新的视平面</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 2.1 创建变换矩阵</span>
-pts1 <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">56</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">368</span><span class="token punctuation">,</span><span class="token number">52</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">28</span><span class="token punctuation">,</span><span class="token number">387</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">389</span><span class="token punctuation">,</span><span class="token number">390</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-pts2 <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">145</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">290</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">310</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-T <span class="token operator">=</span> cv<span class="token punctuation">.</span>getPerspectiveTransform<span class="token punctuation">(</span>pts1<span class="token punctuation">,</span>pts2<span class="token punctuation">)</span>
-<span class="token comment"># 2.2 进行变换</span>
-dst <span class="token operator">=</span> cv<span class="token punctuation">.</span>warpPerspective<span class="token punctuation">(</span>img<span class="token punctuation">,</span>T<span class="token punctuation">,</span><span class="token punctuation">(</span>cols<span class="token punctuation">,</span>rows<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="图像的金字塔"><a href="#图像的金字塔" class="headerlink" title="图像的金字塔"></a>图像的金字塔</h4><p>图像金字塔是图像多尺度表达的一种，最主要用于图像的分割，是一种以多分辨率来解释图像的有效但概念简单的结构。</p>
-<p>图像金字塔用于机器视觉和图像压缩，一幅图像的金字塔是一系列以金字塔形状排列的分辨率逐步降低，且来源于同一张原始图的图像集合。其通过梯次向下采样获得，直到达到某个终止条件才停止采样。</p>
-<p>金字塔的底部是待处理图像的高分辨率表示，而顶部是低分辨率的近似，层级越高，图像越小，分辨率越低。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">imgup <span class="token operator">=</span> cv<span class="token punctuation">.</span>pyrUp<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>imgup<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-imgdown <span class="token operator">=</span> cv<span class="token punctuation">.</span>pyrDown<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>imgdown<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>总结</strong></p>
-<ol>
-<li><p>图像缩放：对图像进行放大或缩小</p>
-<p><code>cv.resize()</code></p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><blockquote>
+<ul>
+<li><p><strong>一个构造函数我们也可以称为一个类</strong></p>
 </li>
-<li><p>图像平移：</p>
-<p>指定平移矩阵后，调用<code>cv.warpAffine()</code>平移图像</p>
+<li><p>构造函数和普通函数的区别就是调用方式不同</p>
+<ul>
+<li>如果直接调用，它就是一个普通函数</li>
+<li>如果使用new来调用，则它就是一个构造函数</li>
+</ul>
 </li>
-<li><p>图像旋转：</p>
-<p>调用<code>cv.getRotationMatrix2D</code>获取旋转矩阵，然后调用<code>cv.warpAffine()</code>进行旋转</p>
-</li>
-<li><p>仿射变换：</p>
-<p>调用<code>cv.getAffineTransform</code>将创建变换矩阵，最后该矩阵将传递给<code>cv.warpAffine()</code>进行变换</p>
-</li>
-<li><p>透射变换：</p>
-<p>通过函数<code>cv.getPerspectiveTransform()</code>找到变换矩阵，将<code>cv.warpPerspective()</code>进行投射变换</p>
-</li>
-<li><p>金字塔</p>
-<p>图像金字塔是图像多尺度表达的一种，使用的API：</p>
-<p><code>cv.pyrUp()</code>: 向上采样</p>
-<p><code>cv.pyrDown()</code>: 向下采样</p>
-</li>
-</ol>
-<h3 id="形态学操作"><a href="#形态学操作" class="headerlink" title="形态学操作"></a>形态学操作</h3><h4 id="连通性"><a href="#连通性" class="headerlink" title="连通性"></a>连通性</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/df2470c5480f4cce902391e7206ffd49.png" alt="4,8,D邻接"></p>
+</ul>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name <span class="token punctuation">,</span> age <span class="token punctuation">,</span> gender</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> gender<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>sayName <span class="token operator">=</span> fungouzao<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">fungouzao</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> obbPerson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"ssm"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token string">"男"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+obbPerson<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="原型（prototype）"><a href="#原型（prototype）" class="headerlink" title="原型（prototype）"></a>原型（prototype）</h4><blockquote>
+<p>创建一个函数以后，<strong>解析器都会默认在函数中添加一个数prototype</strong></p>
+<p>当函数作为构造函数使用，<strong>它所创建的对象中都会有一个隐含的属性执行该原型对象。</strong></p>
+<blockquote>
+<p>这个隐含的属性可以通过对象.__proto__来访问。</p>
+</blockquote>
+<p><code>hasOwnProperty()</code>：这个方法可以用来检查<strong>对象自身中</strong>是否含有某个属性</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token comment">// prototype</span>
+    <span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+    <span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"我是原型中的名字"</span>
+    <span class="token keyword">var</span> mc<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"name"</span> <span class="token keyword">in</span> mc<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">"hasOwnProperty"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">"hasOwnProperty"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+Object
+我是原型中的名字
+<span class="token boolean">true</span>
+<span class="token boolean">false</span>
+<span class="token boolean">false</span>
+<span class="token boolean">true</span>
+<span class="token keyword">null</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//修改Person原型的toString</span>
+<span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">toString</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">"Person[name="</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">",age="</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">+</span><span class="token string">",gender="</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>gender<span class="token operator">+</span><span class="token string">"]"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1034,7 +1137,7 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://shaoshaossm.github.io/2022-01-14-open-cv-tu-xiang-chu-li.html">https://shaoshaossm.github.io/2022-01-14-open-cv-tu-xiang-chu-li.html</a>
+                    <a href="https://shaoshaossm.github.io/2022-04-24-javascript-ji-chu.html">https://shaoshaossm.github.io/2022-04-24-javascript-ji-chu.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1072,8 +1175,8 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/OpenCV/">
-                                    <span class="chip bg-color">OpenCV</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -1570,46 +1673,47 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022-02-16-excel-zi-dong-hua-ban-gong.html">
+                <a href="/2022-04-24-javascript-ji-chu.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/73b0a3b1ec8349e594f53f3495bcd81c.png" class="responsive-img" alt="JavaScript基础">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/26.jpg" class="responsive-img" alt="Excel自动化办公">
-                        
-                        <span class="card-title">Excel自动化办公</span>
+                        <span class="card-title">JavaScript基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用Python处理Excel电子表格------------------------------
+                            总结JavaScript的基础知识点------------------------------
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/office/" class="post-category">
-                                    office
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -1623,31 +1727,30 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022-01-12-open-cv-de-chu-bu-xue-xi.html">
+                <a href="/2022-04-16-typora-picgo-github-shi-xian-tu-pian-kuai-su-shang-chuan.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8e02487ce1de4d1081aa0a127d262acb.png" class="responsive-img" alt="Typora+PicGo+GitHub实现图片快速上传">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://cdn.jsdelivr.net/gh/shaoshaossm/images/featureimages/25.jpg" class="responsive-img" alt="open-CV的初步学习">
-                        
-                        <span class="card-title">open-CV的初步学习</span>
+                        <span class="card-title">Typora+PicGo+GitHub实现图片快速上传</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对Open-CV图像的基本操作和算数操作------------------------------
+                            使用Typora+PicGo+GitHub实现图片快速上传，不再使用csdn了
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                    图像处理
+                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    系统配置
                                 </a>
                             
                             
@@ -1657,8 +1760,8 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenCV/">
-                        <span class="chip bg-color">OpenCV</span>
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
                     </a>
                     
                 </div>
