@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(bp, s);
 })();
 </script>	
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
 </head>
 
 <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
@@ -816,7 +816,7 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-23
+                    2022-04-28
                 </div>
                 
 
@@ -858,7 +858,7 @@ var _hmt = _hmt || [];
 <li>属性 value 就是对象的名称，也就是bean的id值</li>
 <li>value的值是唯一的，创建的对象在整个spring容器中就一个</li>
 <li>位置： 在类的上面</li>
-<li>@Component(value = “myStudent”) 等同于 <bean id="someService1" class="com.bjpowernode.ba01"/></li>
+<li><code>@Component(value = &quot;myStudent&quot;) </code>等同于 <bean id="someService1" class="com.bjpowernode.ba01"/></li>
 <li><code>@Respotory</code> (用在持久层类的上面) ：放在dao的实现类上面，创建dao对象，dao对象是能访问数据库的。</li>
 <li><code>@Service</code> （用在业务层上面）：放在service的实现类上面，创建service对象，service对象是做业务处理，可以有事务等功能</li>
 <li><code>@Controller</code> (用在控制器上面) ：放在控制器（处理器）类的上面，创建控制器对象，能够接收用户提交的参数，显示请求的处理结果</li>
@@ -872,7 +872,7 @@ var _hmt = _hmt || [];
 
 <ul>
 <li>声明组件扫描器(component-scan),组件就是java对象<ul>
-<li>base-package：指定注解在项目中的包名</li>
+<li><code>base-package</code>：指定注解在项目中的包名</li>
 <li>工作方式：spring会扫描base-package指定的包，把包中和子包中的所有类，找到类的注解，按照注解的功能创建对象，或给属性赋值</li>
 </ul>
 </li>
@@ -895,9 +895,9 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="PropertySource"><a href="#PropertySource" class="headerlink" title="@PropertySource"></a>@PropertySource</h4><ul>
-<li>加载指定的属性文件（*.properties）到 Spring 的 Environment 中。可以配合 @Value 和<br>@ConfigurationProperties 使用。<ul>
-<li>@PropertySource 和 @Value<br>组合使用，可以将自定义属性文件中的属性变量值注入到当前类的使用@Value注解的成员变量中。</li>
-<li>@PropertySource 和 @ConfigurationProperties<br>组合使用，可以从全局配置文件<code>application.properties</code>或者<code>application.yml</code>中取值，然后为需要的属性赋值</li>
+<li>加载指定的属性文件<code>（*.properties）</code>到 Spring 的 Environment 中。可以配合<code> @Value</code> 和<br><code>@ConfigurationProperties</code> 使用。<ul>
+<li><code>@PropertySource </code>和 <code>@Value</code><br>组合使用，可以将自定义属性文件中的属性变量值注入到当前类的使用@Value注解的成员变量中。</li>
+<li><code>@PropertySource </code>和 <code>@ConfigurationProperties</code><br>组合使用，可以从全局配置文件<code>application.properties</code>或者<code>application.yml</code>中取值，然后为需要的属性赋值</li>
 </ul>
 </li>
 </ul>
@@ -953,8 +953,8 @@ var _hmt = _hmt || [];
 </li>
 <li><p>属性：required，是一个boolean类型的，默认是true</p>
 <ul>
-<li>require=true: 表示引用类型赋值失败，程序报错，并终止执行</li>
-<li>require=false：表示引用类型赋值失败，程序正常执行，引用类型是null</li>
+<li><code>require=true</code>: 表示引用类型赋值失败，程序报错，并终止执行</li>
+<li><code>require=false</code>：表示引用类型赋值失败，程序正常执行，引用类型是null</li>
 </ul>
 </li>
 <li><p><code>@Primary</code>：标注优先使用哪一个实现类。</p>
@@ -1122,9 +1122,9 @@ var _hmt = _hmt || [];
 
 <h4 id="Pointcut"><a href="#Pointcut" class="headerlink" title="@Pointcut"></a>@Pointcut</h4><ul>
 <li><font color="red">定义管理切入点注解</font></li>
-<li>多个切入点表达式是重复的,可以复用,可以使用@Pointcut</li>
-<li>属性：value 切入点表达式</li>
-<li>当使用@Pointcut定义在一个方法的上面,此时这个方法名称就是切入点表达式,其他通知中,value属性就可以使用这个方法名称,代替切入点表达式</li>
+<li>多个切入点表达式是重复的,可以复用,可以使用<code>@Pointcut</code></li>
+<li>属性：<code>value </code>切入点表达式</li>
+<li>当使用<code>@Pointcut</code>定义在一个方法的上面,此时这个方法名称就是切入点表达式,其他通知中,value属性就可以使用这个方法名称,代替切入点表达式</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@After</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"mypt()"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span>  <span class="token function">myAfter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -1339,7 +1339,7 @@ var _hmt = _hmt || [];
 <h4 id="MapperScan"><a href="#MapperScan" class="headerlink" title="@MapperScan()"></a>@MapperScan()</h4><ul>
 <li>开启扫描mapper接口的包以及子目录</li>
 <li>位置：spring boot启动入口类上添加</li>
-<li>basePackages ： 指定所需要扫描的包以及子目录，可以省略</li>
+<li><code>basePackages</code> ： 指定所需要扫描的包以及子目录，可以省略</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"com.bjpowernode.springboot.mapper"</span><span class="token punctuation">)</span>
@@ -1364,14 +1364,14 @@ var _hmt = _hmt || [];
 
 <h4 id="Transactional-1"><a href="#Transactional-1" class="headerlink" title="@Transactional"></a>@Transactional</h4><ul>
 <li>为业务方法添加事务，开启事务</li>
-<li>位置：Service 方法上</li>
+<li>位置：<code>Service </code>方法上</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Transactional</span>
 <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">updateStudentById</span><span class="token punctuation">(</span><span class="token class-name">Student</span> student<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><ul>
-<li>相当于控制层类上加上@Controller+方法上加@ResponseBody,方法上就不用加@ResponseBody</li>
+<li>相当于控制层类上加上<code>@Controller</code>+方法上加<code>@ResponseBody</code>,方法上就不用加<code>@ResponseBody</code></li>
 <li>位置：控制层类上面</li>
 <li>意味着当前控制层类中所有方法返还的都是JSON对象</li>
 </ul>
@@ -1396,7 +1396,7 @@ var _hmt = _hmt || [];
 <h4 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h4><ul>
 <li>只接收GET请求，如果请求方式不对会报405错误</li>
 <li>该注解通常在查询数据中使用</li>
-<li>相当于 @RequestMapping(value = “/queryStudentById2”,method = RequestMethod.GET)</li>
+<li>相当于 <code>@RequestMapping(value = &quot;/queryStudentById2&quot;,method = RequestMethod.GET)</code></li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/queryStudentById2"</span><span class="token punctuation">)</span> 
 <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">queryStudentById2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -1425,7 +1425,7 @@ var _hmt = _hmt || [];
 
 <h4 id="PutMapping"><a href="#PutMapping" class="headerlink" title="@PutMapping"></a>@PutMapping</h4><ul>
 <li>只接收PUT请求，如果请求方式不对会报405错误</li>
-<li>相当于 @RequestMapping(value = “/update”,method = RequestMethod.PUT)</li>
+<li>相当于 <code>@RequestMapping(value = &quot;/update&quot;,method = RequestMethod.PUT)</code></li>
 <li>该注解通常在修改数据中使用</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@PutMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/update"</span><span class="token punctuation">)</span> 
@@ -3747,7 +3747,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.5k</span>&nbsp;字&nbsp;|
+                class="white-color">205.8k</span>&nbsp;字&nbsp;|
             
             
             
