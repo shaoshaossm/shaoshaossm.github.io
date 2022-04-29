@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(bp, s);
 })();
 </script>	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
@@ -816,21 +816,21 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-28
+                    2022-04-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    23 分
                 </div>
                 
 
@@ -1877,8 +1877,142 @@ document<span class="token punctuation">.</span><span class="token function-vari
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'up'</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Window</td>
+<td>代表的是整个浏览器的窗口，同时window也是网页中的全局对象</td>
+</tr>
+<tr>
+<td>Navigator</td>
+<td>代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>代表当前浏览器的地址栏信息，通过Location可以获取地址栏信息，或者操作浏览器跳转页面</td>
+</tr>
+<tr>
+<td>History</td>
+<td>代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录，由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后翻页，而且该操作只在当次访问时有效</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>代表用户的屏幕的信息，通过该对象可以获取到用户的显示器的相关的信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这些BOM对象在浏览器中都是作为window对象的属性保存的，可以通过window对象来使用，也可以直接使用</p>
+</blockquote>
+<p><strong>Navigator</strong></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>appCodeName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>history<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">firefox</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'火狐'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">chrome</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'谷歌'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>一般我们只会使用userAgent来判断浏览器的信息</p>
+</blockquote>
+<p><strong>History</strong></p>
+<blockquote>
+<p> 对象可以用来操作浏览器向前或向后翻页</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>length</td>
+<td>可以获取到当成访问的链接数量</td>
+</tr>
+<tr>
+<td>back()</td>
+<td>可以用来回退到上一个页面，作用和浏览器的回退按钮一样</td>
+</tr>
+<tr>
+<td>forward()</td>
+<td>可以跳转下一个页面，作用和浏览器的前进按钮一样</td>
+</tr>
+<tr>
+<td>go()</td>
+<td>可以用来跳转到指定的页面<br>它需要一个整数作为参数<br/>1.表示向前跳转一个页面 相当于forward()<br/>2:表示向前跳转两个页面<br/>-1:表示向后跳转一个页面<br/>-2:表示向后跳转两个页面</td>
+</tr>
+</tbody></table>
+<p><strong>Location</strong></p>
+<blockquote>
+<p>该对象中封装了浏览器的地址栏的信息如果直接打印<code>location</code>，则可以获取到地址栏的信息（当前页面的完整路径）<br><code>alert(location);</code></p>
+<p><code>location = &quot;http:[www.baidu.com&quot;](http://www.baidu.com&quot;/);</code><br><code>location = &quot;01.BOM.html&quot;;</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assign()</td>
+<td>用来跳转到其他的页面，作用和直接修改location一样</td>
+</tr>
+<tr>
+<td>reload()</td>
+<td>用于重新加载当前页面，作用和刷新按钮一样,如果在方法中传递一个true，作为参数，则会强制清空缓存刷新页面</td>
+</tr>
+<tr>
+<td>replace()</td>
+<td>可以使用一个新的页面替换当前页面，调用完毕也会跳转页面不会生成历史记录，不能使用回退按钮回退</td>
+</tr>
+</tbody></table>
+<p><strong>定时器</strong></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> box <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"box"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定时器</span>
+    <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        box<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> num<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">11</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 关闭定时器</span>
+            <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>延时调用</strong></p>
+<blockquote>
+<p>延时调用一个函数不马上执行，而是隔一段时间以后在执行，而且只会执行一次</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span>
+    <span class="token comment">// 关闭延时调用</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
+
+
+
+<blockquote>
+<p>延时调用和定时调用的区别，定时调用会执行多次，而延时调用只会执行一次</p>
+</blockquote>
 
 
 
@@ -2452,47 +2586,45 @@ document<span class="token punctuation">.</span><span class="token function-vari
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022-04-24-javascript-ji-chu.html">
+                <a href="/2022-04-29-fastdfs.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/73b0a3b1ec8349e594f53f3495bcd81c.png" class="responsive-img" alt="JavaScript基础">
+                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f2b710a784e44bca88dac1cd22fbd089.png" class="responsive-img" alt="FastDFS">
                         
-                        <span class="card-title">JavaScript基础</span>
+                        <span class="card-title">FastDFS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结JavaScript的基础知识点------------------------------
+                            总结对分布式文件系统FastDFS的基本功能和应用
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    框架
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/FastDFS/">
+                        <span class="chip bg-color">FastDFS</span>
                     </a>
                     
                 </div>
@@ -2785,7 +2917,7 @@ document<span class="token punctuation">.</span><span class="token function-vari
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">205.8k</span>&nbsp;字&nbsp;|
+                class="white-color">207.8k</span>&nbsp;字&nbsp;|
             
             
             

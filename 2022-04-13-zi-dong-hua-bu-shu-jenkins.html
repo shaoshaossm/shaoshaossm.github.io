@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(bp, s);
 })();
 </script>	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
@@ -816,14 +816,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-14
+                    2022-04-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    552
+                    598
                 </div>
                 
 
@@ -883,7 +883,7 @@ var _hmt = _hmt || [];
 <p>Manage Jenkins-&gt;Plugin Manager-&gt;Advanced-&gt;Update Site</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/923329ea04dd4a3daad57574d4ee38a6.png" alt="更改地址"></p>
 <ol start="2">
-<li><p>修改jenkins/updetes/default.json文件<br>①把：“<a target="_blank" rel="noopener" href="http://www.google.com/%E2%80%9D%E6%94%B9%E6%88%90%E2%80%9Chttp://www.baidu.com/%E2%80%9D">http://www.google.com/”改成“http://www.baidu.com/”</a><br>②把：“<a target="_blank" rel="noopener" href="https://updates.jenkins.io/download%E2%80%9D%E5%85%A8%E9%83%A8%E6%9B%BF%E6%8D%A2%E6%88%90">https://updates.jenkins.io/download”全部替换成</a> “<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/jenkins%E2%80%9D">http://mirrors.tuna.tsinghua.edu.cn/jenkins”</a></p>
+<li><p>修改jenkins/updetes/default.json文件<br>①把：“<a target="_blank" rel="noopener" href="http://www.google.com/%E2%80%9D%E5%85%A8%E9%83%A8%E6%9B%BF%E6%8D%A2%E6%88%90%E2%80%9Chttp://www.baidu.com/%E2%80%9D">http://www.google.com/”全部替换成“http://www.baidu.com/”</a><br>②把：“<a target="_blank" rel="noopener" href="https://updates.jenkins.io/download%E2%80%9D%E5%85%A8%E9%83%A8%E6%9B%BF%E6%8D%A2%E6%88%90">https://updates.jenkins.io/download”全部替换成</a> “<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/jenkins%E2%80%9D">http://mirrors.tuna.tsinghua.edu.cn/jenkins”</a></p>
 </li>
 <li><p>重启jenkins服务即可</p>
 </li>
@@ -894,8 +894,15 @@ var _hmt = _hmt || [];
 <h4 id="war包形式安装jekins"><a href="#war包形式安装jekins" class="headerlink" title="war包形式安装jekins"></a>war包形式安装jekins</h4><p><a target="_blank" rel="noopener" href="https://www.jenkins.io/download/">war包下载地址</a></p>
 <blockquote>
 <p>在war包下载目录命令行输入<code>java -jar  jenkins.war --httpPort=端口号</code></p>
+<p>centos7同理</p>
+<p>用户名：admin</p>
+<p>密码：</p>
+</blockquote>
+<blockquote>
+<p><font color="orange">如果忘记密码并且里面没有重要的东西的话：删除目录：rm -rf /root/.jenkins/ 重新启动jenkins即可</font></p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/e5e97cd4190d432fa8a3057c2ac5fb5d.png" alt="运行成功"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/afe38eda51384db1bc68236b9c4cafc8.png" alt="启动"></p>
 <h3 id="jenkins中创建job并下载git代码"><a href="#jenkins中创建job并下载git代码" class="headerlink" title="jenkins中创建job并下载git代码"></a>jenkins中创建job并下载git代码</h3><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/0a63797c34074de1b014c3f1c07b7427.png" alt="New Item"></p>
 <blockquote>
 <p>下一步输入名称并选择创建方式，这里选择的是free style</p>
@@ -1869,7 +1876,7 @@ var _hmt = _hmt || [];
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">205.8k</span>&nbsp;字&nbsp;|
+                class="white-color">207.8k</span>&nbsp;字&nbsp;|
             
             
             

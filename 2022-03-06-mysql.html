@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(bp, s);
 })();
 </script>	
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="秋水墨色染" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media='all'/>
@@ -816,7 +816,7 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-23
+                    2022-04-29
                 </div>
                 
 
@@ -1910,75 +1910,91 @@ username <span class="token keyword">varchar</span><span class="token punctuatio
 <li><p>隔离性</p>
 </li>
 <li><p>查询当前隔离事务级别,开启事务</p>
-<ul>
-<li><p>```sql<br>select @@global.tx_isolation;<br>start transaction;</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 第一级别：读未提交(read uncommitted) 存在脏读现象&lt;font color&#x3D;&quot;blue&quot;&gt;未提交也能读到&lt;&#x2F;font&gt;
-
-  - &#96;&#96;&#96;sql
-    set global transaction isolation level read uncommitted;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>第二级别：读已提交(read committed) 不可重复读，解决了脏读现象<font color="blue">提交了才能读到</font></p>
-<ul>
-<li>```sql<br>set global transaction isolation level read committed;<pre class="line-numbers language-none"><code class="language-none">
-- 第三级别：可重复读(repeatable read) 读到的数据是幻象，解决了不可重复读现象&lt;font color&#x3D;&quot;blue&quot;&gt;提交了还能读到之前的数据&lt;&#x2F;font&gt;
-
-  - &#96;&#96;&#96;sql
-    set global transaction isolation level repeatable read;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
-<li><p>第四级别：序列化读/串行化读 需要事务排队，解决了所有问题<font color="blue">事务提交了之后才能访问</font></p>
-<ul>
-<li>```sql<br>set global transaction isolation level serializable;<pre class="line-numbers language-none"><code class="language-none">
--  &#96;start transaction;&#96;:关闭自动提交机制
-
--  &#96;rollback&#96;: 回滚事务
-
--  &#96;commit&#96;: 提交
-
-### 索引
-
-- 索引就相当于一本书的目录，通过目录可以快速的找到对应的资源。
-- 添加索引是给某一个字段，或者说某些字段添加索引。
-- 创建索引对象：
-  - &lt;font color&#x3D;&quot;red&quot;&gt;create index 索引名称 on 表名(字段名);&lt;&#x2F;font&gt;
-- 删除索引对象：
-  - &lt;font color&#x3D;&quot;red&quot;&gt;drop index 索引名称 on 表名;&lt;&#x2F;font&gt;
-
-- 什么时候考虑给字段添加索引？(满足什么条件)
-  - 数据量庞大。(根据客户的需求，根据线上的环境)
-  - 该字段很少的DML操作。(因为字段进行修改操作，索引也需要维护)
-  - 该字段经常出现在where子句中。(经常根据哪个字段维护)
-- 主键具有unique约束的字段会自动添加索引。根据主键查询效率较高，尽量根据主键检索。
-- 索引底层采用的数据结构是：B + Tree
-- 索引的实现原理？
-  通过B Tree缩小扫描范围，底层索引进行了排序，分区，索引会携带数据在表中的&quot;物理地址&quot;，最终通过索引检索到数据之后，获取到关联的物理地址，通过物理索引检索到数据之后，获取到关联的物理地址，通过物理地址定位表中的数据，效率是最高的。
-  elect ename from emp where ename &#x3D; &#39;SMITH&#39;;
-  通过索引转换为：
-  select ename from emp where  物理地址 &#x3D; 0x123;
-- 索引的分类
-  - 单一索引：给单个字段添加索引
-  - 复合索引：给多个字段联合起来添加一个索引
-  - 主键索引：主键上会自动添加索引
-  - 唯一索引：有unique约束的字段会自动添加索引
-- 模糊查询的时候，第一个通配符使用的是%，这个时候索引是是失效的。
-
----
-
-- 查看sql语句的执行计划
-
-&#96;&#96;&#96;sql
-mysql&gt; explain select ename,sal from emp where sal &#x3D; 800;
-+----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+
-| id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
-+----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+
-|  1 | SIMPLE      | emp   | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   14 |    10.00 | Using where |
-+----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
 </li>
 </ul>
+ <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> @<span class="token variable">@global.tx_isolation</span><span class="token punctuation">;</span>
+<span class="token keyword">start</span> <span class="token keyword">transaction</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>第一级别：读未提交(read uncommitted) 存在脏读现象<font color="blue">未提交也能读到</font></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> <span class="token keyword">transaction</span> <span class="token keyword">isolation</span> <span class="token keyword">level</span> <span class="token keyword">read</span> <span class="token keyword">uncommitted</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>第二级别：读已提交(read committed) 不可重复读，解决了脏读现象<font color="blue">提交了才能读到</font></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> <span class="token keyword">transaction</span> <span class="token keyword">isolation</span> <span class="token keyword">level</span> <span class="token keyword">read</span> <span class="token keyword">committed</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>第三级别：可重复读(repeatable read) 读到的数据是幻象，解决了不可重复读现象<font color="blue">提交了还能读到之前的数据</font></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> <span class="token keyword">transaction</span> <span class="token keyword">isolation</span> <span class="token keyword">level</span> <span class="token keyword">repeatable</span> <span class="token keyword">read</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>第四级别：序列化读/串行化读 需要事务排队，解决了所有问题<font color="blue">事务提交了之后才能访问</font></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> <span class="token keyword">transaction</span> <span class="token keyword">isolation</span> <span class="token keyword">level</span> <span class="token keyword">serializable</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p> <code>start transaction;</code>:关闭自动提交机制</p>
 </li>
-<li><p>给sal字段添加索引</p>
+<li><p> <code>rollback</code>: 回滚事务</p>
 </li>
+<li><p> <code>commit</code>: 提交</p>
+</li>
+</ul>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li><p>索引就相当于一本书的目录，通过目录可以快速的找到对应的资源。</p>
+</li>
+<li><p>添加索引是给某一个字段，或者说某些字段添加索引。</p>
+</li>
+<li><p>创建索引对象：</p>
+<ul>
+<li><font color="red">create index 索引名称 on 表名(字段名);</font></li>
+</ul>
+</li>
+<li><p>删除索引对象：</p>
+<ul>
+<li><font color="red">drop index 索引名称 on 表名;</font></li>
+</ul>
+</li>
+<li><p>什么时候考虑给字段添加索引？(满足什么条件)</p>
+<ul>
+<li>数据量庞大。(根据客户的需求，根据线上的环境)</li>
+<li>该字段很少的DML操作。(因为字段进行修改操作，索引也需要维护)</li>
+<li>该字段经常出现在where子句中。(经常根据哪个字段维护)</li>
+</ul>
+</li>
+<li><p>主键具有unique约束的字段会自动添加索引。根据主键查询效率较高，尽量根据主键检索。</p>
+</li>
+<li><p>索引底层采用的数据结构是：B + Tree</p>
+</li>
+<li><p>索引的实现原理？<br>通过B Tree缩小扫描范围，底层索引进行了排序，分区，索引会携带数据在表中的”物理地址”，最终通过索引检索到数据之后，获取到关联的物理地址，通过物理索引检索到数据之后，获取到关联的物理地址，通过物理地址定位表中的数据，效率是最高的。<br>elect ename from emp where ename = ‘SMITH’;<br>通过索引转换为：<br>select ename from emp where  物理地址 = 0x123;</p>
+</li>
+<li><p>索引的分类</p>
+<ul>
+<li>单一索引：给单个字段添加索引</li>
+<li>复合索引：给多个字段联合起来添加一个索引</li>
+<li>主键索引：主键上会自动添加索引</li>
+<li>唯一索引：有unique约束的字段会自动添加索引</li>
+</ul>
+</li>
+<li><p>模糊查询的时候，第一个通配符使用的是%，这个时候索引是是失效的。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>查看sql语句的执行计划</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">explain</span> <span class="token keyword">select</span> ename<span class="token punctuation">,</span>sal <span class="token keyword">from</span> emp <span class="token keyword">where</span> sal <span class="token operator">=</span> <span class="token number">800</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+</span>
+<span class="token operator">|</span> id <span class="token operator">|</span> select_type <span class="token operator">|</span> <span class="token keyword">table</span> <span class="token operator">|</span> partitions <span class="token operator">|</span> <span class="token keyword">type</span> <span class="token operator">|</span> possible_keys <span class="token operator">|</span> <span class="token keyword">key</span>  <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> <span class="token keyword">rows</span> <span class="token operator">|</span> filtered <span class="token operator">|</span> Extra       <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+</span>
+<span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> <span class="token keyword">SIMPLE</span>      <span class="token operator">|</span> emp   <span class="token operator">|</span> <span class="token boolean">NULL</span>       <span class="token operator">|</span> <span class="token keyword">ALL</span>  <span class="token operator">|</span> <span class="token boolean">NULL</span>          <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span> <span class="token boolean">NULL</span> <span class="token operator">|</span>   <span class="token number">14</span> <span class="token operator">|</span>    <span class="token number">10.00</span> <span class="token operator">|</span> <span class="token keyword">Using</span> <span class="token keyword">where</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>给sal字段添加索引</li>
 </ul>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">index</span> emp_sal_index <span class="token keyword">on</span> emp<span class="token punctuation">(</span>sal<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2963,7 +2979,7 @@ id<span class="token punctuation">(</span>pk<span class="token punctuation">)</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">205.8k</span>&nbsp;字&nbsp;|
+                class="white-color">207.8k</span>&nbsp;字&nbsp;|
             
             
             
