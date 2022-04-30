@@ -816,14 +816,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-28
+                    2022-04-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.9k
+                    11k
                 </div>
                 
 
@@ -1244,6 +1244,19 @@ var _hmt = _hmt || [];
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p><strong><code>@ResponseBody</code>和<code>ResponseEntity</code>的区别</strong></p>
+<ul>
+<li><p><code> ResponseEntity</code>通常用于返回文件流</p>
+</li>
+<li><p><code>@ResponseBody</code>可以直接返回Json结果，</p>
+</li>
+<li><p><code> ResponseEntity</code>不仅可以返回<code>json</code>结果，还可以定义返回的<code>HttpHeaders</code>和<code>HttpStatus</code></p>
+</li>
+<li><p><code> ResponseEntity</code>的优先级高于<code>@ResponseBody</code>。在不是ResponseEntity的情况下才去检查有没有<code>@ResponseBody</code>注解。如果响应类型是ResponseEntity可以不写<code>@ResponseBody</code>注解，写了也没有关系。</p>
+</li>
+</ul>
+</blockquote>
 <h4 id="ControllerAdvice"><a href="#ControllerAdvice" class="headerlink" title="@ControllerAdvice"></a>@ControllerAdvice</h4><ul>
 <li>控制器增强(给控制器增加功能–异常处理功能)</li>
 <li>位置:在类的上面</li>
@@ -3747,7 +3760,7 @@ private Date createTime;<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.8k</span>&nbsp;字&nbsp;|
+                class="white-color">210.1k</span>&nbsp;字&nbsp;|
             
             
             
