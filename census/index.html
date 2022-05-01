@@ -23,7 +23,7 @@
 
 
     <title>统计 | 秋水墨色染</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/favicon.png">
+    <link rel="icon" type="image/png" href="/medias/logo.webp">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/materialize/materialize.min.css">
@@ -647,7 +647,7 @@ var _hmt = _hmt || [];
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getHours() + '.jpg';
+    var bannerUrl = "/medias/banner/" + new Date().getHours() + '.webp';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
@@ -677,7 +677,7 @@ var _hmt = _hmt || [];
         data:[null,null,null,null,null,null,null,null,843,654,1235,956],//第一个年份对应的数据顺序对应月份
         axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}},},
         {name:'2022年访客数',type:'line',smooth:true,itemStyle:{normal:{areaStyle:{type:'default'}}},
-        data:[1303,1810,1689,2219,null,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
+        data:[1303,1810,1689,2219,2564,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
         axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}},}]};
         uvChart.setOption(option);var pvChart=echarts.init(document.getElementById('pv-container'));
         var pv_option={color:['#01C2F9','#18D070','#d223e7','#3F77FE'],
@@ -690,7 +690,7 @@ var _hmt = _hmt || [];
         xAxis:[{type:'category',boundaryGap:false,data:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
         axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],yAxis:[{type:'value',axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],
         series:[{name:'2021年访问量',type:'line',stack:'总量',data:[null,null,null,null,null,null,null,null,656,565,1510,1212],axisLabel:{formatter:'{value}',//第一个年份对应的数据顺序对应月份
-        textStyle:{color:'#929298'}}},{name:'2022年访问量',type:'line',stack:'总量',data:[2750,2546,2615,3023,null,null,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
+        textStyle:{color:'#929298'}}},{name:'2022年访问量',type:'line',stack:'总量',data:[2750,2546,2615,3023,3215,null,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
         axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}]};
         pvChart.setOption(pv_option);
 
