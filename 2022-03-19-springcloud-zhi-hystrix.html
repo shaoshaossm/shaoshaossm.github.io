@@ -873,7 +873,7 @@ var _hmt = _hmt || [];
 <h5 id="服务熔断"><a href="#服务熔断" class="headerlink" title="服务熔断"></a>服务熔断</h5><p>类比保险丝达到最大服务访问后，直接拒绝访问，拉闸限电，然后调用服务降级的方法并返回友好提示。</p>
 <p>服务的降级 -&gt; 进而熔断 -&gt; 恢复调用链路</p>
 <h4 id="服务限流"><a href="#服务限流" class="headerlink" title="服务限流"></a>服务限流</h4><p>秒杀高并发等操作，严禁一窝蜂的过来拥挤，大家排队，一秒钟N个，有序进行。</p>
-<h3 id="支付微服务搭建"><a href="#支付微服务搭建" class="headerlink" title="支付微服务搭建"></a>支付微服务搭建</h3><h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/559b55427bad431ca6ac114385619a5d.png" alt="目录结构"></p>
+<h3 id="支付微服务搭建"><a href="#支付微服务搭建" class="headerlink" title="支付微服务搭建"></a>支付微服务搭建</h3><h4 id="new-module"><a href="#new-module" class="headerlink" title="new module"></a>new module</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/559b55427bad431ca6ac114385619a5d.png" alt="目录结构"></p>
 <h3 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h3><p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1005,17 +1005,17 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/1e7fceb9873946fb88e8d9bc6995129f.png" alt="timeout 3s"><br><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/a1b108542fbf40f398415aa3bf548701.png" alt="ok"></p>
+<h4 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/1e7fceb9873946fb88e8d9bc6995129f.png" alt="timeout 3s"><br><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/a1b108542fbf40f398415aa3bf548701.png" alt="ok"></p>
 <h3 id="高并发测试"><a href="#高并发测试" class="headerlink" title="高并发测试"></a>高并发测试</h3><h4 id="下载jmeter"><a href="#下载jmeter" class="headerlink" title="下载jmeter"></a>下载jmeter</h4><p><a target="_blank" rel="noopener" href="https://jmeter.apache.org/download_jmeter.cgi">网址</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/4f3300da3d044780a812aad6add557fc.png" alt="下载"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/4f3300da3d044780a812aad6add557fc.png" alt="下载"></p>
 <ul>
 <li>进入bin目录运行jmeter.bat</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/56bcf2a001fa4d54b269cd4273b40f54.png" alt="Thred group"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/296606102a1c4bda97dc04b4a6c6c6f7.png" alt="Hppt request"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/bd879e93c2c949a0a0a3d492ceaac089.png" alt="2万次并发"><br><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/a196f80ffbb640c294bfb295af138dda.png" alt="请求地址"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/12205fe9328c45dfa6ee660bff242bf7.png" alt="出现缓冲"></p>
-<h4 id="服务消费端再次测试"><a href="#服务消费端再次测试" class="headerlink" title="服务消费端再次测试"></a>服务消费端再次测试</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/c368b1e94c2648d89e3b758fb69677f3.png" alt="目录结构"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/56bcf2a001fa4d54b269cd4273b40f54.png" alt="Thred group"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/296606102a1c4bda97dc04b4a6c6c6f7.png" alt="Hppt request"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/bd879e93c2c949a0a0a3d492ceaac089.png" alt="2万次并发"><br><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/a196f80ffbb640c294bfb295af138dda.png" alt="请求地址"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/12205fe9328c45dfa6ee660bff242bf7.png" alt="出现缓冲"></p>
+<h4 id="服务消费端再次测试"><a href="#服务消费端再次测试" class="headerlink" title="服务消费端再次测试"></a>服务消费端再次测试</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/c368b1e94c2648d89e3b758fb69677f3.png" alt="目录结构"></p>
 <p>pom.xml</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1133,7 +1133,7 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/7fde3acb04c44d5592baaa14e9fe8e9e.png" alt="再次出现缓冲"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/7fde3acb04c44d5592baaa14e9fe8e9e.png" alt="再次出现缓冲"></p>
 <ul>
 <li>故障现象和导致原因<ul>
 <li>8001同一层次的其他接口服务被困死，因为tomcat线程里面的工作线程已经被挤占完毕</li>
@@ -1156,7 +1156,7 @@ var _hmt = _hmt || [];
 <li>设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback</li>
 <li>一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9b85e8ebae3b4df89439dfb3cc54e5a7.png" alt="图解"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9b85e8ebae3b4df89439dfb3cc54e5a7.png" alt="图解"></p>
 <p>PaymentService</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentService</span> <span class="token punctuation">&#123;</span>
@@ -1192,7 +1192,7 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/7cf0c90266c44ec08a464a70f7d6068b.png" alt="超时&amp;报错兜底方法运行结果"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/7cf0c90266c44ec08a464a70f7d6068b.png" alt="超时&amp;报错兜底方法运行结果"></p>
 <h4 id="80fallback"><a href="#80fallback" class="headerlink" title="80fallback"></a>80fallback</h4><ul>
 <li>80订单微服务，也可以更好的保护自己，自己也依样画葫芦进行客户端降级保护</li>
 <li>8001 sleep 3s 设置5s，但80设置1.5s</li>
@@ -1270,7 +1270,7 @@ var _hmt = _hmt || [];
 <span class="token comment">#  ReadTimeout: 5000</span>
 <span class="token comment">#  ConnectTimeout: 5000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/5accb0b953cb4cb5bfc96db29131326e.png" alt="测试结果"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/5accb0b953cb4cb5bfc96db29131326e.png" alt="测试结果"></p>
 <h3 id="Hystrix之全局服务降级DefaultProperties"><a href="#Hystrix之全局服务降级DefaultProperties" class="headerlink" title="Hystrix之全局服务降级DefaultProperties"></a>Hystrix之全局服务降级DefaultProperties</h3><p><strong>目前问题</strong>：每个业务方法对应一个兜底的方法，代码膨胀</p>
 <p><strong>解决方法</strong>：1:N除了个别重要核心业务有专属，其它普通的可以通过@DefaultProperties(defaultFallback = “”)统一跳转到统一处理结果页面</p>
 <p>通用的和独享的各自分开，避免了代码膨胀，合理减少了代码量</p>
@@ -1313,7 +1313,7 @@ var _hmt = _hmt || [];
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/94211e9aae224f6eaa9de1780a81e026.png" alt="运行测试"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/94211e9aae224f6eaa9de1780a81e026.png" alt="运行测试"></p>
 <h4 id="Hystrix之通配服务降级FeignFallback"><a href="#Hystrix之通配服务降级FeignFallback" class="headerlink" title="Hystrix之通配服务降级FeignFallback"></a>Hystrix之通配服务降级FeignFallback</h4><p><strong>目前问题2</strong> 处理异常的代码和业务逻辑混在一起</p>
 <p><strong>服务降级，客户端去调用服务端，碰上服务端宕机或关闭</strong></p>
 <p>本次案例服务降级处理是在客户端80实现完成的，与服务端8001没有关系，只需要为<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Feign&spm=1001.2101.3001.7020">Feign</a>客户端定义的接口添加一个服务降级处理的实现类即可实现解耦。<strong>8001服务端出现宕机，80消费端服务降级，而不用去调用8001已宕机的（被耗死）</strong></p>
@@ -1366,7 +1366,7 @@ var _hmt = _hmt || [];
 <p>正常访问测试 - <a target="_blank" rel="noopener" href="http://localhost/consumer/payment/hystrix/ok/1">http://localhost/consumer/payment/hystrix/ok/1</a></p>
 <p>故意关闭微服务8001</p>
 <p>客户端自己调用提示 - 此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f2b3c5042add478e9ec4654a14aa2099.png" alt="消费端服务降级"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/f2b3c5042add478e9ec4654a14aa2099.png" alt="消费端服务降级"></p>
 <h3 id="服务熔断-1"><a href="#服务熔断-1" class="headerlink" title="服务熔断"></a>服务熔断</h3><p><font color="orange">熔断机制概述</font></p>
 <p>熔断机制是应对雪崩效应的一种微服务链路保护机制。当扇出链路的某个微服务出错不可用或者响应时间太长时，</p>
 <p>会进行服务的降级，进而熔断该节点微服务的调用，快速返回错误的响应信息。</p>
@@ -1380,7 +1380,7 @@ var _hmt = _hmt || [];
 <li>熔断关闭：熔断关闭不会对服务进行熔断。</li>
 <li>熔断半开：部分请求根据规则调用当前服务，如果请求成功且符合规则则认为当前服务恢复正常，关闭熔断。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/a473b79b81f24dce9e0983cd3b51fd83.png" alt="服务熔断理论图"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/a473b79b81f24dce9e0983cd3b51fd83.png" alt="服务熔断理论图"></p>
 <h4 id="代码编写-1"><a href="#代码编写-1" class="headerlink" title="代码编写"></a>代码编写</h4><p>PaymentController</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 服务熔断</span>
 <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/payment/circuit/&#123;id&#125;"</span><span class="token punctuation">)</span>
@@ -1414,7 +1414,7 @@ var _hmt = _hmt || [];
     <span class="token keyword">return</span> <span class="token string">"id 不能负数，请稍后再试，/(ㄒoㄒ)/~~   id: "</span> <span class="token operator">+</span>id<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/b414d33693f34b75855222ec5aa5d7bc.png" alt="正数正常访问"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/3dbc94cb2f524524b3eacaf3bfeb95b5.png" alt="负数测试"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9c9d317133ca40a6976df3acfa178399.png" alt="正数再次立马测试"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/3b4f69d2c0c24b8aad780fa605af5077.png" alt="正数再次稍等几s测试"></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/b414d33693f34b75855222ec5aa5d7bc.png" alt="正数正常访问"><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/3dbc94cb2f524524b3eacaf3bfeb95b5.png" alt="负数测试"><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9c9d317133ca40a6976df3acfa178399.png" alt="正数再次立马测试"><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/3b4f69d2c0c24b8aad780fa605af5077.png" alt="正数再次稍等几s测试"></p>
 <h3 id="断路器总结"><a href="#断路器总结" class="headerlink" title="断路器总结"></a>断路器总结</h3><p><strong>断路器在什么情况下开始起作用</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//=====服务熔断</span>
 <span class="token annotation punctuation">@HystrixCommand</span><span class="token punctuation">(</span>fallbackMethod <span class="token operator">=</span> <span class="token string">"paymentCircuitBreaker_fallback"</span><span class="token punctuation">,</span>commandProperties <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -1528,17 +1528,17 @@ var _hmt = _hmt || [];
 	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">&#125;</span>           <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="Hystrix工作流程最后总结"><a href="#Hystrix工作流程最后总结" class="headerlink" title="Hystrix工作流程最后总结"></a>Hystrix工作流程最后总结</h3><p><a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix/wiki/How-it-Works">官方解释</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9a42a0b3f10240e38c3055cbfa504ecc.png" alt="工作流程"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9a42a0b3f10240e38c3055cbfa504ecc.png" alt="工作流程"></p>
 <h3 id="Hystrix图形化Dashboard搭建"><a href="#Hystrix图形化Dashboard搭建" class="headerlink" title="Hystrix图形化Dashboard搭建"></a>Hystrix图形化Dashboard搭建</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>除了隔离依赖服务的调用以外，Hystrix还提供了<font color="red">准实时的调用监控(Hystrix Dashboard)</font>，Hystrix会持续地记录所有通过Hystrix发起的请求的执行信息，并以统计报表和图形的形式展示给用户，包括每秒执行多少请求多少成功，多少失败等。</p>
 <p>Netflix通过hystrix-metrics-event-stream项目实现了对以上指标的监控。Spring Cloud也提供了Hystrix Dashboard的整合，对监控内容转化成可视化界面。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/08a036ae9f5f4f8c9de44e93d9126c65.png" alt="http://localhost:9001/hystrix"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/08a036ae9f5f4f8c9de44e93d9126c65.png" alt="http://localhost:9001/hystrix"></p>
 <p>首页地址栏输入 <a target="_blank" rel="noopener" href="http://localhost:8001/hystrix.stream%E8%BF%9B%E5%85%A5%E8%BF%90%E8%A1%8C%E7%95%8C%E9%9D%A2">http://localhost:8001/hystrix.stream进入运行界面</a></p>
 <p>刷新 <a target="_blank" rel="noopener" href="http://localhost:8001/payment/circuit/10">http://localhost:8001/payment/circuit/10</a> 和 <a target="_blank" rel="noopener" href="http://localhost:8001/payment/circuit/-10">http://localhost:8001/payment/circuit/-10</a> 观察效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/d779ae32d1e54cc18af202e7552d3098.png" alt="效果演示"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/97cc35b1f24740a98d49debd60c460e3.png" alt="效果演示"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/d779ae32d1e54cc18af202e7552d3098.png" alt="效果演示"><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/97cc35b1f24740a98d49debd60c460e3.png" alt="效果演示"></p>
 <p><strong>实心圆</strong>：共有两种含义。它通过颜色的变化代表了实例的健康程度，它的健康度从绿色&lt;黄色&lt;橙色&lt;红色递减。</p>
 <p>该实心圆除了颜色的变化之外，它的大小也会根据实例的请求流量发生变化，<strong>流量越大该实心圆就越大</strong>。所以通过该实心圆的展示，就可以在大量的实例中快速的发现故障实例和高压力实例。</p>
 <p><strong>曲线</strong>：用来记录2分钟内流量的相对变化，可以通过它来观察到流量的上升和下降趋势。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f82fdf5329f0494c9c6842fad105783e.png" alt="整图说明"><br><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/fa42e8e4e53f49cba8f5b38ae9efbb96.png" alt="整图说明"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/f82fdf5329f0494c9c6842fad105783e.png" alt="整图说明"><br><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/fa42e8e4e53f49cba8f5b38ae9efbb96.png" alt="整图说明"></p>
 
 
 
@@ -1749,10 +1749,10 @@ var _hmt = _hmt || [];
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -2124,7 +2124,7 @@ var _hmt = _hmt || [];
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/featureimages/25.webp" class="responsive-img" alt="SpringCloud之GateWay">
+                        <img src="/medias/lay.webp" data-original="/medias/featureimages/25.webp" class="responsive-img" alt="SpringCloud之GateWay">
                         
                         <span class="card-title">SpringCloud之GateWay</span>
                     </div>
@@ -2176,7 +2176,7 @@ var _hmt = _hmt || [];
                 <a href="/2022-03-18-springcloud-zhi-openfeign.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/1bf5ea7d7af04fdca544e9c9c599275b.png" class="responsive-img" alt="SpringCloud之OpenFeign">
+                        <img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/1bf5ea7d7af04fdca544e9c9c599275b.png" class="responsive-img" alt="SpringCloud之OpenFeign">
                         
                         <span class="card-title">SpringCloud之OpenFeign</span>
                     </div>

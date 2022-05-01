@@ -991,7 +991,7 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
 plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'匹配结果'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> plt<span class="token punctuation">.</span>yticks<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/64cc9aa678134e3c947b644b6a6aec72.png" alt="效果展示"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/64cc9aa678134e3c947b644b6a6aec72.png" alt="效果展示"></p>
 <h3 id="3-获取并修改图像中的像素点"><a href="#3-获取并修改图像中的像素点" class="headerlink" title="3.获取并修改图像中的像素点"></a>3.获取并修改图像中的像素点</h3><p>我们可以通过行和列的坐标值获取该像素点的像素值。对于BGR图像，它返回一个蓝，绿，红值的数组。对于灰度图像，仅返回相应的强度值。使用相同的方法对像素值进行修改。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> cv2 <span class="token keyword">as</span> cv
@@ -1141,7 +1141,7 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>两种结果对比(Opencv更好一点)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/1533667874f24412a2c886f858f3e7fa.png" alt="OpenCV"><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f026174e259d43abba3ce2c79365a703.png" alt="Numpy"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/1533667874f24412a2c886f858f3e7fa.png" alt="OpenCV"><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/f026174e259d43abba3ce2c79365a703.png" alt="Numpy"></p>
 <h4 id="2-图像的混合"><a href="#2-图像的混合" class="headerlink" title="2.图像的混合"></a>2.图像的混合</h4><p>这其实也是加法，但是不同的是两幅图像的权重不同，这就会给人一种混合或者透明的感觉。图像混合的计算公式如下：</p>
 <blockquote>
 <p>g(x) = (1−α)f0(x) + αf1(x)</p>
@@ -1156,7 +1156,7 @@ img4 <span class="token operator">=</span> cv<span class="token punctuation">.</
 
 plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>img4<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9a7b1bc9fd0d4be18ffda46ea54982b9.png" alt="图像混合"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9a7b1bc9fd0d4be18ffda46ea54982b9.png" alt="图像混合"></p>
 <blockquote>
 <p>注意：这里都要求两幅图像是相同大小的。</p>
 </blockquote>
@@ -1366,10 +1366,10 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1741,7 +1741,7 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/featureimages/25.webp" class="responsive-img" alt="Open-CV图像处理">
+                        <img src="/medias/lay.webp" data-original="/medias/featureimages/25.webp" class="responsive-img" alt="Open-CV图像处理">
                         
                         <span class="card-title">Open-CV图像处理</span>
                     </div>
@@ -1790,7 +1790,7 @@ plt<span class="token punctuation">.</span>imshow<span class="token punctuation"
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/featureimages/27.webp" class="responsive-img" alt="centos7程序启动命令合集">
+                        <img src="/medias/lay.webp" data-original="/medias/featureimages/27.webp" class="responsive-img" alt="centos7程序启动命令合集">
                         
                         <span class="card-title">centos7程序启动命令合集</span>
                     </div>

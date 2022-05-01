@@ -1776,8 +1776,8 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="并行流-串行流"><a href="#并行流-串行流" class="headerlink" title="并行流 / 串行流"></a>并行流 / 串行流</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9e4a44a81eb24f42b5a5737e2bf9f2e1.png" alt="Fork/Join"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/c86ff23709f94c37811e0f1f98f9f22d.png" alt="区别"></p>
+<h4 id="并行流-串行流"><a href="#并行流-串行流" class="headerlink" title="并行流 / 串行流"></a>并行流 / 串行流</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9e4a44a81eb24f42b5a5737e2bf9f2e1.png" alt="Fork/Join"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/c86ff23709f94c37811e0f1f98f9f22d.png" alt="区别"></p>
 <p>Fork / Join 实现：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ForkJoinCalculate</span> <span class="token keyword">extends</span> <span class="token class-name">RecursiveTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
 
@@ -1887,7 +1887,7 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/df2a7c39447d468aa77f0255666d9227.png" alt="类优先原则"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/df2a7c39447d468aa77f0255666d9227.png" alt="类优先原则"></p>
 <p>MyInterface</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">default</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -2024,7 +2024,7 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
 <h4 id="新时间日期API"><a href="#新时间日期API" class="headerlink" title="新时间日期API"></a>新时间日期API</h4><ul>
 <li>LocalDate、LocalTime、LocalDateTime 类的实 例是<strong>不可变的对象</strong>，分别表示使用 ISO-8601日 历系统的日期、时间、日期和时间。它们提供 了简单的日期或时间，并不包含当前的时间信 息。也不包含与时区相关的信息。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/62aaba067b994fe18bff1a9846d35a9d.png" alt="方法"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/62aaba067b994fe18bff1a9846d35a9d.png" alt="方法"></p>
 <ul>
 <li><code>Instant 时间戳</code>:用于“时间戳”的运算。它是以Unix元年(传统 的设定为UTC时区1970年1月1日午夜时分)开始 所经历的描述进行运算</li>
 <li><code>Duration </code>和<code> Period</code>:<ul>
@@ -2050,7 +2050,7 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/d20a2c5a5e8d4013a91cd0edff85f174.png" alt="与传统日期处理的转换"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/d20a2c5a5e8d4013a91cd0edff85f174.png" alt="与传统日期处理的转换"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestLocalDateTime</span> <span class="token punctuation">&#123;</span>
    
@@ -2456,10 +2456,10 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -2830,7 +2830,7 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
                 <a href="/2022-04-03-java-ji-chu-zhi-ji-he.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9d3caa9f8b99496bb61e8a8cd953be4d.png" class="responsive-img" alt="Java基础之集合">
+                        <img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9d3caa9f8b99496bb61e8a8cd953be4d.png" class="responsive-img" alt="Java基础之集合">
                         
                         <span class="card-title">Java基础之集合</span>
                     </div>
@@ -2879,7 +2879,7 @@ lambda2<span class="token punctuation">.</span><span class="token function">test
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/featureimages/24.webp" class="responsive-img" alt="SpringBoot集成Mybatis-Plus">
+                        <img src="/medias/lay.webp" data-original="/medias/featureimages/24.webp" class="responsive-img" alt="SpringBoot集成Mybatis-Plus">
                         
                         <span class="card-title">SpringBoot集成Mybatis-Plus</span>
                     </div>

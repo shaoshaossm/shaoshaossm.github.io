@@ -854,7 +854,7 @@ var _hmt = _hmt || [];
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong>分布式文件系统</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/03ce2c7c6952434b9d4aeed3fdbc2b4d.png" alt="分布式文件系统"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/03ce2c7c6952434b9d4aeed3fdbc2b4d.png" alt="分布式文件系统"></p>
 <blockquote>
 <p><strong>优点</strong>：<font color="orange">解决传统方式的单点故障问题，如果某一个节点出现故障还有其他节点可以用来读取和写入文件，可以提供数据的备份避免因磁盘损坏导致的文件丢失，还可以提供扩容的机制，无限增加文件存放的空间上限。</font></p>
 </blockquote>
@@ -890,7 +890,7 @@ fdfs_storaged &#x2F;etc&#x2F;fdfs&#x2F;storage.conf restart
 # 查看FastDFS进程
 ps -ef|grep fdfs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/dd35296d22e643479998a4ec2947107b.png" alt="查看创建的文件"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/dd35296d22e643479998a4ec2947107b.png" alt="查看创建的文件"></p>
 <h3 id="分布式文件系统FastDFS的HTTP访问"><a href="#分布式文件系统FastDFS的HTTP访问" class="headerlink" title="分布式文件系统FastDFS的HTTP访问"></a>分布式文件系统FastDFS的HTTP访问</h3><blockquote>
 <p>测试之前，需要修改client.conf配置文件，修改两个配置</p>
 </blockquote>
@@ -900,8 +900,8 @@ base_path&#x3D;&#x2F;opt&#x2F;fastdfs&#x2F;client
 tracker_server&#x3D;192.168.174.131:22122
 mkdir client<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/4462ae70cd254b29a0fdf258222eb9ce.png" alt="切换目录"><br><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/b5ecff3322f74de2b53bd158a3b2d80d.png" alt="增加代码"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/499a4ebb36d04090bba30ae129c27fe5.png" alt="新建client目录"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/4462ae70cd254b29a0fdf258222eb9ce.png" alt="切换目录"><br><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/b5ecff3322f74de2b53bd158a3b2d80d.png" alt="增加代码"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/499a4ebb36d04090bba30ae129c27fe5.png" alt="新建client目录"></p>
 <blockquote>
 <p>我们如何在浏览器中访问呢？</p>
 <p>FastDFS提供了一个Nginx扩展模块，利用该模块，我们可以通过Nginx访问已经上传到FastDFS上的文件</p>
@@ -912,7 +912,7 @@ mkdir client<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p>输入上传命令<code>fdfs_test /etc/fdfs/client.conf upload /root/aaa.txt</code></p>
 </blockquote>
 <p><strong>上传成功详细信息</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/8b2cf8f7c1554a44bac9fc8e3cc40d63.png" alt="上传信息"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/8b2cf8f7c1554a44bac9fc8e3cc40d63.png" alt="上传信息"></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span>cd root/
 <span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># fdfs_test /etc/fdfs/client.conf upload /root/aaa.txt</span>
 This is FastDFS client <span class="token builtin class-name">test</span> program v5.11
@@ -945,15 +945,15 @@ storage_upload_slave_by_filename
 <span class="token function">file</span> <span class="token assign-left variable">crc32</span><span class="token operator">=</span><span class="token number">3869778052</span>
 example <span class="token function">file</span> url: http://192.168.174.131/group1/M00/00/00/wKiug2Jrm5qASYMgAAAAB-aoIIQ455_big.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/3a1664e10f5141ef9bdf53130194f8a9.png" alt="访问成功"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/3a1664e10f5141ef9bdf53130194f8a9.png" alt="访问成功"></p>
 <p><strong>进入目录查看文件</strong></p>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd &#x2F;opt&#x2F;fastdfs&#x2F;storage&#x2F;files&#x2F;data&#x2F;00&#x2F;00<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/a836464992364ace8a41c2487e74cb49.png" alt="查看"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/a836464992364ace8a41c2487e74cb49.png" alt="查看"></p>
 <h4 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h4><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">[root@localhost &#x2F;]# fdfs_test &#x2F;etc&#x2F;fdfs&#x2F;client.conf download group1 M00&#x2F;00&#x2F;00&#x2F;wKiug2Jrm5qASYMgAAAAB-aoIIQ455.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/f00fd3cbfd424aa6921937b2d140d07e.png" alt="下载成功"></p>
-<h4 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/ba67e05bc8744440af331d7b2415230e.png" alt="删除成功"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/f00fd3cbfd424aa6921937b2d140d07e.png" alt="下载成功"></p>
+<h4 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/ba67e05bc8744440af331d7b2415230e.png" alt="删除成功"></p>
 <h3 id="Java操作FastDFS"><a href="#Java操作FastDFS" class="headerlink" title="Java操作FastDFS"></a>Java操作FastDFS</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
 <li>从 <a target="_blank" rel="noopener" href="https://codeload.github.com/happyfish100/fastdfs-client-java/zip/master">https://codeload.github.com/happyfish100/fastdfs-client-java/zip/master</a> 上下载FastDFS源代码到本地</li>
 <li>解压压缩包</li>
@@ -1116,7 +1116,7 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="SpringBoot整合FastDFS"><a href="#SpringBoot整合FastDFS" class="headerlink" title="SpringBoot整合FastDFS"></a>SpringBoot整合FastDFS</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/9ea880523c4d4b82bb7004a68f39c506.png" alt="目录结构"></p>
+<h3 id="SpringBoot整合FastDFS"><a href="#SpringBoot整合FastDFS" class="headerlink" title="SpringBoot整合FastDFS"></a>SpringBoot整合FastDFS</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/9ea880523c4d4b82bb7004a68f39c506.png" alt="目录结构"></p>
 <blockquote>
 <p>创建数据库fastdfs和表</p>
 </blockquote>
@@ -1147,7 +1147,7 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
 <span class="token keyword">SET</span> FOREIGN_KEY_CHECKS <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/5162b6576506417f96dbf92d8d88a072.png" alt="creditor_info"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/5162b6576506417f96dbf92d8d88a072.png" alt="creditor_info"></p>
 <blockquote>
 <p>新建一个springboot工程</p>
 </blockquote>
@@ -1303,7 +1303,7 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>context</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>generatorConfiguration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/b06c2735a73544d39c42b477e01e8ad4.png" alt="双击生成"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/b06c2735a73544d39c42b477e01e8ad4.png" alt="双击生成"></p>
 <blockquote>
 <p>创建<code>CreditorInfoService</code>接口</p>
 <p>创建<code>CreditorInfoServiceImpl</code>实现类</p>
@@ -1517,10 +1517,10 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/alipay.webp" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/lay.webp" data-original="/medias/reward/wechat.webp" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1891,7 +1891,7 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
                 <a href="/2022-04-29-centos7-chang-jian-wen-ti-jie-jue.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/a54ba778db9e424287dc1d5153eb2438.png" class="responsive-img" alt="Centos7常见问题解决">
+                        <img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/a54ba778db9e424287dc1d5153eb2438.png" class="responsive-img" alt="Centos7常见问题解决">
                         
                         <span class="card-title">Centos7常见问题解决</span>
                     </div>
@@ -1939,7 +1939,7 @@ example <span class="token function">file</span> url: http://192.168.174.131/gro
                 <a href="/2022-04-24-javascript-ji-chu.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shaoshaossm/images/赛尔号/2.gif" data-original="https://img-blog.csdnimg.cn/73b0a3b1ec8349e594f53f3495bcd81c.png" class="responsive-img" alt="JavaScript基础">
+                        <img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/73b0a3b1ec8349e594f53f3495bcd81c.png" class="responsive-img" alt="JavaScript基础">
                         
                         <span class="card-title">JavaScript基础</span>
                     </div>
