@@ -820,14 +820,14 @@ var _hmt = _hmt || [];
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-30
+                    2022-05-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    763
+                    818
                 </div>
                 
 
@@ -879,6 +879,17 @@ ps -ef|grep 服务名
 # 关闭服务
 kill -9 pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="tomcat9-0-0"><a href="#tomcat9-0-0" class="headerlink" title="tomcat9.0.0"></a>tomcat9.0.0</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 切换目录
+cd &#x2F;usr&#x2F;java&#x2F;apache-tomcat-9.0.0.M26&#x2F;bin
+# 启动
+.&#x2F;startup.sh 
+# 查看日志
+cd ..
+cd logs&#x2F;
+tail -f catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/5a5a3f6f24aa4a36aba1030f9ecb9a6c.png" alt="启动成功"></p>
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/c93a2aba29dd442b907d406d45810e5a.png" alt="访问页面"></p>
 <h3 id="zookeeper3-4-8"><a href="#zookeeper3-4-8" class="headerlink" title="zookeeper3.4.8"></a>zookeeper3.4.8</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
 <span class="token builtin class-name">cd</span> usr/java/zookeeper-3.4.8/bin/
 <span class="token comment"># 启动</span>
@@ -900,11 +911,6 @@ kill -9 pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 redis-cli -a <span class="token number">123456</span> -h <span class="token number">192.168</span>.174.131 <span class="token function">shutdown</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/b3bd6fd80b16464e932f276b6976e36b.png" alt="启动结果"></p>
-<h3 id="nginx1-18-0"><a href="#nginx1-18-0" class="headerlink" title="nginx1.18.0"></a>nginx1.18.0</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> usr/java/nginx/sbin/
-<span class="token comment"># 启动</span>
-./nginx -c /usr/java/nginx/conf/nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/03bcb38e2cb94676ac445510c382acde.png" alt="启动命令"><br><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/786015dd22054117b843f0a62c43bbe9.png" alt="启动结果"></p>
 <h3 id="Consul1-11-4"><a href="#Consul1-11-4" class="headerlink" title="Consul1.11.4"></a>Consul1.11.4</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动</span>
 consul agent -dev    只能127.0.0.1可以访问
 consul agent -dev  -client <span class="token number">0.0</span>.0.0 -ui  指定ip可以访问<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -937,14 +943,23 @@ java -jar zipkin-server-2.9.4-exec.jar<span aria-hidden="true" class="line-numbe
 
 <p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/73878a956bcf490784c3af78506e9e28.png" alt="启动成功"></p>
 <p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/47ca8bee19444d6082197c71c4cfc9b1.png" alt="运行界面"></p>
-<h3 id="nginx1-18-0-1"><a href="#nginx1-18-0-1" class="headerlink" title="nginx1.18.0"></a>nginx1.18.0</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd &#x2F;usr&#x2F;java&#x2F;nginx_fdfs&#x2F;sbin
+<h3 id="nginx1-18-0"><a href="#nginx1-18-0" class="headerlink" title="nginx1.18.0"></a>nginx1.18.0</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd &#x2F;usr&#x2F;java&#x2F;nginx_fdfs&#x2F;sbin
 # 启动 指定配置文件启动
 .&#x2F;nginx -c &#x2F;usr&#x2F;java&#x2F;nginx-1.18.0_nacos&#x2F;conf&#x2F;nginx.conf
+# 处理完请求后关闭
+ps -ef | grep nginx
+kill -QUIT 主pid
+# 暴力关闭
+ps -ef | grep nginx
+kill -TERM 主pid
+# 重启
+.&#x2F;nginx -s reload
 # 登录地址
 http:&#x2F;&#x2F;192.168.174.131&#x2F;
 # nginx Windows版
-启动 nginx.exe 关闭:nginx.exe -s stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+启动 nginx.exe 关闭:nginx.exe -s stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/03bcb38e2cb94676ac445510c382acde.png" alt="aaa"></p>
 <p><img src="/medias/lay.webp" data-original="https://img-blog.csdnimg.cn/f164901ae5d04211b08c25aa86b8cb6e.png" alt="启动成功"></p>
 <h3 id="Sentinel1-8-3"><a href="#Sentinel1-8-3" class="headerlink" title="Sentinel1.8.3"></a>Sentinel1.8.3</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd &#x2F;usr&#x2F;java&#x2F;Sentinel-dashboard&#x2F;
 # 启动
@@ -1902,7 +1917,7 @@ This may also be found at: &#x2F;root&#x2F;.jenkins&#x2F;secrets&#x2F;initialAdm
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">210.1k</span>&nbsp;字&nbsp;|
+                class="white-color">212.9k</span>&nbsp;字&nbsp;|
             
             
             

@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://shaoshaossm.github.io/2022-04-29-fastdfs.html</loc>
-    <lastmod>2022-04-30</lastmod>
+    <loc>https://shaoshaossm.github.io/2022-05-02-tomcat-xiu-gai-duan-kou-hao.html</loc>
+    <lastmod>2022-05-02</lastmod>
   </url>
   <url>
-    <loc>https://shaoshaossm.github.io/2022-02-23-zhu-jie-de-shi-yong-he-ji.html</loc>
-    <lastmod>2022-04-30</lastmod>
+    <loc>https://shaoshaossm.github.io/2022-05-02-nginx.html</loc>
+    <lastmod>2022-05-02</lastmod>
   </url>
   <url>
     <loc>https://shaoshaossm.github.io/2021-12-20-centos7-cheng-xu-qi-dong-ming-ling-he-ji.html</loc>
+    <lastmod>2022-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://shaoshaossm.github.io/2021-10-21-linux-chang-yong-ming-ling-hui-zong.html</loc>
+    <lastmod>2022-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-04-29-centos7-chang-jian-wen-ti-jie-jue.html</loc>
+    <lastmod>2022-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-04-29-fastdfs.html</loc>
+    <lastmod>2022-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://shaoshaossm.github.io/2022-02-23-zhu-jie-de-shi-yong-he-ji.html</loc>
     <lastmod>2022-04-30</lastmod>
   </url>
   <url>
@@ -22,10 +38,6 @@
   </url>
   <url>
     <loc>https://shaoshaossm.github.io/2022-04-13-zi-dong-hua-bu-shu-jenkins.html</loc>
-    <lastmod>2022-04-29</lastmod>
-  </url>
-  <url>
-    <loc>https://shaoshaossm.github.io/2022-04-29-centos7-chang-jian-wen-ti-jie-jue.html</loc>
     <lastmod>2022-04-29</lastmod>
   </url>
   <url>
@@ -219,10 +231,6 @@
   <url>
     <loc>https://shaoshaossm.github.io/2022-02-27-springmvc.html</loc>
     <lastmod>2022-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://shaoshaossm.github.io/2021-10-21-linux-chang-yong-ming-ling-hui-zong.html</loc>
-    <lastmod>2022-03-12</lastmod>
   </url>
   <url>
     <loc>https://shaoshaossm.github.io/2022-02-26-durid-shu-ju-ku-lian-jie-chi.html</loc>
