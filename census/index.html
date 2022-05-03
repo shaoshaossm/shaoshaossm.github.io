@@ -653,49 +653,44 @@ var _hmt = _hmt || [];
 
 
     </div>
-</div> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/shaoshaossm/cdn@1.0/source/libs/echarts/echarts.min.js"></script>
-<main class="content"> 
-<div class="container">
-<div class="card"> 
-	<div class="card-content"> 
-		<div id="uv-container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1609569953900">
-		<div style="position: relative; width: 800px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1000" height="500" style="position: absolute; left: 0px; top: 0px; width: 800px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 146px; top: 150px; pointer-events: none;">二月<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#d223e7;"></span>2021年访客数: -<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#3F77FE;"></span>2020年访客数: </div></div> 
-		
-		<div id="pv-container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1609569953901"><div style="position: relative; width: 800px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1000" height="500" style="position: absolute; left: 0px; top: 0px; width: 800px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 577px; top: 315px; pointer-events: none;">九月<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#01C2F9;"></span>2020年访问量: 14,501<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#18D070;"></span>2021年访问量: 9,436</div></div> 
-
-
-	</div>  
-    <script>
-        var uvChart=echarts.init(document.getElementById('uv-container'),'shine');
-        var option={color:['#d223e7','#3F77FE','#01C2F9','#18D070'],title:{text:'站点访客数统计',subtext:'数据来源: 百度统计（自 2021/09/17 开始统计）',textStyle:{color:'#504b4d',}},tooltip:{trigger:'axis'},
-        legend:{data:['2021年访客数','2022年访客数'],bottom:0,left:'center',textStyle:{color:'#504b4d',}},//修改年份
-        toolbox:{show:true,feature:{mark:{show:true},magicType:{show:true,type:['line','bar','stack','tiled']},restore:{show:true},saveAsImage:{show:true}}},
-        calculable:true,xAxis:[{type:'category',boundaryGap:false,data:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
-        axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],yAxis:[{type:'value',axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],
-        series:[{name:'2021年访客数',type:'line',smooth:true,itemStyle:{normal:{areaStyle:{type:'default'}}},
-        data:[null,null,null,null,null,null,null,null,843,654,1235,956],//第一个年份对应的数据顺序对应月份
-        axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}},},
-        {name:'2022年访客数',type:'line',smooth:true,itemStyle:{normal:{areaStyle:{type:'default'}}},
-        data:[1303,1810,1689,2219,2564,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
-        axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}},}]};
-        uvChart.setOption(option);var pvChart=echarts.init(document.getElementById('pv-container'));
-        var pv_option={color:['#01C2F9','#18D070','#d223e7','#3F77FE'],
-        title:{text:'站点访问量统计',subtext:'数据来源: 百度统计（自 2021/09/17 开始统计）',
-        textStyle:{color:'#504b4d',}},legend:{data:['2021年访问量','2022年访问量'],//修改年份
-        bottom:0,left:'center',textStyle:{color:'#504b4d',}},
-        tooltip:{trigger:'axis'},toolbox:{show:true,feature:{mark:{show:true},
-        magicType:{show:true,type:['line','bar','stack','tiled']},
-        restore:{show:true},saveAsImage:{show:true}}},calculable:true,
-        xAxis:[{type:'category',boundaryGap:false,data:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
-        axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],yAxis:[{type:'value',axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}],
-        series:[{name:'2021年访问量',type:'line',stack:'总量',data:[null,null,null,null,null,null,null,null,656,565,1510,1212],axisLabel:{formatter:'{value}',//第一个年份对应的数据顺序对应月份
-        textStyle:{color:'#929298'}}},{name:'2022年访问量',type:'line',stack:'总量',data:[2750,2546,2615,3023,3215,null,null,null,null,null,null,null],//第二个年份对应的数据顺序对应月份
-        axisLabel:{formatter:'{value}',textStyle:{color:'#929298'}}}]};
-        pvChart.setOption(pv_option);
-
-        </script>
+</div>
+<style>
+  .journal {
+    padding: 12px;
+    border: 1px dashed #e6e6e6;
+    color: #969696;
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    background: #fbfbfb50;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 12px auto;
+  }
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script>
+<main class="content">
+  <div class="container chip-container">
+    <div class="card">
+      <div class="card-content">
+        <div class="tag-title center-align">
+          <div class="journal">
+            <div class="title center-align">“ 站点统计”</div>
+            “ 自 2022-04-08 起，每12小时自动更新一次 ”
+          </div>
+        </div>
+        <div id="calendar_container" style="min-height: 200px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative"></div>
+        <div id="uv_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="pv_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="map_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="sources_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <script src="/census/census.js"></script>
+      </div>
+    </div>
+  </div>
 </main>
+
 
 
 
