@@ -1,0 +1,26 @@
+name: 获取百度统计数据
+on:
+  schedule:
+    - cron: '	0 0,6,12,18 * * *'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查分支
+        uses: actions/checkout@v2
+        with:
+          ref: master #2020年10月后github新建仓库默认分支改为main，注意更改
+      - name: Set up Python #安装python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: 获取数据
+        run: |
+          cd /home/runner/work/hexo/hexo/source/census/data/
+          pip install requests 
+          python get.py
+          cd /home/runner/work/hexo/hexo
+          git config --global user.name "shaoshaossm"
+          git config --global user.email "1600767556@qq.com"
+
+
