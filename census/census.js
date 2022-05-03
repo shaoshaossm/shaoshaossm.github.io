@@ -147,13 +147,13 @@ function pvChart () {
     color: ['#01C2F9', '#18D070', '#d223e7', '#3F77FE'],
     title: {
         text: '站点访问量统计',
-        subtext: '数据来源: 百度统计（自 2020/04/08 开始统计）',
+        subtext: '数据来源: 百度统计（自 2022/04/08 开始统计）',
         textStyle: {
             color: '#504b4d',
         }
     },
     legend: {
-        data: ['2020年访问量', '2021年访问量'],
+        data: ['2021年访问量', '2022年访问量'],
         //修改年份
         bottom: 0,
         left: 'center',
@@ -212,10 +212,10 @@ function pvChart () {
             }
     }],
     series: [{
-        name: '2020年访问量',
+        name: '2021年访问量',
         type: 'line',
         stack: '总量',
-        data: [${monthValueArr["2020"]}],
+        data: [${monthValueArr["2021"]}],
         axisLabel: {
             formatter: '{value}',
             //第一个年份对应的数据顺序对应月份
@@ -225,10 +225,10 @@ function pvChart () {
         }
     },
     {
-        name: '2021年访问量',
+        name: '2022年访问量',
         type: 'line',
         stack: '总量',
-        data: [${monthValueArr["2021"]}],
+        data: [${monthValueArr["2022"]}],
         //第二个年份对应的数据顺序对应月份
         axisLabel: {
             formatter: '{value}',
@@ -268,7 +268,7 @@ function uvChart () {
     color: ['#d223e7', '#3F77FE', '#01C2F9', '#18D070'],
     title: {
         text: '站点访客数统计',
-        subtext: '数据来源: 百度统计（自 2020/11/14 开始统计）',
+        subtext: '数据来源: 百度统计（自 2022/04/08 开始统计）',
         textStyle: {
             color: '#504b4d',
         }
@@ -277,7 +277,7 @@ function uvChart () {
         trigger: 'axis'
     },
     legend: {
-        data: ['2020年访客数', '2021年访客数'],
+        data: ['2021年访客数', '2022年访客数'],
         bottom: 0,
         left: 'center',
         textStyle: {
@@ -333,26 +333,6 @@ function uvChart () {
             }
     }],
     series: [{
-        name: '2020年访客数',
-        type: 'line',
-        smooth: true,
-        itemStyle: {
-            normal: {
-                areaStyle: {
-                    type: 'default'
-                }
-            }
-        },
-        data: [${monthValueArr["2020"]}],
-        //第一个年份对应的数据顺序对应月份
-        axisLabel: {
-            formatter: '{value}',
-            textStyle: {
-                color: '#929298'
-            }
-        },
-    },
-    {
         name: '2021年访客数',
         type: 'line',
         smooth: true,
@@ -364,6 +344,26 @@ function uvChart () {
             }
         },
         data: [${monthValueArr["2021"]}],
+        //第一个年份对应的数据顺序对应月份
+        axisLabel: {
+            formatter: '{value}',
+            textStyle: {
+                color: '#929298'
+            }
+        },
+    },
+    {
+        name: '2022年访客数',
+        type: 'line',
+        smooth: true,
+        itemStyle: {
+            normal: {
+                areaStyle: {
+                    type: 'default'
+                }
+            }
+        },
+        data: [${monthValueArr["2022"]}],
         //第二个年份对应的数据顺序对应月份
         axisLabel: {
             formatter: '{value}',
