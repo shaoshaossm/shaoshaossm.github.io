@@ -1,0 +1,70 @@
+# 当有改动推送到main分支时，启动Action
+name: 自动部署
+
+on:
+  push:
+    branches:
+      - master #2020年10月后github新建仓库默认分支改为main，注意更改
+
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查分支
+        uses: actions/checkout@v2
+        with:
+          ref: main #2020年10月后github新建仓库默认分支改为main，注意更改
+
+      - name: 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: 安装 Hexo
+        run: |
+          export TZ='Asia/Shanghai'
+          npm install hexo-cli -g
+
+      - name: 缓存 Hexo
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
+      - name: 安装依赖
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          npm install --save
+
+      - name: 生成静态文件
+        run: |
+          hexo clean
+          hexo generate
+      - name: 服务器验证
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
+        run: |
+          sudo timedatectl set-timezone "Asia/Shanghai"
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts  #此处填写你的服务器IP
+          git config --global user.name "shaoshaossm"
+          git config --global user.email "1600767556@qq.com" #修改为你的GitHub用户名邮箱
+
+      - name: 部署
+        run: |
+          git config --global user.name shaoshaossm"
+          git config --global user.email "1600767556@qq.com"
+          git clone https://shaoshaossm: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@github.com/shaoshaossm/shaoshaossm.github.io.git .deploy_git
+          #修改为你的GitHub用户名邮箱
+          # 此处务必用HTTPS链接。SSH链接可能有权限报错的隐患,模仿
+          # =====注意.deploy_git前面有个空格=====
+          # 这行指令的目的是clone博客静态文件仓库，防止Hexo推送时覆盖整个静态文件仓库，而是只推送有更改的文件
+          hexo deploy
+

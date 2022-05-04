@@ -1,0 +1,182 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 秋水墨色染
+subtitle: ''
+description: ''
+keywords:
+author: shaoshaossm
+language: zh-CN
+timezone: ''
+# 百度收录
+baidu_url_submit:
+  count: 10                # 提交最新的多少个链接
+  host: shaoshaossm.github.io       # 在百度站长平台中添加的域名
+  token: l6Sigg12sjnltUAx                  # 秘钥
+  path: baidu_urls.txt
+
+sitemap:
+  path: sitemap.xml
+baidusitemap: 
+  path: baidusitemap.xml
+
+
+#中文转拼音
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+
+# searche
+search:
+  path: search.xml
+  field: post
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://shaoshaossm.github.io
+root: /
+permalink: :year-:month-:day-:title.html
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+
+
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: 
+  - "todolist/**"
+  - 'tools/*'
+  - 'tools/**'
+  - 'census/census.js'
+  - 'census/data/**'  
+
+
+
+
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+
+
+
+
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+## 哔哔功能配置
+## 关注公众号 "黑石哔哔"，发送: //bindCurrentUser:你的APPID,你的MASTERKEY,你的RESTAPI 
+## 可用leancloud国际版，国际版api为 https://appid前八位.api.lncldglobal.com 
+bb:
+ title: 哔哔  #页面title
+ appId: ClVxLmcyKtkSH9PoTqougjUY-MdYXbMMI
+ appKey: PfIMGchB50GffCubLyCbqHha
+ serverURLs: https://clvxlmcy.api.lncldglobal.com
+ limit: 10 #显示条数
+ path: bb #路径名称 例如：https://你的域名/bb
+ content: '👉🏼此说说通过手机微信发出，主要记录碎片化思考和动态。📑' #显示在哔哔上方,如不需要注释即可
+#博文加密  npm install --save hexo-blog-encrypt
+encrypt: 
+  enable: true
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: hexo-theme-matery-master
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  - type: baidu_url_submitter  ##新添加
+  - type: git
+    repo: git@gitee.com:shaoshaossm/shaoshaossm.git
+    branch: master
+  - type: git
+    repo: https://github.com/shaoshaossm/shaoshaossm.github.io.git
+    branch: master
+  - type: git
+    repo: https://shaoshaossm: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@github.com/shaoshaossm/shaoshaossm.github.io.git
+    branch: master
+
+
+lazyload:
+  enable: true  # 是否开启图片懒加载
+  onlypost: false  # 是否只对文章的图片做懒加载
+  # loadingImg: https://nekodeng.gitee.io/medias/loading.svg # eg ./images/loading.gif
+  loadingImg: /medias/lay.webp
+
+backup:
+  type: git
+  theme: hexo-theme-matery
+  message: Back up my shaoshaossm.github.io blog
+  repository:
+    github: git@github.com:shaoshaossm/shaoshaossm.github.io.git,backup
+    gitee: https://gitee.com/shaoshaossm/shaoshaossm.git,backup

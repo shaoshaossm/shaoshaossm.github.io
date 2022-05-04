@@ -1,0 +1,38 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+  .journal {
+    padding: 12px;
+    border: 1px dashed #e6e6e6;
+    color: #969696;
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    background: #fbfbfb50;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 12px auto;
+  }
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script>
+<main class="content">
+  <div class="container chip-container">
+    <div class="card">
+      <div class="card-content">
+        <div class="tag-title center-align">
+          <div class="journal">
+            <div class="title center-align">“ 站点统计”</div>
+            “ 自 2022-04-08 起，每12小时自动更新一次 ”
+          </div>
+        </div>
+        <div id="calendar_container" style="min-height: 200px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative"></div>
+        <div id="uv_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="pv_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="map_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <div id="sources_container" style="min-width: 250px; height: 400px; margin-top: 50px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative" ></div>
+        <script src="/census/census.js"></script>
+      </div>
+    </div>
+  </div>
+</main>
+
